@@ -13,12 +13,8 @@ These notes support the workflow without being workflow steps themselves. Use th
 
 The public YouTube walkthrough is a visual companion to the repository. It belongs here as supporting material: a quick way to see the chroma-recovery idea in motion before reading the step-by-step workflow.
 
-<figure>
-  <a href="https://youtu.be/kXerjFGX9Kg" target="_blank" rel="noopener">
-    <img src="{{ '/images_kebab/video_previews/color-recovery-video-preview.gif' | relative_url }}" alt="Animated preview of the Nuke chroma recovery YouTube walkthrough">
-  </a>
-  <figcaption>Source video: <a href="https://youtu.be/kXerjFGX9Kg" target="_blank" rel="noopener">Nuke Chroma Recovery: Rebuilding Faded Film Color with CopyCat</a>.</figcaption>
-</figure>
+Watch it on YouTube: [Nuke Chroma Recovery: Rebuilding Faded Film Color with CopyCat](https://youtu.be/kXerjFGX9Kg).
+
 
 ## Digitization: First Scan, Last Chance {#digitization-first-scan-last-chance}
 
@@ -88,21 +84,7 @@ For this workflow, the point is practical more than aesthetic: the magenta image
   </figure>
 </div>
 
-<figure>
-  <img src="{{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-parade-scope-faded-film.png' | relative_url }}" alt="Resolve parade scope showing channel imbalance in faded film">
-  <figcaption>Resolve parade scope and Faded Balancer controls showing channel imbalance in faded film. The goal is a technical pre-balance, not a final creative grade.</figcaption>
-</figure>
 
-<div class="media-grid media-grid-2">
-  <figure>
-    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}" alt="Faded Candy Candy scan before DCTL correction">
-    <figcaption>Faded animation scan before channel-specific correction.</figcaption>
-  </figure>
-  <figure>
-    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}" alt="Balanced Candy Candy scan after DCTL correction">
-    <figcaption>Diagnostic red-channel correction view used to isolate and control a dominant channel component.</figcaption>
-  </figure>
-</div>
 
 ### Technical Data For The Investigation
 

@@ -44,7 +44,7 @@ nav_order: 0
       <li>Chroma and spatial recovery</li>
       <li>Training-pair preparation</li>
       <li>Shot and sequence workflows</li>
-      <li>Ten documented case studies</li>
+      <li>Nine documented case studies</li>
     </ul>
     <a class="card-link" href="{{ '/copycat-workflow/' | relative_url }}">Read the CopyCat overview <span aria-hidden="true">→</span></a>
   </article>
@@ -54,16 +54,16 @@ nav_order: 0
 
 <div class="app-hero-strip" aria-label="Qwen Image Edit colour recovery example">
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }}" alt="Faded source film frame">
-    <figcaption><strong>1 · Source</strong><br>The surviving film image remains the record.</figcaption>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}" alt="Faded frame from the Reptilicus trailer">
+    <figcaption><strong>Source</strong><br>The faded frame given to the model.</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png' | relative_url }}" alt="Colour proposal produced with Qwen Image Edit">
-    <figcaption><strong>2 · Colour proposal</strong><br>Qwen supplies a candidate interpretation.</figcaption>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/04_inference_frame_000000_seed_0_cfg_1.000_Belak-0c1f0329.png' | relative_url }}" alt="Qwen Image Edit colour proposal for the Reptilicus frame">
+    <figcaption><strong>Colour proposal</strong><br>What Qwen Image Edit returns.</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" alt="Final colour recovery composite">
-    <figcaption><strong>3 · Source-preserving composite</strong><br>Recovered colour is combined with original luminance and detail.</figcaption>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/05_final_composite_reptilicus_tlr_05_beach_woman_source-38de94d1.png' | relative_url }}" alt="Final composite: the proposed colour on the original brightness of the Reptilicus frame">
+    <figcaption><strong>Final composite</strong><br>The proposed colour on the scan's own brightness and detail.</figcaption>
   </figure>
 </div>
 

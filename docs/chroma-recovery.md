@@ -7,8 +7,6 @@ nav_order: 2
 
 # Chroma Recovery: Building the Colour Target
 
-![Chroma recovery overview]({{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }})
-*Chroma recovery comparison from Candy Candy.*
 
 Use this branch when picture detail survives but colour has faded, shifted, or collapsed. Complete the [shared preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. This page covers only the branch-specific target. Training, inference, and delivery are documented once in [Training, Inference, and Review]({{ '/training-inference-review/' | relative_url }}).
 
@@ -21,11 +19,7 @@ Use this branch when picture detail survives but colour has faded, shifted, or c
 
 A constructed reference can support a plausible interpretation, but it is not historical proof. The [case studies]({{ '/case-studies/' | relative_url }}) show both approaches.
 
-![Non-reference chroma recovery example]({{ '/images_kebab/general/chroma-recovery-non-reference.png' | relative_url }})
-*Faded scan at left and an output trained from a constructed colour reference at right.*
 
-![Photoshop Colorize reference creation]({{ '/images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg' | relative_url }})
-*A constructed reference for Ben. Focal points guide the colour proposal; the result remains interpretive.*
 
 ## Build the target
 
@@ -57,8 +51,6 @@ The training target combines **source luminance** with **reference chroma**. Thi
 - During review, watch for hue drift, colour bleeding, unstable skin tones, and flicker.
 - In Resolve, use the recovered render above the original with Composite Mode set to `Color` when the delivery needs explicit source-luminance protection.
 
-![Training steps progression]({{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }})
-*Candy Candy training checkpoints. The PAL DVD provided the colour reference.*
 
 ## Chroma troubleshooting
 

@@ -17,8 +17,8 @@ Film frames and clips remain the property of their respective rights holders. Th
 ## Research and source acknowledgements
 
 - Ross Lipman supplied the *Frontier Experience* telecine used in the paired-restoration research.
-- The *Knight of the Trail* (1915) research acknowledges La Cinémathèque française, Fondazione Cineteca Italiana, George Eastman Museum, and the Louis B. Mayer Foundation.
 - Film and project names are given beside each example in the [case studies]({{ '/case-studies/' | relative_url }}) and the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}).
+- The faded trailers shown in the open-weight examples and on the talk pages (*Reptilicus*, *Obsession*, *Unman, Wittering and Zigo*, *Point Blank*, *Juggernaut*, *Ben*, *Martin*, *Tales of the Bizarre*) come from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps). The trailers belong to their rights holders.
 
 For a peer-reviewed account of the earlier CopyCat research:
 

@@ -35,14 +35,14 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <li><a href="#copycat-to-open-weight"><span class="fc-n">2</span>Do CopyCat aos modelos de pesos abertos</a></li>
     <li><a href="#masking-versus-recovery"><span class="fc-n">3</span>Mascarar versus recuperar</a></li>
     <li><a href="#the-limits"><span class="fc-n">4</span>As limitações<span class="fc-v">Imagens</span></a></li>
-    <li><a href="#reference-recovery"><span class="fc-n">5–6</span>Recuperação de cor com referência<span class="fc-v">Vídeo</span></a></li>
+    <li><a href="#reference-recovery"><span class="fc-n">5–6</span>Recuperação de cor com referência</a></li>
     <li><a href="#synthetic-reference"><span class="fc-n">7</span>Criando uma referência sintética<span class="fc-v">Imagens</span></a></li>
     <li><a href="#telestyle"><span class="fc-n">8–9</span>Mantendo a cor estável ao longo de um plano<span class="fc-v">Vídeo</span></a></li>
-    <li><a href="#h3-controlnet"><span class="fc-n">10–11</span>Tornando o processo mais rápido<span class="fc-v">Vídeo</span></a></li>
+    <li><a href="#h3-controlnet"><span class="fc-n">10–11</span>Tornando o processo mais rápido</a></li>
     <li><a href="#temporal-cbcr"><span class="fc-n">12–13</span>O adaptador Temporal CbCr<span class="fc-v">Vídeo</span></a></li>
-    <li><a href="#diffusion-upscaling"><span class="fc-n">14–15</span>Upscaling por difusão<span class="fc-v">Vídeo</span></a></li>
+    <li><a href="#diffusion-upscaling"><span class="fc-n">14–15</span>Upscaling por difusão</a></li>
     <li><a href="#diffusion-reconstruction"><span class="fc-n">16–17</span>Reconstrução por difusão</a></li>
-    <li><a href="#combining-sources"><span class="fc-n">18–19</span>Combinando fontes e depois reconstruindo<span class="fc-v">Vídeo</span></a></li>
+    <li><a href="#combining-sources"><span class="fc-n">18–19</span>Combinando fontes e depois reconstruindo</a></li>
     <li><a href="#dialogue-recovery"><span class="fc-n">20</span>Recuperação de diálogos</a></li>
     <li><a href="#inside-existing-tools"><span class="fc-n">21</span>IA dentro das ferramentas que já usamos<span class="fc-v">Vídeo</span></a></li>
     <li><a href="#limits-now"><span class="fc-n">22</span>Onde estão as limitações hoje</a></li>
@@ -98,35 +98,8 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <h2 id="reference-recovery-title">Recuperação de cor com referência</h2>
   <p>Vamos começar pelo que já funciona. Um modelo pequeno é treinado com pares de quadros correspondentes: a fonte desbotada e uma referência que ainda tem a cor. Essa referência pode ser uma telecinagem, um DVD, outra cópia ou o negativo original, onde os dois coincidirem.</p>
   <p>O modelo aprende apenas a cor. O resultado dele é combinado com a luma, ou seja, o brilho, da digitalização original, então a resolução, o grão e os detalhes continuam como estavam. O fluxo de trabalho está <a href="{{ '/chroma-recovery/' | relative_url }}">documentado aqui</a>.</p>
-  <div class="fc-missing"><p>O trecho mostrado no slide 6 não está incluído nesta página. Abaixo há outro exemplo do mesmo método.</p></div>
+  <div class="fc-missing"><p>Os exemplos dos slides 5 e 6 não são mostrados nesta página.</p></div>
 
-  <figure class="fc-media">
-{% include fiat-companion/video.html key="candy" title="Candy Candy: digitalização original, digitalização equilibrada, referência em DVD e recuperação de cor" label="Assistir ao vídeo: Candy Candy, recuperação de cor com referência (1 minuto e 10 segundos)" %}
-    <figcaption class="fc-body">
-      <h3 id="candy-candy-title">Candy Candy: a cor a partir de uma referência em DVD</h3>
-      <p>A cor de um DVD francês PAL correspondente é transferida para uma digitalização desbotada em 16mm. Quatro versões aparecem lado a lado: a digitalização original, a digitalização depois de equilibrada e limpa, a referência em DVD e o resultado do modelo.</p>
-      <div class="fc-verdict">
-        <div><strong>O que funcionou</strong><p>O resultado tira a cor do DVD, enquanto os detalhes vêm da digitalização em 16mm.</p></div>
-        <div><strong>Limitações</strong><p>O método só é tão bom quanto a sua referência. Este DVD é em definição padrão e tem as suas próprias escolhas de correção de cor e de transferência. E muitos filmes já não têm nenhuma referência.</p></div>
-      </div>
-{% include fiat-companion/files.html key="candy" desc="comparação 1920 × 1080 · 1 min 10 s · 24 fps" %}
-      <button type="button" class="fc-ev fc-ev-img fc-process" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Treinamento de Candy Candy: a fonte em 16mm mais o DVD PAL formam o alvo do treinamento, e o resultado do modelo nos passos 1, 1.000, 30.000 e 60.000"><img src="{{ vb }}s05-04_preview.jpg" alt="Treinamento de Candy Candy: a fonte em 16mm mais o DVD PAL formam o alvo do treinamento, e o resultado do modelo nos passos 1, 1.000, 30.000 e 60.000" loading="lazy" decoding="async"></button>
-      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
-      <ol class="fc-parts">
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-01" data-kind="image" data-w="2200" data-h="1650" data-title="Digitalização desbotada em 16mm">Digitalização desbotada em 16mm<span class="fc-dims">2200 × 1650</span></button><p>Um quadro da abertura, da digitalização em 16mm da cópia desbotada, antes de qualquer correção. Tem uma forte dominante magenta, e a maior parte da cintilação está no canal vermelho.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-02" data-kind="image" data-w="4400" data-h="3300" data-title="Digitalização limpa e reequilibrada">Digitalização limpa e reequilibrada<span class="fc-dims">4400 × 3300</span></button><p>O mesmo quadro depois da limpeza e do reequilíbrio no Phoenix e no Loki: os quadros usados no treinamento do CopyCat.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-03" data-kind="image" data-w="1951" data-h="1098" data-title="O script do Nuke">O script do Nuke<span class="fc-dims">1951 × 1098</span></button><p>O script do Nuke de um plano de Candy Candy: o plano no visualizador e o grafo do CopyCat. Os quadros da digitalização são a entrada; o alvo mantém o brilho da digitalização e usa a cor do DVD.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Passos do treinamento">Passos do treinamento<span class="fc-dims">1920 × 886</span></button><p>A fonte em 16mm mais o DVD PAL formam o alvo. Abaixo, o resultado do modelo depois de 1, 1.000, 30.000 e 60.000 passos de treinamento.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s05-07" data-kind="image" data-w="2742" data-h="2112" data-title="Quadro recuperado">Quadro recuperado<span class="fc-dims">2742 × 2112</span></button><p>Um quadro do resultado em tamanho real.</p></li>
-      </ol>
-      <details>
-        <summary>Resultado em resolução total (4400 × 3300, cerca de 298 MB)</summary>
-        <p>A digitalização com a cor recuperada, sozinha, no tamanho total da digitalização, 4400 × 3300. Sem som, 24 fps, HEVC. O player do Drive abaixo transmite uma versão menor.</p>
-{% include fiat-companion/video.html key="candy-full" title="Candy Candy: a digitalização com a cor recuperada em resolução total" label="Assistir ao vídeo: Candy Candy, a digitalização com a cor recuperada em resolução total (1 minuto e 10 segundos)" %}
-      </details>
-    </figcaption>
-  </figure>
-{% include fiat-companion/evidence.html key="slide05" %}
 </section>
 
 <section class="fc-section" id="synthetic-reference">
@@ -136,61 +109,12 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p>A minha primeira tentativa foi guiá-lo com uma leader lady, a mulher dos quadros de calibração no início de um rolo. Não funcionou. Esses modelos não entendem significado como nós, então, em vez de pegar só a cor, o modelo misturou as duas imagens e a mulher acabou entrando no plano. Eu chamo isso de contaminação semântica.</p>
   <p>Uma carta de cores simples funcionou melhor, depois que eu a desfoquei levemente. Ela guia a cor sem dar ao modelo mais nada para copiar.</p>
 
-  <p>Depois veio o prompt, que é a forma de conversar com o modelo. Fiz um pequeno concurso, que chamei de America's Next Top Machine Learning Model: dezenas de prompts e centenas de quadros de teste, em sete rodadas com sete filmes desbotados. Um prompt só passava de uma rodada se oito de cada dez quadros fossem aceitáveis. A fileira de baixo do slide mostra um quadro desbotado de <em>Counter Attack</em>, um filme chinês de 1976, com três dos finalistas. O vencedor, Clara, é o que eu mais uso, mas também uso os outros, dependendo do plano.</p>
+  <p>Depois veio o prompt, que é a forma de conversar com o modelo. Fiz um pequeno concurso, que chamei de America's Next Top Machine Learning Model: dezenas de prompts e centenas de quadros de teste, em sete rodadas com sete filmes desbotados. Um prompt só passava de uma rodada se oito de cada dez quadros fossem aceitáveis. O vencedor, Clara, é o que eu mais uso, mas também uso os outros, dependendo do plano.</p>
   <p>Da referência sintética eu fico só com a cor. O brilho continua vindo da digitalização.</p>
 
-  <figure class="fc-media fc-still">
-    <button type="button" class="fc-ev fc-ev-img" data-id="v-leader-lady-semantic-contami-9dce" data-kind="image" data-w="1388" data-h="416" data-title="Três quadros: a fonte desbotada, o resultado guiado por uma leader lady com a mulher misturada ao plano e o resultado guiado por uma carta de cores"><img src="{{ vb }}v-leader-lady-semantic-contami-9dce_preview.jpg" alt="Três quadros: a fonte desbotada, o resultado guiado por uma leader lady com a mulher misturada ao plano e o resultado guiado por uma carta de cores" loading="lazy" decoding="async"></button>
-    <p class="fc-bar">Slide 7 · A fonte desbotada, o resultado guiado por uma leader lady e o resultado guiado por uma carta de cores</p>
-    <figcaption class="fc-body">
-      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
-      <ol class="fc-parts">
-        <li><button type="button" class="fc-part fc-ev" data-id="v-01-raw-source-316a" data-kind="image" data-w="2048" data-h="1556" data-title="Fonte desbotada">Fonte desbotada<span class="fc-dims">2048 × 1556</span></button><p>O quadro desbotado.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s07-01" data-kind="image" data-w="1168" data-h="888" data-title="Guiado por uma leader lady">Guiado por uma leader lady<span class="fc-dims">1168 × 888</span></button><p>O modelo misturou ao plano a mulher da ponta de calibração.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="v-02-reference-chart-800a" data-kind="image" data-w="333" data-h="238" data-title="Carta de cores levemente desfocada">Carta de cores levemente desfocada<span class="fc-dims">333 × 238</span></button><p>O guia que substituiu a leader lady. Ela dá a cor e nada mais para copiar.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="v-03-belak-chart-corrected-c2a4" data-kind="image" data-w="1184" data-h="880" data-title="Guiado pela carta de cores">Guiado pela carta de cores<span class="fc-dims">1184 × 880</span></button><p>Só a cor muda.</p></li>
-      </ol>
-      <div class="fc-missing" style="margin-top: 0.8rem"><p>A imagem da leader lady usada como guia não está incluída nesta página.</p></div>
-    </figcaption>
-  </figure>
 
-  <figure class="fc-media fc-still">
-    <div class="fc-grid4">
-      <button type="button" class="fc-ev fc-ev-img" data-id="v-fanji-film-copy-000059-3569" data-kind="image" data-w="1920" data-h="1440" data-title="Quadro fonte desbotado"><img src="{{ vb }}v-fanji-film-copy-000059-3569_preview.jpg" alt="Quadro fonte desbotado" loading="lazy" decoding="async"><span>Fonte desbotada</span></button>
-      <button type="button" class="fc-ev fc-ev-img" data-id="v-i2-frame-000000-test-b280" data-kind="image" data-w="1184" data-h="880" data-title="Resultado com o prompt Iris"><img src="{{ vb }}v-i2-frame-000000-test-b280_preview.jpg" alt="Resultado com o prompt Iris" loading="lazy" decoding="async"><span>Iris</span></button>
-      <button type="button" class="fc-ev fc-ev-img" data-id="v-c4-frame-000000-test-d995" data-kind="image" data-w="1184" data-h="880" data-title="Resultado com o prompt Celeste"><img src="{{ vb }}v-c4-frame-000000-test-d995_preview.jpg" alt="Resultado com o prompt Celeste" loading="lazy" decoding="async"><span>Celeste</span></button>
-      <button type="button" class="fc-ev fc-ev-img" data-id="v-cl2-frame-000000-test-5683" data-kind="image" data-w="1184" data-h="880" data-title="Resultado com o prompt Clara"><img src="{{ vb }}v-cl2-frame-000000-test-5683_preview.jpg" alt="Resultado com o prompt Clara" loading="lazy" decoding="async"><span>Clara, o vencedor</span></button>
-    </div>
-    <p class="fc-bar">Slide 7 · Fileira de baixo: os três prompts finalistas em um quadro desbotado de <em>Counter Attack</em> (1976)</p>
-    <figcaption class="fc-body">
-      <p>A fileira de baixo do slide: o mesmo quadro desbotado com cada um dos três finalistas.</p>
-      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
-      <ol class="fc-parts">
-        <li><button type="button" class="fc-part fc-ev" data-id="v-fanji-film-copy-000059-3569" data-kind="image" data-w="1920" data-h="1440" data-title="Fonte desbotada">Fonte desbotada<span class="fc-dims">1920 × 1440</span></button></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="v-i2-frame-000000-test-b280" data-kind="image" data-w="1184" data-h="880" data-title="Iris">Iris<span class="fc-dims">1184 × 880</span></button></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="v-c4-frame-000000-test-d995" data-kind="image" data-w="1184" data-h="880" data-title="Celeste">Celeste<span class="fc-dims">1184 × 880</span></button></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="v-cl2-frame-000000-test-5683" data-kind="image" data-w="1184" data-h="880" data-title="Clara, o vencedor">Clara, o vencedor<span class="fc-dims">1184 × 880</span></button></li>
-      </ol>
-      <p class="fc-more">Os mesmos três prompts no plano da multidão do vídeo do slide 9: <button type="button" class="fc-ev fc-ev-link" data-id="v-fanji-film-copy-000007-ecfa" data-kind="image" data-w="1920" data-h="1440" data-title="Fonte desbotada">Fonte desbotada</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-i2-frame-000000-test-0884" data-kind="image" data-w="1184" data-h="880" data-title="Iris">Iris</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-c4-frame-000000-test-ea0c" data-kind="image" data-w="1184" data-h="880" data-title="Celeste">Celeste</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-cl2-frame-000000-test-e7be" data-kind="image" data-w="1184" data-h="880" data-title="Clara">Clara</button></p>
-    </figcaption>
-  </figure>
 
-  <figure class="fc-media fc-still">
-    <button type="button" class="fc-ev fc-ev-img" data-id="v-fanji-c4-row3-garden-split-c-184f" data-kind="image" data-w="1400" data-h="760" data-title="Quadro do jardim de Counter Attack: a fonte desbotada à esquerda e o quadro final à direita"><img src="{{ vb }}v-fanji-c4-row3-garden-split-c-184f_preview.jpg" alt="Quadro do jardim de Counter Attack: a fonte desbotada à esquerda e o quadro final à direita" loading="lazy" decoding="async"></button>
-    <p class="fc-bar">Slide 7 · De um quadro desbotado a uma referência sintética, passo a passo (<em>Counter Attack</em>)</p>
-    <figcaption class="fc-body">
-      <p>O quadro desbotado está à esquerda, e o quadro final à direita.</p>
-      <p class="fc-file">Como foi feito · abra cada parte em tamanho real</p>
-      <ol class="fc-parts">
-        <li><button type="button" class="fc-part fc-ev" data-id="v-01-source-fanji-film-copy-00-5674" data-kind="image" data-w="1920" data-h="1440" data-title="Fonte desbotada">Fonte desbotada<span class="fc-dims">1920 × 1440</span></button><p>Um quadro desbotado do filme.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="v-02-control-fanji-film-copy-r-42c2" data-kind="image" data-w="1920" data-h="1440" data-title="Mapa de bordas">Mapa de bordas<span class="fc-dims">1920 × 1440</span></button><p>As bordas do quadro desbotado (um mapa Canny). Elas mantêm o modelo preso às formas do próprio quadro.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s07-02" data-kind="image" data-w="333" data-h="238" data-title="Carta de cores levemente desfocada">Carta de cores levemente desfocada<span class="fc-dims">333 × 238</span></button><p>O guia de cor.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="v-04-inference-frame-000000-te-b3c5" data-kind="image" data-w="1184" data-h="880" data-title="Referência sintética">Referência sintética<span class="fc-dims">1184 × 880</span></button><p>O que o Qwen Image Edit devolve. É uma imagem reduzida; só a cor dela é usada.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="v-05-final-composite-fanji-fil-9236" data-kind="image" data-w="1920" data-h="1440" data-title="Quadro final">Quadro final<span class="fc-dims">1920 × 1440</span></button><p>A cor da referência sintética sobre o brilho da digitalização original, em tamanho real.</p></li>
-      </ol>
-      <p class="fc-more">A configuração do teste no ComfyUI, com a fonte, a carta, o mapa de bordas, o prompt, o modelo e o resultado em um único grafo. É do plano da multidão do vídeo do slide 9. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="Captura de tela do ComfyUI">Captura de tela do ComfyUI</button> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Arquivo do fluxo de trabalho (JSON)</a></p>
-    </figcaption>
-  </figure>
+  <div class="fc-missing"><p>Os quadros de teste do slide 7 não são mostrados nesta página. A carta de cores está nas evidências abaixo.</p></div>
 {% include fiat-companion/evidence.html key="slide07" %}
 </section>
 
@@ -203,19 +127,15 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
 {% include fiat-companion/evidence.html key="slide08" %}
 
   <figure class="fc-media">
-{% include fiat-companion/video.html key="slide09" title="Counter Attack: uma referência para o plano inteiro (TeleStyle)" label="Assistir ao vídeo: Counter Attack, uma referência para o plano inteiro (11 segundos)" %}
-    <p class="fc-bar">Slide 9 · <em>Counter Attack</em> (1976): uma referência para o plano inteiro (TeleStyle)</p>
+      <div class="fc-missing"><p>O trecho da palestra não é mostrado nesta página. O que vem a seguir vem dos registros da pesquisa.</p></div>
     <figcaption class="fc-body">
       <p>O TeleStyle, da TeleAI, é um LoRA: um pequeno complemento para o Qwen Image Edit, feito para copiar o estilo de uma imagem para outra. Eu pego uma referência aprovada e copio a cor dela para cada quadro do plano.</p>
       <div class="fc-verdict">
         <div><strong>O que funcionou</strong><p>A cor se mantém ao longo do plano inteiro.</p></div>
         <div><strong>Limitações</strong><p>Ele roda o modelo em cada quadro, um por um, com uma única seed fixa para o plano inteiro. Este plano de 11 segundos levou quase quatro horas. Serve como teste, mas não é algo que dê para usar em um longa-metragem.</p></div>
       </div>
-{% include fiat-companion/files.html key="slide09" desc="comparação 1920 × 1080 · 11 s · 30 fps" %}
       <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
       <ol class="fc-parts fc-steps">
-        <li><button type="button" class="fc-part fc-ev" data-id="s09-01" data-kind="image" data-w="1920" data-h="1440" data-title="Fonte desbotada">Fonte desbotada<span class="fc-dims">1920 × 1440</span></button><p>O plano da cópia do filme: 338 quadros, 1920 × 1440, a 30 quadros por segundo.</p></li>
-        <li><button type="button" class="fc-part fc-ev" data-id="s09-02" data-kind="image" data-w="1184" data-h="880" data-title="Referência aprovada">Referência aprovada<span class="fc-dims">1184 × 880</span></button><p>Um quadro do plano, recuperado com o Qwen Image Edit e aprovado antes da execução completa.</p></li>
         <li><span class="fc-part-label">TeleStyle em cada quadro</span><p>Cada quadro passou separadamente pelo Qwen Image Edit com o LoRA TeleStyle, tendo como entradas o quadro desbotado e a referência aprovada, em 4 passos. Os 338 quadros foram gerados.</p></li>
         <li><span class="fc-part-label">Só a cor</span><p>A cor do TeleStyle, gerada em 1184 × 880, foi colocada sobre o brilho intacto da digitalização em 1920 × 1440.</p></li>
         <li><span class="fc-part-label">Tempo</span><p>A execução completa levou cerca de 13.560 segundos, quase quatro horas: uns 32 segundos por quadro depois que a máquina já estava aquecida.</p></li>
@@ -223,7 +143,6 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       </ol>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide09" %}
 </section>
 
 <section class="fc-section" id="h3-controlnet">
@@ -234,15 +153,13 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p>Eu fico só com a cor e a coloco sobre o brilho original, para que o grão, a aspereza e até a sujeira permaneçam. Deixados por conta própria, esses modelos querem mudar tudo e deixar a imagem com aspecto de plástico.</p>
 
   <figure class="fc-media">
-{% include fiat-companion/video.html key="slide11" title="Counter Attack: H3 e ControlNet, finalizado com o adaptador Temporal CbCr" label="Assistir ao vídeo: Counter Attack, H3 e ControlNet (13 segundos)" %}
-    <p class="fc-bar">Slide 11 · <em>Counter Attack</em>: H3 + ControlNet, finalizado com o adaptador Temporal CbCr</p>
+      <div class="fc-missing"><p>O trecho da palestra não é mostrado nesta página. O que vem a seguir vem dos registros da pesquisa.</p></div>
     <figcaption class="fc-body">
       <p>A cor vem do H3 com o ControlNet, e é finalizada com o adaptador Temporal CbCr, explicado na próxima seção. Escolhi este plano porque ele é difícil: muito movimento, uma multidão que muda o tempo todo e uma panorâmica rápida no meio.</p>
       <div class="fc-verdict">
         <div><strong>O que funcionou</strong><p>A cor se mantém durante todo esse movimento, e a geometria continua igual à do original.</p></div>
         <div><strong>Limitações</strong><p>Olhando de perto, há um pouco de dominante de cor nas sombras. A minha cópia estava a 30 quadros por segundo com a cadência quebrada, então foi difícil extrair quadros limpos dela, e o adaptador precisa de quadros bem alinhados. Ainda estou trabalhando nisso.</p></div>
       </div>
-{% include fiat-companion/files.html key="slide11" desc="comparação 1920 × 840 · 13 s · 24 fps" %}
       <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
       <ol class="fc-parts fc-steps">
         <li><span class="fc-part-label">Fonte e cadência</span><p>385 quadros em 1920 × 1440, a 30 quadros por segundo. 77 deles eram quase duplicados por causa da cadência quebrada, então os 308 quadros distintos foram mapeados para 24 quadros por segundo, quadro a quadro.</p></li>
@@ -256,7 +173,6 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide11" %}
 </section>
 
 <section class="fc-section" id="temporal-cbcr">
@@ -298,16 +214,13 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p><em>El Tinterillo</em> sobrevive apenas como uma cópia em 16mm danificada e uma telecinagem mais limpa, mas suave, cortada nas bordas e com a cadência estranha das telecinagens daquela época. Suavizei o 16mm com um filtro de mediana e depois combinei os dois, com a telecinagem por dentro e o 16mm em volta. Isso dá um contorno aproximado para guiar a geometria, mas o filtro também remove os detalhes finos. Então, para definir como a imagem deveria ficar, fiz outras referências sintéticas com o ChatGPT Images. O MiniMax H3, no modo de referência, usa então essas referências, com o clipe da telecinagem para o movimento, para gerar cada trecho do plano.</p>
 
   <figure class="fc-media">
-{% include fiat-companion/video.html key="slide15" title="El Tinterillo: upscaling por difusão, a escada" label="Assistir ao vídeo: El Tinterillo, upscaling por difusão (26 segundos)" %}
-    <p class="fc-bar">Slide 15 · <em>El Tinterillo</em>: upscaling por difusão, a escada</p>
+      <div class="fc-missing"><p>O trecho da palestra não é mostrado nesta página. O que vem a seguir vem dos registros da pesquisa.</p></div>
     <figcaption class="fc-body">
-      <p>A digitalização original em 16mm está à esquerda, e o resultado que aprovei está à direita. Foi preciso um longo processo de iteração para chegar aqui.</p>
       <div class="fc-verdict">
         <div><strong>O que funcionou</strong><p>A imagem nesta digitalização não tem salvação com as ferramentas tradicionais. O H3 preenche essas lacunas e reconstrói a imagem, seguindo a estrutura e o movimento do original.</p></div>
         <div><strong>Limitações</strong><p>O resultado é parcialmente sintético: o modelo inventa detalhes finos que o filme já não tem, e isso precisa ser declarado. O modelo trabalhou em 768 × 432. Ainda há um salto de brilho no primeiro quadro, e os rostos e os detalhes finos continuam fracos.</p></div>
       </div>
       <p>Algumas pessoas vão chamar isso de heresia, e até certo ponto é. Eu mesmo não chamaria isso de restauração de filme propriamente dita. Mas, com um material como este, não vejo outro caminho, e talvez precisemos abrir a cabeça para o que a restauração pode ser.</p>
-{% include fiat-companion/files.html key="slide15" desc="comparação 1920 × 756 · 26 s · 24 fps" %}
       <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
       <ol class="fc-parts fc-steps">
         <li><span class="fc-part-label">Fontes</span><p>A digitalização em 16mm, que é a base de comparação do resultado, e a telecinagem, usada pelo movimento. O plano tem 624 quadros a 24 quadros por segundo.</p></li>
@@ -320,7 +233,6 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
       <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
     </figcaption>
   </figure>
-{% include fiat-companion/evidence.html key="slide15" %}
 </section>
 
 <section class="fc-section" id="diffusion-reconstruction">
@@ -330,40 +242,17 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p>Ferramentas como Phoenix, DIAMANT ou DaVinci Resolve conseguem preencher dois ou três quadros faltantes com fluxo óptico. Em uma lacuna mais longa, o movimento começa a parecer errado, porque elas só conseguem interpolar o que sobreviveu.</p>
   <p>Na palestra, o exemplo é uma lacuna de 15 quadros em um negativo de câmera cujo som ainda sobrevive, então a lacuna precisa ser preenchida para manter imagem e som juntos. Rastreei os atores do último quadro antes da lacuna até o primeiro quadro depois dela, e levei esse movimento pelos quadros faltantes: são os esqueletos do slide 16. Depois, o modelo de vídeo VACE, da Alibaba, gerou a imagem, guiado por esse movimento, somente dentro da lacuna.</p>
   <div class="fc-limits"><p><strong>O que funcionou, e as limitações.</strong> Os quadros gerados se sustentam bem, e todos os quadros originais permanecem intactos. A limitação de resolução do slide 4 continua valendo, e o que é gerado precisa ser declarado.</p></div>
-  <div class="fc-missing" style="margin-top: 1rem"><p>O trecho mostrado no slide 17 não está incluído nesta página. O <a href="#combining-sources">exemplo de <em>Knight of the Trail</em></a> mais abaixo usa a mesma ideia em danos de nitrato.</p></div>
+  <div class="fc-missing" style="margin-top: 1rem"><p>O trecho mostrado no slide 17 não está incluído nesta página.</p></div>
 </section>
 
 <section class="fc-section" id="combining-sources">
   <p class="fc-slide">Slides 18–19</p>
   <h2 id="combining-sources-section-title">Combinando fontes e depois reconstruindo</h2>
-  <p>Quando vários elementos sobrevivem, normalmente cada um está danificado em lugares diferentes. O George Eastman Museum me enviou <em>Knight of the Trail</em> (1915) como uma cópia em nitrato e uma cópia de segurança em diacetato. Juntas, elas cobrem a maior parte do filme, mas em alguns pontos o nitrato se decompôs e a cópia de segurança também não tem esses quadros.</p>
+  <p>Quando vários elementos sobrevivem, normalmente cada um está danificado em lugares diferentes. Na palestra, mostrei isso em um filme mudo que sobrevive como uma cópia em nitrato e uma cópia de segurança em diacetato. Juntas, elas cobrem a maior parte do filme, mas em alguns pontos o nitrato se decompôs e a cópia de segurança também não tem esses quadros.</p>
   <p>Primeiro, eu junto os dois elementos. Eles tinham cor, deformação e enquadramento diferentes, então cada quadro de um é alinhado ao outro pelas suas características e deformado até se encaixar. Depois, uma única correção de tom, ajustada nos quadros correspondentes mais limpos, dá aos dois a mesma aparência.</p>
-  <p>Em seguida, cada quadro vem do elemento que sobreviveu sem danos: 155 quadros da cópia em nitrato e 53 da cópia de segurança. A linha do tempo do slide 18 é um mapa disso, com laranja para o nitrato, azul para a cópia de segurança e vermelho onde nenhum dos dois sobreviveu. Nesses 18 quadros, eu mascaro apenas as áreas danificadas, incluindo o fundo parado danificado, e o Wan VACE 14B, modelo de vídeo da Alibaba, reconstrói só essas áreas. A imagem que sobreviveu continua original, porque não queremos substituir um quadro inteiro só porque uma parte dele está danificada.</p>
-
-  <figure class="fc-media">
-{% include fiat-companion/video.html key="slide19" title="Knight of the Trail: reconstrução por difusão de danos de nitrato" label="Assistir ao vídeo: Knight of the Trail, reconstrução de danos de nitrato (9 segundos)" %}
-    <p class="fc-bar">Slide 19 · <em>Knight of the Trail</em> (1915): reconstrução por difusão de danos de nitrato. Cortesia do George Eastman Museum.</p>
-    <figcaption class="fc-body">
-      <p>O original em nitrato está à esquerda, e o resultado aprovado está à direita.</p>
-      <div class="fc-verdict">
-        <div><strong>O que funcionou</strong><p>O resultado se sustenta bem, e aqui a resolução não é um grande problema.</p></div>
-        <div><strong>Limitações</strong><p>Este é um teste de trabalho em 640 × 512, mostrado dentro de uma comparação em HD. Não é uma restauração nativa em HD.</p></div>
-      </div>
-{% include fiat-companion/files.html key="slide19" desc="comparação 1920 × 832 · 9 s · 24 fps · sem som" %}
-      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
-      <ol class="fc-parts fc-steps">
-        <li><span class="fc-part-label">Dois elementos</span><p>A cópia em nitrato e a cópia de segurança em diacetato deste plano: 226 quadros a 24 quadros por segundo, trabalhados em 640 × 512.</p></li>
-        <li><span class="fc-part-label">Registro</span><p>A cópia de segurança foi alinhada ao nitrato pelas suas características, com uma única transformação para o quadro inteiro em cada par. 160 dos 162 pares sobrepostos deram correspondências fortes.</p></li>
-        <li><span class="fc-part-label">Tom</span><p>Uma única correção de tom e cor, ajustada nos 40 pares mais limpos, igualou a cópia de segurança ao nitrato.</p></li>
-        <li><span class="fc-part-label">Quadro a quadro</span><p>155 quadros vêm do nitrato, 53 da cópia de segurança, e 18 não têm nenhuma fonte sem danos, em cinco lacunas curtas.</p></li>
-        <li><span class="fc-part-label">Geração</span><p>O Wan VACE 14B gerou cada lacuna em uma janela de 33 quadros em 640 × 512, com um quadro limpo do nitrato como referência e as poses rastreadas dos atores como controle. 20 passos, CFG 3,5, seed 0.</p></li>
-        <li><span class="fc-part-label">Preservar o original</span><p>Tudo o que se move continuou original. As perdas grandes e o fundo parado danificado foram substituídos, com uma mesclagem de 24 pixels. 64,8% dos pixels dos quadros das lacunas são originais.</p></li>
-        <li><span class="fc-part-label">Aprovação</span><p>Esta versão foi aprovada em 26 de setembro. Os quadros fora das lacunas são idênticos à base preparada.</p></li>
-      </ol>
-      <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
-    </figcaption>
-  </figure>
-{% include fiat-companion/evidence.html key="slide19" %}
+  <p>Em seguida, cada quadro vem do elemento que sobreviveu sem danos. Uma linha do tempo do plano funciona como um mapa disso: de qual elemento vem cada quadro e onde nenhum dos dois sobreviveu. Nesses quadros, eu mascaro apenas as áreas danificadas, e o Wan VACE 14B, modelo de vídeo da Alibaba, reconstrói só essas áreas. A imagem que sobreviveu continua original, porque não queremos substituir um quadro inteiro só porque uma parte dele está danificada.</p>
+  <div class="fc-limits"><p><strong>O que funcionou e as limitações.</strong> O resultado se sustenta bem, e tudo o que sobreviveu fica intacto. Foi um teste de trabalho em resolução reduzida, não uma restauração nativa em HD.</p></div>
+  <div class="fc-missing" style="margin-top: 1rem"><p>O exemplo da palestra não é mostrado nesta página.</p></div>
 </section>
 
 <section class="fc-section" id="dialogue-recovery">
@@ -423,7 +312,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Recuperação de cor com modelos de pesos abertos</a>: criar e revisar propostas de cor, enquanto a digitalização continua sendo a referência principal.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Treinamento, inferência e revisão</a>: preparar o material, iterar e decidir quando um resultado é aceitável.</li>
     <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Caminhos de pesquisa e questões em aberto</a>: um retrato anterior da pesquisa, com as suas evidências e limitações.</li>
-    <li><a href="{{ '/research-status/' | relative_url }}">Onde a pesquisa está (outubro de 2026)</a> (em inglês): o que funciona, o que ainda não funciona e o que você pode reproduzir. O template do Nuke é para Nuke Non-Commercial ou Indie, rodando localmente com o seu próprio material; não existe versão na nuvem. Os fluxos do Qwen Image Edit são grafos do ComfyUI e ainda não estão totalmente prontos para uso.</li>
+    <li><a href="{{ '/research-status/' | relative_url }}">Onde a pesquisa está (outubro de 2026)</a> (em inglês): o que funciona, o que ainda não funciona e o que você pode reproduzir. O template do Nuke roda localmente no Nuke Non-Commercial ou Indie com o seu próprio material, e os fluxos do Qwen Image Edit rodam no ComfyUI. Os dois ainda precisam de algum trabalho para ficarem fáceis de usar.</li>
     <li><a href="{{ '/' | relative_url }}">Toda a pesquisa deste site</a>, ou o <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repositório no GitHub</a>.</li>
   </ul>
 </section>
@@ -431,12 +320,8 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
 <section class="fc-thanks" id="thanks">
   <p class="fc-slide fc-slide-light">Slide 23</p>
   <h2 id="thanks-title">Obrigado</h2>
-  <p>Obrigado à FIAT/IFTA e aos organizadores. Um agradecimento especial:</p>
-  <ul>
-    <li>à Studiocanal, por <em>For Better, For Worse</em> (1954) e <em>Poison Pen</em> (1939)</li>
-    <li>ao George Eastman Museum, por <em>Knight of the Trail</em> (1915)</li>
-  </ul>
-  <p class="fc-small">Os outros exemplos são testes de pesquisa feitos com cópias disponíveis publicamente, em sua maioria trailers desbotados do archive.org. Os trechos dos filmes continuam sendo propriedade dos seus detentores de direitos, e mostrá-los aqui não dá permissão para reutilizá-los. Veja os <a href="{{ '/credits/' | relative_url }}">créditos e atribuições</a>.</p>
+  <p>Obrigado à FIAT/IFTA e aos organizadores.</p>
+  <p class="fc-small">Os exemplos desta página são testes de pesquisa com trailers desbotados de uma digitalização de um rolo de trailers em 35mm publicada abertamente no <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>. Os trechos dos filmes continuam sendo propriedade dos seus detentores de direitos, e mostrá-los aqui não dá permissão para reutilizá-los. Veja os <a href="{{ '/credits/' | relative_url }}">créditos e atribuições</a>.</p>
   <p>Perguntas e sugestões são bem-vindas:</p>
   <ul>
     <li>E-mail: <a href="mailto:info@fabiocolor.com">info@fabiocolor.com</a></li>

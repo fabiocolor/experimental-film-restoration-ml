@@ -9,87 +9,85 @@ permalink: /research-status/
 
 # Where the research stands
 
-This page sums up my research as of October 2026, after SEAPAVAA (June) and FIAT/IFTA (October). It covers what works, what doesn't yet, and what you can actually reproduce. For the examples themselves, see the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}) and the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}).
+This is where my research is in October 2026, after SEAPAVAA in June and FIAT/IFTA in October: what works, what doesn't yet, and what you can try yourself. The examples are on the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}) and the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}).
 
-What has worked best this year is keeping the original picture of the film and letting the model add only what is missing: the colour, a gap, a word. None of these workflows is one click. It's always a restorer who decides what is acceptable and who says what was generated.
+Looking back at this year, what has worked best is keeping the original picture of the film and letting the model add only what's missing: the colour, a gap, a word. None of it is one click, though. It takes a lot of patience, and it's always a restorer who decides what's acceptable and who says what was generated.
 
-## Colour recovery with a reference (CopyCat in Nuke)
+## Colour with a reference: CopyCat in Nuke
 
-This is where the research started, and it's still my baseline. You train a small model for each film, using matching frames from two copies: the damaged scan as the source and a better copy as the ground truth. It needs that better copy to learn from.
+This is where I started, and it's still my baseline. You train a small model for each film from matching frames of two copies: the damaged scan as the source, and a better copy as the result you want. So it needs that better copy to learn from.
 
-**What you can use.** A Nuke template, available for **Nuke Non-Commercial** (`.nknc`) and **Nuke Indie** (`.nkind`) from the [releases page](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest). Be clear about what it is:
+The Nuke template runs locally in Nuke Non-Commercial or Nuke Indie, with your own footage. You use it to build a small dataset for each shot and train CopyCat on it. You can get it from the [releases page](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), and the [CopyCat workflow guide]({{ '/copycat-workflow/' | relative_url }}) walks through the steps.
 
-- It's a template that you run **locally**, in your own copy of Nuke, **with your own footage**. You use it to build a dataset for each shot and train CopyCat on it.
-- **There is no cloud version** of the Nuke workflow, and no hosted service.
-- It doesn't include footage, trained models or references. Those come from your project.
+## Colour without a reference: Qwen Image Edit
 
-The [CopyCat workflow guide]({{ '/copycat-workflow/' | relative_url }}) explains the steps.
-
-## Colour recovery without a reference (Qwen Image Edit)
-
-When there's no better copy, I create what I call a synthetic reference: an approved colour frame for each shot. The main model is Qwen Image Edit, run in ComfyUI.
+When there's no better copy, I create what I call a synthetic reference: an approved colour frame for each shot. For that I use Qwen Image Edit, running in ComfyUI.
 
 **What works now**
 
-- **Single frames.** Qwen Image Edit 2511, guided by an edge map of the source and a softly blurred colour chart, gives useful colour on varied faded material. A person still needs to review every frame, and the colour is an interpretation.
-- **Whole shots, with approved references.** The frames only agree with each other when the whole shot is guided by an approved reference:
-  - TeleStyle, a LoRA for Qwen Image Edit, copying one approved reference onto every frame.
-  - MiniMax H3 with Alibaba's Fun ControlNet for H3, using the edges of every frame to keep the geometry.
-  - The Temporal CbCr adapter, a small model I built. It learns the colour of one shot from the frames that passed review (the teachers) and fills in the rest. On the *Unman, Wittering and Zigo* choir shot, about a hundred frames became teachers and training took about a minute and a half.
+- **Single frames.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on all kinds of faded material. Someone still has to review every frame, and the colour is an interpretation.
+- **Whole shots.** The frames only agree with each other when the whole shot is guided by an approved reference. Three routes have worked for me:
+  - TeleStyle, a LoRA for Qwen Image Edit, which copies one approved reference onto every frame.
+  - MiniMax H3 with Alibaba's Fun ControlNet for H3, which uses the edges of every frame to keep the geometry.
+  - The Temporal CbCr adapter, a small model I built. You keep the frames that pass review (I call them teachers), and the adapter learns the colour of that one shot from them and fills in the rest. On the choir scene from *Unman, Wittering and Zigo*, about a hundred frames became teachers, and training took about a minute and a half.
 
-  Each of these worked on specific shots that I reviewed at full size. That isn't proof that they work on every shot.
+  Each of these worked on the shots where I tested them, which isn't the same as working on every shot.
 
-**What still fails or is limited**
+**What still doesn't**
 
-- **Semantic contamination.** A leader lady used as a reference ends up in the shot. A plain, blurred colour chart avoids it.
-- **Frame by frame doesn't hold.** Each frame is a fair interpretation on its own, but together they flicker.
-- **Resolution and length.** The video models see a reduced picture, around 768 × 432, and about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles and you get seams.
-- **Hard motion and broken cadence.** The best *Counter Attack* result still has some tint in the shadows, because the source had a broken cadence.
-- **Time.** An 11-second shot with TeleStyle took around four hours.
-- **Generalisation.** My target is at least 75% acceptable first-pass recovery on new shots. I haven't shown that yet.
+- **Semantic contamination.** If you use a leader lady as the reference, she ends up in the shot. A plain colour chart, softly blurred, avoids that.
+- **Frame by frame.** Each frame is a fair interpretation on its own, but together they flicker.
+- **Resolution and length.** The video models see a reduced picture, around 768 × 432, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles and you get seams.
+- **Hard motion and broken cadence.** My best result on a fast crowd shot still has some tint in the shadows, because the copy had a broken cadence.
+- **Time.** One 11-second shot with TeleStyle took around four hours.
+- **New shots.** I'd like at least three out of four new shots to work on the first pass. I'm not there yet.
 
-**What I'm working on now**
+**What I'm working on**
 
-- One app that runs the current route, H3 with the Fun ControlNet followed by the Temporal CbCr adapter, on new shots, instead of one experiment at a time.
-- Tests on sources that were balanced by hand first.
-- A cleaner, self-contained ComfyUI version that someone else can run.
+- One app that runs the current route on new shots (H3 with the Fun ControlNet, then the Temporal CbCr adapter), instead of one experiment at a time.
+- Tests on scans I've balanced by hand first.
+- A cleaner ComfyUI version that someone else can run on their own machine.
 
-**What you can reproduce**
+**What I'd like to do next**
 
-- The **single-frame workflow** is on the [Qwen Image Edit workflow page]({% link qwen-color-recovery-app.md %}). It's a research snapshot, not a finished tool.
-- The **whole-shot routes** aren't reproducible from this site yet. They depend on my own job system and on the Temporal CbCr adapter, which isn't public yet.
-- The **example workflows** from SEAPAVAA and FIAT/IFTA exist, but they aren't fully usable yet.
-- **ComfyUI Cloud.** The Qwen Image Edit workflow can technically run on ComfyUI Cloud, but I haven't validated that route professionally.
+- Make a few workflows from the best examples usable on ComfyUI Cloud, so you can try them without setting up your own GPU. That's a goal for now, not something that's ready.
 
-## Diffusion upscaling and diffusion reconstruction
+**What you can try today**
 
-The second half of the FIAT/IFTA talk was about rebuilding picture, not colour.
+- The single-frame workflow, on the [Qwen Image Edit workflow page]({% link qwen-color-recovery-app.md %}). It's a snapshot of the research, so expect it to change.
+- The whole-shot routes aren't on this site yet. They still depend on my own job system and on the adapter, which isn't public.
+- The example workflows from SEAPAVAA and FIAT/IFTA exist, but they need more work before someone else can use them.
+- The Qwen Image Edit workflow can run on ComfyUI Cloud, but I haven't tested that route properly for restoration work.
 
-- **Diffusion upscaling.** When every frame of the surviving element is damaged, there's nothing left to borrow. On *El Tinterillo* I combined a 16mm print and a telecine, cleaned the result with a median filter to get a rough outline, and guided MiniMax H3 with a synthetic reference. The result has a synthetic look. I wouldn't call it proper film restoration myself, and lip movement on small faces is still a problem.
-- **Diffusion reconstruction.** When frames are completely missing, I first use what survives in other elements, then generate only inside the gap. On *Knight of the Trail* (1915), with elements from the George Eastman Museum, I registered a nitrate print and a diacetate safety copy, mapped which element survives frame by frame, and used masked reconstruction (Wan VACE 14B, with pose control) only where neither survives. The work at the original resolution is still open.
+## Rebuilding picture: diffusion upscaling and reconstruction
 
-These projects aren't public as workflows yet.
+The second half of the FIAT/IFTA talk was about the picture itself.
+
+- **Diffusion upscaling.** When every frame of the surviving element is damaged, there's nothing left to borrow. I combined a 16mm print and a telecine, cleaned the result with a median filter to get a rough outline, and guided MiniMax H3 with a synthetic reference. The result has a synthetic look, and I wouldn't call it proper film restoration myself. Small faces and lip movement are still a problem.
+- **Diffusion reconstruction.** When frames are completely gone, I first use whatever survives in the other elements, and then generate only inside the gap, guided by the movement around it (Wan VACE 14B, with pose control). The tests are at reduced resolution so far.
+
+I don't have examples of these two that I can show publicly yet, and the workflows aren't public either.
 
 ## Hardware
 
-- A modern **NVIDIA** GPU.
-- **8 GB** of VRAM or more for still frames, using the fp8 or GGUF versions of Qwen Image Edit.
-- **16 GB** or more for video.
-- On Apple Silicon, the bf16 version of Qwen Image Edit 2509 runs, but the fp8 checkpoints don't.
-- For CopyCat, see Foundry's own requirements for your edition of Nuke.
+- A modern NVIDIA GPU.
+- 8 GB of VRAM or more for still frames, with the fp8 or GGUF versions of Qwen Image Edit.
+- 16 GB or more for video.
+- On a Mac with Apple Silicon, the bf16 version of Qwen Image Edit 2509 runs, but the fp8 versions don't.
+- For CopyCat, Foundry lists the requirements for each edition of Nuke.
 
 ## Models and licences
 
-| Model | Publisher | Licence (per the model card) |
+| Model | Publisher | Licence on the model card |
 |---|---|---|
 | [Qwen Image Edit 2509 and 2511](https://huggingface.co/Qwen/Qwen-Image-Edit-2511) | Qwen team, Alibaba | Apache-2.0 |
 | [Qwen Image Edit Lightning LoRAs](https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning) | LightX2V | Apache-2.0 |
 | [TeleStyle V2](https://huggingface.co/Tele-AI/TeleStyleV2) | TeleAI | Apache-2.0 |
-| [MiniMax H3](https://huggingface.co/MiniMaxAI/MiniMax-H3) | MiniMax | MiniMax H3 Community License Agreement. There's an application form for the USA, EU, UK and South Korea, so check the terms for your country. |
-| Fun ControlNet for H3 | Alibaba PAI | Check the model card |
+| [MiniMax H3](https://huggingface.co/MiniMaxAI/MiniMax-H3) | MiniMax | MiniMax H3 Community License Agreement. The card has an application form for the USA, the EU, the UK and South Korea, so it's worth checking the terms where you are. |
+| Fun ControlNet for H3 | Alibaba PAI | See the model card |
 
-## How to read my results
+## A note on "approved"
 
-When I say a result was "approved", I mean I watched the whole shot at full size and accepted it as a research result for that shot. It doesn't mean the method is ready for production work, or that the colour is historically accurate. Colour made without a reference is always an interpretation.
+When I say I approved a result, I mean I watched the whole shot at full size and accepted it as a research result for that shot. It doesn't mean the colour is historically accurate. Colour made without a reference is always an interpretation.
 
-The images and clips on these pages are for viewing. The film material belongs to its owners, and credit isn't permission to reuse it.
+The examples on these pages are faded trailers from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps). The trailers belong to their rights holders.

@@ -4,48 +4,12 @@
 # file itself (HTTP 403), so the original can't be embedded directly.
 # size_mb is the file size in MiB, as shown on the page.
 videos:
-  candy:
-    drive: 11UucDpEAC5QRlfF3BN12f3mggg-S58Ds
-    width: 1920
-    height: 1080
-    duration: "1:10"
-    size_mb: 102
-  candy-full:
-    drive: 1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1
-    width: 4400
-    height: 3300
-    duration: "1:10"
-    size_mb: 298
-  slide09:
-    drive: 1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8
-    width: 1920
-    height: 1080
-    duration: "0:11"
-    size_mb: 8.4
-  slide11:
-    drive: 1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi
-    width: 1920
-    height: 840
-    duration: "0:13"
-    size_mb: 11.6
   slide13:
     drive: 1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD
     width: 1920
     height: 850
     duration: "0:07"
     size_mb: 20.4
-  slide15:
-    drive: 1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw
-    width: 1920
-    height: 756
-    duration: "0:26"
-    size_mb: 62.1
-  slide19:
-    drive: 1oNpHO2ljDAHTvxQYwU1eKfjBkyj3hk6K
-    width: 1920
-    height: 832
-    duration: "0:09"
-    size_mb: 20.3
   slide21:
     drive: 1mzL4lEaw5kf331CFtTPEtEfQqpLfmiVs
     width: 1920

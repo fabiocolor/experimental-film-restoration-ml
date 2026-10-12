@@ -27,11 +27,7 @@ Start with a modest model and a held-out frame that is not part of the training 
 
 Use small geometric augmentation only when the composition allows it. Mild exposure variation can help, but do not introduce transformations that change the property being learned. Chroma training should not distort colour relationships. Spatial training should not add sharpening, blur, or synthetic grain.
 
-![CopyCat Progress contact sheet]({{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }})
-*The Progress tab shows loss and training crops over time.*
 
-![CopyCat held-out preview]({{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }})
-*A held-out preview is more useful than loss alone because it tests an unseen frame.*
 
 Check range and bounding-box parity in both branches. For chroma recovery, source and target luminance should remain nearly identical. For spatial recovery, source and target chroma should remain nearly identical.
 

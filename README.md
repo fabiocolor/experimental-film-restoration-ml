@@ -13,7 +13,7 @@ The project is written for film archives, restoration practitioners, colourists,
 
 After SEAPAVAA (June) and FIAT/IFTA (October) 2026, here's the short version. Single-frame colour recovery with Qwen Image Edit is useful on varied faded material, with a person reviewing every frame. Whole-shot colour works on specific shots when the whole shot is guided by approved references, through TeleStyle, MiniMax H3 with the Fun ControlNet, or my small Temporal CbCr adapter. Resolution, length and generalisation to new shots are still the main limits. The full summary, including what you can and can't reproduce yet, is on [Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/).
 
-- **Qwen Image Edit workflows** are ComfyUI graphs. The single-frame workflow here is a research snapshot. It can technically run on ComfyUI Cloud, but I haven't validated that route professionally. A cleaner, self-contained ComfyUI version is in progress, and the example workflows from the talks aren't fully usable yet.
+- **Qwen Image Edit workflows** are ComfyUI graphs. The single-frame workflow here is a snapshot of the research, so it will change. It can run on ComfyUI Cloud, but I haven't tested that route properly for restoration work yet. I'm working on a cleaner ComfyUI version, and the example workflows from the talks still need more work before someone else can use them. One goal is to make a few workflows from the best examples usable on ComfyUI Cloud.
 - **Hardware:** a modern NVIDIA GPU, with 8 GB of VRAM or more for still frames and 16 GB or more for video.
 - **Talk pages:** [FIAT/IFTA 2026 companion](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/fiat-ifta-2026-companion/) · [SEAPAVAA 2026 companion](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/seapavaa-2026-companion/)
 
@@ -45,7 +45,9 @@ Start with:
 
 | Faded source | Qwen colour proposal | Source-preserving composite |
 | --- | --- | --- |
-| ![Faded source frame](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg) | ![Qwen Image Edit colour proposal](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png) | ![Final source-preserving composite](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png) |
+| ![Faded frame from the Reptilicus trailer](docs/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg) | ![Qwen Image Edit colour proposal](docs/images_kebab/seapavaa2026/originals/reptilicus_beach/04_inference_frame_000000_seed_0_cfg_1.000_Belak-0c1f0329.png) | ![Final composite on the source brightness](docs/images_kebab/seapavaa2026/originals/reptilicus_beach/05_final_composite_reptilicus_tlr_05_beach_woman_source-38de94d1.png) |
+
+*Reptilicus* (1961) trailer, from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps). The trailer belongs to its rights holders.
 
 ## Reference-trained recovery in Nuke
 
@@ -66,7 +68,7 @@ Start with:
 - [Preparing reliable training pairs](docs/automated-dataset-preparation.md)
 - [Case studies](docs/case-studies.md)
 
-The Nuke template is available for Nuke Non-Commercial (`.nknc`) and Nuke Indie (`.nkind`) from the [latest release](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest). It's a template you run locally, in your own copy of Nuke, with your own footage, to build a dataset for each shot. There is no cloud version, and it doesn't include footage or trained models.
+The Nuke template runs locally in Nuke Non-Commercial (`.nknc`) or Nuke Indie (`.nkind`), with your own footage, to build a small dataset for each shot. You can get it from the [latest release](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest).
 
 ## Publications and presentations
 

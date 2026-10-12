@@ -88,7 +88,7 @@ nav_order: 3
 
 This page follows my SEAPAVAA 2026 presentation (June 2026) by slide title. Each section shows the image or clip from the talk. Where it helps, I've also added the prompt or workflow behind it.
 
-The images here are previews for viewing. I've removed the links to the full-size original files. The research has moved on since June: see [where the research stands now]({{ '/research-status/' | relative_url }}) and the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}).
+Some of the examples from the talk aren't shown here, because I'm still checking whether that footage can be shared. The research has also moved on since June: see [where the research stands now]({{ '/research-status/' | relative_url }}) and the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}).
 
 ## Jump by Title
 
@@ -115,15 +115,7 @@ The images here are previews for viewing. I've removed the links to the full-siz
 
 <section id="slide-1" class="seapavaa-slide">
   <h2>Advancing Open-Weight AI Models for Color Recovery in Faded Film</h2>
-  <p class="seapavaa-slide-intro">This is the exact image from the presentation, followed by the separate parts behind the same example.</p>
-  <div class="seapavaa-grid">
-    <div class="seapavaa-card">
-      <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Fanji full-frame split hero</h3>
-      <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Fanji split hero image">
-      <p>A full-frame split view of the faded scan and the recovered composite used as the opening before-and-after example.</p>
-    </div>
-  </div>
+  <p class="seapavaa-slide-intro">The example from this slide isn't shown on this page.</p>
 </section>
 
 <section id="slide-2" class="seapavaa-slide">
@@ -149,15 +141,7 @@ The images here are previews for viewing. I've removed the links to the full-siz
 
 <section id="slide-3" class="seapavaa-slide">
   <h2>From CopyCat to Open-Weight Chroma Recovery</h2>
-  <p class="seapavaa-slide-intro">This is the Muralla Verde comparison now used for the CopyCat-to-open-weight transition.</p>
-  <div class="seapavaa-grid">
-    <div class="seapavaa-card">
-      <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Muralla Verde comparison</h3>
-      <img src="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" alt="Animated Muralla Verde source-to-recovery comparison">
-      <p>A source-to-recovery comparison showing the practical difference between source correction and chroma recovery.</p>
-    </div>
-  </div>
+  <p class="seapavaa-slide-intro">The example from this slide isn't shown on this page.</p>
 </section>
 
 <section id="slide-4" class="seapavaa-slide">
@@ -175,22 +159,7 @@ The images here are previews for viewing. I've removed the links to the full-siz
 
 <section id="slide-5" class="seapavaa-slide">
   <h2>Why Open-Weight Models, and How I Tested Them</h2>
-  <div class="seapavaa-grid">
-    <div class="seapavaa-card">
-      <span class="seapavaa-role">Seen in the talk</span>
-      <h3>ComfyUI workflow screenshot</h3>
-      <img src="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" alt="ComfyUI workflow screenshot">
-      <p>The workflow view shows the practical test setup: source, reference, control image, prompt, model, and output in one graph.</p>
-      <p>This is a research snapshot and isn't fully usable yet. The workflow JSON still holds the template's placeholder prompt and settings, and its input images aren't included. The API prompt JSON has the settings I actually used (Qwen Image Edit 2511 fp8mixed, Lightning 4-step LoRA, 4 steps, CFG 1, seed 0). A cleaner, self-contained version is in progress.</p>
-      <details class="seapavaa-files">
-        <summary>Open the workflow and its parts</summary>
-        <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}" target="_blank">Workflow JSON</a>
-          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_api_prompt.json' | relative_url }}" target="_blank">API prompt JSON</a>
-        </div>
-      </details>
-    </div>
-  </div>
+  <p class="seapavaa-slide-intro">The example from this slide isn't shown on this page.</p>
 </section>
 
 <section id="slide-6" class="seapavaa-slide">
@@ -207,14 +176,7 @@ The images here are previews for viewing. I've removed the links to the full-siz
 
 <section id="slide-7" class="seapavaa-slide">
   <h2>The Reference Problem</h2>
-  <div class="seapavaa-grid">
-    <div class="seapavaa-card">
-      <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Leader-lady semantic contamination</h3>
-      <img src="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" alt="Leader lady semantic contamination">
-      <p>This example shows why reference images can contaminate the subject when the model borrows identity or scene content instead of only color.</p>
-    </div>
-  </div>
+  <p class="seapavaa-slide-intro">The example from this slide isn't shown on this page.</p>
 </section>
 
 <section id="slide-8" class="seapavaa-slide">
@@ -243,14 +205,7 @@ The images here are previews for viewing. I've removed the links to the full-siz
 
 <section id="slide-10" class="seapavaa-slide">
   <h2>The Still Route Finally Generalized</h2>
-  <div class="seapavaa-grid">
-    <div class="seapavaa-card">
-      <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Fanji row-9 top three raw generations</h3>
-      <img src="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" alt="Fanji row-9 top three raw generations">
-      <p>Three prompt variants from the same source show how the still route became more reliable through repeated prompt testing.</p>
-    </div>
-  </div>
+  <p class="seapavaa-slide-intro">The example from this slide isn't shown on this page.</p>
 </section>
 
 <section id="slide-11" class="seapavaa-slide">
@@ -347,24 +302,10 @@ The images here are previews for viewing. I've removed the links to the full-siz
 
 <section id="slide-17" class="seapavaa-slide">
   <h2>What We Can Claim Now</h2>
-  <div class="seapavaa-grid">
-    <div class="seapavaa-card">
-      <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Fanji 600-frame full run</h3>
-      <img src="{{ '/media/seapavaa2026/fanji-600-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for the FANJI sequence">
-      <p>The full Fanji run shows what the method looks like when it is applied frame by frame across a longer sequence.</p>
-    </div>
-  </div>
+  <p class="seapavaa-slide-intro">The example from this slide isn't shown on this page.</p>
 </section>
 
 <section id="slide-18" class="seapavaa-slide">
   <h2>Thank you!</h2>
-  <div class="seapavaa-grid">
-    <div class="seapavaa-card">
-      <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Candy Ending matched-reference recovery</h3>
-      <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" alt="Candy Ending matched-reference recovery">
-      <p>This final example uses a matched non-generated reference frame for color evidence while the faded source frame remains the geometry and luma authority.</p>
-    </div>
-  </div>
+  <p class="seapavaa-slide-intro">The example from this slide isn't shown on this page.</p>
 </section>
