@@ -29,18 +29,18 @@ This repository documents two connected approaches:
 
 ### Reference-trained recovery (CopyCat workflow)
 
-The **established research track**. This method trains a small neural network on aligned source/reference pairs to recover chroma or spatial detail in Nuke. It is practical for archives and restoration houses with access to NukeX or Nuke Indie.
+The **established research track**. This method trains a small neural network on aligned source/reference pairs to recover chroma or spatial detail in Nuke. It runs locally in Nuke, with your own footage: the template is available for Nuke Non-Commercial and Nuke Indie, and there is no cloud version.
 
 **Start here if you:**
 - Have a faded film and a colour reference (DVD, telecine, alternate print)
 - Want to recover colour while preserving original film detail and grain
-- Have access to Foundry NukeX or Nuke Indie with CopyCat
-- Need a documented, repeatable workflow for production use
+- Have access to Nuke with CopyCat (the template is for Nuke Non-Commercial or Nuke Indie)
+- Want a documented, repeatable workflow that you run locally on your own footage
 
 **Key resources:**
 - [CopyCat Workflow]({% link copycat-workflow.md %})
 - [Case Studies]({% link case-studies.md %})
-- [Nuke template (latest release)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest)
+- [Nuke template for Non-Commercial and Indie (latest release)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest)
 
 ### Open-weight colour recovery (Qwen Image Edit)
 

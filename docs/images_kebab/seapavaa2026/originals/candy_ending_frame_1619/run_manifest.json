@@ -3,10 +3,10 @@
   "kind": "test",
   "intent": "reference-based chroma recovery",
   "prigStage": "Restoration",
-  "runDir": "/Users/fabiobedoya/SYNC/REPOS/FADED COLOR LORA RECOVERY/results/candy_candy/candy_ending_frame_1619_reference_available_20260608/runs/candy_ending_frame_1619_matched_ref_v1_seed1_20260608_004258/candy_matched_reference_chroma_v1_seed1_2511_canny_4step/candy_ending_frame_1619_fullres_matched_ref2030",
+  "runDir": "<local path removed>/candy_ending_frame_1619_fullres_matched_ref2030",
   "inputMode": "image",
   "source": {
-    "imagePath": "/Users/fabiobedoya/SYNC/OBSIDIAN/Fabiocolor Obsidian/01_PROJECTS/CANDY_CANDY/contact_sheets/candy_ending_source_20260608/frames/candy_ending_frame_1619_fullres.png",
+    "imagePath": "<local path removed>/candy_ending_frame_1619_fullres.png",
     "videoPath": null,
     "framesDir": null,
     "frameStart": 0,
@@ -15,21 +15,21 @@
   },
   "modelId": "qwen_2511_fp8mixed_4step",
   "workflowId": "qwen_2511_image_edit",
-  "templateWorkflowPath": "/Users/fabiobedoya/SYNC/REPOS/FADED COLOR LORA RECOVERY/color-recovery-app/workflow_presets_qwen_image_edit_2511_controlnet_scaled_control.json",
-  "comfyBaseUrl": "http://100.94.28.99:8188",
+  "templateWorkflowPath": "<local path removed>/workflow_presets_qwen_image_edit_2511_controlnet_scaled_control.json",
+  "comfyBaseUrl": "<internal URL removed>",
   "cwc": {
     "enabled": true,
-    "baseUrl": "http://100.64.9.57:8799",
+    "baseUrl": "<internal URL removed>",
     "capabilityTag": "qwen_image_edit_2511_fp8mixed",
-    "schemaBaseUrl": "http://100.87.131.55:8188"
+    "schemaBaseUrl": "<internal URL removed>"
   },
-  "selectedReferenceImagePath": "/Users/fabiobedoya/SYNC/OBSIDIAN/Fabiocolor Obsidian/01_PROJECTS/CANDY_CANDY/contact_sheets/candy_ending_source_20260608/reference/frame_1619_match/candy_ending_reference_match_frame_2030.png",
-  "controlImagePath": "/Users/fabiobedoya/SYNC/REPOS/FADED COLOR LORA RECOVERY/results/candy_candy/candy_ending_frame_1619_balanced_frame_by_frame_20260608/control_maps/canny/candy_ending_frame_1619_fullres_canny_control.png",
+  "selectedReferenceImagePath": "<local path removed>/candy_ending_reference_match_frame_2030.png",
+  "controlImagePath": "<local path removed>/candy_ending_frame_1619_fullres_canny_control.png",
   "controlType": "source_canny_flux_scaled",
   "controlSource": "original_source_frame",
   "referenceContext": {
     "label": "candy_ending_reference_match_frame_2030.png",
-    "absPath": "/Users/fabiobedoya/SYNC/OBSIDIAN/Fabiocolor Obsidian/01_PROJECTS/CANDY_CANDY/contact_sheets/candy_ending_source_20260608/reference/frame_1619_match/candy_ending_reference_match_frame_2030.png"
+    "absPath": "<local path removed>/candy_ending_reference_match_frame_2030.png"
   },
   "comparisonCandidates": null,
   "seed": 1,
@@ -54,9 +54,9 @@
     "cloudCreditUsd": 0.00474,
     "usdToPen": 3.72,
     "apiPriceUsdPerImage": null,
-    "workerId": "jimin-m5pro",
-    "workerLabel": "jimin-m5pro",
-    "comfyBaseUrl": "http://100.94.28.99:8188",
+    "workerId": "worker",
+    "workerLabel": "worker",
+    "comfyBaseUrl": "<internal URL removed>",
     "estimatorVersion": "inference-cost-v1"
   },
   "expectedInferenceCost": {

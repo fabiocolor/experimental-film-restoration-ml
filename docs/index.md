@@ -16,6 +16,7 @@ nav_order: 0
 
 <div class="research-intro">
   <p>The project combines an established, reference-trained Nuke workflow with active research into Qwen Image Edit and other open-weight models. The work is documented through source material, intermediate results, failures, and bounded claims rather than presented as a finished restoration product.</p>
+  <p><strong>New, October 2026:</strong> <a href="{{ '/research-status/' | relative_url }}">where the research stands</a> after SEAPAVAA and FIAT/IFTA: what works, what doesn't yet, and what you can reproduce. Talk pages: <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026</a> · <a href="{{ '/seapavaa-2026-companion/' | relative_url }}">SEAPAVAA 2026</a>.</p>
 </div>
 
 ## Current research
@@ -38,7 +39,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">Established research track</p>
     <h3>Reference-trained recovery in Nuke</h3>
-    <p>Training compact CopyCat models on carefully aligned source and reference frames to recover chroma or spatial detail in a controlled production workflow.</p>
+    <p>Training compact CopyCat models on carefully aligned source and reference frames to recover chroma or spatial detail, shot by shot, on your own footage in Nuke.</p>
     <ul class="plain-list">
       <li>Chroma and spatial recovery</li>
       <li>Training-pair preparation</li>

@@ -55,7 +55,7 @@ The training target combines **reference luminance** with **source chroma**. Thi
 - In Resolve, use the recovered render above the original with Composite Mode set to `Luminosity` when the delivery needs explicit source-colour protection.
 
 ![Spatial recovery A/B split]({{ '/images_kebab/knights-of-the-trail/kott-nuke-viewer-wipe-copycat-result.png' | relative_url }})
-*Knights of the Trail viewer wipe comparing the source and spatial-recovery output.*
+*Knight of the Trail viewer wipe comparing the source and spatial-recovery output.*
 
 ## Spatial troubleshooting
 

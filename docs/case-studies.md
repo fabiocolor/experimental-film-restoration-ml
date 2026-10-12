@@ -225,11 +225,11 @@ Rights, source context, software, and contributor information is collected on th
 
 ---
 
-## Knights of the Trail (1920s)
+## Knight of the Trail (1915)
 
 **Branch:** Spatial Recovery (Multi-Element Composite) | **Gauge:** Nitrate | **Reference:** Composite of nitrate elements
 
-![Knights of the Trail spatial recovery result]({{ '/images_kebab/knights-of-the-trail/kott-nuke-viewer-wipe-copycat-result.png' | relative_url }})
+![Knight of the Trail spatial recovery result]({{ '/images_kebab/knights-of-the-trail/kott-nuke-viewer-wipe-copycat-result.png' | relative_url }})
 *Machine learning spatial recovery using multiple partial nitrate sources.*
 
 | Field | Details |
@@ -240,7 +240,7 @@ Rights, source context, software, and contributor information is collected on th
 | **Approach** | Align the nitrate elements into a composite full shot. Use the composite as the training reference for CopyCat. The goal is not to invent new detail, but to reconstruct missing structure from better-surviving evidence. |
 | **Result** | Demonstrates how multiple partial nitrate sources can act as evidence for spatial reconstruction. One of the strongest examples of using multiple preservation elements as training data rather than choosing only one source. |
 
-![Knights of the Trail comparison preview]({{ '/images_kebab/knights-of-the-trail/knights-of-the-trail-comparison-preview.gif' | relative_url }})
+![Knight of the Trail comparison preview]({{ '/images_kebab/knights-of-the-trail/knights-of-the-trail-comparison-preview.gif' | relative_url }})
 *Animated 4-way comparison: Reel A → Reel B → ML Composite → ML Result.*
 
 ---

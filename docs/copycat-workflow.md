@@ -12,11 +12,13 @@ permalink: /copycat-workflow/
 
 This workflow trains a small neural network for one film project. It learns from carefully chosen pairs: a degraded source frame and a better reference to the same moment. The method can recover colour, or it can recover spatial detail, while keeping the surviving source material at the centre of the process.
 
-It is intended for film archives, restoration practitioners, colourists, and researchers who have access to Foundry NukeX or Nuke Indie with CopyCat and Inference.
+It is intended for film archives, restoration practitioners, colourists, and researchers who have access to Nuke with CopyCat and Inference.
+
+**What the template is.** The Nuke template is available for Nuke Non-Commercial (`.nknc`) and Nuke Indie (`.nkind`). It's a template you run locally, in your own copy of Nuke, with your own footage, to build a dataset for each shot and train CopyCat on it. There is no cloud version of this workflow. The template doesn't include footage, trained models or references.
 
 <div class="hero-buttons">
   <a href="{{ '/start-here/' | relative_url }}" class="btn btn-primary">Start the workflow</a>
-  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-outline">Download the Nuke template</a>
+  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-outline">Get the Nuke template (Non-Commercial / Indie)</a>
 </div>
 
 ## Choose the recovery task

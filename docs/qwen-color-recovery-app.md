@@ -15,6 +15,13 @@ You can run the workflow in ComfyUI Cloud or on a local ComfyUI installation. St
 
 > **Ongoing research:** this page and its downloads describe the current working version, not a final specification. Workflows, prompts, recommended settings, and conclusions will change as experiments continue. Review every result against the source and any historical evidence; a visually convincing image is not proof of original colour.
 
+**Status, October 2026.** This is the single-frame part of my research, shared as a research snapshot. It isn't a finished tool, and I haven't validated it for professional work.
+
+- **ComfyUI Cloud:** the workflow can technically run there, but I haven't validated that route professionally.
+- **Hardware for a local install:** a modern NVIDIA GPU with 8 GB of VRAM or more for still frames. Video work needs 16 GB or more.
+- **Settings:** as shipped, the "Enable 4steps LoRA?" switch is off, so the workflow runs Qwen's own defaults: 40 steps, CFG 4, with a random seed. The settings I use are the switch on (4 steps with the Lightning LoRA, CFG 1) and a fixed seed (0), with the source-derived edge map and the colour chart as guides.
+- **The whole-shot routes** (TeleStyle, MiniMax H3 with the Fun ControlNet, and the Temporal CbCr adapter) aren't part of this download yet. A cleaner, self-contained ComfyUI version is in progress. See [where the research stands]({{ '/research-status/' | relative_url }}).
+
 <div class="app-hero-strip" aria-label="Color recovery example">
   <figure>
     <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }}" alt="Faded source frame">
@@ -45,7 +52,6 @@ You can run the workflow in ComfyUI Cloud or on a local ComfyUI installation. St
 | [`faded-qwen-color-recovery-app.zip`]({{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}) | The workflows, example frame, colour reference, and local helper node in one package. |
 | [`faded-qwen-2511-cloud-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}) | The simplest version to try in ComfyUI Cloud. |
 | [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The complete workflow for a local ComfyUI installation. |
-| [`demo_unbalanced_source_frame.jpg`]({{ '/downloads/qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg' | relative_url }}) | A faded source frame you can use for a quick test. |
 | [`THIRD_PARTY_NOTICES.md`]({{ '/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md' | relative_url }}) | Model, software, and included-asset attribution. A copy is also inside the complete package. |
 
 ## Extract a frame from video

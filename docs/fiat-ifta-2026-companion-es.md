@@ -24,6 +24,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
     <a class="fc-btn" href="#workflows">Flujos de trabajo y guías</a>
   </div>
   <p>Esta página acompaña mi charla. Sigue las diapositivas en orden, así que puedes encontrar la versión a tamaño completo de cada ejemplo a medida que aparece, o volver a ella más tarde. Para cada experimento, anoté qué funcionó y en qué todavía se queda corto.</p>
+  <p>Después de la charla, también escribí un resumen de <a href="{{ '/research-status/' | relative_url }}">dónde está la investigación ahora</a> (en inglés): qué funciona, qué todavía no y qué flujos de trabajo puedes reproducir hoy.</p>
 </header>
 
 <p class="fc-tip">Toca un video para reproducirlo aquí. El reproductor transmite desde Google Drive, así que puede mostrar una calidad menor que la del original, sobre todo con una conexión lenta. Las partes y la evidencia de cada ejemplo se abren a tamaño completo en un visor, donde puedes hacer zoom para ver el detalle. La mayoría de los videos son comparaciones lado a lado, así que cada mitad es más pequeña que el archivo completo.</p>
@@ -422,6 +423,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
     <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Recuperación de color con modelos de pesos abiertos</a>: crear y revisar propuestas de color mientras el escaneo sigue siendo la autoridad.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Entrenamiento, inferencia y revisión</a>: preparar el material, iterar y decidir cuándo un resultado es aceptable.</li>
     <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Líneas de investigación y preguntas abiertas</a>: una instantánea anterior de la investigación, con su evidencia y sus límites.</li>
+    <li><a href="{{ '/research-status/' | relative_url }}">Dónde está la investigación (octubre de 2026)</a> (en inglés): qué funciona, qué todavía no y qué puedes reproducir. La plantilla de Nuke es para Nuke Non-Commercial o Indie, y se ejecuta localmente con tu propio material; no hay versión en la nube. Los flujos de Qwen Image Edit son grafos de ComfyUI y todavía no están listos del todo para usar.</li>
     <li><a href="{{ '/' | relative_url }}">Toda la investigación de este sitio</a>, o el <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repositorio en GitHub</a>.</li>
   </ul>
 </section>

@@ -3,10 +3,10 @@
   "kind": "test",
   "intent": "reference-based chroma recovery",
   "prigStage": "Restoration",
-  "runDir": "C:\\SYNC\\REPOS\\FADED COLOR LORA RECOVERY\\results\\t085_cwc_t085_prompt\\shot0011_t085_atlas_t085_prompt_scaled_control_cwc_20260531_183310\\t085_fullframe_subject_sides_atlas_reference\\shot0011_t085_fullframe_subject_sides_atlas",
+  "runDir": "<local path removed>/shot0011_t085_fullframe_subject_sides_atlas",
   "inputMode": "image",
   "source": {
-    "imagePath": "C:\\SYNC\\REPOS\\FADED COLOR LORA RECOVERY\\results\\temporal_tests\\OBSESSION_TLR\\balanced_path\\shot0011_t085_t079_fullframe_jiminb_inverse_flux_launch_v1\\01_source\\shot0011_t079_full_source_atlas_2048x1280.png",
+    "imagePath": "<local path removed>/shot0011_t079_full_source_atlas_2048x1280.png",
     "videoPath": null,
     "framesDir": null,
     "frameStart": 0,
@@ -15,21 +15,21 @@
   },
   "modelId": "qwen_2511_fp8mixed_4step",
   "workflowId": "qwen_2511_image_edit",
-  "templateWorkflowPath": "C:\\SYNC\\REPOS\\FADED COLOR LORA RECOVERY\\color-recovery-app\\workflow_presets_qwen_image_edit_2511_controlnet_scaled_control.json",
-  "comfyBaseUrl": "http://100.94.28.99:8188",
+  "templateWorkflowPath": "<local path removed>/workflow_presets_qwen_image_edit_2511_controlnet_scaled_control.json",
+  "comfyBaseUrl": "<internal URL removed>",
   "cwc": {
     "enabled": true,
-    "baseUrl": "http://127.0.0.1:8799",
+    "baseUrl": "<internal URL removed>",
     "capabilityTag": "cw",
-    "schemaBaseUrl": "http://100.87.131.55:8188"
+    "schemaBaseUrl": "<internal URL removed>"
   },
-  "selectedReferenceImagePath": "C:\\SYNC\\REPOS\\FADED COLOR LORA RECOVERY\\results\\temporal_tests\\OBSESSION_TLR\\balanced_path\\shot0011_t085_t079_fullframe_jiminb_inverse_flux_launch_v1\\03_reference\\Belak_Color_Patch_Chart_softblur_32.png",
-  "controlImagePath": "C:\\SYNC\\REPOS\\FADED COLOR LORA RECOVERY\\results\\temporal_tests\\OBSESSION_TLR\\balanced_path\\shot0011_t085_t079_fullframe_jiminb_inverse_flux_launch_v1\\02_control\\shot0011_t079_full_source_canny_2048x1280.png",
+  "selectedReferenceImagePath": "<local path removed>/Belak_Color_Patch_Chart_softblur_32.png",
+  "controlImagePath": "<local path removed>/shot0011_t079_full_source_canny_2048x1280.png",
   "controlType": "source_canny_flux_scaled",
   "controlSource": "full-frame source-derived Canny from T079 subject-sides visible-element atlas",
   "referenceContext": {
     "label": "Belak_Color_Patch_Chart_softblur_32.png",
-    "absPath": "C:\\SYNC\\REPOS\\FADED COLOR LORA RECOVERY\\results\\temporal_tests\\OBSESSION_TLR\\balanced_path\\shot0011_t085_t079_fullframe_jiminb_inverse_flux_launch_v1\\03_reference\\Belak_Color_Patch_Chart_softblur_32.png"
+    "absPath": "<local path removed>/Belak_Color_Patch_Chart_softblur_32.png"
   },
   "comparisonCandidates": null,
   "seed": 0,
@@ -54,9 +54,9 @@
     "cloudCreditUsd": 0.00474,
     "usdToPen": 3.72,
     "apiPriceUsdPerImage": null,
-    "workerId": "jimin-m5pro",
-    "workerLabel": "jimin-m5pro",
-    "comfyBaseUrl": "http://100.94.28.99:8188",
+    "workerId": "worker",
+    "workerLabel": "worker",
+    "comfyBaseUrl": "<internal URL removed>",
     "estimatorVersion": "inference-cost-v1"
   },
   "expectedInferenceCost": {

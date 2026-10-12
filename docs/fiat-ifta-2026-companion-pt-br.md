@@ -24,6 +24,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <a class="fc-btn" href="#workflows">Fluxos de trabalho e guias</a>
   </div>
   <p>Esta página acompanha a minha palestra. Ela segue os slides na ordem, então você pode encontrar a versão em tamanho real de cada exemplo à medida que ele aparece, ou voltar a ela depois. Para cada experimento, anotei o que funcionou e onde ainda há limitações.</p>
+  <p>Depois da palestra, também escrevi um resumo de <a href="{{ '/research-status/' | relative_url }}">onde a pesquisa está agora</a> (em inglês): o que funciona, o que ainda não funciona e quais fluxos de trabalho você pode reproduzir hoje.</p>
 </header>
 
 <p class="fc-tip">Toque em um vídeo para assistir aqui mesmo. O player transmite do Google Drive, então pode mostrar uma qualidade menor que a do original, principalmente em uma conexão lenta. As partes e as evidências de cada exemplo abrem em tamanho real em um visualizador, onde você pode dar zoom para ver os detalhes. A maioria dos vídeos são comparações lado a lado, então cada metade é menor que o arquivo completo.</p>
@@ -422,6 +423,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Recuperação de cor com modelos de pesos abertos</a>: criar e revisar propostas de cor, enquanto a digitalização continua sendo a referência principal.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Treinamento, inferência e revisão</a>: preparar o material, iterar e decidir quando um resultado é aceitável.</li>
     <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Caminhos de pesquisa e questões em aberto</a>: um retrato anterior da pesquisa, com as suas evidências e limitações.</li>
+    <li><a href="{{ '/research-status/' | relative_url }}">Onde a pesquisa está (outubro de 2026)</a> (em inglês): o que funciona, o que ainda não funciona e o que você pode reproduzir. O template do Nuke é para Nuke Non-Commercial ou Indie, rodando localmente com o seu próprio material; não existe versão na nuvem. Os fluxos do Qwen Image Edit são grafos do ComfyUI e ainda não estão totalmente prontos para uso.</li>
     <li><a href="{{ '/' | relative_url }}">Toda a pesquisa deste site</a>, ou o <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repositório no GitHub</a>.</li>
   </ul>
 </section>

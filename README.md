@@ -9,6 +9,14 @@ This repository follows two connected lines of work:
 
 The project is written for film archives, restoration practitioners, colourists, researchers, and students. It is research material rather than a finished commercial product.
 
+## Where things stand (October 2026)
+
+After SEAPAVAA (June) and FIAT/IFTA (October) 2026, here's the short version. Single-frame colour recovery with Qwen Image Edit is useful on varied faded material, with a person reviewing every frame. Whole-shot colour works on specific shots when the whole shot is guided by approved references, through TeleStyle, MiniMax H3 with the Fun ControlNet, or my small Temporal CbCr adapter. Resolution, length and generalisation to new shots are still the main limits. The full summary, including what you can and can't reproduce yet, is on [Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/).
+
+- **Qwen Image Edit workflows** are ComfyUI graphs. The single-frame workflow here is a research snapshot. It can technically run on ComfyUI Cloud, but I haven't validated that route professionally. A cleaner, self-contained ComfyUI version is in progress, and the example workflows from the talks aren't fully usable yet.
+- **Hardware:** a modern NVIDIA GPU, with 8 GB of VRAM or more for still frames and 16 GB or more for video.
+- **Talk pages:** [FIAT/IFTA 2026 companion](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/fiat-ifta-2026-companion/) · [SEAPAVAA 2026 companion](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/seapavaa-2026-companion/)
+
 ## Using these docs
 
 New to this project? Start with the [documentation guide](docs/HOW_TO_USE_RESEARCH_DOCS.md) to understand the reading order, decision trails, and how to learn from what has worked and failed in past projects.
@@ -58,18 +66,19 @@ Start with:
 - [Preparing reliable training pairs](docs/automated-dataset-preparation.md)
 - [Case studies](docs/case-studies.md)
 
-The current Nuke Indie template is available from the [latest release](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest).
+The Nuke template is available for Nuke Non-Commercial (`.nknc`) and Nuke Indie (`.nkind`) from the [latest release](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest). It's a template you run locally, in your own copy of Nuke, with your own footage, to build a dataset for each shot. There is no cloud version, and it doesn't include footage or trained models.
 
 ## Publications and presentations
 
 - Fabio P. Bedoya Huerta, [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35), *Archiving Conference* 22(1), 2025.
+- FIAT/IFTA 2026, *The Current Limits of AI in Film Restoration and How They May Be Surpassed*, Cinemateca Brasileira, São Paulo, October 2026: [companion page](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/fiat-ifta-2026-companion/).
 - [SEAPAVAA 2026 companion: Advancing Open-Weight AI Models for Color Recovery in Faded Film](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/seapavaa-2026-companion/).
 - [Video walkthrough of the CopyCat chroma-recovery workflow](https://youtu.be/kXerjFGX9Kg).
 
 ## Repository guide
 
 - `docs/`: the public research website and downloadable Qwen material
-- `templates/`: the Nuke Indie workflow template
+- `templates/`: the Nuke Indie workflow template (the Non-Commercial version is on the releases page)
 - `scripts/`: checks for the downloadable Qwen material
 
 ## Responsible use

@@ -24,6 +24,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
     <a class="fc-btn" href="#workflows">Workflows and guides</a>
   </div>
   <p>This page goes with my talk. It follows the slides in order, so you can find the full-size version of each example as it comes up, or come back to it later. For each experiment, I've written down what worked and where it still falls short.</p>
+  <p>Since the talk, I've also written up <a href="{{ '/research-status/' | relative_url }}">where the research stands</a>: what works, what doesn't yet, and which workflows you can reproduce today.</p>
 </header>
 
 <p class="fc-tip">Tap a video to play it here. The player streams from Google Drive, so it may show a lower quality than the original, especially on a slow connection. The parts and evidence under each example open at full size in a viewer, where you can zoom in to see the detail. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
@@ -422,6 +423,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
     <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Open-weight colour recovery</a>: create and review colour proposals while the scan stays the authority.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Training, inference and review</a>: preparing material, iterating, and deciding when a result is acceptable.</li>
     <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Research routes and open questions</a>: an earlier snapshot of the research, with its evidence and limits.</li>
+    <li><a href="{{ '/research-status/' | relative_url }}">Where the research stands (October 2026)</a>: what works, what doesn't yet, and what you can reproduce. The Nuke template is for Nuke Non-Commercial or Indie, run locally with your own footage; there's no cloud version. The Qwen Image Edit workflows are ComfyUI graphs and aren't fully usable yet.</li>
     <li><a href="{{ '/' | relative_url }}">All research on this site</a>, or the <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repository on GitHub</a>.</li>
   </ul>
 </section>
