@@ -64,6 +64,8 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 
 These are the files I approved, at the working resolution of 768 × 560.
 
+- [The second pass: ComfyUI graph, seam blend and the example windows](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/gap-filling-second-pass). Checked against the approved result (average colour difference ΔE 0.9).
+
 ## Limits
 
 - These models see a reduced picture, around 768 × 432 to 768 × 576, and about ten seconds at a time.
