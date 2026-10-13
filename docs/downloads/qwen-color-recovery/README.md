@@ -38,7 +38,7 @@ For the *Counter Attack* example, copy its three PNG inputs into `ComfyUI/input/
 
 ## ComfyUI Cloud
 
-Tested on ComfyUI Cloud in October 2026: it loads with no missing nodes or models and runs on the free tier.
+This should work on ComfyUI Cloud, but I'm still testing it. The free plan should be enough, and the models are already there.
 
 1. Sign in at https://cloud.comfy.org.
 2. Drag in `faded-qwen-2511-cloud-composite-app.json` (or its PNG).
