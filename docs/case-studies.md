@@ -2,6 +2,7 @@
 layout: default
 title: Case Studies
 nav_order: 3
+parent: Colour Recovery
 ---
 
 # Case Studies

@@ -4,6 +4,7 @@ title: Open-Weight Color Recovery
 nav_order: 1
 has_children: true
 permalink: /open-weight-color-recovery/
+parent: Colour Recovery
 ---
 
 <p class="eyebrow">Primary research track</p>

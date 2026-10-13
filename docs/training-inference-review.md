@@ -3,6 +3,7 @@ layout: default
 title: Training, Inference & Review
 parent: CopyCat Workflow
 nav_order: 4
+grand_parent: Colour Recovery
 ---
 
 # Training, Inference, and Review

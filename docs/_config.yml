@@ -1,5 +1,5 @@
-title: Machine Learning for Film Restoration
-description: Open research on Qwen Image Edit, open-weight colour recovery, and reference-trained film restoration
+title: Experimental Film Restoration with Machine Learning
+description: "Source-first research on film restoration with machine learning: colour recovery, gap filling, dirt removal, upscaling and matte recovery. What survives in the film is evidence; models only fill what was lost."
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 
 plugins:
@@ -39,6 +39,7 @@ exclude:
   - downloads/qwen-color-recovery/README.md
   - downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/README.md
   - Gemfile.lock
+  - RENAME_CHECKLIST.md
   # Media that no page links to, including frames of films whose rights aren't confirmed.
   # The files stay in the repository as research records, but aren't published.
   - "images_kebab/seapavaa2026/fanji_waterfront_workflow.json"

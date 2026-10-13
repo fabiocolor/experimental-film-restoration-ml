@@ -4,6 +4,7 @@ title: Research Routes & Evidence
 parent: Open-Weight Color Recovery
 nav_order: 2
 permalink: /open-weight-color-recovery/research-routes/
+grand_parent: Colour Recovery
 ---
 
 <p class="eyebrow">Evidence reviewed August 2026</p>

@@ -4,6 +4,7 @@ title: CopyCat Workflow
 nav_order: 2
 has_children: true
 permalink: /copycat-workflow/
+parent: Colour Recovery
 ---
 
 <p class="eyebrow">Established research track</p>

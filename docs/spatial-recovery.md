@@ -3,6 +3,7 @@ layout: default
 title: Spatial Recovery
 parent: CopyCat Workflow
 nav_order: 3
+grand_parent: Colour Recovery
 ---
 
 # Spatial Recovery: Building the Detail Target

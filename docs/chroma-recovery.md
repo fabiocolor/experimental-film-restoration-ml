@@ -3,6 +3,7 @@ layout: default
 title: Chroma Recovery
 parent: CopyCat Workflow
 nav_order: 2
+grand_parent: Colour Recovery
 ---
 
 # Chroma Recovery: Building the Colour Target

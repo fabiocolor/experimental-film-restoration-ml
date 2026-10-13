@@ -4,6 +4,7 @@ title: Preparing Training Pairs
 parent: CopyCat Workflow
 nav_order: 5
 permalink: /automated-dataset-preparation/
+grand_parent: Colour Recovery
 ---
 
 # Preparing Reliable Training Pairs

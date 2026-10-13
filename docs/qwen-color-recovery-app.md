@@ -3,6 +3,7 @@ layout: default
 title: Qwen Image Edit Workflow
 parent: Open-Weight Color Recovery
 nav_order: 1
+grand_parent: Colour Recovery
 ---
 
 <p class="eyebrow">Downloadable experiment</p>

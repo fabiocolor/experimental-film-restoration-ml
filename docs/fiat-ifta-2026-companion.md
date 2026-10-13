@@ -1,10 +1,11 @@
 ---
 layout: default
 title: FIAT/IFTA 2026 Companion
-nav_order: 2
+nav_order: 1
 permalink: /fiat-ifta-2026-companion/
 fc_lang: en
 description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 talk, The Current Limits of AI in Film Restoration and How They May Be Surpassed.
+parent: Talks
 ---
 
 {% include fiat-companion/style.html %}

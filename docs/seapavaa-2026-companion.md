@@ -1,8 +1,8 @@
 ---
 layout: default
 title: SEAPAVAA 2026 Companion
-parent: Open-Weight Color Recovery
-nav_order: 3
+parent: Talks
+nav_order: 2
 ---
 
 <style>

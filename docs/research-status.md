@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Where the Research Stands
-nav_order: 1
+nav_order: 6
 permalink: /research-status/
 ---
 
@@ -70,6 +70,11 @@ The second half of the FIAT/IFTA talk was about the picture itself.
 - **Diffusion reconstruction.** When frames are completely gone, I first use whatever survives in the other elements, and then generate only inside the gap, guided by the movement around it (Wan VACE 14B, with pose control). The tests are at reduced resolution so far.
 
 I don't have examples of these two that I can show publicly yet, and the workflows aren't public either.
+
+## Cleaning: dirt removal and matte recovery
+
+- **Dirt removal.** [Advanced Dirt Removal]({{ '/dirt-removal/' | relative_url }}) is a free macro for DaVinci Resolve, with a Motion Mask and a Recovery Brush to bring back what the cleaning took. It's a finished tool, on version 1.1.3.
+- **Matte recovery.** Cleaning filters also remove real picture. [A small model]({{ '/matte-recovery/' | relative_url }}) now decides most of what to bring back, from a restorer's finished decisions. On finished reels it recovered about 95% of the lost picture in the restorer's estimate. Fast movement and faces are where it still brings back dirt.
 
 ## Hardware
 

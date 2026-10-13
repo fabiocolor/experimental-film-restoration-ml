@@ -1,12 +1,13 @@
 ---
 layout: default
 title: How to Use These Docs
-nav_order: 1
+nav_order: 0
+parent: Resources
 ---
 
 # How to Use These Research Docs
 
-This guide helps you navigate the documentation for the Machine Learning for Film Restoration project. It is written for film archives, restoration practitioners, colourists, researchers, and students who want to understand what has worked, what has not, and how to decide whether a method is right for their material.
+This guide helps you navigate the documentation for the Experimental Film Restoration with Machine Learning project. It is written for film archives, restoration practitioners, colourists, researchers, and students who want to understand what has worked, what has not, and how to decide whether a method is right for their material.
 
 ## Recommended reading order
 
