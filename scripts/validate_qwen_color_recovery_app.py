@@ -121,9 +121,14 @@ def validate_cloud_workflow(workflow: dict) -> None:
     forbidden = sorted(disallowed & node_types)
     if forbidden:
         raise AssertionError(f"Cloud workflow contains non-Cloud-safe nodes: {forbidden}")
-    for required in {"ResizeImageMaskNode", "ImageRGBToYUV", "ImageYUVToRGB"}:
+    for required in {"GetImageSize", "ImageScale", "ImageRGBToYUV", "ImageYUVToRGB"}:
         if required not in node_types:
             raise AssertionError(f"Cloud workflow missing built-in composite node: {required}")
+    if "ResizeImageMaskNode" in node_types:
+        raise AssertionError("Cloud workflow uses ResizeImageMaskNode, whose widget layout breaks on ComfyUI Cloud; use GetImageSize + ImageScale")
+    for node in workflow.get("nodes", []):
+        if node.get("type") == "ImageScale" and (node.get("widgets_values") or [None])[0] != "lanczos":
+            raise AssertionError("Cloud ImageScale must use lanczos")
     extra = workflow.get("extra", {}).get("faded_color_recovery", {})
     if extra.get("cloud_safe") is not True or extra.get("custom_nodes_required") is not False:
         raise AssertionError("Cloud workflow metadata must mark cloud_safe true and custom_nodes_required false")

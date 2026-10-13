@@ -1,8 +1,8 @@
 {
   "id": "faded-qwen-2511-cloud-composite-app",
   "revision": 0,
-  "last_node_id": 176,
-  "last_link_id": 389,
+  "last_node_id": 179,
+  "last_link_id": 392,
   "nodes": [
     {
       "id": 82,
@@ -194,8 +194,8 @@
       "widgets_values": [
         "Recover stable RGB chroma for this faded film frame. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. Use image2 only as a soft color calibration field for period film hue relationships, natural skin color, believable foliage, sky, materials, clean neutrals, and restrained saturation. Use image3 as a hard source-derived edge map in the same geometry space as image1: follow those edges and boundaries closely so the recovered chroma stays aligned to the original luma after inverse mapping. Prioritize boundary alignment and composite usability over reconstructing texture or sharpness. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content.",
         false,
-        null,
-        null,
+        0,
+        "fixed",
         "qwen_image_edit_2511_bf16.safetensors",
         "qwen_2.5_vl_7b_fp8_scaled.safetensors",
         "qwen_image_vae.safetensors",
@@ -303,58 +303,6 @@
         0.8
       ],
       "title": "hard Canny edges from source"
-    },
-    {
-      "id": 173,
-      "type": "ResizeImageMaskNode",
-      "pos": [
-        640,
-        440
-      ],
-      "size": [
-        315,
-        170
-      ],
-      "flags": {},
-      "order": 4,
-      "mode": 0,
-      "inputs": [
-        {
-          "name": "input",
-          "type": "IMAGE,MASK",
-          "link": 380
-        },
-        {
-          "name": "match",
-          "type": "IMAGE,MASK",
-          "link": 383
-        }
-      ],
-      "outputs": [
-        {
-          "name": "resized",
-          "type": "IMAGE,MASK",
-          "links": [
-            384
-          ],
-          "slot_index": 0
-        }
-      ],
-      "properties": {
-        "Node name for S&R": "ResizeImageMaskNode"
-      },
-      "widgets_values": [
-        "MATCH_SIZE",
-        1.0,
-        512,
-        512,
-        "center",
-        512,
-        512,
-        1.0,
-        "lanczos"
-      ],
-      "title": "match recovered color to source size"
     },
     {
       "id": 174,
@@ -588,6 +536,117 @@
         "Faded_Color_Recovery_Raw_Inference"
       ],
       "title": "recovered color candidate"
+    },
+    {
+      "id": 178,
+      "type": "GetImageSize",
+      "pos": [
+        640,
+        440
+      ],
+      "size": [
+        220,
+        100
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 383
+        }
+      ],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            391
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            392
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "batch_size",
+          "type": "INT",
+          "links": null,
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSize",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [],
+      "title": "source frame size"
+    },
+    {
+      "id": 179,
+      "type": "ImageScale",
+      "pos": [
+        640,
+        580
+      ],
+      "size": [
+        315,
+        130
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 380
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "widget": {
+            "name": "width"
+          },
+          "link": 391
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "widget": {
+            "name": "height"
+          },
+          "link": 392
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            384
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageScale",
+        "cnr_id": "comfy-core"
+      },
+      "widgets_values": [
+        "lanczos",
+        512,
+        512,
+        "disabled"
+      ],
+      "title": "match recovered color to source size"
     }
   ],
   "links": [
@@ -611,7 +670,7 @@
       380,
       170,
       0,
-      173,
+      179,
       0,
       "IMAGE"
     ],
@@ -627,13 +686,13 @@
       383,
       41,
       0,
-      173,
-      1,
+      178,
+      0,
       "IMAGE"
     ],
     [
       384,
-      173,
+      179,
       0,
       175,
       0,
@@ -694,6 +753,22 @@
       177,
       0,
       "IMAGE"
+    ],
+    [
+      391,
+      178,
+      0,
+      179,
+      1,
+      "INT"
+    ],
+    [
+      392,
+      178,
+      1,
+      179,
+      2,
+      "INT"
     ]
   ],
   "groups": [],
@@ -1304,7 +1379,8 @@
               "secondTabWidth": 65
             },
             "widgets_values": [
-              1
+              1,
+              false
             ]
           },
           {
@@ -2029,7 +2105,7 @@
             },
             "widgets_values": [
               0,
-              "randomize",
+              "fixed",
               40,
               3,
               "euler",

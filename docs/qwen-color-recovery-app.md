@@ -17,7 +17,7 @@ The workflow runs in ComfyUI on your own computer. Try it on a test frame from y
 
 **Where this stands, October 2026.** This is the single-frame part of my research, shared as it is now, so expect it to change.
 
-- **ComfyUI Cloud:** it should work there with the built-in-nodes version, but I'm still testing it. Making the best workflows easy to use on ComfyUI Cloud is one of my next goals.
+- **ComfyUI Cloud:** tested in October 2026 with the built-in-nodes version: it loads with no missing nodes or models and runs on the free tier. Making more of the workflows easy to use on ComfyUI Cloud is one of my next goals.
 - **Hardware for a local install:** a modern NVIDIA GPU with 8 GB of VRAM or more for still frames. Video work needs 16 GB or more.
 - **Settings:** as shipped, the "Enable 4steps LoRA?" switch is off, so the workflow runs Qwen's own defaults: 40 steps, CFG 4, with a random seed. The settings I use are the switch on (4 steps with the Lightning LoRA, CFG 1) and a fixed seed (0), with the source-derived edge map and the colour chart as guides.
 - **The whole-shot routes** (TeleStyle, MiniMax H3 with the Fun ControlNet, and the Temporal CbCr adapter) aren't part of this download yet. A cleaner, self-contained ComfyUI version is in progress. See [where the research stands]({{ '/research-status/' | relative_url }}).
@@ -107,7 +107,7 @@ For the *Counter Attack* example, copy its three inputs into `ComfyUI/input/` an
 
 ## ComfyUI Cloud
 
-This should work on ComfyUI Cloud, but I'm still testing it. The free plan should be enough, and the models are already there.
+Tested on ComfyUI Cloud in October 2026: it loads with no missing nodes or models and runs on the free tier.
 
 1. Sign in at [cloud.comfy.org](https://cloud.comfy.org).
 2. Drag in `faded-qwen-2511-cloud-composite-app.json` (or its PNG).
