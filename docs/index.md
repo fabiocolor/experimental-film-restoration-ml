@@ -7,7 +7,7 @@ nav_order: 0
 <div class="research-hero">
   <p class="eyebrow">Independent research in film preservation</p>
   <h1>Machine learning for recovering colour and detail in moving images</h1>
-  <p class="hero-lede">Practical, openly documented experiments for restoring faded and damaged film while keeping the surviving photographic record in control.</p>
+  <p class="hero-lede">Rescuing the original colour of faded film, not colorizing it. The colour that survives in the picture is evidence: I respect it first and only fill what was lost.</p>
   <div class="hero-buttons">
     <a href="{{ '/open-weight-color-recovery/' | relative_url }}" class="btn btn-primary">Explore open-weight colour recovery</a>
     <a href="{{ '/copycat-workflow/' | relative_url }}" class="btn btn-outline">Explore the CopyCat workflow</a>
@@ -15,7 +15,7 @@ nav_order: 0
 </div>
 
 <div class="research-intro">
-  <p>The project combines an established, reference-trained Nuke workflow with active research into Qwen Image Edit and other open-weight models. The work is documented through source material, intermediate results, failures, and bounded claims rather than presented as a finished restoration product.</p>
+  <p>The project combines an established, reference-trained Nuke workflow with active research into Qwen Image Edit and other open-weight models. In a proper restoration the scan usually arrives balanced, so the normal order is to balance first, with a tool like the <a href="https://github.com/fabiocolor/Faded-Balancer-DCTL">Faded Balancer DCTL</a> in Resolve, and then recover. Balancing only sets levels; the dye information is the same. I document the source material, the intermediate results and the failures along the way.</p>
   <p><strong>New, October 2026:</strong> <a href="{{ '/research-status/' | relative_url }}">where the research stands</a> after SEAPAVAA and FIAT/IFTA: what works, what doesn't yet, and what you can reproduce. Talk pages: <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026</a> · <a href="{{ '/seapavaa-2026-companion/' | relative_url }}">SEAPAVAA 2026</a>.</p>
 </div>
 
@@ -25,7 +25,7 @@ nav_order: 0
   <article class="research-card research-card-featured">
     <p class="card-kicker">Primary research track</p>
     <h3>Open-weight colour recovery</h3>
-    <p>Using Qwen Image Edit and related open models to propose colour while the original frame remains the authority for composition, texture, damage, light, and detail.</p>
+    <p>Using Qwen Image Edit and related open models to fill only the colour that was lost, while the original frame keeps its composition, texture, damage, light and detail, and the colour that survived.</p>
     <ul class="plain-list">
       <li>Source-preserving colour reconstruction</li>
       <li>Reference images and palette guidance</li>
@@ -71,7 +71,7 @@ nav_order: 0
   <div>
     <p class="card-kicker">Try the current workflow</p>
     <h3>Qwen Image Edit colour recovery</h3>
-    <p>Download the public ComfyUI workflow, test it with the supplied frame, or use a frame from your own material.</p>
+    <p>Download the public ComfyUI workflow and try it on a frame from your own material.</p>
   </div>
   <a href="{{ '/qwen-color-recovery-app/' | relative_url }}" class="btn btn-primary">Open the workflow guide</a>
 </div>

@@ -11,7 +11,7 @@ permalink: /research-status/
 
 This is where my research is in October 2026, after SEAPAVAA in June and FIAT/IFTA in October: what works, what doesn't yet, and what you can try yourself. The examples are on the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}) and the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}).
 
-Looking back at this year, what has worked best is keeping the original picture of the film and letting the model add only what's missing: the colour, a gap, a word. None of it is one click, though. It takes a lot of patience, and it's always a restorer who decides what's acceptable and who says what was generated.
+What I'm trying to do is rescue the original colour, not colorize a black-and-white image. The colour that survives in the picture is evidence, so I respect it first and build on top of it, and references and generated colour only fill what was lost. Looking back at this year, what has worked best is exactly that: keeping the original picture of the film and letting the model add only what's missing, whether that's the colour, a gap or a word. None of it is one click, though. It takes a lot of patience, and it's always a restorer who decides what's acceptable and who says what was generated.
 
 ## Colour with a reference: CopyCat in Nuke
 
@@ -23,8 +23,11 @@ The Nuke template runs locally in Nuke Non-Commercial or Nuke Indie, with your o
 
 When there's no better copy, I create what I call a synthetic reference: an approved colour frame for each shot. For that I use Qwen Image Edit, running in ComfyUI.
 
+The normal first step is to balance the scan, for example with the [Faded Balancer DCTL](https://github.com/fabiocolor/Faded-Balancer-DCTL) in DaVinci Resolve, and then recover. In a proper restoration the scan usually arrives balanced anyway. Balancing only sets levels, so a balanced and an unbalanced scan hold the same dye information. Working from the unbalanced scan is a convenience for footage loaded as found.
+
 **What works now**
 
+- **Pre-balanced footage.** For balanced scans I now use what I call the neutral-source route, which I promoted on 13 October. One palette still comes from the scan's luma, with the faded frame as a hint of which hue each object had. H3 with the Fun ControlNet and the Temporal CbCr adapter carry it through the shot. Then the red-green colour that survived in the scan is respected: the recovery may strengthen it, but never flip or weaken it. The yellow-blue choices are still interpretation, because yellow is mostly the dye that's lost. I've tested it on four shots from one source so far, at reduced resolution.
 - **Single frames.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on all kinds of faded material. Someone still has to review every frame, and the colour is an interpretation.
 - **Whole shots.** The frames only agree with each other when the whole shot is guided by an approved reference. Three routes have worked for me:
   - TeleStyle, a LoRA for Qwen Image Edit, which copies one approved reference onto every frame.
@@ -45,7 +48,7 @@ When there's no better copy, I create what I call a synthetic reference: an appr
 **What I'm working on**
 
 - One app that runs the current route on new shots (H3 with the Fun ControlNet, then the Temporal CbCr adapter), instead of one experiment at a time.
-- Tests on scans I've balanced by hand first.
+- Building the neutral-source route into that app.
 - A cleaner ComfyUI version that someone else can run on their own machine.
 
 **What I'd like to do next**
@@ -88,6 +91,6 @@ I don't have examples of these two that I can show publicly yet, and the workflo
 
 ## A note on "approved"
 
-When I say I approved a result, I mean I watched the whole shot at full size and accepted it as a research result for that shot. It doesn't mean the colour is historically accurate. Colour made without a reference is always an interpretation.
+When I say I approved a result, I mean I watched the whole shot at full size and accepted it as a research result for that shot. The colour that survived in the scan is evidence. The colour the model filled in where nothing survived is an interpretation, and the film can't confirm it.
 
 The examples on these pages are faded trailers from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps). The trailers belong to their rights holders.

@@ -1,17 +1,17 @@
 # Machine Learning for Film Restoration
 
-Open research and practical workflows for recovering colour and detail in faded or damaged moving images.
+Open research and practical workflows for recovering colour and detail in faded or damaged moving images. The aim is to rescue the original colour, not to colorize: the colour that survives in the picture is evidence, so I respect it first and only fill what was lost.
 
 This repository follows two connected lines of work:
 
-1. **Open-weight colour recovery:** the main current research area, using Qwen Image Edit and related open models to propose colour while preserving the source frame’s luminance, texture, geometry, and damage.
+1. **Open-weight colour recovery:** the main current research area, using Qwen Image Edit and related open models to fill the colour that was lost while keeping the colour that survived, and the source frame's luminance, texture, geometry and damage.
 2. **Reference-trained recovery:** the established Nuke CopyCat workflow, using aligned source/reference pairs to recover chroma or spatial detail with a model trained for one film project.
 
 The project is written for film archives, restoration practitioners, colourists, researchers, and students. It is research material rather than a finished commercial product.
 
 ## Where things stand (October 2026)
 
-After SEAPAVAA (June) and FIAT/IFTA (October) 2026, here's the short version. Single-frame colour recovery with Qwen Image Edit is useful on varied faded material, with a person reviewing every frame. Whole-shot colour works on specific shots when the whole shot is guided by approved references, through TeleStyle, MiniMax H3 with the Fun ControlNet, or my small Temporal CbCr adapter. Resolution, length and generalisation to new shots are still the main limits. The full summary, including what you can and can't reproduce yet, is on [Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/).
+After SEAPAVAA (June) and FIAT/IFTA (October) 2026, here's the short version. Pre-balanced scans are the common case in proper restorations, so the normal order is to balance first (for example with the [Faded Balancer DCTL](https://github.com/fabiocolor/Faded-Balancer-DCTL)) and then recover. For those scans I now use a neutral-source route that keeps the red-green colour that survived in the scan and fills in what was lost. Single-frame colour recovery with Qwen Image Edit is useful on varied faded material, with a person reviewing every frame. Whole-shot colour works on specific shots when the whole shot is guided by approved references, through TeleStyle, MiniMax H3 with the Fun ControlNet, or my small Temporal CbCr adapter. Resolution, length and generalisation to new shots are still the main limits. The full summary, including what you can and can't reproduce yet, is on [Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/).
 
 - **Qwen Image Edit workflows** are ComfyUI graphs. The single-frame workflow here is a snapshot of the research, so it will change. It can run on ComfyUI Cloud, but I haven't tested that route properly for restoration work yet. I'm working on a cleaner ComfyUI version, and the example workflows from the talks still need more work before someone else can use them. One goal is to make a few workflows from the best examples usable on ComfyUI Cloud.
 - **Hardware:** a modern NVIDIA GPU, with 8 GB of VRAM or more for still frames and 16 GB or more for video.

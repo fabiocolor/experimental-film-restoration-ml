@@ -9,15 +9,15 @@ nav_order: 1
 
 # Qwen Image Edit Colour Recovery Workflow
 
-This ComfyUI workflow uses Qwen Image Edit to propose colour for a faded film frame. It then combines that colour with the original frame’s luminance so the source remains responsible for fine detail, texture, damage, and light.
+The aim is to rescue the colour of a faded frame, not to colorize it. The source keeps its own luminance, so fine detail, texture, damage and light stay as they were, and Qwen Image Edit only fills in the colour that faded away. This download is the single-frame route for scans with a strong cast. For pre-balanced scans, which is the usual case in a restoration, I now use a route that also keeps the red-green colour that survived in the scan; it isn't in this download yet (see [where the research stands]({{ '/research-status/' | relative_url }})).
 
-You can run the workflow in ComfyUI Cloud or on a local ComfyUI installation. Try it on a test frame from your own footage before using preservation material.
+The workflow runs in ComfyUI on your own computer. Try it on a test frame from your own footage before using preservation material.
 
 > **Ongoing research:** this page and its downloads describe the current working version, not a final specification. Workflows, prompts, recommended settings, and conclusions will change as experiments continue. Review every result against the source and any historical evidence; a visually convincing image is not proof of original colour.
 
 **Where this stands, October 2026.** This is the single-frame part of my research, shared as it is now, so expect it to change.
 
-- **ComfyUI Cloud:** the workflow runs there, but I haven't tested that route properly for restoration work yet. Making a few workflows from the best examples usable on ComfyUI Cloud is one of my goals.
+- **ComfyUI Cloud:** it runs there too, but I haven't tested it properly for restoration yet. Making the best workflows easy to use on ComfyUI Cloud is one of my next goals.
 - **Hardware for a local install:** a modern NVIDIA GPU with 8 GB of VRAM or more for still frames. Video work needs 16 GB or more.
 - **Settings:** as shipped, the "Enable 4steps LoRA?" switch is off, so the workflow runs Qwen's own defaults: 40 steps, CFG 4, with a random seed. The settings I use are the switch on (4 steps with the Lightning LoRA, CFG 1) and a fixed seed (0), with the source-derived edge map and the colour chart as guides.
 - **The whole-shot routes** (TeleStyle, MiniMax H3 with the Fun ControlNet, and the Temporal CbCr adapter) aren't part of this download yet. A cleaner, self-contained ComfyUI version is in progress. See [where the research stands]({{ '/research-status/' | relative_url }}).
@@ -40,18 +40,17 @@ You can run the workflow in ComfyUI Cloud or on a local ComfyUI installation. Tr
 <p class="experiment-credit"><em>Reptilicus</em> (1961) trailer, from a 35mm trailer reel scan posted publicly on <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>. The trailer belongs to its rights holders; see <a href="{{ '/credits/' | relative_url }}">Credits &amp; Attribution</a>.</p>
 
 <div class="app-download-panel">
-  <a class="btn btn-primary" href="{{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}">Download Cloud workflow</a>
-  <a class="btn btn-outline" href="https://cloud.comfy.org/" target="_blank" rel="noopener">Open ComfyUI Cloud</a>
+  <a class="btn btn-primary" href="{{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}">Download the workflow</a>
 </div>
 
 ## Download options
 
 | Download | What it is for |
 | --- | --- |
-| [`faded-qwen-2511-cloud-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}) | The simplest version to try in ComfyUI Cloud. |
+| [`faded-qwen-2511-cloud-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}) | A version that uses only built-in nodes, for ComfyUI Cloud. |
 | [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The complete workflow for a local ComfyUI installation. |
 | [`faded-color-reference-palette.png`]({{ '/downloads/qwen-color-recovery/assets/faded-color-reference-palette.png' | relative_url }}) | The colour reference the workflow uses. I made it for this project, and you can reuse it with the workflow. |
-| [`faded_color_recovery/__init__.py`]({{ '/downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/__init__.py' | relative_url }}) | The small helper node for the local workflow. It puts the proposed colour on the scan's own brightness. |
+| [`faded_color_recovery/__init__.py`]({{ '/downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/__init__.py' | relative_url }}) | The small helper node for the local workflow. It puts the recovered colour on the scan's own brightness. |
 | [`THIRD_PARTY_NOTICES.md`]({{ '/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md' | relative_url }}) | Model, software, and included-asset attribution. |
 
 Use a frame from your own footage. The packaged example frame has been taken out while I check its rights.
@@ -81,20 +80,6 @@ Use this tool when your source is a video. The file stays in your browser and is
 
 If your browser cannot open the original video, make a temporary H.264 or HEVC copy and extract the frame from that.
 
-## Run it in ComfyUI Cloud
-
-ComfyUI Cloud may require an active plan and available credits before it can run the workflow. You can still open the graph and inspect how it works without starting a generation.
-
-1. Open [ComfyUI Cloud](https://cloud.comfy.org/).
-2. Import `faded-qwen-2511-cloud-composite-app.json`.
-3. Upload your faded frame to the input labelled `source frame`.
-4. If Cloud asks for the colour reference, upload `faded-color-reference-palette.png` from the table above.
-5. Run the workflow.
-6. Save `Recovered color` if you want to inspect the model’s direct proposal.
-7. Save `Final composite` for the source-preserving version.
-
-The hard Canny guide is created inside the workflow from the source frame. You do not need to make it separately.
-
 ## Run it on your own computer
 
 1. Install or update ComfyUI.
@@ -104,6 +89,15 @@ The hard Canny guide is created inside the workflow from the source frame. You d
 5. Copy `faded-color-reference-palette.png` into `ComfyUI/input/`.
 6. Import the workflow JSON.
 7. If ComfyUI reports missing Qwen Image Edit 2511 files, use ComfyUI Manager or follow the paths shown in the missing-model message.
+
+## Trying it on ComfyUI Cloud
+
+It runs on ComfyUI Cloud too, but I haven't tested it properly for restoration yet, and Cloud may need an active plan and credits. Making the best workflows easy to use there is one of my next goals. If you'd like to try it now:
+
+1. Import `faded-qwen-2511-cloud-composite-app.json`.
+2. Upload your faded frame to the input labelled `source frame`.
+3. If Cloud asks for the colour reference, upload `faded-color-reference-palette.png` from the table above.
+4. Run it, and save `Final composite` (and `Recovered color` if you want to see the model's direct output).
 
 ## Review the result
 
