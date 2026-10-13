@@ -1,11 +1,13 @@
 # Videos on the FIAT/IFTA 2026 companion pages (English, pt-br, es) and the full-size viewer.
-# Each file is a public Google Drive file. The page embeds Drive's player only; it offers
-# no download or Drive link. Drive refuses cross-site <video> requests to the
-# file itself (HTTP 403), so the original can't be embedded directly.
-# size_mb is the file size in MiB, as shown on the page.
+# Each file is a public Google Drive file. The page embeds Drive's player and links the
+# download. Drive refuses cross-site <video> requests to the file itself (HTTP 403),
+# so the original can't be embedded directly.
+# size_mb is the file size in MiB, as shown on the page. poster is an optional local
+# still used instead of Drive's thumbnail when that thumbnail is a dark or blank frame.
 videos:
   candy:
     drive: 11UucDpEAC5QRlfF3BN12f3mggg-S58Ds
+    poster: /images_kebab/candy-candy/candy-candy-comparison-still.jpg
     width: 1920
     height: 1080
     duration: "1:10"

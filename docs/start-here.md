@@ -15,8 +15,10 @@ For reel-, shot-, and frame-level alignment with strict training-pair rejection,
 - [Chroma Recovery]({{ '/chroma-recovery/' | relative_url }}): when detail is intact but colour is faded, collapsed, or shifted.
 - [Spatial Recovery]({{ '/spatial-recovery/' | relative_url }}): when colour is acceptable but detail, sharpness, or grain are weaker than the reference.
 
-![Workflow overview]({{ '/images_kebab/general/full-overview-comparison.png' | relative_url }})
-*End-to-end overview of the recovery workflow.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/general/full-overview-comparison.png' | relative_url }}" alt="Workflow overview">
+  <figcaption>End-to-end overview of the recovery workflow.</figcaption>
+</figure>
 
 ---
 
@@ -28,11 +30,15 @@ Before starting the workflow, make sure the scan preserves as much recoverable i
 
 What matters is whether the reference preserves better information for the problem you are solving, not whether it is newer, sharper, or higher resolution.
 
-![Raw source before balancing]({{ '/images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif' | relative_url }})
-*Source that should be technically balanced before training.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif' | relative_url }}" alt="Raw source before balancing">
+  <figcaption>Source that should be technically balanced before training.</figcaption>
+</figure>
 
-![Balanced source for training]({{ '/images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif' | relative_url }})
-*Balanced source plate used as cleaner input to the workflow.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif' | relative_url }}" alt="Balanced source for training">
+  <figcaption>Balanced source plate used as cleaner input to the workflow.</figcaption>
+</figure>
 
 **Source preparation:**
 
@@ -42,11 +48,18 @@ What matters is whether the reference preserves better information for the probl
 - For spatial recovery: preserve original grain structure. Do not degrain unless the reference is also degrained.
 - Global cast neutralization: if the source has a strong bias from dye fade or scanning, apply a neutral pre-balance. Recommended: [Faded Balancer DCTL/OFX](https://github.com/fabiocolor/Faded-Balancer-DCTL). For background on magenta dye fade and channel imbalance, see [Why Faded Scans Turn Magenta]({{ '/additional-resources/' | relative_url }}#why-faded-scans-turn-magenta).
 
-| Before (raw faded scan) | After (Faded Balancer applied) |
-| --- | --- |
-| ![Raw faded scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}) | ![Balanced scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}) |
+<div class="media-grid media-grid-2">
+  <figure class="figure">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}" alt="Raw faded scan">
+    <figcaption>Before (raw faded scan)</figcaption>
+  </figure>
+  <figure class="figure">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}" alt="Balanced scan">
+    <figcaption>After (Faded Balancer applied)</figcaption>
+  </figure>
+</div>
 
-*Faded Balancer DCTL neutralizing magenta dye fade in Resolve before Nuke ingest.*
+<p class="experiment-credit">Faded Balancer DCTL neutralizing magenta dye fade in Resolve before Nuke ingest.</p>
 
 **Reference preparation:**
 
@@ -58,8 +71,10 @@ What matters is whether the reference preserves better information for the probl
 
 ### Resolve Export
 
-![Resolve reference prep]({{ '/images_kebab/cropped/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png' | relative_url }})
-*Source and reference placed in the same Resolve container.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png' | relative_url }}" alt="Resolve reference prep">
+  <figcaption>Source and reference placed in the same Resolve container.</figcaption>
+</figure>
 
 1. Conform both sources in a single timeline. Disable retimes, effects, and per-clip grades.
 2. Align the reference to the source in Edit/Inspector (Translate/Scale/Rotate). Allow letterbox/pillarbox; keep stable framing.
@@ -124,8 +139,10 @@ What matters is whether the reference preserves better information for the probl
 
 Build a small teaching set from representative frames. Do not put the whole sequence into training.
 
-![Dataset curation]({{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }})
-*Building paired training examples in Nuke.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }}" alt="Dataset curation">
+  <figcaption>Building paired training examples in Nuke.</figcaption>
+</figure>
 
 ### Selection Criteria
 
@@ -178,8 +195,10 @@ Ensure diversity across:
 
 Pixel-accurate alignment with shared crop so branches differ only in the intended characteristic (color or spatial detail).
 
-![Alignment workflow]({{ '/images_kebab/cropped/alignment-cropped.png' | relative_url }})
-*Auto and manual alignment paths inside the template.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/alignment-cropped.png' | relative_url }}" alt="Alignment workflow">
+  <figcaption>Auto and manual alignment paths inside the template.</figcaption>
+</figure>
 
 ### Strategy
 
@@ -187,8 +206,10 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 2. Evaluate immediately with `Merge (difference)`. If edges/geometry remain, switch to manual `Transform` with keyframes.
 3. Keep a `Dissolve` to compare auto/manual paths quickly.
 
-![Merge (difference) alignment check]({{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }})
-*Merge (difference) in the viewer: geometry and edges should be near-black. Visible colour differences are expected; only structural misalignment is a problem.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }}" alt="Merge (difference) alignment check">
+  <figcaption>Merge (difference) in the viewer: geometry and edges should be near-black. Visible colour differences are expected; only structural misalignment is a problem.</figcaption>
+</figure>
 
 ### Crop and Subtitle Handling
 
@@ -196,8 +217,10 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 - Exclude burned-in subtitles/logos. Where unavoidable, animate a shared crop.
 - Apply the **exact same crop** to Source and Reference (clone/link) so pixel areas correspond.
 
-![Crop node settings]({{ '/images_kebab/cropped/crop-node-settings-cropped.png' | relative_url }})
-*Shared crop keeping both branches in the same live picture area.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/crop-node-settings-cropped.png' | relative_url }}" alt="Crop node settings">
+  <figcaption>Shared crop keeping both branches in the same live picture area.</figcaption>
+</figure>
 
 ### Nuke Build
 
@@ -221,14 +244,20 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 
 This is where the workflow diverges. The layout is shared; the branch decision is which channels go into the ground-truth target.
 
-![Colorspace node settings]({{ '/images_kebab/cropped/colorspace-node-linear-to-ycbcr-settings-cropped.png' | relative_url }})
-*Convert both branches to YCbCr before channel recombination.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/colorspace-node-linear-to-ycbcr-settings-cropped.png' | relative_url }}" alt="Colorspace node settings">
+  <figcaption>Convert both branches to YCbCr before channel recombination.</figcaption>
+</figure>
 
-![Shuffle node settings]({{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }})
-*Shuffle node used to build the ground-truth target.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }}" alt="Shuffle node settings">
+  <figcaption>Shuffle node used to build the ground-truth target.</figcaption>
+</figure>
 
-![CopyBBox node]({{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }})
-*CopyBBox ensures identical bbox across Source and Ground Truth before connecting to CopyCat.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }}" alt="CopyBBox node">
+  <figcaption>CopyBBox ensures identical bbox across Source and Ground Truth before connecting to CopyCat.</figcaption>
+</figure>
 
 | Branch | Ground truth target | Continue in |
 | --- | --- | --- |

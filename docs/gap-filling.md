@@ -24,17 +24,20 @@ With tools like Phoenix, DIAMANT or DaVinci Resolve you can bridge two or three 
 
 Flute players and a drummer, 183 frames of 16mm colour reversal footage from the Wong Rengifo collection. The colour has faded to magenta, and the emulsion is breaking up across the whole shot. No other print exists.
 
-<figure>
+<figure class="figure">
   <img src="{{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }}" alt="Left: the decayed, magenta-faded 16mm scan of three flute players. Right: the reconstructed frame with restored colour.">
   <figcaption>The scan on the left, the approved reconstruction on the right.</figcaption>
 </figure>
 
-<figure>
+<figure class="figure">
   <img src="{{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f160.jpg' | relative_url }}" alt="Left: the decayed scan of a flute player and the drummer. Right: the reconstruction, with the drum and the hands intact.">
   <figcaption>Later in the shot: the drummer. The film's own drumming is kept.</figcaption>
 </figure>
 
-<video controls playsinline preload="metadata" width="960" src="{{ '/media/gap-filling/16mm-flute-players-scan-vs-reconstruction.mp4' | relative_url }}"></video>
+<figure class="figure">
+  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-scan-vs-reconstruction.mp4' | relative_url }}"></video>
+  <figcaption>The scan and the approved reconstruction, side by side (4 seconds).</figcaption>
+</figure>
 
 **What I did**
 

@@ -28,11 +28,15 @@ Start with a modest model and a held-out frame that is not part of the training 
 
 Use small geometric augmentation only when the composition allows it. Mild exposure variation can help, but do not introduce transformations that change the property being learned. Chroma training should not distort colour relationships. Spatial training should not add sharpening, blur, or synthetic grain.
 
-![CopyCat Progress contact sheet]({{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }})
-*The Progress tab shows loss and training crops over time.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }}" alt="CopyCat Progress contact sheet">
+  <figcaption>The Progress tab shows loss and training crops over time.</figcaption>
+</figure>
 
-![CopyCat held-out preview]({{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }})
-*A held-out preview is more useful than loss alone because it tests an unseen frame.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }}" alt="CopyCat held-out preview">
+  <figcaption>A held-out preview is more useful than loss alone because it tests an unseen frame.</figcaption>
+</figure>
 
 Check range and bounding-box parity in both branches. For chroma recovery, source and target luminance should remain nearly identical. For spatial recovery, source and target chroma should remain nearly identical.
 
@@ -48,8 +52,10 @@ Train on selected pairs and infer on the complete source.
 6. Review motion, transitions, first and last frames, and shot joins.
 7. Add new pairs only when they address a specific observed failure, then test again.
 
-![Inference workflow]({{ '/images_kebab/cropped/inference-render-cropped.png' | relative_url }})
-*The trained model is applied to the complete source sequence.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/inference-render-cropped.png' | relative_url }}" alt="Inference workflow">
+  <figcaption>The trained model is applied to the complete source sequence.</figcaption>
+</figure>
 
 For archival renders, follow the project’s delivery standard. A common working choice is 16-bit half-float EXR with ZIP or DWAA compression in ACES2065-1. Include the shot, version, and model or checkpoint identifier in the file naming.
 

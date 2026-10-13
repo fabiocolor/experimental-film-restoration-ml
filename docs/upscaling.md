@@ -17,17 +17,20 @@ The result is partly synthetic. The model invents fine detail the film no longer
 
 *El Tinterillo* is a medium-length black-and-white film that survives as a 16mm print with almost everything wrong with it, and a telecine that's cleaner, but soft, cropped and with the odd cadence of telecines from that time.
 
-<figure>
+<figure class="figure">
   <img src="{{ '/images_kebab/upscaling/el-tinterillo-stairs-scan-vs-result-f300.jpg' | relative_url }}" alt="Left: the damaged 16mm scan of a man on a balcony. Right: the approved result, clean and stable.">
   <figcaption>The stairs shot: the 16mm scan on the left, the approved result on the right.</figcaption>
 </figure>
 
-<figure>
+<figure class="figure">
   <img src="{{ '/images_kebab/upscaling/el-tinterillo-stairs-scan-vs-result-f060.jpg' | relative_url }}" alt="Left: the washed-out 16mm scan of a street with two men walking. Right: the result, with the wall, the door and the men restored.">
   <figcaption>Earlier in the same shot.</figcaption>
 </figure>
 
-<video controls playsinline preload="metadata" width="960" src="{{ '/media/upscaling/el-tinterillo-stairs-scan-vs-result.mp4' | relative_url }}"></video>
+<figure class="figure">
+  <video controls playsinline preload="metadata" src="{{ '/media/upscaling/el-tinterillo-stairs-scan-vs-result.mp4' | relative_url }}"></video>
+  <figcaption>The 16mm scan and the approved result, side by side (4 seconds).</figcaption>
+</figure>
 
 **What I did**
 

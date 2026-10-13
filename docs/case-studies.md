@@ -19,8 +19,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery | **Gauge:** 16mm positive print | **Reference:** PAL DVD (French release)
 
-![Candy Candy chroma recovery finished]({{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }})
-*Machine learning chroma recovery output, with colours recovered from a PAL DVD reference onto a 16mm scan.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }}" alt="Candy Candy chroma recovery finished">
+  <figcaption>Machine learning chroma recovery output, with colours recovered from a PAL DVD reference onto a 16mm scan.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -56,7 +58,9 @@ Rights, source context, software, and contributor information is collected on th
 
 **For full decision trail:** See [Candy Candy Chroma Recovery Trail]({% link research-evidence/CANDY_CANDY_CHROMA_COPYCAT.md %})
 
-![Candy Candy comparison preview]({{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }})
+<figure class="figure">
+  <img src="{{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }}" alt="Candy Candy comparison preview">
+</figure>
 
 ---
 
@@ -64,8 +68,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery | **Gauge:** Film print | **Reference:** Beta tape / earlier video reference
 
-![Beta chroma recovery finished]({{ '/images_kebab/beta/beta-chroma-recovery-finished.png' | relative_url }})
-*Machine learning chroma recovery output using a Betacam reference.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/beta/beta-chroma-recovery-finished.png' | relative_url }}" alt="Beta chroma recovery finished">
+  <figcaption>Machine learning chroma recovery output using a Betacam reference.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -85,8 +91,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Skip when:** Video reference has severe banding, posterization, or baked-in creative grades that don't match source intent.
 
-![Beta comparison preview]({{ '/images_kebab/beta/beta-comparison-preview.gif' | relative_url }})
-*4-way comparison: Original Scan → Balanced & Cleaned → Betacam Reference → Chroma Recovery.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/beta/beta-comparison-preview.gif' | relative_url }}" alt="Beta comparison preview">
+  <figcaption>4-way comparison: Original Scan → Balanced & Cleaned → Betacam Reference → Chroma Recovery.</figcaption>
+</figure>
 
 ---
 
@@ -94,8 +102,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery | **Gauge:** Film (720x576 source, 2048x858 container) | **Reference:** Betacam
 
-![PSM chroma recovery finished]({{ '/images_kebab/psm/psm-chroma-recovery-finished.png' | relative_url }})
-*Machine learning chroma recovery output using a Betacam reference.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/psm/psm-chroma-recovery-finished.png' | relative_url }}" alt="PSM chroma recovery finished">
+  <figcaption>Machine learning chroma recovery output using a Betacam reference.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -105,8 +115,10 @@ Rights, source context, software, and contributor information is collected on th
 | **Key decisions** | Tested both chroma-only and combined chroma+luma output stages. Multiple branch structures (`COLOR_RECOVERY`, `CHROMA_LUMA`, `LUMA_EXTEND`, `REF_LUMA`) confirm this was not a single-pass experiment but an iterative exploration of different recovery strategies. |
 | **Result** | Produced about 70 seconds of test material in both chroma-only and combined modes. This showed that the same CopyCat workflow could explore several recovery strategies on one source. |
 
-![PSM comparison preview]({{ '/images_kebab/psm/psm-comparison-preview.gif' | relative_url }})
-*4-way comparison: Original Scan → Balanced & Cleaned → Betacam Reference → Chroma Recovery.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/psm/psm-comparison-preview.gif' | relative_url }}" alt="PSM comparison preview">
+  <figcaption>4-way comparison: Original Scan → Balanced & Cleaned → Betacam Reference → Chroma Recovery.</figcaption>
+</figure>
 
 ---
 
@@ -114,8 +126,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery | **Gauge:** Film/video | **Reference:** Direct color reference
 
-![Friends chroma recovery finished]({{ '/images_kebab/friends/friends-chroma-recovery-finished.png' | relative_url }})
-*Machine learning chroma recovery output showing recovered skin tones and colour.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/friends/friends-chroma-recovery-finished.png' | relative_url }}" alt="Friends chroma recovery finished">
+  <figcaption>Machine learning chroma recovery output showing recovered skin tones and colour.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -123,8 +137,10 @@ Rights, source context, software, and contributor information is collected on th
 | **Approach** | Standard reference-based chroma recovery workflow. Direct reference with intact color data used for supervised training pairs. Grouped with Frontier Experience as a straightforward direct-reference case. |
 | **Result** | Successful color recovery with natural skin tones and consistent scene-to-scene color. |
 
-![Friends comparison preview]({{ '/images_kebab/friends/friends-comparison-preview.gif' | relative_url }})
-*Before/after chroma recovery comparison.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/friends/friends-comparison-preview.gif' | relative_url }}" alt="Friends comparison preview">
+  <figcaption>Before/after chroma recovery comparison.</figcaption>
+</figure>
 
 ---
 
@@ -132,8 +148,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery | **Reference:** DVD and DCP material
 
-![Muralla Verde chroma recovery finished]({{ '/images_kebab/muralla-verde/muralla-verde-chroma-recovery-finished.png' | relative_url }})
-*Machine learning chroma recovery output.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/muralla-verde/muralla-verde-chroma-recovery-finished.png' | relative_url }}" alt="Muralla Verde chroma recovery finished">
+  <figcaption>Machine learning chroma recovery output.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -142,8 +160,10 @@ Rights, source context, software, and contributor information is collected on th
 | **Approach** | Full workflow: raw scan → Faded Balancer DCTL for initial rebalancing → reference preparation and alignment in Resolve → CopyCat training → inference rendering. Custom balancing tools were tested before and alongside the machine-learning stage. |
 | **Result** | Mature project with exported script overviews, contact sheets, comparisons, and output frames. Demonstrates the complete Resolve → Nuke → Resolve validation loop. |
 
-![Muralla Verde comparison preview]({{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }})
-*Before/after chroma recovery comparison.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" alt="Muralla Verde comparison preview">
+  <figcaption>Before/after chroma recovery comparison.</figcaption>
+</figure>
 
 ---
 
@@ -151,8 +171,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery | **Gauge:** Film print | **Reference:** Telecine (archival secondary source)
 
-![Frontier Experience chroma recovery output]({{ '/images_kebab/frontier-experience/frontier-experience-chroma-recovery-output.png' | relative_url }})
-*Machine learning chroma recovery output.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/frontier-experience/frontier-experience-chroma-recovery-output.png' | relative_url }}" alt="Frontier Experience chroma recovery output">
+  <figcaption>Machine learning chroma recovery output.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -178,8 +200,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Learning:** This case teaches the stopping rule for sequence models. When held-out frames show persistent failures in specific conditions (skies, shadows, lighting transitions), segment by scene type rather than forcing one model to learn everything.
 
-![Frontier Experience comparison preview]({{ '/images_kebab/frontier-experience/frontier-experience-comparison-preview.gif' | relative_url }})
-*Original Scan vs. Telecine Reference vs. Machine Learning Output.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/frontier-experience/frontier-experience-comparison-preview.gif' | relative_url }}" alt="Frontier Experience comparison preview">
+  <figcaption>Original Scan vs. Telecine Reference vs. Machine Learning Output.</figcaption>
+</figure>
 
 ---
 
@@ -187,8 +211,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery (Constructed Reference) | **Reference:** Photoshop-created references
 
-![Ben chroma recovery finished]({{ '/images_kebab/ben/ben-chroma-recovery-finished-1.png' | relative_url }})
-*Machine learning chroma recovery output using a Photoshop-constructed reference.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/ben/ben-chroma-recovery-finished-1.png' | relative_url }}" alt="Ben chroma recovery finished">
+  <figcaption>Machine learning chroma recovery output using a Photoshop-constructed reference.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -197,11 +223,15 @@ Rights, source context, software, and contributor information is collected on th
 | **Approach** | Non-reference / operator-assisted recovery. Each shot gets its own Photoshop-created reference frame. Contact sheets and comparison passes validate the result across multiple shots. Grouped with Rebelion de las Tapadas as a constructed-reference workflow. |
 | **Result** | Reached comparison-ready output stage with 4-way comparisons and a finished output. Demonstrates that when no historical reference survives, operator-constructed references can still drive CopyCat training. |
 
-![Ben Photoshop reference creation]({{ '/images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg' | relative_url }})
-*Reference construction in Adobe Photoshop using Neural Filters (Colorize).*
+<figure class="figure">
+  <img src="{{ '/images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg' | relative_url }}" alt="Ben Photoshop reference creation">
+  <figcaption>Reference construction in Adobe Photoshop using Neural Filters (Colorize).</figcaption>
+</figure>
 
-![Ben comparison preview]({{ '/images_kebab/ben/ben-comparison-preview.gif' | relative_url }})
-*4-way comparison.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/ben/ben-comparison-preview.gif' | relative_url }}" alt="Ben comparison preview">
+  <figcaption>4-way comparison.</figcaption>
+</figure>
 
 ---
 
@@ -209,8 +239,10 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery (Non-Reference) | **Gauge:** 35mm positive | **Reference:** Colonial-era watercolor paintings
 
-![Rebelion de las Tapadas chroma recovery output]({{ '/images_kebab/rebelion-de-las-tapadas/rebeli-n-de-tapadas-chroma-recovery-script-overview.jpeg' | relative_url }})
-*Machine learning chroma recovery output using historical painting references.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/rebelion-de-las-tapadas/rebeli-n-de-tapadas-chroma-recovery-script-overview.jpeg' | relative_url }}" alt="Rebelion de las Tapadas chroma recovery output">
+  <figcaption>Machine learning chroma recovery output using historical painting references.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -221,8 +253,10 @@ Rights, source context, software, and contributor information is collected on th
 | **Key decisions** | Some source images in the film are intentionally black and white, so the model had to learn what *not* to colourise. The output is presented as a plausible reconstruction rather than a faithful recovery. All assumptions are documented. |
 | **Result** | Recovered color while keeping visible film texture. Demonstrates that artwork can function as a constrained visual reference when direct color reference does not survive. |
 
-![Rebelion de las Tapadas comparison preview]({{ '/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-comparison-preview.gif' | relative_url }})
-*3-way comparison: Original Scan → Balanced & Cleaned → Machine Learning (painting-referenced).*
+<figure class="figure">
+  <img src="{{ '/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-comparison-preview.gif' | relative_url }}" alt="Rebelion de las Tapadas comparison preview">
+  <figcaption>3-way comparison: Original Scan → Balanced & Cleaned → Machine Learning (painting-referenced).</figcaption>
+</figure>
 
 ---
 
@@ -231,11 +265,15 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Spatial Recovery (Analog Video Reference) | **Gauge:** 16mm | **Reference:** Analog telecine
 
-![Tinterillo spatial recovery comparison]({{ '/images_kebab/tinterillo/tinterillo-spatial-recovery-comparison-2.jpeg' | relative_url }})
-*Machine learning spatial recovery output.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/tinterillo/tinterillo-spatial-recovery-comparison-2.jpeg' | relative_url }}" alt="Tinterillo spatial recovery comparison">
+  <figcaption>Machine learning spatial recovery output.</figcaption>
+</figure>
 
-![Tinterillo training diagram]({{ '/images_kebab/tinterillo/tinterillo-training-diagram.jpeg' | relative_url }})
-*Two-direction spatial recovery: 16mm Source + Telecine → ML Result, and Telecine Source + 16mm → ML Result.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/tinterillo/tinterillo-training-diagram.jpeg' | relative_url }}" alt="Tinterillo training diagram">
+  <figcaption>Two-direction spatial recovery: 16mm Source + Telecine → ML Result, and Telecine Source + 16mm → ML Result.</figcaption>
+</figure>
 
 | Field | Details |
 |---|---|
@@ -245,8 +283,10 @@ Rights, source context, software, and contributor information is collected on th
 | **Key decision** | Tested in both directions: telecine-to-16mm and 16mm-to-telecine. Both produced results, demonstrating the bidirectional nature of the concept. |
 | **Status** | Proof of concept. Two-step approach produced more convincing full-frame results than direct transfer. Damage and haze reduced while keeping the full 16mm frame instead of collapsing to telecine bounds. Typical spatial recovery artifacts remain. |
 
-![Tinterillo proof of concept]({{ '/images_kebab/general/spatial-recovery-proof-of-concept-preview.gif' | relative_url }})
-*Animated comparison showing spatial recovery results across multiple frames.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/general/spatial-recovery-proof-of-concept-preview.gif' | relative_url }}" alt="Tinterillo proof of concept">
+  <figcaption>Animated comparison showing spatial recovery results across multiple frames.</figcaption>
+</figure>
 
 ---
 

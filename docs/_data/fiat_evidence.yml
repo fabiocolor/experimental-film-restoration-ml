@@ -184,28 +184,16 @@ examples:
       es: La fuente de 16mm más el PAL DVD da el objetivo. Abajo, el resultado del modelo tras 1, 1.000, 30.000 y 60.000 pasos de entrenamiento.
     width: 1920
     height: 886
-  - id: s05-05
-    kind: image
-    label:
-      en: Training sheet, early
-      pt-br: Folha de treinamento, no início
-      es: Hoja de entrenamiento, al principio
-    caption:
-      en: 'A CopyCat training sheet from early in a Candy Candy run: crops of the faded scan, the target with the DVD''s colour, and the model''s output, which is still a flat blue.'
-      pt-br: 'Uma folha de treinamento do CopyCat do início de uma execução de Candy Candy: recortes da digitalização desbotada, o alvo com a cor do DVD e o resultado do modelo, que ainda é um azul chapado.'
-      es: 'Una hoja de entrenamiento de CopyCat del principio de una ejecución de Candy Candy: recortes del escaneo desvanecido, el objetivo con el color del DVD y el resultado del modelo, que todavía es un azul plano.'
-    width: 1536
-    height: 1536
   - id: s05-06
     kind: image
     label:
-      en: Training sheet, later
-      pt-br: Folha de treinamento, mais adiante
-      es: Hoja de entrenamiento, más adelante
+      en: Training sheet
+      pt-br: Folha de treinamento
+      es: Hoja de entrenamiento
     caption:
-      en: 'A training sheet from a later CopyCat run on the same opening: the faded scan, the target and the model''s output, which now comes close to the target.'
-      pt-br: 'Uma folha de treinamento de uma execução posterior do CopyCat na mesma abertura: a digitalização desbotada, o alvo e o resultado do modelo, que agora chega perto do alvo.'
-      es: 'Una hoja de entrenamiento de una ejecución posterior de CopyCat sobre la misma apertura: el escaneo desvanecido, el objetivo y el resultado del modelo, que ahora se acerca al objetivo.'
+      en: 'A CopyCat training sheet from a Candy Candy run on the opening: the faded scan, the target and the model''s output, which comes close to the target.'
+      pt-br: 'Uma folha de treinamento do CopyCat de uma execução de Candy Candy na abertura: a digitalização desbotada, o alvo e o resultado do modelo, que chega perto do alvo.'
+      es: 'Una hoja de entrenamiento de CopyCat de una ejecución de Candy Candy sobre la apertura: el escaneo desvanecido, el objetivo y el resultado del modelo, que se acerca al objetivo.'
     width: 1536
     height: 1536
   - id: s05-07
@@ -637,9 +625,9 @@ examples:
   - id: s13-06
     kind: image
     label:
-      en: The slide 12 grid
-      pt-br: A grade do slide 12
-      es: La cuadrícula de la diapositiva 12
+      en: Four frames compared
+      pt-br: Quatro quadros comparados
+      es: Cuatro fotogramas comparados
     caption:
       en: Faded source, teacher and adapter result for four frames. The first and third have no teacher.
       pt-br: Fonte desbotada, professor e resultado do adaptador para quatro quadros. O primeiro e o terceiro não têm professor.

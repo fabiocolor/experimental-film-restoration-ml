@@ -18,11 +18,18 @@ In a proper restoration the scan usually arrives balanced: black is black, white
 
 Balancing only sets levels, so a balanced and an unbalanced scan hold the same dye information. Working from the unbalanced scan is just a convenience for footage loaded as found.
 
-| Before (faded scan) | After (Faded Balancer DCTL) |
-| --- | --- |
-| ![Faded scan with a strong red cast]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }}) | ![The same frame after balancing]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }}) |
+<div class="media-grid media-grid-2">
+  <figure class="figure">
+    <img src="{{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }}" alt="Faded scan with a strong red cast">
+    <figcaption>Before (faded scan)</figcaption>
+  </figure>
+  <figure class="figure">
+    <img src="{{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }}" alt="The same frame after balancing">
+    <figcaption>After (Faded Balancer DCTL)</figcaption>
+  </figure>
+</div>
 
-*A faded trailer from a 35mm trailer reel scan posted on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps), before and after balancing in Resolve.*
+<p class="experiment-credit">A faded trailer from a 35mm trailer reel scan posted on <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>, before and after balancing in Resolve.</p>
 
 ## With a reference: CopyCat in Nuke
 
@@ -40,24 +47,38 @@ When there's no better copy, I make what I call a synthetic reference: an approv
 
 **Candy Candy: colour from a DVD reference (CopyCat).** A faded 16mm print of the opening, with colour learned from a matched French PAL DVD. The detail comes from the 16mm scan and the colour from the DVD. The limit is the reference itself: a standard-definition DVD with its own grading.
 
-<a href="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/view"><img src="https://drive.google.com/thumbnail?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&amp;sz=w960" alt="Candy Candy: the original scan, the balanced scan, the DVD reference and the colour-recovered result, side by side" loading="lazy" referrerpolicy="no-referrer"></a>
+<figure class="figure">
+  <a href="https://drive.google.com/file/d/11UucDpEAC5QRlfF3BN12f3mggg-S58Ds/view"><img src="{{ '/images_kebab/candy-candy/candy-candy-comparison-still.jpg' | relative_url }}" alt="Candy Candy: the original scan, the balanced scan, the DVD reference and the colour-recovered result, side by side" loading="lazy"></a>
+  <figcaption>Candy Candy: the original scan, the balanced scan, the DVD reference and the recovered result. A still from the video on Google Drive.</figcaption>
+</figure>
 
 **Candy Candy, the ending: a matched reference with Qwen Image Edit.** For one frame of the ending I used a matching frame from a non-generated copy as the colour reference, with the faded frame keeping its own brightness.
 
-![Faded frame from the ending of Candy Candy]({{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }})
-*The faded source frame; the recovered composite is in the downloads below.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }}" alt="Faded frame from the ending of Candy Candy">
+  <figcaption>The faded source frame; the recovered composite is in the downloads below.</figcaption>
+</figure>
 
 **Counter Attack (1976): a synthetic reference.** No reference survives for this Chinese film, so the colour frame is made with Qwen Image Edit from the faded frame, an edge map and a blurred colour chart, then put back on the scan's own brightness.
 
-![Counter Attack garden frame: the faded source on the left and the recovered frame on the right]({{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }})
+<figure class="figure">
+  <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Counter Attack garden frame: the faded source on the left and the recovered frame on the right">
+  <figcaption><em>Counter Attack</em>: the faded source on the left, the recovered frame on the right.</figcaption>
+</figure>
 
 **Counter Attack: the whole shot.** One approved reference copied onto every frame with TeleStyle held the colour, but took almost four hours for 11 seconds. With MiniMax H3 and the Fun ControlNet giving teacher frames, the Temporal CbCr adapter carried the colour through a 385-frame crowd shot with a fast pan. Some tint remains in the shadows, because my copy had a broken cadence.
 
-<a href="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/view"><img src="https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w960" alt="Counter Attack: the faded crowd shot and the recovered result, side by side" loading="lazy" referrerpolicy="no-referrer"></a>
+<figure class="figure">
+  <a href="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/view"><img src="https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w960" alt="Counter Attack: the faded crowd shot and the recovered result, side by side" loading="lazy" referrerpolicy="no-referrer"></a>
+  <figcaption><em>Counter Attack</em>: the faded crowd shot and the recovered result (video on Google Drive).</figcaption>
+</figure>
 
 **Unman, Wittering and Zigo (1971): the Temporal CbCr adapter.** A choir scene from a faded trailer. About a hundred frames passed review and became teachers, training took about a minute and a half, and the stained glass stays consistent through the pan.
 
-<a href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view"><img src="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w960" alt="Unman, Wittering and Zigo: the faded choir shot, the teacher frames and the adapter result" loading="lazy" referrerpolicy="no-referrer"></a>
+<figure class="figure">
+  <a href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view"><img src="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w960" alt="Unman, Wittering and Zigo: the faded choir shot and the adapter result, side by side" loading="lazy" referrerpolicy="no-referrer"></a>
+  <figcaption><em>Unman, Wittering and Zigo</em>: the faded choir shot and the adapter result, side by side (video on Google Drive).</figcaption>
+</figure>
 
 **La Muralla Verde: CopyCat with a DVD and DCP reference.** One of the longer CopyCat projects; it's in the [case studies]({{ '/case-studies/' | relative_url }}).
 
@@ -81,7 +102,7 @@ When there's no better copy, I make what I call a synthetic reference: an approv
 - [Counter Attack: TeleStyle, 11 s (8.4 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1uRuH6HdDL0v13uGQPMso3sRWXKP46LI8&export=download&confirm=t)
 - [Counter Attack: H3 with the Fun ControlNet and the Temporal CbCr adapter, 13 s (11.6 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&export=download&confirm=t)
 - [Unman, Wittering and Zigo: Temporal CbCr adapter, 7 s (20.4 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&export=download&confirm=t)
-- [Faded Balancer before (PNG)]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }}) · [after (PNG)]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }})
+- [Faded Balancer before (PNG)]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }}) · [after (PNG)]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }})
 - More stills, clips, prompts and workflows are on the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}#downloads) and the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}).
 
 ## In this section

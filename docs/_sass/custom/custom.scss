@@ -1055,3 +1055,51 @@ body[data-site-locale]:not([data-site-locale='en']) {
     }
   }
 }
+
+// One figure pattern for every content page: full-width media, one caption style.
+// The FIAT/IFTA companion keeps its own card design (.fc-*).
+.main-content {
+  figure.figure {
+    margin: 1.6rem 0 1.9rem;
+
+    img,
+    video {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      margin: 0;
+    }
+
+    a {
+      display: block;
+    }
+
+    figcaption {
+      margin-top: 0.55rem;
+      color: $ink-soft;
+      font-size: 0.88rem;
+      line-height: 1.45;
+    }
+  }
+
+  video {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .downloads-note {
+    color: $ink-soft;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 50rem) {
+  .media-grid-2 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.main-content .media-grid figure.figure {
+  margin: 0;
+}
