@@ -27,6 +27,17 @@ I checked every step here against a shot I approved, and each step's output matc
 
 Every final frame keeps the scan's own brightness; only the colour is new. The yellow-blue choices are still an interpretation, because yellow is mostly the dye that's lost.
 
+## Example
+
+`example/` has the shot I checked the kit against: a 1970s Folgers coffee commercial, 135 frames at 1024 × 768.
+
+- `source_shot.mkv`: the balanced scan.
+- `source_y.png`, `faded_frame.png`, `canny.png`: the three inputs for the palette graph.
+- `palette.png`: the palette still I approved.
+- `result_respect.mp4`: the result I approved.
+
+Run the steps on `source_shot.mkv` and compare your result with `result_respect.mp4`. Expect small differences, not identical files: the models don't give byte-identical output from run to run.
+
 ## Comfy Cloud
 
 The palette still needs the same fp8mixed model I used. I tried the bf16 model as a Cloud stand-in and the colour came out visibly different, so I don't offer it. On Comfy Cloud, import `qwen_image_edit_2511_fp8mixed.safetensors` from [Comfy-Org on Hugging Face](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI) (importing your own models needs a Creator plan or higher) and use `1_palette_still_fp8mixed_local.json`. I haven't run it on Cloud yet. The H3 graph is for running locally.

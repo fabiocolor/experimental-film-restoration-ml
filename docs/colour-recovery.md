@@ -62,7 +62,12 @@ When there's no better copy, I make what I call a synthetic reference: an approv
 
 **La Muralla Verde: CopyCat with a DVD and DCP reference.** One of the longer CopyCat projects; it's in the [case studies]({{ '/case-studies/' | relative_url }}).
 
-**A 1970s commercials compilation: pre-balanced footage.** The four shots I tested the neutral-source route on, where the surviving red-green colour is kept and the lost colour is filled in. I don't have shareable files of these yet.
+**A 1970s commercials compilation: pre-balanced footage.** The route for balanced scans, where the red-green colour that survived is kept and the lost colour is filled in. I approved four shots from this compilation; here's one, a Folgers coffee commercial.
+
+<figure class="figure">
+  <img src="{{ '/images_kebab/colour-recovery/commercials-folgers-before-after-f067.jpg' | relative_url }}" alt="A Folgers coffee commercial: the balanced, faded scan on the left and the recovered colour on the right" loading="lazy">
+  <figcaption>The balanced scan on the left, the approved result on the right. The shot and the result are in the <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/faded-colour-recovery-t185">kit</a>.</figcaption>
+</figure>
 
 ## What still doesn't work
 
