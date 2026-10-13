@@ -9,7 +9,7 @@ I checked every step here against a shot I approved, and each step's output matc
 - ComfyUI, recent enough to have the MiniMax H3 nodes. Every node in these graphs is a built-in ComfyUI node; no custom nodes.
 - Python 3.10+ with `opencv-python`, `numpy` and `pillow`, and `ffmpeg`/`ffprobe` on your path. The adapter step also needs PyTorch with an NVIDIA GPU.
 - Models (put them in the usual ComfyUI folders):
-  - Palette still: `qwen_image_edit_2511_fp8mixed.safetensors` (or `qwen_image_edit_2511_bf16.safetensors` for the Cloud variant), `qwen_2.5_vl_7b_fp8_scaled.safetensors`, `qwen_image_vae.safetensors`, `Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors`.
+  - Palette still: `qwen_image_edit_2511_fp8mixed.safetensors`, `qwen_2.5_vl_7b_fp8_scaled.safetensors`, `qwen_image_vae.safetensors`, `Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors`.
   - Shot: `minimax_h3_ref2va_int8_convrot.safetensors`, `qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors`, `minimax_h3_video_vae_fp16.safetensors`, `minimax_h3_audio_vae_fp32.safetensors`, and `MiniMax-H3-Fun-Controlnet-Union.safetensors` from alibaba-pai.
 
 ## The steps
@@ -29,7 +29,7 @@ Every final frame keeps the scan's own brightness; only the colour is new. The y
 
 ## Comfy Cloud
 
-`graphs/1_palette_still_bf16_cloud.json` is the palette still with the bf16 model, for Comfy Cloud. I haven't tested it yet, so treat it as untested. The H3 graph is for running locally; I haven't checked whether Cloud has its model files.
+The palette still needs the same fp8mixed model I used. I tried the bf16 model as a Cloud stand-in and the colour came out visibly different, so I don't offer it. On Comfy Cloud, import `qwen_image_edit_2511_fp8mixed.safetensors` from [Comfy-Org on Hugging Face](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI) (importing your own models needs a Creator plan or higher) and use `1_palette_still_fp8mixed_local.json`. I haven't run it on Cloud yet. The H3 graph is for running locally.
 
 ## Licences
 

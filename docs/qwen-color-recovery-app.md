@@ -15,6 +15,5 @@ The current route is for pre-balanced footage: one palette still made from the s
 | File | What it is |
 |---|---|
 | [`1_palette_still_fp8mixed_local.json`]({{ '/downloads/faded-colour-recovery-t185/graphs/1_palette_still_fp8mixed_local.json' | relative_url }}) | The palette still, for your own computer. |
-| [`1_palette_still_bf16_cloud.json`]({{ '/downloads/faded-colour-recovery-t185/graphs/1_palette_still_bf16_cloud.json' | relative_url }}) | The same graph with the bf16 model, for Comfy Cloud. Not tested on Cloud yet. |
 | [`2_h3_fun_controlnet_local.json`]({{ '/downloads/faded-colour-recovery-t185/graphs/2_h3_fun_controlnet_local.json' | relative_url }}) | The shot with MiniMax H3 and the Fun ControlNet, for your own computer. |
 | [Python steps and README](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/faded-colour-recovery-t185) | Preparing the shot, lining up H3 with the film, the Temporal CbCr adapter and the respect step. |
