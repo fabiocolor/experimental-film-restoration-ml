@@ -8,7 +8,7 @@ plugins:
 url: ""
 baseurl: "/custom-machine-learning-for-film-restoration"
 
-color_scheme: dark
+color_scheme: option
 
 aux_links:
   "GitHub":

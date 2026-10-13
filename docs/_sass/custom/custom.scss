@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Source+Sans+3:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400&display=swap');
 
-$body-font-family: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !default;
-$code-font-family: 'Source Code Pro', Consolas, monospace !default;
+$body-font-family: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif !default;
+$code-font-family: 'IBM Plex Mono', Consolas, monospace !default;
 
 $paper: #f3f0e7;
 $paper-raised: #fbf9f3;
@@ -1103,3 +1103,6 @@ body[data-site-locale]:not([data-site-locale='en']) {
 .main-content .media-grid figure.figure {
   margin: 0;
 }
+
+// Design option layer (loaded last).
+@import "custom/option";

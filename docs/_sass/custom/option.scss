@@ -1,0 +1,786 @@
+// Design option C: a minimal portfolio / monograph look.
+// White pages, a narrow text measure with wide images, serif titles, and almost no
+// interface: on every screen size the navigation and search fold behind one menu button.
+// Loaded last from custom.scss, so these rules take precedence.
+
+$c-white: #ffffff;
+$c-ink: #111111;
+$c-soft: #6b6b6b;
+$c-rule: #e6e6e6;
+$c-serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+$c-sans: 'Instrument Sans', 'Helvetica Neue', Arial, sans-serif;
+$c-measure: 38rem;
+$c-wide: 64rem;
+
+html,
+body,
+.main-content-wrap,
+.main-header {
+  background: $c-white !important;
+}
+
+body {
+  color: $c-ink;
+  font-family: $c-sans;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+// Top bar: title on the left, menu button on the right, nothing else
+.side-bar {
+  background: $c-white !important;
+  border-right: 0 !important;
+}
+
+.site-header {
+  border-bottom: 0 !important;
+}
+
+.site-title {
+  color: $c-ink !important;
+  font-family: $c-serif;
+  font-size: 1.35rem !important;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.site-button,
+.site-header .site-button {
+  color: $c-ink !important;
+}
+
+.site-title:hover,
+.site-button:hover,
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link.active,
+.nav-list .nav-list-item .nav-list-expander:hover {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+.site-nav .nav-list-item {
+  .nav-list-link {
+    margin: 0;
+    padding: 0.32rem 0;
+    color: $c-soft;
+    border-radius: 0;
+    font-size: 1rem;
+
+    &:hover {
+      color: $c-ink;
+    }
+
+    &.active {
+      color: $c-ink;
+      font-weight: 500;
+      box-shadow: none;
+    }
+  }
+
+  .nav-list-expander {
+    color: $c-soft;
+  }
+}
+
+.site-footer {
+  display: none !important;
+}
+
+.search {
+  background: transparent !important;
+}
+
+.search-input {
+  color: $c-ink !important;
+  background: $c-white !important;
+  border: 0 !important;
+  border-bottom: 1px solid $c-rule !important;
+  border-radius: 0 !important;
+  font-family: $c-sans;
+
+  &::placeholder {
+    color: $c-soft;
+  }
+
+  &:focus {
+    border-color: $c-ink !important;
+    box-shadow: none !important;
+  }
+}
+
+.main-header {
+  border-bottom: 0 !important;
+}
+
+.aux-nav a {
+  color: $c-soft !important;
+  font-weight: 400;
+}
+
+@media (min-width: 50rem) {
+  .side-bar {
+    position: static;
+    flex-flow: row wrap;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    align-items: center;
+  }
+
+  .site-header {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    padding: 1.6rem max(3rem, calc((100% - #{$c-wide}) / 2 + 3rem));
+    justify-content: space-between;
+  }
+
+  .site-title {
+    padding: 0;
+  }
+
+  .site-header .site-button {
+    display: flex;
+    height: auto;
+    padding: 0.5rem;
+  }
+
+  .site-nav {
+    display: none;
+    width: 100%;
+    max-width: $c-wide;
+    margin: 0 auto;
+    padding: 0 3rem 1.5rem;
+  }
+
+  .site-nav.nav-open {
+    display: block;
+  }
+
+  .site-nav > .nav-list {
+    max-width: 26rem;
+  }
+
+  .side-bar + .main {
+    margin-left: 0;
+  }
+
+  .main {
+    max-width: none;
+  }
+
+  .side-bar + .main .main-header {
+    display: none;
+    max-width: $c-wide;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+
+  .side-bar + .main .main-header.nav-open {
+    display: flex;
+  }
+}
+
+@media (min-width: 66.5rem) {
+  .side-bar {
+    width: 100%;
+  }
+
+  .site-nav,
+  .site-header {
+    width: 100%;
+  }
+
+  .side-bar + .main {
+    margin-left: 0;
+  }
+}
+
+// Content: one wide column; text keeps a narrow measure, images run wide
+.main-content {
+  max-width: $c-wide;
+  margin: 0 auto;
+  padding-top: 2.5rem;
+  padding-bottom: 6rem;
+
+  @media (min-width: 50rem) {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  main > p,
+  main > ul,
+  main > ol,
+  main > h1,
+  main > h2,
+  main > h3,
+  main > h4,
+  main > blockquote,
+  main > dl,
+  main > div.highlighter-rouge,
+  main > .research-hero,
+  main > .research-intro,
+  main > .quiet-panel,
+  main > .site-language,
+  main > .translation-notice,
+  main > .experiment-credit,
+  main > details,
+  footer {
+    max-width: $c-measure;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $c-ink;
+    font-family: $c-serif;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  h1 {
+    max-width: 16ch;
+    margin-bottom: 1.5rem;
+    font-size: 3.6rem !important;
+    line-height: 1.02;
+  }
+
+  h2 {
+    margin-top: 4.5rem;
+    padding-bottom: 0;
+    border-bottom: 0;
+    font-size: 2.1rem !important;
+    line-height: 1.1;
+  }
+
+  h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.2;
+  }
+
+  h4 {
+    font-family: $c-sans;
+    font-size: 1rem !important;
+    font-weight: 600;
+  }
+
+  p,
+  li {
+    color: $c-ink;
+    font-size: inherit;
+  }
+
+  a {
+    color: $c-ink;
+    text-decoration-color: rgba($c-ink, 0.3);
+    text-decoration-thickness: 1px;
+
+    &:hover {
+      color: $c-soft;
+    }
+  }
+
+  strong {
+    color: $c-ink;
+    font-weight: 600;
+  }
+
+  blockquote {
+    background: none;
+    border-left: 1px solid $c-ink;
+  }
+
+  code {
+    color: $c-ink;
+    background: #f5f5f5;
+    border: 0;
+    border-radius: 0;
+  }
+
+  div.highlighter-rouge {
+    background: #f5f5f5;
+    border: 0;
+    border-radius: 0;
+
+    pre.highlight code {
+      color: $c-ink;
+    }
+  }
+
+  table {
+    background: none;
+    border: 0;
+
+    th {
+      color: $c-soft;
+      background: none;
+      border-bottom: 1px solid $c-ink;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+
+    td,
+    tbody tr:nth-child(even) td,
+    tbody tr:hover td {
+      background: none !important;
+      border-bottom: 1px solid $c-rule;
+      font-size: 0.92rem;
+    }
+  }
+
+  img {
+    border: 0;
+    border-radius: 0;
+  }
+
+  video {
+    border: 0;
+  }
+
+  hr {
+    background: $c-rule;
+  }
+}
+
+// Small labels: plain small text in the margin of attention
+.eyebrow,
+.card-kicker {
+  margin-bottom: 0.5rem !important;
+  color: $c-soft !important;
+  font-size: 0.9rem !important;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+// Home
+.research-hero {
+  margin: 0 0 3rem;
+  padding: 0;
+  border-bottom: 0;
+}
+
+.hero-lede {
+  max-width: none;
+  color: $c-ink !important;
+  font-family: $c-serif;
+  font-size: 1.6rem !important;
+  line-height: 1.3;
+}
+
+.research-intro {
+  display: block;
+  margin: 0 0 3rem;
+
+  p {
+    color: $c-soft;
+    font-size: inherit;
+  }
+}
+
+.hero-buttons {
+  display: block;
+  margin: 1.5rem 0 0;
+}
+
+.main-content .btn,
+.main-content .btn.btn-primary,
+.main-content .btn.btn-outline,
+.quiet-panel .btn-primary {
+  display: inline;
+  min-height: 0;
+  margin-right: 1.8rem;
+  padding: 0;
+  color: $c-ink !important;
+  background: none !important;
+  border: 0 !important;
+  font-family: $c-sans;
+  font-size: inherit;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-decoration: underline !important;
+  text-decoration-color: rgba($c-ink, 0.3) !important;
+  text-underline-offset: 0.25em;
+
+  &:hover {
+    color: $c-soft !important;
+    background: none !important;
+  }
+}
+
+// Research tracks: open two-column list, no boxes
+.track-grid,
+.link-grid {
+  gap: 2.5rem 3rem;
+  margin: 2rem 0 3rem;
+}
+
+.research-card,
+.research-card-featured {
+  padding: 0;
+  background: none;
+  border: 0;
+
+  h3 {
+    margin: 0 0 0.5rem;
+  }
+
+  p {
+    margin-bottom: 0.6rem;
+    color: $c-soft;
+    font-size: inherit;
+  }
+}
+
+.card-link {
+  font-weight: 500;
+}
+
+.link-grid a {
+  padding: 0;
+  color: $c-ink !important;
+  background: none;
+  border: 0;
+
+  &:hover {
+    background: none;
+  }
+}
+
+.quiet-panel {
+  display: block;
+  margin: 4rem 0;
+  padding: 0;
+  color: $c-ink;
+  background: none;
+  border: 0;
+
+  h3 {
+    margin: 0 0 0.4rem;
+    color: $c-ink;
+  }
+
+  p {
+    margin: 0 0 0.8rem;
+    color: $c-soft;
+  }
+}
+
+.experiment-evidence,
+.experiment-note {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.experiment-facts dt {
+  color: $c-soft;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.status-legend {
+  padding: 0;
+  background: none;
+  border: 0;
+}
+
+.status,
+.status-demonstrated,
+.status-promising,
+.status-open {
+  padding: 0;
+  color: $c-soft;
+  background: none;
+  border: 0;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.method-flow {
+  border-color: $c-rule;
+
+  > div {
+    border-color: $c-rule;
+  }
+
+  span {
+    color: $c-soft;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  strong {
+    font-family: $c-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+  }
+}
+
+.translation-notice {
+  background: none;
+  border-left: 1px solid $c-ink;
+
+  strong {
+    font-size: inherit;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+.site-language {
+  border-bottom: 0;
+
+  label {
+    font-size: 0.85rem;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+.frame-extractor,
+.frame-extractor-file {
+  background: none;
+  border-radius: 0;
+}
+
+// Figures: large, unframed, with a small caption underneath
+.main-content figure.figure,
+.media-grid figure,
+.app-hero-strip figure,
+.experiment-figure {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+
+  img,
+  video {
+    border: 0;
+  }
+
+  figcaption {
+    max-width: $c-measure;
+    margin-top: 0.7rem;
+    padding: 0;
+    color: $c-soft;
+    font-size: 0.85em;
+    line-height: 1.45;
+
+    strong {
+      color: $c-ink;
+      font-weight: 500;
+    }
+  }
+}
+
+.media-grid {
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+}
+
+.main-content .media-grid figure.figure,
+.media-grid figure {
+  margin: 0;
+}
+
+.app-hero-strip {
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+
+  figure {
+    margin: 0;
+    background: none;
+    border: 0;
+  }
+
+  img {
+    border: 0;
+  }
+
+  figcaption {
+    min-height: 0;
+  }
+}
+
+.experiment-credit {
+  color: $c-soft;
+  font-size: 0.85em;
+}
+
+// SEAPAVAA page: its own inline styles, brought into line
+.seapavaa-jump a {
+  padding: 0 !important;
+  color: $c-ink !important;
+  border: 0 !important;
+  text-decoration: underline !important;
+}
+
+.seapavaa-card {
+  padding: 0 !important;
+  background: none !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+}
+
+.seapavaa-role {
+  padding: 0 !important;
+  color: $c-soft !important;
+  background: none !important;
+  font-size: 0.85rem !important;
+  font-weight: 400 !important;
+}
+
+.main-content footer p {
+  color: $c-soft !important;
+  font-size: 0.8em !important;
+}
+
+.main-content > hr {
+  max-width: $c-measure;
+}
+
+::-webkit-scrollbar-track {
+  background: $c-white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c9c9c9;
+  border-color: $c-white;
+}
+
+// FIAT/IFTA companion: keep its structure, use this option's type and colours
+html body {
+  &,
+  .main-content-wrap,
+  .main-header,
+  .side-bar,
+  .site-header,
+  .search {
+    background: $c-white !important;
+  }
+
+  .site-title,
+  .main-content .fc h1,
+  .main-content .fc h2,
+  .main-content .fc h3 {
+    font-family: $c-serif !important;
+    font-weight: 400;
+  }
+
+  .site-nav .nav-list-item .nav-list-link {
+    color: $c-soft;
+  }
+
+  .site-nav .nav-list-item .nav-list-link.active {
+    color: $c-ink;
+    background: none;
+    box-shadow: none;
+  }
+
+  .main-content .fc {
+    max-width: 50rem;
+  }
+
+  .fc {
+    --cyan: #9a9a9a;
+    --navy: #111111;
+    --navy-dark: #444444;
+    --ink: #111111;
+    --soft: #6b6b6b;
+    --line: #e6e6e6;
+    font-family: $c-sans;
+  }
+
+  .fc-media::before,
+  .fc-media::after,
+  .main-content .fc .fc-section > h2::before,
+  .main-content .fc .fc-section > h2::after {
+    display: none;
+  }
+
+  .main-content .fc .fc-section > h2 {
+    padding-left: 0;
+  }
+
+  .main-content .fc .fc-kicker,
+  .main-content .fc .fc-slide {
+    color: $c-soft;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .fc ol.fc-parts > li::before {
+    border-radius: 0;
+  }
+
+  .fc-play-label {
+    box-shadow: none;
+  }
+
+  .fc-toc .fc-v {
+    padding: 0;
+    color: $c-soft;
+    background: none;
+    font-weight: 400;
+    text-transform: none;
+  }
+
+  .fc-tip,
+  .fc-lang,
+  .fc-verdict div,
+  .fc-limits,
+  .fc details.fc-evidence {
+    background: none;
+  }
+}
+
+// Phones
+@media (max-width: 49.99rem) {
+  .site-header {
+    padding: 0 0.5rem 0 1rem;
+  }
+}
+
+@media (max-width: 31.25rem) {
+  body {
+    font-size: 1.15rem;
+  }
+
+  .main-content h1 {
+    font-size: 2.6rem !important;
+  }
+
+  .main-content h2 {
+    margin-top: 3rem;
+    font-size: 1.8rem !important;
+  }
+
+  .hero-lede {
+    font-size: 1.35rem !important;
+  }
+}
+
+// Breadcrumbs sit above the content, aligned with the same centred column
+.breadcrumb-nav {
+  max-width: $c-wide;
+  margin: 0 auto;
+
+  @media (min-width: 50rem) {
+    padding-right: 3rem;
+    padding-left: 3rem;
+  }
+
+  a {
+    color: $c-soft;
+  }
+}
