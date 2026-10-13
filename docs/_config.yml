@@ -33,6 +33,9 @@ defaults:
     values:
       nav_exclude: true
 
+include:
+  - __init__.py
+
 exclude:
   - images_kebab/full/
   - film-element-pair-alignment-runbook.md
