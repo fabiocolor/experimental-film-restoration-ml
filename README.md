@@ -14,7 +14,6 @@ This is where I keep all my research on machine learning for film restoration. I
 2. **[Gap filling and reconstruction](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/gap-filling/)**: rebuilding missing frames, using every surviving element first and generating only inside the gap.
 3. **[Dirt removal](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/dirt-removal/)**: [Advanced Dirt Removal](https://github.com/fabiocolor/Advanced-Dirt-Removal), a free macro for DaVinci Resolve (`winget install FabioColor.AdvancedDirtRemoval`).
 4. **[Upscaling](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/upscaling/)**: rebuilding picture that is too damaged to restore conventionally. The detail is partly synthetic.
-5. **[Matte recovery](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/matte-recovery/)**: a small model that decides which details a dirt-cleaning filter removed by mistake, and brings them back.
 
 [Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/) has the full picture as of October 2026: what works, what doesn't yet, and what you can reproduce. On hardware, the Qwen Image Edit workflows need a modern NVIDIA GPU, with 8 GB of VRAM or more for still frames and 16 GB or more for video.
 

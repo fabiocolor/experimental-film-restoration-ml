@@ -43,11 +43,35 @@ The images below are not a gallery of finished restorations. Each one answers a 
     </dl>
   </div>
   <figure class="experiment-figure">
-    <img src="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" alt="Five-stage Qwen experiment showing the faded source, soft colour reference, source edge control, raw generated proposal, and final source-preserving composite">
+    <a href="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" target="_blank">
+      <img src="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" alt="Five-stage Qwen experiment showing the faded source, soft colour reference, source edge control, raw generated proposal, and final source-preserving composite">
+    </a>
     <figcaption><em>Juggernaut</em> (1974), directed by Richard Lester. Five-stage lineage from surviving frame to final composite.</figcaption>
   </figure>
 </article>
 
+<article class="experiment-evidence experiment-evidence-reverse">
+  <div class="experiment-evidence-copy">
+    <p class="card-kicker">Experiment 02 · No matched reference</p>
+    <h3>Can Qwen produce a useful colour candidate when no matching colour frame survives?</h3>
+    <dl class="experiment-facts">
+      <dt>Test</dt>
+      <dd>The <em>Counter Attack</em> garden frame used the faded source, a source-derived edge guide, a soft colour chart, and a restrained restoration prompt. It did not use a matched colour frame from the scene.</dd>
+      <dt>What to look for</dt>
+      <dd>The split moves from the faded source on the left to the source-luminance composite on the right. Building, trees, crowd, and framing remain tied to the source while the colour interpretation changes.</dd>
+      <dt>What it supports</dt>
+      <dd>A reference-free still can become a plausible candidate for human review.</dd>
+      <dt>Limit</dt>
+      <dd>Plausible is not the same as historically verified. The blue sky, green foliage, clothing, and architecture are interpretations unless other evidence confirms them.</dd>
+    </dl>
+  </div>
+  <figure class="experiment-figure">
+    <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" target="_blank">
+      <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Split comparison with the faded Counter Attack garden source on the left and the source-preserving colour composite on the right">
+    </a>
+    <figcaption><em>Counter Attack</em> (1976). Faded source at left; reviewed colour proposal recombined with source luminance at right.</figcaption>
+  </figure>
+</article>
 
 <article class="experiment-evidence experiment-evidence-wide">
   <div class="experiment-evidence-copy">
@@ -72,14 +96,18 @@ The images below are not a gallery of finished restorations. Each one answers a 
   <article class="experiment-note">
     <p class="card-kicker">Experiment 04 · Semantic failure</p>
     <h3>A plausible image can still be the wrong image</h3>
-    <img src="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" alt="Faded source compared with a visually polished but semantically incorrect generated image">
+    <a href="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" target="_blank">
+      <img src="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" alt="Faded source compared with a visually polished but semantically incorrect generated image">
+    </a>
     <p class="experiment-credit"><em>Ben</em> (1972), directed by Phil Karlson.</p>
     <p>The source is difficult to read, and the model invents a polished wooden structure and a face. The output is visually coherent but no longer describes the photographed scene. This is direct evidence for keeping the source visible and requiring human acceptance.</p>
   </article>
   <article class="experiment-note">
     <p class="card-kicker">Experiment 05 · High-resolution tiling</p>
     <h3>More local resolution can create a less coherent frame</h3>
-    <img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Tiled raw Qwen inference with visible colour discontinuities compared with a coherent full-frame inference">
+    <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" target="_blank">
+      <img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Tiled raw Qwen inference with visible colour discontinuities compared with a coherent full-frame inference">
+    </a>
     <p class="experiment-credit"><em>Reptilicus</em> (US release 1962), directed by Sidney Pink and Poul Bang.</p>
     <p>The four-tile result at left contains visible boundaries and conflicting local colour decisions. The full-frame result at right is more coherent, although it still remains a generated interpretation. This experiment is evidence against treating tiling as a solved route.</p>
   </article>
@@ -136,3 +164,14 @@ The important next step is not simply “more pixels.” It is shared evidence a
 The central open problem is temporal colour ownership: keeping an evidence-aware interpretation attached to the same face, garment, wall, tree, or object through motion and occlusion without allowing the model to redesign the film. Generated colour remains an interpretation unless historical evidence supports it, and human viewing remains the final acceptance gate.
 
 For the underlying examples, prompts, intermediate files, and presentation media, continue to the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}).
+
+## Downloads
+
+The images on this page, full size:
+
+- [Five-stage Qwen experiment showing the faded source, soft colour reference, source edge control, raw generated proposal, and final source-preserving composite]({{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}) (PNG, 0.4 MB)
+- [Animated source, raw inference, and source-preserving composite comparison for a favourable low-motion shot]({{ '/media/seapavaa2026/shot0006-source-proposal-composite.gif' | relative_url }}) (GIF, 1.4 MB)
+- [Animated source, raw inference, and source-preserving composite comparison showing a hard-motion failure]({{ '/media/seapavaa2026/shot0011-source-proposal-composite.gif' | relative_url }}) (GIF, 7.1 MB)
+- [Faded source compared with a visually polished but semantically incorrect generated image]({{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}) (PNG, 1.1 MB)
+- [Tiled raw Qwen inference with visible colour discontinuities compared with a coherent full-frame inference]({{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}) (PNG, 1.3 MB)
+- [Counter Attack garden frame: faded source and recovered composite]({{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}) (PNG, 0.9 MB)

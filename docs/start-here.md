@@ -15,6 +15,8 @@ For reel-, shot-, and frame-level alignment with strict training-pair rejection,
 - [Chroma Recovery]({{ '/chroma-recovery/' | relative_url }}): when detail is intact but colour is faded, collapsed, or shifted.
 - [Spatial Recovery]({{ '/spatial-recovery/' | relative_url }}): when colour is acceptable but detail, sharpness, or grain are weaker than the reference.
 
+![Workflow overview]({{ '/images_kebab/general/full-overview-comparison.png' | relative_url }})
+*End-to-end overview of the recovery workflow.*
 
 ---
 
@@ -26,7 +28,11 @@ Before starting the workflow, make sure the scan preserves as much recoverable i
 
 What matters is whether the reference preserves better information for the problem you are solving, not whether it is newer, sharper, or higher resolution.
 
+![Raw source before balancing]({{ '/images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif' | relative_url }})
+*Source that should be technically balanced before training.*
 
+![Balanced source for training]({{ '/images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif' | relative_url }})
+*Balanced source plate used as cleaner input to the workflow.*
 
 **Source preparation:**
 
@@ -38,9 +44,9 @@ What matters is whether the reference preserves better information for the probl
 
 | Before (raw faded scan) | After (Faded Balancer applied) |
 | --- | --- |
-| ![Raw faded scan]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }}) | ![Balanced scan]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }}) |
+| ![Raw faded scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}) | ![Balanced scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}) |
 
-*Faded Balancer DCTL neutralizing a strong red/magenta fade in Resolve before Nuke ingest (a faded trailer from the archive.org trailer reel).*
+*Faded Balancer DCTL neutralizing magenta dye fade in Resolve before Nuke ingest.*
 
 **Reference preparation:**
 
@@ -52,6 +58,8 @@ What matters is whether the reference preserves better information for the probl
 
 ### Resolve Export
 
+![Resolve reference prep]({{ '/images_kebab/cropped/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png' | relative_url }})
+*Source and reference placed in the same Resolve container.*
 
 1. Conform both sources in a single timeline. Disable retimes, effects, and per-clip grades.
 2. Align the reference to the source in Edit/Inspector (Translate/Scale/Rotate). Allow letterbox/pillarbox; keep stable framing.
@@ -179,6 +187,8 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 2. Evaluate immediately with `Merge (difference)`. If edges/geometry remain, switch to manual `Transform` with keyframes.
 3. Keep a `Dissolve` to compare auto/manual paths quickly.
 
+![Merge (difference) alignment check]({{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }})
+*Merge (difference) in the viewer: geometry and edges should be near-black. Visible colour differences are expected; only structural misalignment is a problem.*
 
 ### Crop and Subtitle Handling
 
@@ -217,6 +227,8 @@ This is where the workflow diverges. The layout is shared; the branch decision i
 ![Shuffle node settings]({{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }})
 *Shuffle node used to build the ground-truth target.*
 
+![CopyBBox node]({{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }})
+*CopyBBox ensures identical bbox across Source and Ground Truth before connecting to CopyCat.*
 
 | Branch | Ground truth target | Continue in |
 | --- | --- | --- |
@@ -232,3 +244,21 @@ Do not combine chroma and spatial recovery in one target. After the target is bu
 - Keeping misaligned frames in the dataset.
 - Leaving borders, subtitles, or overlays inside the training area.
 - Expecting one model to solve every shot in a difficult sequence.
+
+## Downloads
+
+The images on this page, full size:
+
+- [Workflow overview]({{ '/images_kebab/general/full-overview-comparison.png' | relative_url }}) (PNG, 3.5 MB)
+- [Raw source before balancing]({{ '/images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif' | relative_url }}) (GIF, 45.5 MB)
+- [Balanced source for training]({{ '/images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif' | relative_url }}) (GIF, 37.3 MB)
+- [Raw faded scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}) (PNG, 4.3 MB)
+- [Balanced scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}) (PNG, 4.3 MB)
+- [Resolve reference prep]({{ '/images_kebab/cropped/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png' | relative_url }}) (PNG, 2.1 MB)
+- [Dataset curation]({{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }}) (PNG, 1.0 MB)
+- [Alignment workflow]({{ '/images_kebab/cropped/alignment-cropped.png' | relative_url }}) (PNG, 0.8 MB)
+- [Merge (difference) alignment check]({{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }}) (GIF, 12.5 MB)
+- [Crop node settings]({{ '/images_kebab/cropped/crop-node-settings-cropped.png' | relative_url }}) (PNG, 0.1 MB)
+- [Colorspace node settings]({{ '/images_kebab/cropped/colorspace-node-linear-to-ycbcr-settings-cropped.png' | relative_url }}) (PNG, 0.3 MB)
+- [Shuffle node settings]({{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }}) (PNG, 0.2 MB)
+- [CopyBBox node]({{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }}) (PNG, 3.5 MB)

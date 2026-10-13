@@ -48,13 +48,15 @@ The workflow runs in ComfyUI on your own computer. Try it on a test frame from y
 
 | Download | What it is for |
 | --- | --- |
+| [`faded-qwen-color-recovery-app.zip`]({{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}) | Everything in one package: the workflows, a demo frame, the colour palette and the helper node. |
 | [`faded-qwen-2511-cloud-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}) | A version that uses only built-in nodes, for ComfyUI Cloud. |
 | [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The complete workflow for a local ComfyUI installation. |
+| [`demo_unbalanced_source_frame.jpg`]({{ '/downloads/qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg' | relative_url }}) | A faded frame from the *Candy Candy* 16mm print, for a quick test. |
 | [`faded-color-reference-palette.png`]({{ '/downloads/qwen-color-recovery/assets/faded-color-reference-palette.png' | relative_url }}) | The colour reference the workflow uses. I made it for this project, and you can reuse it with the workflow. |
 | [`faded_color_recovery/__init__.py`]({{ '/downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/__init__.py' | relative_url }}) | The small helper node for the local workflow. It puts the recovered colour on the scan's own brightness. |
 | [`THIRD_PARTY_NOTICES.md`]({{ '/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md' | relative_url }}) | Model, software, and included-asset attribution. |
 
-Use a frame from your own footage. The packaged example frame has been taken out while I check its rights.
+You can test with the demo frame, or with a frame from your own footage.
 
 ## Extract a frame from video
 
@@ -207,3 +209,11 @@ Before redistributing the workflow or its examples, read [Credits & Attribution]
   });
 })();
 </script>
+
+## Downloads
+
+The images on this page, full size:
+
+- [Faded frame from the Reptilicus trailer]({{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}) (JPG, 0.4 MB)
+- [Qwen Image Edit colour proposal for the Reptilicus frame]({{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/04_inference_frame_000000_seed_0_cfg_1.000_Belak-0c1f0329.png' | relative_url }}) (PNG, 1.2 MB)
+- [Final composite: the proposed colour on the original brightness of the Reptilicus frame]({{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/05_final_composite_reptilicus_tlr_05_beach_woman_source-38de94d1.png' | relative_url }}) (PNG, 3.1 MB)

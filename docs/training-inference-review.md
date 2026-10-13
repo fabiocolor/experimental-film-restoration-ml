@@ -28,7 +28,11 @@ Start with a modest model and a held-out frame that is not part of the training 
 
 Use small geometric augmentation only when the composition allows it. Mild exposure variation can help, but do not introduce transformations that change the property being learned. Chroma training should not distort colour relationships. Spatial training should not add sharpening, blur, or synthetic grain.
 
+![CopyCat Progress contact sheet]({{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }})
+*The Progress tab shows loss and training crops over time.*
 
+![CopyCat held-out preview]({{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }})
+*A held-out preview is more useful than loss alone because it tests an unseen frame.*
 
 Check range and bounding-box parity in both branches. For chroma recovery, source and target luminance should remain nearly identical. For spatial recovery, source and target chroma should remain nearly identical.
 
@@ -81,3 +85,11 @@ The [provenance guide]({{ '/provenance-metadata/' | relative_url }}) provides a 
 | Training stalls | Improve pair coverage and alignment before increasing model size |
 | Results fail only on certain shots | Add targeted pairs or split those shots into a separate model |
 | Full-range output differs from the held-out test | Confirm ingest, crop, preprocessing, and inference settings match training |
+
+## Downloads
+
+The images on this page, full size:
+
+- [CopyCat Progress contact sheet]({{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }}) (PNG, 1.1 MB)
+- [CopyCat held-out preview]({{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }}) (PNG, 1.1 MB)
+- [Inference workflow]({{ '/images_kebab/cropped/inference-render-cropped.png' | relative_url }}) (PNG, 0.6 MB)

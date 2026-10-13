@@ -10,6 +10,8 @@ grand_parent: Colour Recovery
 
 > **Experimental branch:** spatial recovery is still under development. The public material documents a research route, not a finished archival workflow.
 
+![Spatial recovery proof of concept]({{ '/images_kebab/general/spatial-recovery-proof-of-concept-preview.gif' | relative_url }})
+*El Tinterillo proof of concept using a 16mm print and a telecine. The test also exposes edge, grain, and invented-detail risks.*
 
 Use this branch when a second element preserves better spatial information than the chosen source. Complete the [shared preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. This page covers only the branch-specific target. Training, inference, and delivery are documented once in [Training, Inference, and Review]({{ '/training-inference-review/' | relative_url }}).
 
@@ -39,6 +41,8 @@ The training target combines **reference luminance** with **source chroma**. Thi
 7. Clamp input and target to the expected range, remove alpha, and copy the same bounding box to both.
 8. Connect the prepared source as CopyCat input and the combined image as target.
 
+![Spatial recovery training diagram]({{ '/images_kebab/tinterillo/tinterillo-training-diagram.jpeg' | relative_url }})
+*Bidirectional spatial-transfer test using the 16mm and telecine sources.*
 
 ![Shuffle node for spatial recovery]({{ '/images_kebab/cropped/shuffle-node-spatial-settings-cropped.png' | relative_url }})
 *The spatial target uses Reference Y with Source Cb and Cr.*
@@ -51,7 +55,6 @@ The training target combines **reference luminance** with **source chroma**. Thi
 - During inference, repeat any source preprocessing used during training.
 - In Resolve, use the recovered render above the original with Composite Mode set to `Luminosity` when the delivery needs explicit source-colour protection.
 
-
 ## Spatial troubleshooting
 
 | Problem | Check |
@@ -62,3 +65,11 @@ The training target combines **reference luminance** with **source chroma**. Thi
 | Invented detail | Reduce model authority and reject references that do not describe the same structure |
 
 Continue with [Training, Inference, and Review]({{ '/training-inference-review/' | relative_url }}).
+
+## Downloads
+
+The images on this page, full size:
+
+- [Spatial recovery proof of concept]({{ '/images_kebab/general/spatial-recovery-proof-of-concept-preview.gif' | relative_url }}) (GIF, 30.3 MB)
+- [Spatial recovery training diagram]({{ '/images_kebab/tinterillo/tinterillo-training-diagram.jpeg' | relative_url }}) (JPG, 0.1 MB)
+- [Shuffle node for spatial recovery]({{ '/images_kebab/cropped/shuffle-node-spatial-settings-cropped.png' | relative_url }}) (PNG, under 0.1 MB)

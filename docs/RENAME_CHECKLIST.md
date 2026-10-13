@@ -1,6 +1,6 @@
 # Rename checklist: custom-machine-learning-for-film-restoration → experimental-film-restoration-ml
 
-Internal note for the planned repository rename. It isn't published (excluded in `_config.yml`). Counts are from a grep of the tracked tree on 13 October 2026, as `file | matches | line numbers`.
+Internal note for the planned repository rename. It isn't published (excluded in `_config.yml`). Counts are from a grep of the tracked tree on 13 October 2026 (updated after revision 5), as `file | matches | line numbers`.
 
 **Most important:** GitHub redirects the repository (git URLs, github.com links, issues, releases), but it does **not** redirect GitHub Pages. Every `fabiocolor.github.io/custom-machine-learning-for-film-restoration/...` URL breaks after the rename unless a redirect page is published at the old path. That includes printed QR codes.
 
@@ -10,10 +10,10 @@ Internal note for the planned repository rename. It isn't published (excluded in
 - `docs/_config.yml:26`: `footer_content` has a hard-coded `/custom-machine-learning-for-film-restoration/` link. It doesn't go through `relative_url`, so it breaks.
 - Pages and includes that use `{{ '...' | relative_url }}` follow `baseurl` automatically and need no change.
 
-## 2. Hard-coded references in this repository (39 lines)
+## 2. Hard-coded references in this repository (38 lines)
 | File | Matches | Lines |
 |---|---|---|
-| `README.md` | 11 | 5, 9, 11, 13, 14, 15, 16, 17, 19, 32, 33 |
+| `README.md` | 10 | 5, 9, 11, 13, 14, 15, 16, 18, 31, 32 |
 | `STATUS.md` | 2 | 41, 42 |
 | `THIRD_PARTY_NOTICES.md` | 1 | 7 |
 | `docs/HOW_TO_USE_RESEARCH_DOCS.md` | 4 | 16, 17, 44, 138 |
@@ -21,9 +21,9 @@ Internal note for the planned repository rename. It isn't published (excluded in
 | `docs/copycat-workflow.md` | 1 | 22 |
 | `docs/credits.md` | 1 | 49 |
 | `docs/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md` | 1 | 31 |
-| `docs/fiat-ifta-2026-companion-es.md` | 2 | 23, 316 |
-| `docs/fiat-ifta-2026-companion-pt-br.md` | 2 | 23, 316 |
-| `docs/fiat-ifta-2026-companion.md` | 2 | 24, 317 |
+| `docs/fiat-ifta-2026-companion-es.md` | 2 | 23, 384 |
+| `docs/fiat-ifta-2026-companion-pt-br.md` | 2 | 23, 384 |
+| `docs/fiat-ifta-2026-companion.md` | 2 | 24, 385 |
 | `docs/research-evidence/DOCUMENTATION_BACKLOG_CHECKPOINT.md` | 1 | 16 |
 | `docs/research-status.md` | 1 | 20 |
 | `tools/site-i18n/test-site-i18n.mjs` | 6 | 28, 29, 68, 72, 76, 98 |
@@ -44,6 +44,7 @@ What these are:
 - **Evidence viewer host** (Cloudflare Pages `fiat-ifta-2026-evidence`): CORS allows the origin `https://fabiocolor.github.io` (no path), so it keeps working.
 - **Slides and talk notes** in the conference folders: 2 files mention the old URL.
 - **Badges:** none reference this repository.
+- **Google Drive videos** (FIAT/IFTA companion, Colour Recovery and Upscaling downloads) are linked by Drive file ID, so they keep working after the rename.
 
 ## 4. Other repositories (50 lines)
 

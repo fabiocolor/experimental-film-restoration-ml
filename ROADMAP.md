@@ -29,4 +29,3 @@ This roadmap sets out the research questions and practical materials planned for
 - Keep the website readable for a broad preservation audience while retaining the technical detail needed to understand the methods.
 - Add translated editions only after they have been reviewed for technical and cultural accuracy.
 - Publish compact downloadable examples that can be studied without access to restricted preservation material.
-- Use only footage whose source is clear for public examples (for now, faded trailers from a 35mm trailer reel scan posted on archive.org), and add more as their provenance is confirmed.

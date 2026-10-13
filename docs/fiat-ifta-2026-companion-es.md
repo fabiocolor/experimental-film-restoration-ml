@@ -27,7 +27,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p>Después de la charla, también escribí un resumen de <a href="{{ '/research-status/' | relative_url }}">dónde está la investigación ahora</a> (en inglés): qué funciona, qué todavía no y qué flujos de trabajo puedes reproducir hoy.</p>
 </header>
 
-<p class="fc-tip">Toca un video para reproducirlo aquí. El reproductor transmite desde Google Drive, así que puede mostrar una calidad menor que la del original, sobre todo con una conexión lenta. Las partes y la evidencia de cada ejemplo se abren a tamaño completo en un visor, donde puedes hacer zoom para ver el detalle. La mayoría de los videos son comparaciones lado a lado, así que cada mitad es más pequeña que el archivo completo.</p>
+<p class="fc-tip">Toca un video para reproducirlo aquí. El reproductor transmite desde Google Drive, así que puede mostrar una calidad menor que la del original, sobre todo con una conexión lenta. Las partes y la evidencia de cada ejemplo se abren a tamaño completo en un visor, donde puedes hacer zoom para ver el detalle. La mayoría de los videos son comparaciones lado a lado, así que cada mitad es más pequeña que el archivo completo. Debajo de cada video hay un enlace para descargar el archivo.</p>
 
 <nav class="fc-toc" aria-labelledby="contents">
   <h2 id="contents">Sigue la charla</h2>
@@ -35,16 +35,16 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
     <li><a href="#copycat-to-open-weight"><span class="fc-n">2</span>De CopyCat a los modelos de pesos abiertos</a></li>
     <li><a href="#masking-versus-recovery"><span class="fc-n">3</span>Ocultar frente a recuperar</a></li>
     <li><a href="#the-limits"><span class="fc-n">4</span>Los límites<span class="fc-v">Imágenes</span></a></li>
-    <li><a href="#reference-recovery"><span class="fc-n">5–6</span>Recuperación de color a partir de una referencia</a></li>
+    <li><a href="#reference-recovery"><span class="fc-n">5–6</span>Recuperación de color a partir de una referencia<span class="fc-v">Video</span></a></li>
     <li><a href="#synthetic-reference"><span class="fc-n">7</span>Crear una referencia sintética<span class="fc-v">Imágenes</span></a></li>
     <li><a href="#telestyle"><span class="fc-n">8–9</span>Mantener el color estable a lo largo de un plano<span class="fc-v">Video</span></a></li>
-    <li><a href="#h3-controlnet"><span class="fc-n">10–11</span>Hacerlo más rápido</a></li>
+    <li><a href="#h3-controlnet"><span class="fc-n">10–11</span>Hacerlo más rápido<span class="fc-v">Video</span></a></li>
     <li><a href="#temporal-cbcr"><span class="fc-n">12–13</span>El adaptador Temporal CbCr<span class="fc-v">Video</span></a></li>
-    <li><a href="#diffusion-upscaling"><span class="fc-n">14–15</span>Escalado por difusión</a></li>
+    <li><a href="#diffusion-upscaling"><span class="fc-n">14–15</span>Escalado por difusión<span class="fc-v">Video</span></a></li>
     <li><a href="#diffusion-reconstruction"><span class="fc-n">16–17</span>Reconstrucción por difusión</a></li>
     <li><a href="#combining-sources"><span class="fc-n">18–19</span>Combinar fuentes y luego reconstruir</a></li>
     <li><a href="#dialogue-recovery"><span class="fc-n">20</span>Recuperación de diálogos</a></li>
-    <li><a href="#inside-existing-tools"><span class="fc-n">21</span>IA dentro de las herramientas que ya usamos<span class="fc-v">Video</span></a></li>
+    <li><a href="#inside-existing-tools"><span class="fc-n">21</span>IA dentro de las herramientas que ya usamos</a></li>
     <li><a href="#limits-now"><span class="fc-n">22</span>Dónde están los límites ahora</a></li>
     <li><a href="#thanks"><span class="fc-n">23</span>Agradecimientos y créditos</a></li>
   </ol>
@@ -98,8 +98,35 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <h2 id="reference-recovery-title">Recuperación de color a partir de una referencia</h2>
   <p>Empecemos por lo que ya funciona. Un modelo pequeño se entrena con pares de fotogramas equivalentes: la fuente desvanecida y una referencia que todavía conserva el color. Esa referencia puede ser un telecine, un DVD, otra copia o el negativo original, donde los dos coincidan.</p>
   <p>El modelo solo aprende el color. Su salida se combina con la luma, el brillo, del escaneo original, así que la resolución, el grano y el detalle se mantienen como estaban. El flujo de trabajo está <a href="{{ '/chroma-recovery/' | relative_url }}">documentado aquí</a>.</p>
-  <div class="fc-missing"><p>Los ejemplos de las diapositivas 5 y 6 no se muestran en esta página.</p></div>
+  <div class="fc-missing"><p>El clip que se muestra en la diapositiva 6 no está incluido en esta página. Abajo hay otro ejemplo del mismo método.</p></div>
 
+  <figure class="fc-media">
+{% include fiat-companion/video.html key="candy" title="Candy Candy: escaneo original, escaneo equilibrado, referencia en DVD y recuperación de color" label="Reproducir video: Candy Candy, recuperación de color a partir de una referencia (1 minuto 10 segundos)" %}
+    <figcaption class="fc-body">
+      <h3 id="candy-candy-title">Candy Candy: color a partir de un DVD de referencia</h3>
+      <p>El color de un DVD francés PAL emparejado se traslada a un escaneo de 16mm desvanecido. Se reproducen cuatro versiones lado a lado: el escaneo original, el escaneo después de equilibrarlo y limpiarlo, la referencia en DVD y el resultado del modelo.</p>
+      <div class="fc-verdict">
+        <div><strong>Lo que funcionó</strong><p>El resultado toma el color del DVD, mientras que el detalle viene del escaneo de 16mm.</p></div>
+        <div><strong>Limitaciones</strong><p>El método es tan bueno como su referencia. Este DVD es de definición estándar y tiene sus propias decisiones de etalonaje y de transferencia. Y muchas películas ya no tienen ninguna referencia.</p></div>
+      </div>
+{% include fiat-companion/files.html key="candy" desc="comparación 1920 × 1080 · 1 min 10 s · 24 fps" %}
+      <button type="button" class="fc-ev fc-ev-img fc-process" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Entrenamiento de Candy Candy: la fuente de 16mm más el DVD PAL forman el objetivo del entrenamiento, y el resultado del modelo en los pasos 1, 1.000, 30.000 y 60.000"><img src="{{ vb }}s05-04_preview.jpg" alt="Entrenamiento de Candy Candy: la fuente de 16mm más el DVD PAL forman el objetivo del entrenamiento, y el resultado del modelo en los pasos 1, 1.000, 30.000 y 60.000" loading="lazy" decoding="async"></button>
+      <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
+      <ol class="fc-parts">
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-01" data-kind="image" data-w="2200" data-h="1650" data-title="Escaneo de 16mm desvanecido">Escaneo de 16mm desvanecido<span class="fc-dims">2200 × 1650</span></button><p>Un fotograma de la apertura, del escaneo de 16mm de la copia desvanecida, antes de cualquier corrección. Tiene una fuerte dominante magenta, y la mayor parte del parpadeo está en el canal rojo.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-02" data-kind="image" data-w="4400" data-h="3300" data-title="Escaneo limpio y reequilibrado">Escaneo limpio y reequilibrado<span class="fc-dims">4400 × 3300</span></button><p>El mismo fotograma después de la limpieza y el reequilibrio en Phoenix y Loki: los fotogramas con los que se entrenó CopyCat.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-03" data-kind="image" data-w="1951" data-h="1098" data-title="El script de Nuke">El script de Nuke<span class="fc-dims">1951 × 1098</span></button><p>El script de Nuke de un plano de Candy Candy: el plano en el visor y el grafo de CopyCat. Los fotogramas del escaneo son la entrada; el objetivo conserva el brillo del escaneo y toma el color del DVD.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-04" data-kind="image" data-w="1920" data-h="886" data-title="Pasos del entrenamiento">Pasos del entrenamiento<span class="fc-dims">1920 × 886</span></button><p>La fuente de 16mm más el DVD PAL forman el objetivo. Abajo, el resultado del modelo después de 1, 1.000, 30.000 y 60.000 pasos de entrenamiento.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s05-07" data-kind="image" data-w="2742" data-h="2112" data-title="Fotograma recuperado">Fotograma recuperado<span class="fc-dims">2742 × 2112</span></button><p>Un fotograma del resultado a tamaño completo.</p></li>
+      </ol>
+      <details>
+        <summary>Resultado a resolución completa (4400 × 3300, unos 298 MB)</summary>
+        <p>El escaneo con el color recuperado, solo, al tamaño completo del escaneo, 4400 × 3300. Sin sonido, 24 fps, HEVC. El reproductor de Drive de abajo transmite una versión más pequeña.</p>
+{% include fiat-companion/video.html key="candy-full" title="Candy Candy: el escaneo con el color recuperado a resolución completa" label="Reproducir video: Candy Candy, el escaneo con el color recuperado a resolución completa (1 minuto 10 segundos)" %}
+      </details>
+    </figcaption>
+  </figure>
+{% include fiat-companion/evidence.html key="slide05" %}
 </section>
 
 <section class="fc-section" id="synthetic-reference">
@@ -109,12 +136,61 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p>Mi primer intento fue guiarlo con una leader lady, la mujer de los fotogramas de calibración al comienzo de un rollo. No funcionó. Estos modelos no entienden el significado como nosotros, así que en vez de tomar solo el color, el modelo mezcló las dos imágenes y la mujer terminó dentro del plano. A eso lo llamo contaminación semántica.</p>
   <p>Una carta de color simple funcionó mejor, una vez que la desenfoqué un poco. Guía el color sin darle al modelo nada más que copiar.</p>
 
-  <p>Luego vino el prompt, que es la forma de hablarle al modelo. Hice un pequeño concurso, al que llamé America's Next Top Machine Learning Model: decenas de prompts y cientos de fotogramas de prueba, en siete rondas sobre siete películas desvanecidas. Un prompt solo pasaba una ronda si ocho de cada diez fotogramas eran aceptables. El ganador, Clara, es el que más uso, pero también uso los otros, según el plano.</p>
+  <p>Luego vino el prompt, que es la forma de hablarle al modelo. Hice un pequeño concurso, al que llamé America's Next Top Machine Learning Model: decenas de prompts y cientos de fotogramas de prueba, en siete rondas sobre siete películas desvanecidas. Un prompt solo pasaba una ronda si ocho de cada diez fotogramas eran aceptables. La fila inferior de la diapositiva muestra un fotograma desvanecido de <em>Counter Attack</em>, una película china de 1976, con tres de los finalistas. El ganador, Clara, es el que más uso, pero también uso los otros, según el plano.</p>
   <p>De la referencia sintética me quedo solo con el color. El brillo sigue viniendo del escaneo.</p>
 
+  <figure class="fc-media fc-still">
+    <button type="button" class="fc-ev fc-ev-img" data-id="v-leader-lady-semantic-contami-9dce" data-kind="image" data-w="1388" data-h="416" data-title="Tres fotogramas: la fuente desvanecida, el resultado guiado por una leader lady con la mujer mezclada en el plano y el resultado guiado por una carta de color"><img src="{{ vb }}v-leader-lady-semantic-contami-9dce_preview.jpg" alt="Tres fotogramas: la fuente desvanecida, el resultado guiado por una leader lady con la mujer mezclada en el plano y el resultado guiado por una carta de color" loading="lazy" decoding="async"></button>
+    <p class="fc-bar">Diapositiva 7 · La fuente desvanecida, el resultado guiado por una leader lady y el resultado guiado por una carta de color</p>
+    <figcaption class="fc-body">
+      <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
+      <ol class="fc-parts">
+        <li><button type="button" class="fc-part fc-ev" data-id="v-01-raw-source-316a" data-kind="image" data-w="2048" data-h="1556" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">2048 × 1556</span></button><p>El fotograma desvanecido.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s07-01" data-kind="image" data-w="1168" data-h="888" data-title="Guiado por una leader lady">Guiado por una leader lady<span class="fc-dims">1168 × 888</span></button><p>El modelo mezcló en el plano a la mujer de la cola de calibración.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-02-reference-chart-800a" data-kind="image" data-w="333" data-h="238" data-title="Carta de color ligeramente desenfocada">Carta de color ligeramente desenfocada<span class="fc-dims">333 × 238</span></button><p>La guía que reemplazó a la leader lady. Da el color y nada más que copiar.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-03-belak-chart-corrected-c2a4" data-kind="image" data-w="1184" data-h="880" data-title="Guiado por la carta de color">Guiado por la carta de color<span class="fc-dims">1184 × 880</span></button><p>Solo cambia el color.</p></li>
+      </ol>
+      <div class="fc-missing" style="margin-top: 0.8rem"><p>La imagen de la leader lady usada como guía no está incluida en esta página.</p></div>
+    </figcaption>
+  </figure>
 
+  <figure class="fc-media fc-still">
+    <div class="fc-grid4">
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-fanji-film-copy-000059-3569" data-kind="image" data-w="1920" data-h="1440" data-title="Fotograma fuente desvanecido"><img src="{{ vb }}v-fanji-film-copy-000059-3569_preview.jpg" alt="Fotograma fuente desvanecido" loading="lazy" decoding="async"><span>Fuente desvanecida</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-i2-frame-000000-test-b280" data-kind="image" data-w="1184" data-h="880" data-title="Resultado con el prompt Iris"><img src="{{ vb }}v-i2-frame-000000-test-b280_preview.jpg" alt="Resultado con el prompt Iris" loading="lazy" decoding="async"><span>Iris</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-c4-frame-000000-test-d995" data-kind="image" data-w="1184" data-h="880" data-title="Resultado con el prompt Celeste"><img src="{{ vb }}v-c4-frame-000000-test-d995_preview.jpg" alt="Resultado con el prompt Celeste" loading="lazy" decoding="async"><span>Celeste</span></button>
+      <button type="button" class="fc-ev fc-ev-img" data-id="v-cl2-frame-000000-test-5683" data-kind="image" data-w="1184" data-h="880" data-title="Resultado con el prompt Clara"><img src="{{ vb }}v-cl2-frame-000000-test-5683_preview.jpg" alt="Resultado con el prompt Clara" loading="lazy" decoding="async"><span>Clara, el ganador</span></button>
+    </div>
+    <p class="fc-bar">Diapositiva 7 · Fila inferior: los tres prompts finalistas sobre un fotograma desvanecido de <em>Counter Attack</em> (1976)</p>
+    <figcaption class="fc-body">
+      <p>La fila inferior de la diapositiva: el mismo fotograma desvanecido con cada uno de los tres finalistas.</p>
+      <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
+      <ol class="fc-parts">
+        <li><button type="button" class="fc-part fc-ev" data-id="v-fanji-film-copy-000059-3569" data-kind="image" data-w="1920" data-h="1440" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-i2-frame-000000-test-b280" data-kind="image" data-w="1184" data-h="880" data-title="Iris">Iris<span class="fc-dims">1184 × 880</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-c4-frame-000000-test-d995" data-kind="image" data-w="1184" data-h="880" data-title="Celeste">Celeste<span class="fc-dims">1184 × 880</span></button></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-cl2-frame-000000-test-5683" data-kind="image" data-w="1184" data-h="880" data-title="Clara, el ganador">Clara, el ganador<span class="fc-dims">1184 × 880</span></button></li>
+      </ol>
+      <p class="fc-more">Los mismos tres prompts sobre el plano de la multitud del video de la diapositiva 9: <button type="button" class="fc-ev fc-ev-link" data-id="v-fanji-film-copy-000007-ecfa" data-kind="image" data-w="1920" data-h="1440" data-title="Fuente desvanecida">Fuente desvanecida</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-i2-frame-000000-test-0884" data-kind="image" data-w="1184" data-h="880" data-title="Iris">Iris</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-c4-frame-000000-test-ea0c" data-kind="image" data-w="1184" data-h="880" data-title="Celeste">Celeste</button> · <button type="button" class="fc-ev fc-ev-link" data-id="v-cl2-frame-000000-test-e7be" data-kind="image" data-w="1184" data-h="880" data-title="Clara">Clara</button></p>
+    </figcaption>
+  </figure>
 
-  <div class="fc-missing"><p>Los fotogramas de prueba de la diapositiva 7 no se muestran en esta página. La carta de colores está en la evidencia de abajo.</p></div>
+  <figure class="fc-media fc-still">
+    <button type="button" class="fc-ev fc-ev-img" data-id="v-fanji-c4-row3-garden-split-c-184f" data-kind="image" data-w="1400" data-h="760" data-title="Fotograma del jardín de Counter Attack: la fuente desvanecida a la izquierda y el fotograma final a la derecha"><img src="{{ vb }}v-fanji-c4-row3-garden-split-c-184f_preview.jpg" alt="Fotograma del jardín de Counter Attack: la fuente desvanecida a la izquierda y el fotograma final a la derecha" loading="lazy" decoding="async"></button>
+    <p class="fc-bar">Diapositiva 7 · De un fotograma desvanecido a una referencia sintética, paso a paso (<em>Counter Attack</em>)</p>
+    <figcaption class="fc-body">
+      <p>El fotograma desvanecido está a la izquierda, y el fotograma final a la derecha.</p>
+      <p class="fc-file">Cómo se hizo · abre cada parte a tamaño completo</p>
+      <ol class="fc-parts">
+        <li><button type="button" class="fc-part fc-ev" data-id="v-01-source-fanji-film-copy-00-5674" data-kind="image" data-w="1920" data-h="1440" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></button><p>Un fotograma desvanecido de la película.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-02-control-fanji-film-copy-r-42c2" data-kind="image" data-w="1920" data-h="1440" data-title="Mapa de bordes">Mapa de bordes<span class="fc-dims">1920 × 1440</span></button><p>Los bordes del fotograma desvanecido (un mapa Canny). Mantienen al modelo pegado a las formas del propio fotograma.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s07-02" data-kind="image" data-w="333" data-h="238" data-title="Carta de color ligeramente desenfocada">Carta de color ligeramente desenfocada<span class="fc-dims">333 × 238</span></button><p>La guía de color.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-04-inference-frame-000000-te-b3c5" data-kind="image" data-w="1184" data-h="880" data-title="Referencia sintética">Referencia sintética<span class="fc-dims">1184 × 880</span></button><p>Lo que devuelve Qwen Image Edit. Es una imagen reducida; solo se usa su color.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="v-05-final-composite-fanji-fil-9236" data-kind="image" data-w="1920" data-h="1440" data-title="Fotograma final">Fotograma final<span class="fc-dims">1920 × 1440</span></button><p>El color de la referencia sintética sobre el brillo del escaneo original, a tamaño completo.</p></li>
+      </ol>
+      <p class="fc-more">La configuración de la prueba en ComfyUI, con la fuente, la carta, el mapa de bordes, el prompt, el modelo y el resultado en un solo grafo. Es del plano de la multitud del video de la diapositiva 9. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="Captura de pantalla de ComfyUI">Captura de pantalla de ComfyUI</button> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Archivo del flujo de trabajo (JSON)</a></p>
+    </figcaption>
+  </figure>
 {% include fiat-companion/evidence.html key="slide07" %}
 </section>
 
@@ -127,15 +203,19 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
 {% include fiat-companion/evidence.html key="slide08" %}
 
   <figure class="fc-media">
-      <div class="fc-missing"><p>El clip de la charla no se muestra en esta página. Lo que sigue viene de los registros de la investigación.</p></div>
+{% include fiat-companion/video.html key="slide09" title="Counter Attack: una sola referencia para todo el plano (TeleStyle)" label="Reproducir video: Counter Attack, una sola referencia para todo el plano (11 segundos)" %}
+    <p class="fc-bar">Diapositiva 9 · <em>Counter Attack</em> (1976): una sola referencia para todo el plano (TeleStyle)</p>
     <figcaption class="fc-body">
       <p>TeleStyle, de TeleAI, es un LoRA: un pequeño complemento para Qwen Image Edit, hecho para copiar el estilo de una imagen en otra. Tomo una referencia aprobada y copio su color en cada fotograma del plano.</p>
       <div class="fc-verdict">
         <div><strong>Lo que funcionó</strong><p>El color se mantiene a lo largo de todo el plano.</p></div>
         <div><strong>Limitaciones</strong><p>Ejecuta el modelo en cada fotograma, con una sola semilla fija para todo el plano. Este plano de 11 segundos tomó casi cuatro horas. Está bien como prueba, pero no es algo que puedas usar en un largometraje.</p></div>
       </div>
+{% include fiat-companion/files.html key="slide09" desc="comparación 1920 × 1080 · 11 s · 30 fps" %}
       <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
       <ol class="fc-parts fc-steps">
+        <li><button type="button" class="fc-part fc-ev" data-id="s09-01" data-kind="image" data-w="1920" data-h="1440" data-title="Fuente desvanecida">Fuente desvanecida<span class="fc-dims">1920 × 1440</span></button><p>El plano de la copia de la película: 338 fotogramas, 1920 × 1440, a 30 fotogramas por segundo.</p></li>
+        <li><button type="button" class="fc-part fc-ev" data-id="s09-02" data-kind="image" data-w="1184" data-h="880" data-title="Referencia aprobada">Referencia aprobada<span class="fc-dims">1184 × 880</span></button><p>Un fotograma del plano, recuperado con Qwen Image Edit y aprobado antes de la ejecución completa.</p></li>
         <li><span class="fc-part-label">TeleStyle en cada fotograma</span><p>Cada fotograma pasó por separado por Qwen Image Edit con el LoRA TeleStyle, con el fotograma desvanecido y la referencia aprobada como sus dos entradas, en 4 pasos. Se generaron los 338 fotogramas.</p></li>
         <li><span class="fc-part-label">Solo el color</span><p>El color de TeleStyle, generado a 1184 × 880, se puso sobre el brillo intacto del escaneo a 1920 × 1440.</p></li>
         <li><span class="fc-part-label">Tiempo</span><p>La ejecución completa tomó unos 13.560 segundos, casi cuatro horas: unos 32 segundos por fotograma una vez que la máquina estaba caliente.</p></li>
@@ -143,6 +223,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       </ol>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide09" %}
 </section>
 
 <section class="fc-section" id="h3-controlnet">
@@ -153,13 +234,15 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p>Me quedo solo con el color y lo pongo sobre el brillo original, así que el grano, la aspereza, incluso la suciedad, se mantienen. Si los dejas solos, estos modelos quieren cambiarlo todo y darle un aspecto plástico.</p>
 
   <figure class="fc-media">
-      <div class="fc-missing"><p>El clip de la charla no se muestra en esta página. Lo que sigue viene de los registros de la investigación.</p></div>
+{% include fiat-companion/video.html key="slide11" title="Counter Attack: H3 y ControlNet, terminado con el adaptador Temporal CbCr" label="Reproducir video: Counter Attack, H3 y ControlNet (13 segundos)" %}
+    <p class="fc-bar">Diapositiva 11 · <em>Counter Attack</em>: H3 + ControlNet, terminado con el adaptador Temporal CbCr</p>
     <figcaption class="fc-body">
       <p>El color viene de H3 con el ControlNet, y se termina con el adaptador Temporal CbCr, que explico en la siguiente sección. Elegí este plano porque es difícil: mucho movimiento, una multitud que cambia todo el tiempo y un paneo rápido en el medio.</p>
       <div class="fc-verdict">
         <div><strong>Lo que funcionó</strong><p>El color se mantiene a pesar de todo ese movimiento, y la geometría sigue igual que en el original.</p></div>
         <div><strong>Limitaciones</strong><p>Si miras de cerca, hay algo de tinte en las sombras. Mi copia era de 30 fotogramas por segundo con una cadencia rota, así que sacar fotogramas limpios de ella fue difícil, y el adaptador necesita fotogramas bien alineados. Todavía estoy trabajando en esto.</p></div>
       </div>
+{% include fiat-companion/files.html key="slide11" desc="comparación 1920 × 840 · 13 s · 24 fps" %}
       <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
       <ol class="fc-parts fc-steps">
         <li><span class="fc-part-label">Fuente y cadencia</span><p>385 fotogramas a 1920 × 1440 y 30 fotogramas por segundo. 77 eran casi duplicados por la cadencia rota, así que los 308 fotogramas distintos se mapearon a 24 fotogramas por segundo, fotograma por fotograma.</p></li>
@@ -173,6 +256,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide11" %}
 </section>
 
 <section class="fc-section" id="temporal-cbcr">
@@ -214,13 +298,16 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p>De <em>El Tinterillo</em> solo sobreviven una copia de 16mm dañada y un telecine más limpio, pero blando, recortado y con la cadencia extraña de los telecines de esa época. Suavicé el 16mm con un filtro de mediana y luego combiné los dos, con el telecine en el centro y el 16mm alrededor. Eso da un contorno aproximado para guiar la geometría, pero el filtro también elimina el detalle fino. Así que, para definir cómo debía verse la imagen, hice otras referencias sintéticas con ChatGPT Images. Luego MiniMax H3, en modo referencia, usa esas referencias, con el clip del telecine para el movimiento, para generar cada sección del plano.</p>
 
   <figure class="fc-media">
-      <div class="fc-missing"><p>El clip de la charla no se muestra en esta página. Lo que sigue viene de los registros de la investigación.</p></div>
+{% include fiat-companion/video.html key="slide15" title="El Tinterillo: escalado por difusión, las escaleras" label="Reproducir video: El Tinterillo, escalado por difusión (26 segundos)" %}
+    <p class="fc-bar">Diapositiva 15 · <em>El Tinterillo</em>: escalado por difusión, las escaleras</p>
     <figcaption class="fc-body">
+      <p>El escaneo original de 16mm está a la izquierda, y el resultado que aprobé, a la derecha. Llegar hasta aquí tomó un largo proceso de iteración.</p>
       <div class="fc-verdict">
         <div><strong>Lo que funcionó</strong><p>La imagen de este escaneo no se puede salvar con herramientas tradicionales. H3 llena esos vacíos y reconstruye la imagen, siguiendo la estructura y el movimiento del original.</p></div>
         <div><strong>Limitaciones</strong><p>El resultado es en parte sintético: el modelo inventa detalle fino que la película ya no tiene, y eso hay que declararlo. El modelo trabajó a 768 × 432. Todavía hay un salto de brillo en el primer fotograma, y las caras y el detalle fino siguen siendo débiles.</p></div>
       </div>
       <p>Algunas personas dirán que esto es una herejía, y en cierta medida lo es. Yo mismo no lo llamaría una restauración de película propiamente dicha. Pero con material como este, no veo otro camino, y quizá tengamos que abrir la mente a lo que puede ser la restauración.</p>
+{% include fiat-companion/files.html key="slide15" desc="comparación 1920 × 756 · 26 s · 24 fps" %}
       <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
       <ol class="fc-parts fc-steps">
         <li><span class="fc-part-label">Fuentes</span><p>El escaneo de 16mm, contra el que se juzga el resultado, y el telecine, usado por su movimiento. El plano tiene 624 fotogramas a 24 fotogramas por segundo.</p></li>
@@ -233,6 +320,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
       <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
     </figcaption>
   </figure>
+{% include fiat-companion/evidence.html key="slide15" %}
 </section>
 
 <section class="fc-section" id="diffusion-reconstruction">
@@ -269,26 +357,6 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <h2 id="inside-existing-tools-section-title">IA dentro de las herramientas que ya usamos</h2>
   <p>La IA también puede trabajar a través de las herramientas que ya usamos. Las empresas que las fabrican la están incorporando, tanto para control y gestión como para procesamiento. DaVinci Resolve 21.1 permite que asistentes de IA lo operen directamente, Premiere Pro tiene un AI Assistant que trabaja dentro del proyecto, y Avid ha mostrado IA agéntica para Media Composer. Las herramientas de restauración pueden funcionar de la misma manera.</p>
 
-  <figure class="fc-media">
-{% include fiat-companion/video.html key="slide21" title="Point Blank: un modelo trabajando dentro de Phoenix" label="Reproducir video: Point Blank, un modelo trabajando dentro de Phoenix (30 segundos)" %}
-    <p class="fc-bar">Diapositiva 21 · <em>Point Blank</em> (1967): un modelo trabajando dentro de Phoenix</p>
-    <figcaption class="fc-body">
-      <p>Una de mis pruebas de investigación. Después de ejecutar Dry Clean en Phoenix, un modelo pinta las máscaras de protección directamente en el proyecto. El rojo muestra lo que cambió Dry Clean.</p>
-      <div class="fc-limits"><p><strong>Limitaciones.</strong> Todavía está en una etapa temprana. Esta es una grabación de pantalla del flujo de trabajo, no una restauración terminada.</p></div>
-{% include fiat-companion/files.html key="slide21" desc="grabación de pantalla 1920 × 1080 · 30 s · 24 fps · sin sonido" %}
-      <p class="fc-file">Cómo se hizo, según los registros de la investigación</p>
-      <ol class="fc-parts fc-steps">
-        <li><span class="fc-part-label">Fuente</span><p>Una copia de estudio del proyecto del tráiler de Point Blank en Phoenix: un plano de 52 fotogramas, 2048 × 1556, a 24 fotogramas por segundo.</p></li>
-        <li><span class="fc-part-label">Dos exportaciones</span><p>El plano se exportó dos veces desde Phoenix: una sin Dry Clean y otra con él.</p></li>
-        <li><span class="fc-part-label">Lo que cambió Dry Clean</span><p>La diferencia entre las dos exportaciones muestra lo que cambió Dry Clean. Los cambios mayores de 8 valores de código se agruparon en marcas separadas.</p></li>
-        <li><span class="fc-part-label">El modelo</span><p>Un pequeño clasificador de imágenes (ResNet18), entrenado con pinceladas de otra película, miró cada marca con los fotogramas anterior y siguiente y predijo si debía devolver ahí la imagen original.</p></li>
-        <li><span class="fc-part-label">En el proyecto</span><p>Sus decisiones se convirtieron en pinceladas de Matte Paint: 630 a lo largo de los 52 fotogramas, escritas en el proyecto de Phoenix y leídas de nuevo para comprobarlas.</p></li>
-        <li><span class="fc-part-label">Revisión</span><p>La grabación es Phoenix reproduciendo el resultado con Red Difference activado. En la revisión, también devolvió zonas de la pared donde no se perdió información importante, así que todavía no se aceptó.</p></li>
-      </ol>
-      <p class="fc-more fc-steps-note">Las imágenes de estos pasos están en carpetas de investigación privadas y todavía no están en esta página.</p>
-    </figcaption>
-  </figure>
-{% include fiat-companion/evidence.html key="slide21" %}
 </section>
 
 <section class="fc-section" id="limits-now">
@@ -321,7 +389,7 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <p class="fc-slide fc-slide-light">Diapositiva 23</p>
   <h2 id="thanks-title">Gracias</h2>
   <p>Gracias a FIAT/IFTA y a los organizadores.</p>
-  <p class="fc-small">Los ejemplos de esta página son pruebas de investigación con tráileres desvanecidos de un escaneo de un rollo de tráileres en 35mm publicado abiertamente en <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>. Los fragmentos de películas siguen siendo propiedad de sus titulares de derechos, y mostrarlos aquí no otorga permiso para reutilizarlos. Consulta los <a href="{{ '/credits/' | relative_url }}">créditos y la atribución</a>.</p>
+  <p class="fc-small">Los ejemplos de esta página son mis pruebas de investigación: tráileres desvanecidos de un escaneo de un rollo de tráileres en 35mm publicado abiertamente en <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a> y copias de otras películas con las que trabajé. Los fragmentos de películas siguen siendo propiedad de sus titulares de derechos, y mostrarlos aquí no otorga permiso para reutilizarlos. Consulta los <a href="{{ '/credits/' | relative_url }}">créditos y la atribución</a>.</p>
   <p>Las preguntas y sugerencias son bienvenidas:</p>
   <ul>
     <li>Email: <a href="mailto:info@fabiocolor.com">info@fabiocolor.com</a></li>

@@ -49,12 +49,6 @@ nav_order: 0
     <a class="card-link" href="{{ '/upscaling/' | relative_url }}">Upscaling <span aria-hidden="true">→</span></a>
   </article>
 
-  <article class="research-card">
-    <p class="card-kicker">5</p>
-    <h3>Matte recovery</h3>
-    <p>Dirt-cleaning filters also remove real picture. A small model decides what to bring back, so the restorer doesn't have to paint it all by hand.</p>
-    <a class="card-link" href="{{ '/matte-recovery/' | relative_url }}">Matte recovery <span aria-hidden="true">→</span></a>
-  </article>
 </div>
 
 ## Colour recovery: source, proposal, composite

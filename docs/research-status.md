@@ -41,7 +41,7 @@ The normal first step is to balance the scan, for example with the [Faded Balanc
 - **Semantic contamination.** If you use a leader lady as the reference, she ends up in the shot. A plain colour chart, softly blurred, avoids that.
 - **Frame by frame.** Each frame is a fair interpretation on its own, but together they flicker.
 - **Resolution and length.** The video models see a reduced picture, around 768 × 432, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles and you get seams.
-- **Hard motion and broken cadence.** My best result on a fast crowd shot still has some tint in the shadows, because the copy had a broken cadence.
+- **Hard motion and broken cadence.** My best *Counter Attack* result, a fast crowd shot, still has some tint in the shadows, because my copy had a broken cadence.
 - **Time.** One 11-second shot with TeleStyle took around four hours.
 - **New shots.** I'd like at least three out of four new shots to work on the first pass. I'm not there yet.
 
@@ -66,15 +66,14 @@ The normal first step is to balance the scan, for example with the [Faded Balanc
 
 The second half of the FIAT/IFTA talk was about the picture itself.
 
-- **Diffusion upscaling.** When every frame of the surviving element is damaged, there's nothing left to borrow. I combined a 16mm print and a telecine, cleaned the result with a median filter to get a rough outline, and guided MiniMax H3 with a synthetic reference. The result has a synthetic look, and I wouldn't call it proper film restoration myself. Small faces and lip movement are still a problem.
-- **Diffusion reconstruction.** When frames are completely gone, I first use whatever survives in the other elements, and then generate only inside the gap, guided by the movement around it (Wan VACE 14B, with pose control). The tests are at reduced resolution so far.
+- **Diffusion upscaling.** When every frame of the surviving element is damaged, there's nothing left to borrow. On *El Tinterillo* I combined a 16mm print and a telecine, cleaned the result with a median filter to get a rough outline, and guided MiniMax H3 with a synthetic reference. The result has a synthetic look, and I wouldn't call it proper film restoration myself. Small faces and lip movement are still a problem.
+- **Diffusion reconstruction.** When frames are completely gone, or the whole shot has decayed, I first use whatever survives in the other elements, and then generate only what's missing, guided by the movement around it. On a decayed 16mm colour shot of flute players and a drummer from the Wong Rengifo collection, I kept the film's own drumming where generation couldn't follow it and approved the result, with notes, at reduced resolution.
 
-I don't have examples of these two that I can show publicly yet, and the workflows aren't public either.
+The examples, with stills, clips and downloads, are on the [Gap Filling]({{ '/gap-filling/' | relative_url }}) and [Upscaling]({{ '/upscaling/' | relative_url }}) pages. The workflows aren't public yet.
 
-## Cleaning: dirt removal and matte recovery
+## Dirt removal
 
-- **Dirt removal.** [Advanced Dirt Removal]({{ '/dirt-removal/' | relative_url }}) is a free macro for DaVinci Resolve, with a Motion Mask and a Recovery Brush to bring back what the cleaning took. It's a finished tool, on version 1.1.3.
-- **Matte recovery.** Cleaning filters also remove real picture. [A small model]({{ '/matte-recovery/' | relative_url }}) now decides most of what to bring back, from a restorer's finished decisions. On finished reels it recovered about 95% of the lost picture in the restorer's estimate. Fast movement and faces are where it still brings back dirt.
+[Advanced Dirt Removal]({{ '/dirt-removal/' | relative_url }}) is a free macro for DaVinci Resolve, with a Motion Mask and a Recovery Brush to bring back what the cleaning took. It's a finished tool, on version 1.1.3.
 
 ## Hardware
 
@@ -98,4 +97,4 @@ I don't have examples of these two that I can show publicly yet, and the workflo
 
 When I say I approved a result, I mean I watched the whole shot at full size and accepted it as a research result for that shot. The colour that survived in the scan is evidence. The colour the model filled in where nothing survived is an interpretation, and the film can't confirm it.
 
-The examples on these pages are faded trailers from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps). The trailers belong to their rights holders.
+The examples on these pages are my research tests: faded trailers from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps), and copies of other films I worked with. The films belong to their rights holders.

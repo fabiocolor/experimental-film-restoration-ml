@@ -13,8 +13,12 @@ These notes support the workflow without being workflow steps themselves. Use th
 
 The public YouTube walkthrough is a visual companion to the repository. It belongs here as supporting material: a quick way to see the chroma-recovery idea in motion before reading the step-by-step workflow.
 
-Watch it on YouTube: [Nuke Chroma Recovery: Rebuilding Faded Film Color with CopyCat](https://youtu.be/kXerjFGX9Kg).
-
+<figure>
+  <a href="https://youtu.be/kXerjFGX9Kg" target="_blank" rel="noopener">
+    <img src="{{ '/images_kebab/video_previews/color-recovery-video-preview.gif' | relative_url }}" alt="Animated preview of the Nuke chroma recovery YouTube walkthrough">
+  </a>
+  <figcaption>Source video: <a href="https://youtu.be/kXerjFGX9Kg" target="_blank" rel="noopener">Nuke Chroma Recovery: Rebuilding Faded Film Color with CopyCat</a>.</figcaption>
+</figure>
 
 ## Digitization: First Scan, Last Chance {#digitization-first-scan-last-chance}
 
@@ -84,7 +88,21 @@ For this workflow, the point is practical more than aesthetic: the magenta image
   </figure>
 </div>
 
+<figure>
+  <img src="{{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-parade-scope-faded-film.png' | relative_url }}" alt="Resolve parade scope showing channel imbalance in faded film">
+  <figcaption>Resolve parade scope and Faded Balancer controls showing channel imbalance in faded film. The goal is a technical pre-balance, not a final creative grade.</figcaption>
+</figure>
 
+<div class="media-grid media-grid-2">
+  <figure>
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}" alt="Faded Candy Candy scan before DCTL correction">
+    <figcaption>Faded animation scan before channel-specific correction.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}" alt="Balanced Candy Candy scan after DCTL correction">
+    <figcaption>Diagnostic red-channel correction view used to isolate and control a dominant channel component.</figcaption>
+  </figure>
+</div>
 
 ### Technical Data For The Investigation
 
@@ -115,3 +133,17 @@ For this workflow, the point is practical more than aesthetic: the magenta image
 - [Graphics Atlas - Chromogenic deterioration](https://new.graphicsatlas.org/chromogenic/object-view)
 - [Heritage, 2023 - Digital Unfading of Chromogenic Film Informed by Its Spectral Densities](https://www.mdpi.com/2571-9408/6/4/181)
 - [National Film Preservation Foundation - The Film Preservation Guide](https://www.filmpreservation.org/userfiles/image/PDFs/fpg.pdf)
+
+## Downloads
+
+The images on this page, full size:
+
+- [Animated preview of the Nuke chroma recovery YouTube walkthrough]({{ '/images_kebab/video_previews/color-recovery-video-preview.gif' | relative_url }}) (GIF, 3.2 MB)
+- [First Scan, Last Chance article hero image]({{ '/images_kebab/digitization/first-scan-last-chance-hero.png' | relative_url }}) (PNG, 0.8 MB)
+- [Article excerpt about adjusting scanner color controls]({{ '/images_kebab/digitization/first-scan-last-chance-scanner-color-controls.png' | relative_url }}) (PNG, 0.9 MB)
+- [Color systems for motion picture film digitization article screenshot]({{ '/images_kebab/digitization/first-scan-last-chance-color-systems-review.png' | relative_url }}) (PNG, 0.4 MB)
+- [Faded live-action scan with strong red/magenta bias]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }}) (PNG, 3.6 MB)
+- [Live-action scan after technical rebalance]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }}) (PNG, 4.2 MB)
+- [Resolve parade scope showing channel imbalance in faded film]({{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-parade-scope-faded-film.png' | relative_url }}) (PNG, 4.5 MB)
+- [Faded Candy Candy scan before DCTL correction]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}) (PNG, 4.3 MB)
+- [Balanced Candy Candy scan after DCTL correction]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}) (PNG, 4.3 MB)

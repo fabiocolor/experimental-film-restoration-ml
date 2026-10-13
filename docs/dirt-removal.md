@@ -28,6 +28,3 @@ It needs DaVinci Resolve 18 or later. The free version works; Resolve Studio giv
 - **Instructions and source:** [Advanced Dirt Removal on GitHub](https://github.com/fabiocolor/Advanced-Dirt-Removal).
 - **Video tutorial:** [watch it on YouTube](https://youtu.be/Gepw0XG0FGw).
 
-## How it fits the rest
-
-Cleaning filters, including this one, remove some real detail along with the dirt. The Recovery Brush is the manual way to bring it back. [Matte recovery]({{ '/matte-recovery/' | relative_url }}) is my research on letting a model make most of those decisions in a full restoration system.
