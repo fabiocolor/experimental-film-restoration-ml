@@ -1,0 +1,702 @@
+// Design option B: a film-lab / museum-catalogue look.
+// Light grey pages and black sans type; every image sits on a dark neutral plate,
+// like a print on a light box. Quiet grid, hairline rules, numbered catalogue captions.
+// Loaded last from custom.scss, so these rules take precedence.
+
+$b-page: #f2f1ee;
+$b-ink: #141414;
+$b-soft: #5e5d59;
+$b-rule: #cfcdc7;
+$b-plate: #1d1d1c;
+$b-sans: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
+$b-mono: 'IBM Plex Mono', Consolas, monospace;
+
+html,
+body,
+.main-content-wrap,
+.main-header {
+  background: $b-page !important;
+}
+
+body {
+  color: $b-ink;
+  font-family: $b-sans;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+// Sidebar and header
+.side-bar {
+  background: $b-page !important;
+  border-right: 1px solid $b-rule !important;
+}
+
+.site-header {
+  border-bottom: 1px solid $b-rule !important;
+}
+
+@media (min-width: 50rem) {
+  .site-header {
+    height: auto;
+    max-height: none;
+    min-height: 3.75rem;
+    padding: 0.9rem 0;
+  }
+
+  .site-title {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.site-title {
+  color: $b-ink !important;
+  font-family: $b-sans;
+  font-size: 1rem !important;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.site-button,
+.site-header .site-button {
+  color: $b-ink !important;
+}
+
+.site-title:hover,
+.site-button:hover,
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link.active,
+.nav-list .nav-list-item .nav-list-expander:hover {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+.site-nav .nav-list-item {
+  .nav-list-link {
+    margin: 0 10px;
+    padding: 0.3rem 0.6rem;
+    color: $b-soft;
+    border-radius: 0;
+    font-size: 0.92rem;
+
+    &:hover {
+      color: $b-ink;
+    }
+
+    &.active {
+      color: $b-ink;
+      font-weight: 600;
+      box-shadow: inset 2px 0 0 $b-ink;
+    }
+  }
+
+  .nav-list-expander {
+    color: $b-soft;
+  }
+}
+
+.site-footer {
+  color: $b-soft !important;
+}
+
+.search {
+  background: transparent !important;
+}
+
+.search-input {
+  color: $b-ink !important;
+  background: $b-page !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  font-family: $b-sans;
+
+  &::placeholder {
+    color: $b-soft;
+  }
+
+  &:focus {
+    box-shadow: inset 0 -1px 0 $b-ink !important;
+  }
+}
+
+.main-header {
+  border-bottom: 1px solid $b-rule !important;
+}
+
+.aux-nav a {
+  color: $b-ink !important;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+// Content column: wide enough for the plates
+.main-content {
+  max-width: 52rem;
+  padding-top: 1rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $b-ink;
+    font-family: $b-sans;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  h1 {
+    max-width: 22ch;
+    margin-bottom: 1.2rem;
+    font-size: 2.5rem !important;
+    line-height: 1.12;
+  }
+
+  h2 {
+    margin-top: 3rem;
+    padding-top: 0.7rem;
+    padding-bottom: 0;
+    border-top: 1px solid $b-ink;
+    border-bottom: 0;
+    font-size: 1.35rem !important;
+  }
+
+  h3 {
+    font-size: 1.1rem !important;
+    font-weight: 600;
+  }
+
+  h4 {
+    font-size: 1rem !important;
+    font-weight: 600;
+  }
+
+  p,
+  li {
+    color: $b-ink;
+    font-size: inherit;
+  }
+
+  a {
+    color: $b-ink;
+    text-decoration-color: rgba($b-ink, 0.35);
+
+    &:hover {
+      color: $b-soft;
+      text-decoration-color: currentColor;
+    }
+  }
+
+  strong {
+    color: $b-ink;
+    font-weight: 600;
+  }
+
+  blockquote {
+    background: none;
+    border-left: 2px solid $b-ink;
+  }
+
+  code {
+    color: $b-ink;
+    background: #e6e5e1;
+    border: 0;
+    border-radius: 0;
+  }
+
+  div.highlighter-rouge {
+    background: #e8e7e3;
+    border: 0;
+    border-radius: 0;
+
+    pre.highlight code {
+      color: $b-ink;
+    }
+  }
+
+  table {
+    background: none;
+    border: 0;
+    border-top: 1px solid $b-ink;
+
+    th {
+      color: $b-soft;
+      background: none;
+      border-bottom: 1px solid $b-rule;
+      font-family: $b-mono;
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0;
+    }
+
+    td,
+    tbody tr:nth-child(even) td,
+    tbody tr:hover td {
+      background: none !important;
+      border-bottom: 1px solid $b-rule;
+      font-size: 0.92rem;
+    }
+  }
+
+  img {
+    border: 0;
+    border-radius: 0;
+  }
+
+  video {
+    border: 0;
+  }
+
+  hr {
+    background: $b-rule;
+  }
+}
+
+// Small labels: catalogue numbering in mono, normal case
+.eyebrow,
+.card-kicker {
+  margin-bottom: 0.4rem !important;
+  color: $b-soft !important;
+  font-family: $b-mono;
+  font-size: 0.8rem !important;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+// Home
+.research-hero {
+  margin: 0 0 2.2rem;
+  padding: 0 0 2rem;
+  border-bottom: 0;
+}
+
+.hero-lede {
+  max-width: 40rem;
+  color: $b-ink !important;
+  font-family: $b-sans;
+  font-size: 1.25rem !important;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.research-intro {
+  display: block;
+  max-width: 40rem;
+  margin: 0 0 2.5rem;
+
+  p {
+    font-size: inherit;
+  }
+}
+
+.hero-buttons {
+  display: block;
+  margin: 1.3rem 0 0;
+}
+
+.main-content .btn,
+.main-content .btn.btn-primary,
+.main-content .btn.btn-outline,
+.quiet-panel .btn-primary {
+  display: inline;
+  min-height: 0;
+  margin-right: 1.6rem;
+  padding: 0;
+  color: $b-ink !important;
+  background: none !important;
+  border: 0 !important;
+  font-family: $b-sans;
+  font-size: inherit;
+  font-weight: 500;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-decoration: underline !important;
+  text-decoration-color: rgba($b-ink, 0.35) !important;
+  text-underline-offset: 0.2em;
+
+  &:hover {
+    color: $b-soft !important;
+    background: none !important;
+  }
+}
+
+// Research tracks: a quiet two-column grid with hairlines
+.track-grid,
+.link-grid {
+  gap: 0 2rem;
+  margin: 1rem 0 2.5rem;
+}
+
+.research-card,
+.research-card-featured {
+  padding: 0.9rem 0 1.4rem;
+  background: none;
+  border: 0;
+  border-top: 1px solid $b-rule;
+
+  h3 {
+    margin: 0 0 0.35rem;
+  }
+
+  p {
+    margin-bottom: 0.5rem;
+    color: $b-ink;
+    font-size: 0.95em;
+  }
+}
+
+.card-link {
+  font-weight: 500;
+}
+
+.link-grid a {
+  padding: 0.9rem 0;
+  color: $b-ink !important;
+  background: none;
+  border: 0;
+  border-top: 1px solid $b-rule;
+
+  &:hover {
+    background: none;
+  }
+}
+
+.quiet-panel {
+  margin: 2.5rem 0;
+  padding: 1rem 0 0;
+  color: $b-ink;
+  background: none;
+  border-top: 1px solid $b-ink;
+
+  h3 {
+    color: $b-ink;
+  }
+
+  p {
+    color: $b-ink;
+  }
+}
+
+.experiment-evidence,
+.experiment-note {
+  padding: 1rem 0;
+  background: none;
+  border: 0;
+  border-top: 1px solid $b-rule;
+}
+
+.experiment-facts dt {
+  color: $b-soft;
+  font-family: $b-mono;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.status-legend {
+  background: none;
+  border: 0;
+  border-top: 1px solid $b-rule;
+  border-bottom: 1px solid $b-rule;
+}
+
+.status,
+.status-demonstrated,
+.status-promising,
+.status-open {
+  padding: 0;
+  color: $b-ink;
+  background: none;
+  border: 0;
+  font-family: $b-mono;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.method-flow span {
+  color: $b-soft;
+  font-family: $b-mono;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.method-flow strong {
+  font-family: $b-sans;
+  font-weight: 600;
+}
+
+.translation-notice {
+  background: none;
+  border-left: 2px solid $b-ink;
+
+  strong {
+    font-size: inherit;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+.site-language label {
+  font-family: $b-mono;
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.frame-extractor,
+.frame-extractor-file {
+  background: none;
+  border-radius: 0;
+}
+
+// Images on dark plates, captions below in catalogue style
+.main-content main {
+  counter-reset: figure;
+}
+
+.main-content main figure,
+.app-hero-strip figure {
+  img,
+  video {
+    box-sizing: border-box;
+    padding: 1.4rem;
+    background: $b-plate;
+    border: 0;
+  }
+
+  figcaption {
+    margin-top: 0.6rem;
+    color: $b-soft;
+    font-size: 0.85em;
+    line-height: 1.45;
+    counter-increment: figure;
+
+    &::before {
+      content: counter(figure, decimal-leading-zero);
+      margin-right: 0.7rem;
+      color: $b-ink;
+      font-family: $b-mono;
+      font-size: 0.95em;
+    }
+
+    strong {
+      color: $b-ink;
+      font-weight: 500;
+
+      &::after {
+        content: ' ';
+      }
+    }
+
+    br {
+      display: none;
+    }
+  }
+}
+
+.media-grid {
+  gap: 1rem;
+}
+
+.app-hero-strip {
+  gap: 1rem;
+
+  figure {
+    background: none;
+    border: 0;
+  }
+
+  img {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+  }
+
+  figcaption {
+    min-height: 0;
+    padding: 0;
+  }
+}
+
+.experiment-credit {
+  color: $b-soft;
+  font-size: 0.85em;
+}
+
+// SEAPAVAA page: its own inline styles, brought into line
+.seapavaa-jump a {
+  padding: 0 !important;
+  color: $b-ink !important;
+  border: 0 !important;
+  text-decoration: underline !important;
+}
+
+.seapavaa-card {
+  padding: 0.9rem 0 !important;
+  background: none !important;
+  border: 0 !important;
+  border-top: 1px solid $b-rule !important;
+  border-radius: 0 !important;
+}
+
+.seapavaa-role {
+  padding: 0 !important;
+  color: $b-soft !important;
+  background: none !important;
+  font-family: $b-mono;
+  font-size: 0.78rem !important;
+  font-weight: 400 !important;
+}
+
+.main-content footer p {
+  color: $b-soft !important;
+  font-size: 0.8em !important;
+}
+
+::-webkit-scrollbar-track {
+  background: $b-page;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a9a7a0;
+  border-color: $b-page;
+}
+
+// FIAT/IFTA companion: keep its structure, use this option's type and colours
+html body {
+  &,
+  .main-content-wrap,
+  .main-header,
+  .side-bar,
+  .site-header,
+  .search {
+    background: $b-page !important;
+  }
+
+  .site-title,
+  .main-content .fc h1,
+  .main-content .fc h2,
+  .main-content .fc h3 {
+    font-family: $b-sans !important;
+    font-weight: 500;
+  }
+
+  .site-nav .nav-list-item .nav-list-link {
+    color: $b-soft;
+  }
+
+  .site-nav .nav-list-item .nav-list-link.active {
+    color: $b-ink;
+    background: none;
+    box-shadow: inset 2px 0 0 $b-ink;
+  }
+
+  .fc {
+    --cyan: #8a8780;
+    --navy: #141414;
+    --navy-dark: #3a3a38;
+    --ink: #141414;
+    --soft: #5e5d59;
+    --line: #cfcdc7;
+    font-family: $b-sans;
+  }
+
+  .fc-media::before,
+  .main-content .fc .fc-section > h2::before,
+  .main-content .fc .fc-section > h2::after {
+    display: none;
+  }
+
+  .fc-media::after {
+    box-shadow: none;
+  }
+
+  .main-content .fc .fc-section > h2 {
+    padding-left: 0;
+  }
+
+  .main-content .fc .fc-kicker,
+  .main-content .fc .fc-slide {
+    font-family: $b-mono;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .fc ol.fc-parts > li::before {
+    border-radius: 0;
+  }
+
+  .fc-play-label {
+    box-shadow: none;
+  }
+
+  .fc-toc .fc-v {
+    padding: 0;
+    color: #5e5d59;
+    background: none;
+    font-family: $b-mono;
+    font-weight: 400;
+    text-transform: none;
+  }
+
+  .fc-tip,
+  .fc-lang,
+  .fc-verdict div,
+  .fc-limits,
+  .fc details.fc-evidence {
+    background: none;
+  }
+}
+
+// Phones
+@media (max-width: 31.25rem) {
+  body {
+    font-size: 1.15rem;
+  }
+
+  .main-content h1 {
+    font-size: 2.1rem !important;
+  }
+
+  .main-content main figure,
+  .app-hero-strip figure {
+    img,
+    video {
+      padding: 0.6rem;
+    }
+  }
+}
+
+// The companion's figures keep their own captions and players
+.main-content main .fc figure {
+  img,
+  video {
+    padding: 0;
+    background: none;
+  }
+
+  figcaption {
+    margin-top: 0;
+    color: inherit;
+    font-size: inherit;
+    counter-increment: none;
+
+    &::before {
+      content: none;
+    }
+
+    strong::after {
+      content: none;
+    }
+
+    br {
+      display: inline;
+    }
+  }
+}
