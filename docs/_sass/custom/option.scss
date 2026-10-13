@@ -613,7 +613,7 @@ html body {
   }
 
   .fc-media::after {
-    box-shadow: none;
+    display: none;
   }
 
   .main-content .fc .fc-section > h2 {
