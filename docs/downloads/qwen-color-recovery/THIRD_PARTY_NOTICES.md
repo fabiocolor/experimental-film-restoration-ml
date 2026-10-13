@@ -23,6 +23,8 @@ Review each model card and upstream licence before downloading or using the mode
 
 - `assets/demo_unbalanced_source_frame.jpg` is provided only as a research demonstration frame.
 - `assets/faded-color-reference-palette.png` was created for this project as a simple workflow reference and may be reused with the package.
+- `assets/Belak_Color_Patch_Chart_softblur_32.png` (also `examples/counter-attack-waterfront/fanji_waterfront_reference.png`) is the colour chart used in the *Counter Attack* example.
+- `examples/counter-attack-waterfront/` source and edge-map frames come from a film copy of *Counter Attack* and are provided only as a research demonstration.
 
 Credit does not grant reuse permission. Included and downloaded third-party material remains subject to the rights and terms of its respective owner or project.
 

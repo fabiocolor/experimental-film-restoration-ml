@@ -17,7 +17,7 @@ The workflow runs in ComfyUI on your own computer. Try it on a test frame from y
 
 **Where this stands, October 2026.** This is the single-frame part of my research, shared as it is now, so expect it to change.
 
-- **ComfyUI Cloud:** it runs there too, but I haven't tested it properly for restoration yet. Making the best workflows easy to use on ComfyUI Cloud is one of my next goals.
+- **ComfyUI Cloud:** it should work there with the built-in-nodes version, but I'm still testing it. Making the best workflows easy to use on ComfyUI Cloud is one of my next goals.
 - **Hardware for a local install:** a modern NVIDIA GPU with 8 GB of VRAM or more for still frames. Video work needs 16 GB or more.
 - **Settings:** as shipped, the "Enable 4steps LoRA?" switch is off, so the workflow runs Qwen's own defaults: 40 steps, CFG 4, with a random seed. The settings I use are the switch on (4 steps with the Lightning LoRA, CFG 1) and a fixed seed (0), with the source-derived edge map and the colour chart as guides.
 - **The whole-shot routes** (TeleStyle, MiniMax H3 with the Fun ControlNet, and the Temporal CbCr adapter) aren't part of this download yet. A cleaner, self-contained ComfyUI version is in progress. See [where the research stands]({{ '/research-status/' | relative_url }}).
@@ -47,11 +47,14 @@ The workflow runs in ComfyUI on your own computer. Try it on a test frame from y
 
 | Download | What it is for |
 | --- | --- |
-| [`faded-qwen-color-recovery-app.zip`]({{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}) | Everything in one package: the workflows, a demo frame, the colour palette and the helper node. |
-| [`faded-qwen-2511-cloud-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}) | A version that uses only built-in nodes, for ComfyUI Cloud. |
-| [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The complete workflow for a local ComfyUI installation. |
+| [`faded-qwen-color-recovery-app.zip`]({{ '/downloads/faded-qwen-color-recovery-app.zip' | relative_url }}) | Everything in one package: both workflows (as JSON and as PNG), the helper node, the demo frame, the colour palette, the Belak chart and the *Counter Attack* example. |
+| [`faded-qwen-2511-still-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.json' | relative_url }}) | The full workflow for your own computer. It uses the helper node. |
+| [`faded-qwen-2511-cloud-composite-app.json`]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.json' | relative_url }}) | The same workflow with only built-in nodes, so it also runs on ComfyUI Cloud. |
+| [Workflow PNGs]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-still-composite-app.png' | relative_url }}) ([Cloud version]({{ '/downloads/qwen-color-recovery/workflows/faded-qwen-2511-cloud-composite-app.png' | relative_url }})) | The same workflows as images. Drag one onto ComfyUI and the graph opens. |
 | [`demo_unbalanced_source_frame.jpg`]({{ '/downloads/qwen-color-recovery/assets/demo_unbalanced_source_frame.jpg' | relative_url }}) | A faded frame from the *Candy Candy* 16mm print, for a quick test. |
 | [`faded-color-reference-palette.png`]({{ '/downloads/qwen-color-recovery/assets/faded-color-reference-palette.png' | relative_url }}) | The colour reference the workflow uses. I made it for this project, and you can reuse it with the workflow. |
+| [`Belak_Color_Patch_Chart_softblur_32.png`]({{ '/downloads/qwen-color-recovery/assets/Belak_Color_Patch_Chart_softblur_32.png' | relative_url }}) | The colour chart I used in the *Counter Attack* example. |
+| [*Counter Attack* example]({{ '/downloads/qwen-color-recovery/examples/counter-attack-waterfront/counter-attack-waterfront-workflow.json' | relative_url }}) ([PNG]({{ '/downloads/qwen-color-recovery/examples/counter-attack-waterfront/counter-attack-waterfront-workflow.png' | relative_url }}), [source]({{ '/downloads/qwen-color-recovery/examples/counter-attack-waterfront/fanji_waterfront_source.png' | relative_url }}), [chart]({{ '/downloads/qwen-color-recovery/examples/counter-attack-waterfront/fanji_waterfront_reference.png' | relative_url }}), [edge map]({{ '/downloads/qwen-color-recovery/examples/counter-attack-waterfront/fanji_waterfront_control.png' | relative_url }})) | The waterfront example from my talks, with its three inputs. |
 | [`faded_color_recovery/__init__.py`]({{ '/downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/__init__.py' | relative_url }}) | The small helper node for the local workflow. It puts the recovered colour on the scan's own brightness. |
 | [`THIRD_PARTY_NOTICES.md`]({{ '/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md' | relative_url }}) | Model, software, and included-asset attribution. |
 
@@ -85,21 +88,32 @@ If your browser cannot open the original video, make a temporary H.264 or HEVC c
 ## Run it on your own computer
 
 1. Install or update ComfyUI.
-2. Download the still workflow, the colour palette and the helper node from the table above.
-3. Make a folder called `faded_color_recovery` inside `ComfyUI/custom_nodes/` and put `__init__.py` in it.
-4. Restart ComfyUI.
-5. Copy `faded-color-reference-palette.png` into `ComfyUI/input/`.
-6. Import the workflow JSON.
-7. If ComfyUI reports missing Qwen Image Edit 2511 files, use ComfyUI Manager or follow the paths shown in the missing-model message.
+2. Download the four model files into these folders inside `ComfyUI/models/`:
 
-## Trying it on ComfyUI Cloud
+| Folder | File |
+| --- | --- |
+| `diffusion_models/` | [`qwen_image_edit_2511_bf16.safetensors`](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/resolve/main/split_files/diffusion_models/qwen_image_edit_2511_bf16.safetensors) |
+| `loras/` | [`Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors`](https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning/resolve/main/Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors) |
+| `text_encoders/` | [`qwen_2.5_vl_7b_fp8_scaled.safetensors`](https://huggingface.co/Comfy-Org/HunyuanVideo_1.5_repackaged/resolve/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors) |
+| `vae/` | [`qwen_image_vae.safetensors`](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/resolve/main/split_files/vae/qwen_image_vae.safetensors) |
 
-It runs on ComfyUI Cloud too, but I haven't tested it properly for restoration yet, and Cloud may need an active plan and credits. Making the best workflows easy to use there is one of my next goals. If you'd like to try it now:
+3. Make a folder called `faded_color_recovery` inside `ComfyUI/custom_nodes/`, put `__init__.py` in it and restart ComfyUI. You only need this for the full workflow.
+4. Copy `faded-color-reference-palette.png` and your faded frame into `ComfyUI/input/`.
+5. Open a workflow by dragging its JSON or PNG onto ComfyUI.
+6. Pick your frame in the `source frame` input and run it.
+7. Save `Recovered color` and `Final composite`.
 
-1. Import `faded-qwen-2511-cloud-composite-app.json`.
-2. Upload your faded frame to the input labelled `source frame`.
-3. If Cloud asks for the colour reference, upload `faded-color-reference-palette.png` from the table above.
-4. Run it, and save `Final composite` (and `Recovered color` if you want to see the model's direct output).
+For the *Counter Attack* example, copy its three inputs into `ComfyUI/input/` and open its workflow.
+
+## ComfyUI Cloud
+
+This should work on ComfyUI Cloud, but I'm still testing it. The free plan should be enough, and the models are already there.
+
+1. Sign in at [cloud.comfy.org](https://cloud.comfy.org).
+2. Drag in `faded-qwen-2511-cloud-composite-app.json` (or its PNG).
+3. Upload your frame and `faded-color-reference-palette.png` to the two image inputs.
+4. Run it.
+5. Download `Recovered color` and `Final composite`.
 
 ## Review the result
 
