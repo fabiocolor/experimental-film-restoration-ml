@@ -5,7 +5,6 @@ nav_order: 3
 permalink: /dirt-removal/
 ---
 
-<p class="eyebrow">Section 3</p>
 
 # Dirt removal
 

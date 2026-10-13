@@ -5,7 +5,6 @@ nav_order: 2
 permalink: /gap-filling/
 ---
 
-<p class="eyebrow">Section 2</p>
 
 # Gap filling and reconstruction
 

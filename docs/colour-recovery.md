@@ -6,7 +6,6 @@ has_children: true
 permalink: /colour-recovery/
 ---
 
-<p class="eyebrow">Section 1</p>
 
 # Colour recovery
 

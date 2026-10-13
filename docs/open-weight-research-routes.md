@@ -7,7 +7,6 @@ permalink: /open-weight-color-recovery/research-routes/
 grand_parent: Colour Recovery
 ---
 
-<p class="eyebrow">Evidence reviewed August 2026</p>
 
 # Open-Weight Colour Recovery: Research Routes
 
@@ -29,7 +28,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
 
 <article class="experiment-evidence">
   <div class="experiment-evidence-copy">
-    <p class="card-kicker">Experiment 01 · Source preservation</p>
+    <p class="card-kicker">Source preservation</p>
     <h3>Can a model contribute colour without replacing the surviving image?</h3>
     <dl class="experiment-facts">
       <dt>Test</dt>
@@ -52,7 +51,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
 
 <article class="experiment-evidence experiment-evidence-reverse">
   <div class="experiment-evidence-copy">
-    <p class="card-kicker">Experiment 02 · No matched reference</p>
+    <p class="card-kicker">No matched reference</p>
     <h3>Can Qwen produce a useful colour candidate when no matching colour frame survives?</h3>
     <dl class="experiment-facts">
       <dt>Test</dt>
@@ -75,7 +74,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
 
 <article class="experiment-evidence experiment-evidence-wide">
   <div class="experiment-evidence-copy">
-    <p class="card-kicker">Experiment 03 · Temporal colour</p>
+    <p class="card-kicker">Temporal colour</p>
     <h3>When does a colour interpretation hold together through time?</h3>
     <p>The same basic idea was tested on two very different shots: use the source sequence and source-derived structure to guide a video-aware colour proposal, then return the proposed chroma to source luminance.</p>
     <p>The comparison matters because a favourable result and a failure can look equally convincing in a single still. Motion exposes whether colour remains attached to the same face, garment, wall, or object.</p>
@@ -94,7 +93,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
 
 <div class="experiment-pair">
   <article class="experiment-note">
-    <p class="card-kicker">Experiment 04 · Semantic failure</p>
+    <p class="card-kicker">Semantic failure</p>
     <h3>A plausible image can still be the wrong image</h3>
     <a href="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" target="_blank">
       <img src="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" alt="Faded source compared with a visually polished but semantically incorrect generated image">
@@ -103,7 +102,7 @@ The images below are not a gallery of finished restorations. Each one answers a 
     <p>The source is difficult to read, and the model invents a polished wooden structure and a face. The output is visually coherent but no longer describes the photographed scene. This is direct evidence for keeping the source visible and requiring human acceptance.</p>
   </article>
   <article class="experiment-note">
-    <p class="card-kicker">Experiment 05 · High-resolution tiling</p>
+    <p class="card-kicker">High-resolution tiling</p>
     <h3>More local resolution can create a less coherent frame</h3>
     <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" target="_blank">
       <img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Tiled raw Qwen inference with visible colour discontinuities compared with a coherent full-frame inference">

@@ -7,7 +7,6 @@ permalink: /open-weight-color-recovery/
 parent: Colour Recovery
 ---
 
-<p class="eyebrow">Primary research track</p>
 
 # Open-Weight Colour Recovery
 

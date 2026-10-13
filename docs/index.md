@@ -5,7 +5,6 @@ nav_order: 0
 ---
 
 <div class="research-hero">
-  <p class="eyebrow">Independent research in film preservation</p>
   <h1>Experimental Film Restoration with Machine Learning</h1>
   <p class="hero-lede">What survives in the film is evidence. I respect it first, and let the models fill only what was lost: the colour that faded, the frames that are missing, the detail that's gone.</p>
   <div class="hero-buttons">
@@ -22,7 +21,7 @@ nav_order: 0
 
 <div class="track-grid">
   <article class="research-card research-card-featured">
-    <p class="card-kicker">1 · Leads the research</p>
+    <p class="card-kicker">1</p>
     <h3>Colour recovery</h3>
     <p>Rescuing the original colour of faded film, not colorizing it. Balance the scan first, keep the colour that survived, and fill only what faded, with a reference when one exists and with open-weight models when it doesn't.</p>
     <a class="card-link" href="{{ '/colour-recovery/' | relative_url }}">Colour recovery <span aria-hidden="true">→</span></a>
@@ -72,7 +71,6 @@ nav_order: 0
 
 <div class="quiet-panel">
   <div>
-    <p class="card-kicker">Try it</p>
     <h3>Single-frame colour recovery in ComfyUI</h3>
     <p>Download the workflow and try it on a frame from your own material.</p>
   </div>

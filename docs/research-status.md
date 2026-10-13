@@ -5,7 +5,6 @@ nav_order: 6
 permalink: /research-status/
 ---
 
-<p class="eyebrow">October 2026</p>
 
 # Where the research stands
 

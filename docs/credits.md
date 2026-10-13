@@ -6,7 +6,6 @@ nav_order: 4
 permalink: /credits/
 ---
 
-<p class="eyebrow">People, films, models, and tools</p>
 
 # Credits & Attribution
 

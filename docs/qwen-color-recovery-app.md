@@ -6,7 +6,6 @@ nav_order: 1
 grand_parent: Colour Recovery
 ---
 
-<p class="eyebrow">Downloadable experiment</p>
 
 # Qwen Image Edit Colour Recovery Workflow
 

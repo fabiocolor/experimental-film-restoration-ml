@@ -5,7 +5,6 @@ nav_order: 4
 permalink: /upscaling/
 ---
 
-<p class="eyebrow">Section 4</p>
 
 # Upscaling
 

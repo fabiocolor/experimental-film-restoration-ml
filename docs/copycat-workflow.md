@@ -7,7 +7,6 @@ permalink: /copycat-workflow/
 parent: Colour Recovery
 ---
 
-<p class="eyebrow">Established research track</p>
 
 # Reference-Trained Recovery with CopyCat
 
