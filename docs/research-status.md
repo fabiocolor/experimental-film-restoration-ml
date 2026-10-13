@@ -56,7 +56,7 @@ The normal first step is to balance the scan, for example with the [Faded Balanc
 
 **What you can try today**
 
-- Nothing to download for colour recovery right now. I took the earlier single-frame workflow down, and the current route will go up once a downloadable version reproduces the result I approved.
+- The current colour route for pre-balanced scans is available as a [kit](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/faded-colour-recovery-t185), checked step by step against a shot I approved. I took the earlier single-frame workflow down.
 - The whole-shot routes aren't on this site yet. They still depend on my own job system and on the adapter, which isn't public.
 - The example workflows from SEAPAVAA and FIAT/IFTA exist, but they need more work before someone else can use them.
 

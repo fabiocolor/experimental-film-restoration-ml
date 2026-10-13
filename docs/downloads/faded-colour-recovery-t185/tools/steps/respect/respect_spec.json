@@ -1,0 +1,1 @@
+{"median_passes": 3, "guided_radius": 6, "tau_sigma": 3, "tau_floor": 0.008, "tone_temporal_sigma": 4, "source_sha256": "692d10d713034e2f2a44fe2f08f2a3ed681755e73229e9418b9474bdff6dbd9a", "recovered_sha256": "66a35fedf4b7c4aa2a423d1ed9fb522a7bb8cc9c13efd304d9b76ff307cfc33b", "frame_count": 135, "fps": 24, "matched_frames": [5, 33, 67, 101, 129]}
