@@ -38,9 +38,16 @@ Every final frame keeps the scan's own brightness; only the colour is new. The y
 
 Run the steps on `source_shot.mkv` and compare your result with `result_respect.mp4`. Expect small differences, not identical files: the models don't give byte-identical output from run to run.
 
-## Comfy Cloud
+## Comfy Cloud (palette still only)
 
-The palette still needs the same fp8mixed model I used. I tried the bf16 model as a Cloud stand-in and the colour came out visibly different, so I don't offer it. On Comfy Cloud, import `qwen_image_edit_2511_fp8mixed.safetensors` from [Comfy-Org on Hugging Face](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI) (importing your own models needs a Creator plan or higher) and use `1_palette_still_fp8mixed_local.json`. I haven't run it on Cloud yet. The H3 graph is for running locally.
+The palette still runs on Comfy Cloud with the same graph and the same model I used. I haven't run it there yet.
+
+1. Import `qwen_image_edit_2511_fp8mixed.safetensors` from [Comfy-Org on Hugging Face](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors). Importing your own models needs a Creator plan or higher. If Cloud is missing the text encoder, the VAE or the Lightning LoRA listed above, import those the same way.
+2. Open `graphs/1_palette_still_fp8mixed_local.json` in Cloud.
+3. Upload `example/source_y.png`, `example/faded_frame.png` and `example/canny.png` into the three Load Image nodes, in that order, and run.
+4. Put the colour on the frame's own brightness on your computer: `python tools/composite_still.py example/faded_frame.png <Cloud output>.png palette.png`, and compare with `example/palette.png`.
+
+Don't swap in the bf16 model: I tried it, and the colour came out visibly different. The H3 step is for running locally.
 
 ## Licences
 
