@@ -34,8 +34,13 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 </figure>
 
 <figure class="figure">
-  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-scan-vs-reconstruction.mp4' | relative_url }}"></video>
-  <figcaption>The scan and the approved reconstruction, side by side (4 seconds).</figcaption>
+  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-scan.mp4' | relative_url }}"></video>
+  <figcaption>The scan (8 seconds).</figcaption>
+</figure>
+
+<figure class="figure">
+  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-reconstruction.mp4' | relative_url }}"></video>
+  <figcaption>The approved reconstruction (8 seconds).</figcaption>
 </figure>
 
 **What I did**
@@ -52,11 +57,12 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 
 ## Downloads
 
-- [Scan and reconstruction, side by side (4 s, MP4, 0.4 MB)]({{ '/media/gap-filling/16mm-flute-players-scan-vs-reconstruction.mp4' | relative_url }})
+- [The scan (8 s, MP4, 34 MB)]({{ '/media/gap-filling/16mm-flute-players-scan.mp4' | relative_url }})
+- [The approved reconstruction (8 s, MP4, 22 MB)]({{ '/media/gap-filling/16mm-flute-players-reconstruction.mp4' | relative_url }})
 - [Frame 30, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }})
 - [Frame 160, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f160.jpg' | relative_url }})
 
-The full-length videos are too large for this site; ask me if you need them.
+These are the files I approved, at the working resolution of 768 × 560.
 
 ## Limits
 

@@ -16,7 +16,12 @@ The result is partly synthetic. The model invents fine detail the film no longer
 
 *El Tinterillo* is a medium-length black-and-white film that survives as a 16mm print with almost everything wrong with it, and a telecine that's cleaner, but soft, cropped and with the odd cadence of telecines from that time.
 
-The approved stairs shot, 624 frames, was shown in my [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}). I'll put files here once they're exported straight from the approved master.
+The approved stairs shot, 624 frames, also shown in my [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}):
+
+<figure class="figure">
+  <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}"></video>
+  <figcaption>The approved stairs shot (26 seconds, 768 × 432).</figcaption>
+</figure>
 
 **What I did**
 
@@ -38,4 +43,6 @@ Before diffusion, I tried spatial recovery with CopyCat on the same film: a smal
 
 ## Downloads
 
-Nothing to download yet. The workflow and the example files will go up once they reproduce the approved result.
+- [The approved stairs shot (26 s, MP4, 23 MB)]({{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }})
+
+The workflow will go up once it reproduces this result.
