@@ -88,6 +88,8 @@ The [provenance guide]({{ '/provenance-metadata/' | relative_url }}) provides a 
 
 ## Downloads
 
+*These are research demos, not production-quality exports.*
+
 The images on this page, full size:
 
 - [CopyCat Progress contact sheet]({{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }}) (PNG, 1.1 MB)

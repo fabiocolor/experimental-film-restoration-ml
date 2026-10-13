@@ -522,6 +522,8 @@ The research has moved on since June: see [where the research stands now]({{ '/r
 
 ## Downloads
 
+*These are research demos, not production-quality exports.*
+
 The videos behind the examples on this page, as MP4 files. The still images are linked under each example above.
 
 - ***Counter Attack*, 600-frame run:** [side by side]({{ '/media/seapavaa2026/fanji_600_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}) (16.9 MB) · [source]({{ '/media/seapavaa2026/originals/fanji_600_source.mp4' | relative_url }}) (16.8 MB) · [model output]({{ '/media/seapavaa2026/originals/fanji_600_raw_inference.mp4' | relative_url }}) (21.8 MB) · [final composite]({{ '/media/seapavaa2026/originals/fanji_600_final_composite.mp4' | relative_url }}) (18.4 MB)

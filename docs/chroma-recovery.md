@@ -74,6 +74,8 @@ Continue with [Training, Inference, and Review]({{ '/training-inference-review/'
 
 ## Downloads
 
+*These are research demos, not production-quality exports.*
+
 The images on this page, full size:
 
 - [Chroma recovery overview]({{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }}) (GIF, 38.4 MB)

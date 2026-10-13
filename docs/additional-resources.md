@@ -136,6 +136,8 @@ For this workflow, the point is practical more than aesthetic: the magenta image
 
 ## Downloads
 
+*These are research demos, not production-quality exports.*
+
 The images on this page, full size:
 
 - [Animated preview of the Nuke chroma recovery YouTube walkthrough]({{ '/images_kebab/video_previews/color-recovery-video-preview.gif' | relative_url }}) (GIF, 3.2 MB)

@@ -167,6 +167,8 @@ For the underlying examples, prompts, intermediate files, and presentation media
 
 ## Downloads
 
+*These are research demos, not production-quality exports.*
+
 The images on this page, full size:
 
 - [Five-stage Qwen experiment showing the faded source, soft colour reference, source edge control, raw generated proposal, and final source-preserving composite]({{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}) (PNG, 0.4 MB)

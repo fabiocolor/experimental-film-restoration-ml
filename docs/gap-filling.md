@@ -50,6 +50,8 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 
 ## Downloads
 
+*These are research demos, not production-quality exports.*
+
 - [Scan and reconstruction, side by side (4 s, MP4, 0.4 MB)]({{ '/media/gap-filling/16mm-flute-players-scan-vs-reconstruction.mp4' | relative_url }})
 - [Frame 30, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }})
 - [Frame 160, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f160.jpg' | relative_url }})

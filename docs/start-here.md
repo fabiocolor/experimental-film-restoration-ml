@@ -247,6 +247,8 @@ Do not combine chroma and spatial recovery in one target. After the target is bu
 
 ## Downloads
 
+*These are research demos, not production-quality exports.*
+
 The images on this page, full size:
 
 - [Workflow overview]({{ '/images_kebab/general/full-overview-comparison.png' | relative_url }}) (PNG, 3.5 MB)

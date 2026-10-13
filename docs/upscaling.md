@@ -49,6 +49,8 @@ Before diffusion, I tried spatial recovery with CopyCat on the same film: a smal
 
 ## Downloads
 
+*These are research demos, not production-quality exports.*
+
 - [Scan and result, side by side (4 s, MP4, 0.4 MB)]({{ '/media/upscaling/el-tinterillo-stairs-scan-vs-result.mp4' | relative_url }})
 - [The full stairs comparison from my FIAT/IFTA talk (26 s, MP4, 62 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw&export=download&confirm=t)
 - [Frame 300, side by side (JPEG)]({{ '/images_kebab/upscaling/el-tinterillo-stairs-scan-vs-result-f300.jpg' | relative_url }})
