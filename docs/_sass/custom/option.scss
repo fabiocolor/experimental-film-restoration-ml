@@ -568,6 +568,9 @@ body {
 
 // FIAT/IFTA companion: keep its structure, use this option's type and colours
 html body {
+  &,
+  .main-content-wrap,
+  .main-header,
   .side-bar,
   .site-header,
   .search {
@@ -608,7 +611,7 @@ html body {
   }
 
   .fc-media::after {
-    box-shadow: none;
+    display: none;
   }
 
   .main-content .fc .fc-section > h2 {
@@ -655,5 +658,30 @@ html body {
 
   .main-content h1 {
     font-size: 2.1rem !important;
+  }
+}
+
+// The companion's figures keep their own captions and players
+.main-content main .fc figure figcaption {
+  margin-top: 0;
+  color: inherit;
+  font-size: inherit;
+  counter-increment: none;
+
+  &::before {
+    content: none;
+  }
+
+  strong {
+    font-style: normal;
+    font-weight: 700;
+
+    &::after {
+      content: none;
+    }
+  }
+
+  br {
+    display: inline;
   }
 }
