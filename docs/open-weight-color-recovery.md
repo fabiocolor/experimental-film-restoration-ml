@@ -15,7 +15,6 @@ Open-weight image models create a new possibility for faded-film restoration: th
 Qwen Image Edit is the current focus because it can respond to the source frame, visual references, and written direction in one workflow. The model is not treated as an oracle. It is treated as one instrument in a larger restoration process.
 
 <div class="hero-buttons">
-  <a href="{{ '/qwen-color-recovery-app/' | relative_url }}" class="btn btn-primary">Use the Qwen workflow</a>
   <a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}" class="btn btn-outline">See what works and what remains open</a>
 </div>
 
@@ -42,8 +41,7 @@ The model is asked to contribute colour information. Its proposal can be guided 
 
 <div class="link-grid">
   <a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}"><strong>Research routes and evidence</strong><span>A plain-language account of demonstrated, promising, and unresolved approaches.</span></a>
-  <a href="{{ '/qwen-color-recovery-app/' | relative_url }}"><strong>Workflow and downloads</strong><span>Install, test, and understand the current ComfyUI workflow.</span></a>
-  <a href="{{ '/seapavaa-2026-companion/' | relative_url }}"><strong>SEAPAVAA 2026 companion</strong><span>Inspect the examples, prompts, comparisons, and media shown in the presentation.</span></a>
+  <a href="{{ '/seapavaa-2026-companion/' | relative_url }}"><strong>SEAPAVAA 2026 companion</strong><span>The examples from my June 2026 talk, kept as a dated archive.</span></a>
 </div>
 
 Every published experiment separates the surviving source, the evidence supplied to the model, the raw proposal, and the final composite. When historical colour is unknown, the result is described as proposed or interpreted, not as verified original colour.

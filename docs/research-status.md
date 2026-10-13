@@ -56,10 +56,9 @@ The normal first step is to balance the scan, for example with the [Faded Balanc
 
 **What you can try today**
 
-- The single-frame workflow, on the [Qwen Image Edit workflow page]({% link qwen-color-recovery-app.md %}). It's a snapshot of the research, so expect it to change.
+- Nothing to download for colour recovery right now. I took the earlier single-frame workflow down, and the current route will go up once a downloadable version reproduces the result I approved.
 - The whole-shot routes aren't on this site yet. They still depend on my own job system and on the adapter, which isn't public.
 - The example workflows from SEAPAVAA and FIAT/IFTA exist, but they need more work before someone else can use them.
-- The Qwen Image Edit workflow can run on ComfyUI Cloud, but I haven't tested that route properly for restoration work.
 
 ## Rebuilding picture: diffusion upscaling and reconstruction
 

@@ -55,7 +55,6 @@ The **current research area**. This method uses open models like Qwen Image Edit
 
 **Key resources:**
 - [Open-Weight Colour Recovery]({% link open-weight-color-recovery.md %})
-- [Qwen Image Edit Workflow]({% link qwen-color-recovery-app.md %})
 - [SEAPAVAA 2026 Companion]({% link seapavaa-2026-companion.md %})
 
 **Important:** The Qwen material in this public repository is documentation and workflow guidance. For detailed experiment registries and decision trails on open-weight colour recovery research, see the related private repository: [fabiocolor/qwen-color-recovery-workflow](https://github.com/fabiocolor/qwen-color-recovery-workflow) (access restricted).

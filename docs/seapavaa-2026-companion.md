@@ -86,7 +86,7 @@ nav_order: 2
 
 # SEAPAVAA 2026 Companion
 
-This page follows my SEAPAVAA 2026 presentation (June 2026) by slide title. Each section shows the image or clip from the talk and, where it helps, the parts behind it. You can download every image, clip, prompt and workflow from the links under each example.
+**Talk archive, June 2026.** This page keeps what I showed at SEAPAVAA 2026, by slide title. These are earlier versions of the research, not what I use or recommend now.
 
 The research has moved on since June: see [where the research stands now]({{ '/research-status/' | relative_url }}) and the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}).
 
@@ -214,12 +214,9 @@ The research has moved on since June: see [where the research stands now]({{ '/r
         <img src="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" alt="ComfyUI workflow screenshot">
       </a>
       <p>The workflow view shows the test setup: source, reference, control image, prompt, model and output in one graph.</p>
-      <p>This workflow is a snapshot from the research and needs some setup before it runs on its own. The workflow JSON still holds the template's placeholder prompt and settings, and its input images aren't included. The API prompt JSON has the settings I actually used (Qwen Image Edit 2511 fp8mixed, Lightning 4-step LoRA, 4 steps, CFG 1, seed 0). A cleaner version is in progress.</p>
       <details class="seapavaa-files">
         <summary>Open the workflow and its parts</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}" target="_blank">Workflow JSON</a>
-          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_api_prompt.json' | relative_url }}" target="_blank">API prompt JSON</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}" target="_blank">Source image</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/03_control.png' | relative_url }}" target="_blank">Control image</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}" target="_blank">Output image</a>
@@ -360,8 +357,6 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_full_prompt.txt' | relative_url }}" target="_blank">Full prompt</a>
-          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_full_prompt.json' | relative_url }}" target="_blank">Prompt JSON</a>
         </div>
       </details>
     </div>
@@ -386,8 +381,6 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/shot0006_full_prompt.txt' | relative_url }}" target="_blank">Full prompt</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0006_full_prompt.json' | relative_url }}" target="_blank">Prompt JSON</a>
         </div>
       </details>
     </div>
@@ -449,7 +442,6 @@ The research has moved on since June: see [where the research stands now]({{ '/r
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/01_source_atlas.png' | relative_url }}" target="_blank">Source atlas</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/03_source_canny_control.png' | relative_url }}" target="_blank">Canny control</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/04_generated_atlas_reference.png' | relative_url }}" target="_blank">Generated Atlas reference</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/prompt.txt' | relative_url }}" target="_blank">Prompt</a>
         </div>
       </details>
     </div>
@@ -519,14 +511,3 @@ The research has moved on since June: see [where the research stands now]({{ '/r
     </div>
   </div>
 </section>
-
-## Downloads
-
-The videos behind the examples on this page, as MP4 files. The still images are linked under each example above.
-
-- ***Counter Attack*, 600-frame run:** [side by side]({{ '/media/seapavaa2026/fanji_600_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}) (16.9 MB) · [source]({{ '/media/seapavaa2026/originals/fanji_600_source.mp4' | relative_url }}) (16.8 MB) · [model output]({{ '/media/seapavaa2026/originals/fanji_600_raw_inference.mp4' | relative_url }}) (21.8 MB) · [final composite]({{ '/media/seapavaa2026/originals/fanji_600_final_composite.mp4' | relative_url }}) (18.4 MB)
-- ***Obsession*, interior woman:** [side by side]({{ '/media/seapavaa2026/obsession_interior_woman24_source_raw_inference_final_composite.mp4' | relative_url }}) (0.3 MB) · [source]({{ '/media/seapavaa2026/originals/obsession_interior_woman24_source.mp4' | relative_url }}) (12.2 MB) · [model output]({{ '/media/seapavaa2026/originals/obsession_interior_woman24_raw_inference.mp4' | relative_url }}) (1.8 MB) · [final composite]({{ '/media/seapavaa2026/originals/obsession_interior_woman24_final_composite.mp4' | relative_url }}) (10.1 MB)
-- ***Obsession*, shot 6 (Wan/VACE):** [side by side]({{ '/media/seapavaa2026/shot0006_source_raw_inference_final_composite_fullrun.mp4' | relative_url }}) (0.3 MB) · [source]({{ '/media/seapavaa2026/originals/shot0006_source.mp4' | relative_url }}) (0.5 MB) · [model output]({{ '/media/seapavaa2026/originals/shot0006_raw_inference.mp4' | relative_url }}) (0.2 MB) · [final composite]({{ '/media/seapavaa2026/originals/shot0006_final_composite.mp4' | relative_url }}) (0.5 MB)
-- ***Obsession*, shot 11 (hard motion):** [side by side]({{ '/media/seapavaa2026/shot0011_fourchunk_vace_stitched_source_raw_inference_composite.mp4' | relative_url }}) (0.8 MB) · [source]({{ '/media/seapavaa2026/originals/shot0011_source.mp4' | relative_url }}) (1.6 MB) · [model output]({{ '/media/seapavaa2026/originals/shot0011_raw_inference.mp4' | relative_url }}) (1.7 MB) · [final composite]({{ '/media/seapavaa2026/originals/shot0011_final_composite.mp4' | relative_url }}) (1.2 MB)
-- ***Obsession*, shot 1 with a context board:** [side by side]({{ '/media/seapavaa2026/shot0001_t091_source_raw_inference_final_composite_fullrun_with_context_board.mp4' | relative_url }}) (3.5 MB) · [source]({{ '/media/seapavaa2026/originals/shot0001_source.mp4' | relative_url }}) (10.7 MB) · [model output]({{ '/media/seapavaa2026/originals/shot0001_raw_inference.mp4' | relative_url }}) (8.3 MB) · [final composite]({{ '/media/seapavaa2026/originals/shot0001_final_composite.mp4' | relative_url }}) (11.2 MB)
-- ***La Muralla Verde*, CopyCat comparison:** [1080p comparison]({{ '/media/seapavaa2026/muralla-verde-comparison-1080p.mp4' | relative_url }}) (43.7 MB)

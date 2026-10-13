@@ -16,20 +16,7 @@ The result is partly synthetic. The model invents fine detail the film no longer
 
 *El Tinterillo* is a medium-length black-and-white film that survives as a 16mm print with almost everything wrong with it, and a telecine that's cleaner, but soft, cropped and with the odd cadence of telecines from that time.
 
-<figure class="figure">
-  <img src="{{ '/images_kebab/upscaling/el-tinterillo-stairs-scan-vs-result-f300.jpg' | relative_url }}" alt="Left: the damaged 16mm scan of a man on a balcony. Right: the approved result, clean and stable.">
-  <figcaption>The stairs shot: the 16mm scan on the left, the approved result on the right.</figcaption>
-</figure>
-
-<figure class="figure">
-  <img src="{{ '/images_kebab/upscaling/el-tinterillo-stairs-scan-vs-result-f060.jpg' | relative_url }}" alt="Left: the washed-out 16mm scan of a street with two men walking. Right: the result, with the wall, the door and the men restored.">
-  <figcaption>Earlier in the same shot.</figcaption>
-</figure>
-
-<figure class="figure">
-  <video controls playsinline preload="metadata" src="{{ '/media/upscaling/el-tinterillo-stairs-scan-vs-result.mp4' | relative_url }}"></video>
-  <figcaption>The 16mm scan and the approved result, side by side (4 seconds).</figcaption>
-</figure>
+The approved stairs shot, 624 frames, was shown in my [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}). I'll put files here once they're exported straight from the approved master.
 
 **What I did**
 
@@ -51,9 +38,4 @@ Before diffusion, I tried spatial recovery with CopyCat on the same film: a smal
 
 ## Downloads
 
-- [Scan and result, side by side (4 s, MP4, 0.4 MB)]({{ '/media/upscaling/el-tinterillo-stairs-scan-vs-result.mp4' | relative_url }})
-- [The full stairs comparison from my FIAT/IFTA talk (26 s, MP4, 62 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1IMC4AAJydIX2pnxw4hvxSTr4l9RWtrAw&export=download&confirm=t)
-- [Frame 300, side by side (JPEG)]({{ '/images_kebab/upscaling/el-tinterillo-stairs-scan-vs-result-f300.jpg' | relative_url }})
-- [Frame 60, side by side (JPEG)]({{ '/images_kebab/upscaling/el-tinterillo-stairs-scan-vs-result-f060.jpg' | relative_url }})
-
-The workflow isn't public yet.
+Nothing to download yet. The workflow and the example files will go up once they reproduce the approved result.

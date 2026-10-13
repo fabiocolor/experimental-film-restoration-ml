@@ -189,7 +189,7 @@ parent: Talks
         <li><button type="button" class="fc-part fc-ev" data-id="v-04-inference-frame-000000-te-b3c5" data-kind="image" data-w="1184" data-h="880" data-title="Synthetic reference">Synthetic reference<span class="fc-dims">1184 × 880</span></button><p>What Qwen Image Edit returns. It's a reduced picture; only its colour is used.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="v-05-final-composite-fanji-fil-9236" data-kind="image" data-w="1920" data-h="1440" data-title="Final frame">Final frame<span class="fc-dims">1920 × 1440</span></button><p>The synthetic reference's colour on top of the brightness of the original scan, at full size.</p></li>
       </ol>
-      <p class="fc-more">The test setup in ComfyUI, with the source, the chart, the edge map, the prompt, the model and the output in one graph. It's from the crowd shot of the slide 9 video. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="ComfyUI screenshot">ComfyUI screenshot</button> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Workflow file (JSON)</a></p>
+      <p class="fc-more">The test setup in ComfyUI, with the source, the chart, the edge map, the prompt, the model and the output in one graph. It's from the crowd shot of the slide 9 video. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="ComfyUI screenshot">ComfyUI screenshot</button></p>
     </figcaption>
   </figure>
 {% include fiat-companion/evidence.html key="slide07" %}

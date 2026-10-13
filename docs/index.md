@@ -71,10 +71,10 @@ nav_order: 0
 
 <div class="quiet-panel">
   <div>
-    <h3>Single-frame colour recovery in ComfyUI</h3>
-    <p>Download the workflow and try it on a frame from your own material.</p>
+    <h3>Where the research stands</h3>
+    <p>What works now, what doesn't yet, and what's coming next.</p>
   </div>
-  <a href="{{ '/qwen-color-recovery-app/' | relative_url }}" class="btn btn-primary">Open the workflow guide</a>
+  <a href="{{ '/research-status/' | relative_url }}" class="btn btn-primary">Read the status</a>
 </div>
 
 ## Talks and writing

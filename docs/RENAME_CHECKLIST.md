@@ -20,7 +20,6 @@ Internal note for the planned repository rename. It isn't published (excluded in
 | `docs/_config.yml` | 3 | 9, 15, 26 |
 | `docs/copycat-workflow.md` | 1 | 22 |
 | `docs/credits.md` | 1 | 49 |
-| `docs/downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md` | 1 | 31 |
 | `docs/fiat-ifta-2026-companion-es.md` | 2 | 23, 384 |
 | `docs/fiat-ifta-2026-companion-pt-br.md` | 2 | 23, 384 |
 | `docs/fiat-ifta-2026-companion.md` | 2 | 24, 385 |
@@ -40,7 +39,6 @@ What these are:
 - **Nuke Indie template** (`templates/COLOR_RECOVERY_TEMPLATE_INDIE.nkind`): encrypted, so it can't be searched. Check in Nuke whether any notes link to the site.
 - **Release notes:** none of the releases of this repository, Advanced-Dirt-Removal or Faded-Balancer-DCTL mention the old name.
 - **winget:** the `FabioColor.AdvancedDirtRemoval` package points to the Advanced-Dirt-Removal repository, not this one. No change.
-- **Workflow JSON and downloads** under `docs/downloads/`: only `THIRD_PARTY_NOTICES.md` (line 31) has the URL. The workflow JSON files don't.
 - **Evidence viewer host** (Cloudflare Pages `fiat-ifta-2026-evidence`): CORS allows the origin `https://fabiocolor.github.io` (no path), so it keeps working.
 - **Slides and talk notes** in the conference folders: 2 files mention the old URL.
 - **Badges:** none reference this repository.

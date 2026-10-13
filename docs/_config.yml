@@ -27,20 +27,12 @@ footer_content: "<span class=\"footnote\">* Examples are research demos of the w
 
 permalink: pretty
 
-defaults:
-  - scope:
-      path: "downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md"
-    values:
-      nav_exclude: true
-
 include:
   - __init__.py
 
 exclude:
   - images_kebab/full/
   - film-element-pair-alignment-runbook.md
-  - downloads/qwen-color-recovery/README.md
-  - downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/README.md
   - Gemfile.lock
   - RENAME_CHECKLIST.md
   # Media that no page links to. The files stay in the repository as research records, but aren't published.

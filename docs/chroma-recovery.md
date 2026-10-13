@@ -8,11 +8,6 @@ grand_parent: Colour Recovery
 
 # Chroma Recovery: Building the Colour Target
 
-<figure class="figure">
-  <img src="{{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }}" alt="Chroma recovery overview">
-  <figcaption>Chroma recovery comparison from Candy Candy.</figcaption>
-</figure>
-
 Use this branch when picture detail survives but colour has faded, shifted, or collapsed. Complete the [shared preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. This page covers only the branch-specific target. Training, inference, and delivery are documented once in [Training, Inference, and Review]({{ '/training-inference-review/' | relative_url }}).
 
 ## Choose the evidence
@@ -88,7 +83,6 @@ Continue with [Training, Inference, and Review]({{ '/training-inference-review/'
 
 The images on this page, full size:
 
-- [Chroma recovery overview]({{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }}) (GIF, 38.4 MB)
 - [Non-reference chroma recovery example]({{ '/images_kebab/general/chroma-recovery-non-reference.png' | relative_url }}) (PNG, 1.4 MB)
 - [Photoshop Colorize reference creation]({{ '/images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg' | relative_url }}) (JPG, under 0.1 MB)
 - [CopyCat training setup]({{ '/images_kebab/cropped/copycat-training-cropped.png' | relative_url }}) (PNG, 0.6 MB)

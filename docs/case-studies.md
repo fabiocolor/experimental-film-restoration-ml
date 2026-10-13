@@ -19,10 +19,7 @@ Rights, source context, software, and contributor information is collected on th
 
 **Branch:** Chroma Recovery | **Gauge:** 16mm positive print | **Reference:** PAL DVD (French release)
 
-<figure class="figure">
-  <img src="{{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }}" alt="Candy Candy chroma recovery finished">
-  <figcaption>Machine learning chroma recovery output, with colours recovered from a PAL DVD reference onto a 16mm scan.</figcaption>
-</figure>
+The result is shown on the [colour recovery page]({{ '/colour-recovery/' | relative_url }}).
 
 | Field | Details |
 |---|---|
@@ -57,10 +54,6 @@ Rights, source context, software, and contributor information is collected on th
 - You cannot align due to parallax or geometric distortion
 
 **For full decision trail:** See [Candy Candy Chroma Recovery Trail]({% link research-evidence/CANDY_CANDY_CHROMA_COPYCAT.md %})
-
-<figure class="figure">
-  <img src="{{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }}" alt="Candy Candy comparison preview">
-</figure>
 
 ---
 
@@ -281,12 +274,7 @@ Rights, source context, software, and contributor information is collected on th
 | **Reference** | Analog video telecine made closer to the film's original life. |
 | **Approach** | Two-step analogue video reference recovery. The first model trained on the least-damaged sections where both sources overlap and learned the spatial relationship. The second model uses those results to restore the full film frame. The telecine is a guide rather than a direct replacement because it is too cropped and soft for direct telecine-to-film recovery. |
 | **Key decision** | Tested in both directions: telecine-to-16mm and 16mm-to-telecine. Both produced results, demonstrating the bidirectional nature of the concept. |
-| **Status** | Proof of concept. Two-step approach produced more convincing full-frame results than direct transfer. Damage and haze reduced while keeping the full 16mm frame instead of collapsing to telecine bounds. Typical spatial recovery artifacts remain. |
-
-<figure class="figure">
-  <img src="{{ '/images_kebab/general/spatial-recovery-proof-of-concept-preview.gif' | relative_url }}" alt="Tinterillo proof of concept">
-  <figcaption>Animated comparison showing spatial recovery results across multiple frames.</figcaption>
-</figure>
+| **Status** | Proof of concept (see [spatial recovery]({{ '/spatial-recovery/' | relative_url }}) for the comparison). Two-step approach produced more convincing full-frame results than direct transfer. Damage and haze reduced while keeping the full 16mm frame instead of collapsing to telecine bounds. Typical spatial recovery artifacts remain. |
 
 ---
 
@@ -298,8 +286,6 @@ The examples above use different kinds of evidence, from matched video reference
 
 The images on this page, full size:
 
-- [Candy Candy chroma recovery finished]({{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }}) (PNG, 7.6 MB)
-- [Candy Candy comparison preview]({{ '/images_kebab/candy-candy/candy-candy-comparison-preview.gif' | relative_url }}) (GIF, 38.4 MB)
 - [Beta chroma recovery finished]({{ '/images_kebab/beta/beta-chroma-recovery-finished.png' | relative_url }}) (PNG, 8.1 MB)
 - [Beta comparison preview]({{ '/images_kebab/beta/beta-comparison-preview.gif' | relative_url }}) (GIF, 15.6 MB)
 - [PSM chroma recovery finished]({{ '/images_kebab/psm/psm-chroma-recovery-finished.png' | relative_url }}) (PNG, 1.7 MB)
@@ -317,4 +303,3 @@ The images on this page, full size:
 - [Rebelion de las Tapadas comparison preview]({{ '/images_kebab/rebelion-de-las-tapadas/rebelion-de-las-tapadas-comparison-preview.gif' | relative_url }}) (GIF, 14.6 MB)
 - [Tinterillo spatial recovery comparison]({{ '/images_kebab/tinterillo/tinterillo-spatial-recovery-comparison-2.jpeg' | relative_url }}) (JPG, under 0.1 MB)
 - [Tinterillo training diagram]({{ '/images_kebab/tinterillo/tinterillo-training-diagram.jpeg' | relative_url }}) (JPG, 0.1 MB)
-- [Tinterillo proof of concept]({{ '/images_kebab/general/spatial-recovery-proof-of-concept-preview.gif' | relative_url }}) (GIF, 30.3 MB)
