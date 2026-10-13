@@ -19,8 +19,8 @@ All notable changes to this repository are documented here.
 
 ### Added
 - Public guide to preparing reliable training pairs from direct film matches and drifting video references, illustrated by the Frontier research.
-- Case studies page (`docs/case-studies.md`) covering ten projects: Candy Candy, Beta, PSM, Friends, La Muralla Verde, Frontier Experience, Ben, Rebelion de las Tapadas, Knights of the Trail, and El Gran Tinterillo.
-- Comparison GIFs for: Candy Candy, Beta, PSM, Friends, Frontier Experience, Ben, Rebelion de las Tapadas, Knights of the Trail, and El Tinterillo.
+- Case studies page (`docs/case-studies.md`) covering nine projects: Candy Candy, Beta, PSM, Friends, La Muralla Verde, Frontier Experience, Ben, Rebelion de las Tapadas, and El Gran Tinterillo.
+- Comparison GIFs for: Candy Candy, Beta, PSM, Friends, Frontier Experience, Ben, Rebelion de las Tapadas, and El Tinterillo.
 - GIF: merge difference alignment check (extracted from video walkthrough).
 
 ### Changed
