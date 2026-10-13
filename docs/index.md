@@ -53,8 +53,6 @@ nav_order: 0
 
 ## Colour recovery: source, proposal, composite
 
-These examples are research demos that show the workflow and what it can do. They aren't production-quality exports, so you may spot some issues.
-
 <div class="app-hero-strip" aria-label="Colour recovery example">
   <figure>
     <img src="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}" alt="Faded frame from the Reptilicus trailer">

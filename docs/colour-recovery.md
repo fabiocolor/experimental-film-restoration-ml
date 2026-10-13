@@ -93,8 +93,6 @@ When there's no better copy, I make what I call a synthetic reference: an approv
 
 ## Downloads
 
-*These are research demos, not production-quality exports.*
-
 - [Candy Candy: comparison video, 1 min 10 s (102 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&export=download&confirm=t)
 - [Candy Candy: the recovered scan at 4400 × 3300, 1 min 10 s (298 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1&export=download&confirm=t)
 - Candy Candy ending: [faded source (JPEG)]({{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }}) · [matched reference (PNG)]({{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/02_matched_reference_frame_2030.png' | relative_url }}) · [model output (PNG)]({{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png' | relative_url }}) · [recovered composite (PNG, 9 MB)]({{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }})

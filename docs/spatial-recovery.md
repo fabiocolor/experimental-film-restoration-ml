@@ -74,8 +74,6 @@ Continue with [Training, Inference, and Review]({{ '/training-inference-review/'
 
 ## Downloads
 
-*These are research demos, not production-quality exports.*
-
 The images on this page, full size:
 
 - [Spatial recovery proof of concept]({{ '/images_kebab/general/spatial-recovery-proof-of-concept-preview.gif' | relative_url }}) (GIF, 30.3 MB)

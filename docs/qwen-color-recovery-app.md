@@ -212,8 +212,6 @@ Before redistributing the workflow or its examples, read [Credits & Attribution]
 
 ## Downloads
 
-*These are research demos, not production-quality exports.*
-
 The images on this page, full size:
 
 - [Faded frame from the Reptilicus trailer]({{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}) (JPG, 0.4 MB)

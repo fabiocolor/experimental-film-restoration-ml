@@ -23,7 +23,7 @@ heading_anchors: true
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Independent research in machine learning for film preservation and restoration. <a href=\"/custom-machine-learning-for-film-restoration/credits/\">Credits &amp; attribution</a>."
+footer_content: "<span class=\"footnote\">* Examples are research demos of the workflow, not production-quality exports.</span><br>Independent research in machine learning for film preservation and restoration. <a href=\"/custom-machine-learning-for-film-restoration/credits/\">Credits &amp; attribution</a>."
 
 permalink: pretty
 

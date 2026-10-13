@@ -296,8 +296,6 @@ The examples above use different kinds of evidence, from matched video reference
 
 ## Downloads
 
-*These are research demos, not production-quality exports.*
-
 The images on this page, full size:
 
 - [Candy Candy chroma recovery finished]({{ '/images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png' | relative_url }}) (PNG, 7.6 MB)
