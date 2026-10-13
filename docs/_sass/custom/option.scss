@@ -1,0 +1,659 @@
+// Design option A: a restrained research-paper look.
+// Serif text throughout, wide margins, one quiet link colour, numbered figures,
+// plain headings. Loaded last from custom.scss, so these rules take precedence.
+
+$a-paper: #fcfbf8;
+$a-ink: #1c1b19;
+$a-soft: #5a5750;
+$a-rule: #d9d5cc;
+$a-rule-strong: #1c1b19;
+$a-link: #1f3f66;
+$a-serif: 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+
+html,
+body,
+.main-content-wrap,
+.main-header {
+  background: $a-paper !important;
+}
+
+body {
+  color: $a-ink;
+  font-family: $a-serif;
+  font-size: 1.125rem;
+  line-height: 1.62;
+  font-feature-settings: 'onum' 1, 'kern' 1;
+}
+
+// Sidebar and header: paper, separated by a single rule
+.side-bar {
+  background: $a-paper !important;
+  border-right: 1px solid $a-rule !important;
+}
+
+.site-header {
+  border-bottom: 1px solid $a-rule !important;
+}
+
+@media (min-width: 50rem) {
+  .site-header {
+    height: auto;
+    max-height: none;
+    min-height: 3.75rem;
+    padding: 0.9rem 0;
+  }
+
+  .site-title {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}
+
+.site-title {
+  color: $a-ink !important;
+  font-family: $a-serif;
+  font-size: 1.08rem !important;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+.site-button,
+.site-header .site-button {
+  color: $a-ink !important;
+}
+
+.site-title:hover,
+.site-button:hover,
+.nav-list .nav-list-item .nav-list-link:hover,
+.nav-list .nav-list-item .nav-list-link.active,
+.nav-list .nav-list-item .nav-list-expander:hover {
+  background-image: none !important;
+  background-color: transparent !important;
+}
+
+.site-nav .nav-list-item {
+  .nav-list-link {
+    margin: 0 10px;
+    padding: 0.32rem 0.6rem;
+    color: $a-soft;
+    border-radius: 0;
+    font-size: 0.95rem;
+
+    &:hover {
+      color: $a-ink;
+      text-decoration: underline;
+      text-underline-offset: 0.18em;
+    }
+
+    &.active {
+      color: $a-ink;
+      font-weight: 600;
+      box-shadow: none;
+    }
+  }
+
+  .nav-list-expander {
+    color: $a-soft;
+  }
+}
+
+.site-footer {
+  color: $a-soft !important;
+}
+
+.search {
+  background: transparent !important;
+}
+
+.search-input {
+  color: $a-ink !important;
+  background: $a-paper !important;
+  border: 0 !important;
+  border-bottom: 1px solid $a-rule !important;
+  border-radius: 0 !important;
+  font-family: $a-serif;
+
+  &::placeholder {
+    color: $a-soft;
+    font-style: italic;
+  }
+
+  &:focus {
+    border-color: $a-ink !important;
+    box-shadow: none !important;
+  }
+}
+
+.main-header {
+  border-bottom: 1px solid $a-rule !important;
+}
+
+.aux-nav a {
+  color: $a-soft !important;
+  font-weight: 400;
+}
+
+// Text column
+.main-content {
+  max-width: 42rem;
+  padding-top: 1rem;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: $a-ink;
+    font-family: $a-serif;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  h1 {
+    max-width: none;
+    margin-bottom: 1.4rem;
+    font-size: 2.3rem !important;
+    font-weight: 600;
+    line-height: 1.18;
+  }
+
+  h2 {
+    margin-top: 2.8rem;
+    padding-bottom: 0;
+    border-bottom: 0;
+    font-size: 1.45rem !important;
+  }
+
+  h3 {
+    font-size: 1.15rem !important;
+  }
+
+  h4 {
+    font-size: 1.05rem !important;
+  }
+
+  p,
+  li {
+    color: $a-ink;
+    font-size: inherit;
+  }
+
+  a {
+    color: $a-link;
+    text-decoration-color: rgba($a-link, 0.4);
+
+    &:hover {
+      color: $a-ink;
+      text-decoration-thickness: 1px;
+    }
+  }
+
+  strong {
+    color: $a-ink;
+  }
+
+  blockquote {
+    background: none;
+    border-left: 1px solid $a-rule-strong;
+    font-style: italic;
+  }
+
+  code {
+    color: $a-ink;
+    background: #f1efe9;
+    border: 0;
+    border-radius: 0;
+  }
+
+  div.highlighter-rouge {
+    background: #f4f2ec;
+    border: 0;
+    border-top: 1px solid $a-rule;
+    border-bottom: 1px solid $a-rule;
+    border-radius: 0;
+
+    pre.highlight code {
+      color: $a-ink;
+    }
+  }
+
+  // Tables in the booktabs manner: three rules, no fills
+  table {
+    background: none;
+    border: 0;
+    border-top: 2px solid $a-rule-strong;
+    border-bottom: 2px solid $a-rule-strong;
+
+    th {
+      color: $a-ink;
+      background: none;
+      border-bottom: 1px solid $a-rule-strong;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0;
+    }
+
+    td,
+    tbody tr:nth-child(even) td,
+    tbody tr:hover td {
+      background: none !important;
+      border-bottom: 0;
+      font-size: 0.95rem;
+    }
+  }
+
+  img {
+    border: 0;
+    border-radius: 0;
+  }
+
+  video {
+    border: 0;
+  }
+
+  hr {
+    background: $a-rule;
+  }
+}
+
+// Labels above titles: a quiet italic line, not a capitalised badge
+.eyebrow,
+.card-kicker {
+  margin-bottom: 0.3rem !important;
+  color: $a-soft !important;
+  font-size: 0.95rem !important;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+// Home: title block like a paper's opening page
+.research-hero {
+  margin: 0 0 2rem;
+  padding: 0 0 1.6rem;
+  border-bottom: 1px solid $a-rule;
+
+  h1 {
+    max-width: none;
+  }
+}
+
+.hero-lede {
+  max-width: none;
+  color: $a-ink !important;
+  font-family: $a-serif;
+  font-size: 1.2rem !important;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.research-intro {
+  display: block;
+  margin: 1.6rem 0 2rem;
+
+  p {
+    font-size: inherit;
+  }
+}
+
+// Buttons read as plain links
+.hero-buttons {
+  display: block;
+  margin: 1.2rem 0 0;
+}
+
+.main-content .btn,
+.main-content .btn.btn-primary,
+.main-content .btn.btn-outline,
+.quiet-panel .btn-primary {
+  display: inline;
+  min-height: 0;
+  margin-right: 1.4rem;
+  padding: 0;
+  color: $a-link !important;
+  background: none !important;
+  border: 0 !important;
+  font-family: $a-serif;
+  font-size: inherit;
+  font-weight: 400;
+  letter-spacing: 0;
+  white-space: nowrap;
+  text-decoration: underline !important;
+  text-decoration-color: rgba($a-link, 0.4) !important;
+  text-underline-offset: 0.16em;
+
+  &:hover {
+    color: $a-ink !important;
+    background: none !important;
+  }
+}
+
+// Research tracks: a numbered list of entries, separated by rules
+.track-grid,
+.link-grid {
+  display: block;
+  margin: 1rem 0 2rem;
+  border-top: 1px solid $a-rule;
+}
+
+.research-card,
+.research-card-featured {
+  padding: 0.85rem 0 0.9rem;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid $a-rule;
+
+  h3 {
+    margin: 0 0 0.25rem;
+  }
+
+  p {
+    margin-bottom: 0.25rem;
+    color: $a-ink;
+    font-size: inherit;
+  }
+}
+
+.card-link {
+  font-weight: 400;
+}
+
+.link-grid a {
+  padding: 0.9rem 0;
+  color: $a-ink !important;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid $a-rule;
+
+  &:hover {
+    background: none;
+  }
+}
+
+// Panels become plain sections between rules
+.quiet-panel {
+  display: block;
+  margin: 2rem 0;
+  padding: 1rem 0;
+  color: $a-ink;
+  background: none;
+  border-top: 1px solid $a-rule;
+  border-bottom: 1px solid $a-rule;
+
+  h3 {
+    margin: 0 0 0.3rem;
+    color: $a-ink;
+  }
+
+  p {
+    margin: 0 0 0.6rem;
+    color: $a-ink;
+  }
+}
+
+.experiment-evidence,
+.experiment-note {
+  padding: 1rem 0;
+  background: none;
+  border: 0;
+  border-top: 1px solid $a-rule;
+}
+
+.experiment-facts dt {
+  color: $a-ink;
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.status-legend {
+  background: none;
+  border: 0;
+  border-top: 1px solid $a-rule;
+  border-bottom: 1px solid $a-rule;
+}
+
+.status,
+.status-demonstrated,
+.status-promising,
+.status-open {
+  padding: 0;
+  color: $a-ink;
+  background: none;
+  border: 0;
+  font-size: 0.92rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.method-flow span {
+  color: $a-soft;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.method-flow strong {
+  font-family: $a-serif;
+}
+
+.translation-notice {
+  background: none;
+  border-left: 1px solid $a-rule-strong;
+
+  strong {
+    font-size: 0.95rem;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+}
+
+.site-language label {
+  font-size: 0.9rem;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.frame-extractor,
+.frame-extractor-file {
+  background: none;
+  border-radius: 0;
+}
+
+// Figures: numbered captions below the image, as in a paper
+.main-content main {
+  counter-reset: figure;
+}
+
+.main-content main figure {
+  figcaption {
+    margin-top: 0.5rem;
+    color: $a-ink;
+    font-size: 0.85em;
+    line-height: 1.45;
+    counter-increment: figure;
+
+    &::before {
+      content: 'Figure ' counter(figure) '. ';
+      font-weight: 600;
+    }
+
+    strong {
+      font-weight: 400;
+      font-style: italic;
+
+      &::after {
+        content: '. ';
+        font-style: normal;
+      }
+    }
+
+    br {
+      display: none;
+    }
+  }
+}
+
+.app-hero-strip {
+  gap: 1rem;
+
+  figure {
+    background: none;
+    border: 0;
+  }
+
+  img {
+    border: 0;
+  }
+
+  figcaption {
+    min-height: 0;
+    padding: 0;
+  }
+}
+
+.experiment-credit {
+  color: $a-soft;
+  font-size: 0.85em;
+  font-style: italic;
+}
+
+// SEAPAVAA page: its own inline styles, brought into line
+.seapavaa-jump a {
+  color: $a-link !important;
+  border: 0 !important;
+  padding: 0 !important;
+  text-decoration: underline !important;
+}
+
+.seapavaa-card {
+  padding: 0.9rem 0 !important;
+  background: none !important;
+  border: 0 !important;
+  border-top: 1px solid $a-rule !important;
+  border-radius: 0 !important;
+}
+
+.seapavaa-role {
+  padding: 0 !important;
+  color: $a-soft !important;
+  background: none !important;
+  font-size: 0.92rem !important;
+  font-style: italic;
+  font-weight: 400 !important;
+}
+
+// Main footer and its footnote
+.main-content footer p {
+  color: $a-soft !important;
+  font-size: 0.8em !important;
+}
+
+::-webkit-scrollbar-track {
+  background: $a-paper;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #b9b4aa;
+  border-color: $a-paper;
+}
+
+// FIAT/IFTA companion: keep its structure, use this option's type and colours
+html body {
+  .side-bar,
+  .site-header,
+  .search {
+    background: $a-paper !important;
+  }
+
+  .site-title,
+  .main-content .fc h1,
+  .main-content .fc h2,
+  .main-content .fc h3 {
+    font-family: $a-serif !important;
+  }
+
+  .site-nav .nav-list-item .nav-list-link {
+    color: $a-soft;
+  }
+
+  .site-nav .nav-list-item .nav-list-link.active {
+    color: $a-ink;
+    background: none;
+    box-shadow: none;
+  }
+
+  .fc {
+    --cyan: #8a8478;
+    --navy: #1f3f66;
+    --navy-dark: #1c1b19;
+    --ink: #1c1b19;
+    --soft: #5a5750;
+    --line: #d9d5cc;
+    font-family: $a-serif;
+  }
+
+  .fc-media::before,
+  .main-content .fc .fc-section > h2::before,
+  .main-content .fc .fc-section > h2::after {
+    display: none;
+  }
+
+  .fc-media::after {
+    box-shadow: none;
+  }
+
+  .main-content .fc .fc-section > h2 {
+    padding-left: 0;
+  }
+
+  .main-content .fc .fc-kicker,
+  .main-content .fc .fc-slide,
+  .fc-toc .fc-v {
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .fc ol.fc-parts > li::before {
+    border-radius: 0;
+  }
+
+  .fc-play-label {
+    box-shadow: none;
+  }
+
+  .fc-toc .fc-v {
+    padding: 0;
+    color: #5a5750;
+    background: none;
+  }
+
+  .fc-tip,
+  .fc-lang,
+  .fc-verdict div,
+  .fc-limits,
+  .fc details.fc-evidence {
+    background: none;
+  }
+}
+
+// Phones: the theme lowers the root size, so lift the text a little
+@media (max-width: 31.25rem) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .main-content h1 {
+    font-size: 2.1rem !important;
+  }
+}
