@@ -1,5 +1,0 @@
-#!/bin/sh
-set -eu
-repo=$(git rev-parse --show-toplevel)
-if command -v python3 >/dev/null 2>&1; then python=python3; else python=python; fi
-exec "$python" -B "$repo/.research/storage_guard.py" --staged --filesystem

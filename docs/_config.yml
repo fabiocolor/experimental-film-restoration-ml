@@ -41,10 +41,8 @@ exclude:
   - Gemfile.lock
   # Media that no page links to, including frames of films whose rights aren't confirmed.
   # The files stay in the repository as research records, but aren't published.
-  - "images_kebab/seapavaa2026/fanji_waterfront_runnable_prompt_for_worker.json"
   - "images_kebab/seapavaa2026/fanji_waterfront_workflow.json"
   - "images_kebab/seapavaa2026/fanji_waterfront_api_prompt.json"
-  - "images_kebab/seapavaa2026/fanji_waterfront_workflow_for_worker.json"
   - "images_kebab/ben/"
   - "images_kebab/beta/"
   - "images_kebab/candy-candy/"

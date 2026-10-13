@@ -232,7 +232,7 @@ Some of the examples from the talk aren't shown here, because I'm still checking
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Shot0006 native three-way comparison</h3>
+      <h3><em>Obsession</em>, shot 6: source, model output and composite</h3>
       <img src="{{ '/media/seapavaa2026/shot0006-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for shot 0006">
       <p>This Wan/VACE test shows a second bounded temporal success with the same three-way source, inference, and composite structure.</p>
       <details class="seapavaa-files">
@@ -251,7 +251,7 @@ Some of the examples from the talk aren't shown here, because I'm still checking
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Shot0011 native failure comparison</h3>
+      <h3><em>Obsession</em>, shot 11: a failure with hard motion</h3>
       <img src="{{ '/media/seapavaa2026/shot0011-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for shot 0011">
       <p>A hard-motion example where stitching and temporal generation still break down, even when the individual parts are available.</p>
     </div>
@@ -263,7 +263,7 @@ Some of the examples from the talk aren't shown here, because I'm still checking
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Shot0001 with context board</h3>
+      <h3><em>Obsession</em>, shot 1, with a context board</h3>
       <img src="{{ '/media/seapavaa2026/shot0001-context-source-proposal-composite.gif' | relative_url }}" alt="Animated context-board, source, raw inference, and source-preserving composite comparison for shot 0001">
       <p>The context board gives the model stable visual anchors while the video comparison shows how those anchors affect the shot.</p>
     </div>
