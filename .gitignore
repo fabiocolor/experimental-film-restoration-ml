@@ -48,7 +48,11 @@ __pycache__/
 /scripts/muralla_*
 /scripts/jimin*
 /scripts/recover_jiminx_*
-/tools/
+# Local tool checkouts; the site tools are tracked
+/tools/*
+!/tools/site-i18n/
+!/tools/site-check/
+!/tools/examples/
 
 # Logs, caches, and generated reports
 *.log
