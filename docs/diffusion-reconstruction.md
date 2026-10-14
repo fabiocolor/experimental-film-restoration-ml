@@ -1,14 +1,18 @@
 ---
 layout: default
-title: Upscaling
+title: "Diffusion Reconstruction"
 nav_order: 4
-permalink: /upscaling/
+permalink: /diffusion-reconstruction/
+redirect_from: 
+  - /upscaling/
 ---
 
 
-# Upscaling
+# Diffusion reconstruction
 
-Sometimes the picture survives, but it's too damaged for a traditional restoration. Our tools borrow from the same frame or the frames around it, and when every frame is damaged there's nothing clean left to borrow. That's where I use what I call diffusion upscaling: a video model rebuilds the picture from what survives, following its structure and movement.
+For films beyond repair, where every frame is too damaged for conventional restoration.
+
+Sometimes the picture survives, but it's too damaged for a traditional restoration. Our tools borrow from the same frame or the frames around it, and when every frame is damaged there's nothing clean left to borrow. That's where I use diffusion reconstruction: a video model rebuilds the picture from what survives, following its structure and movement.
 
 The result is partly synthetic. The model invents fine detail the film no longer carries. Some people will call this heresy, and to a degree it is. I wouldn't call it proper film restoration myself, but for some footage I don't see another way.
 
@@ -39,7 +43,7 @@ The approved stairs shot, 624 frames, also shown in my [FIAT/IFTA 2026 talk]({{ 
 - Video upscalers (SeedVR2, FlashVSR) and VACE were the wrong direction for this material.
 - I keep the original scan and the raw sections as the record, and I say what was generated.
 
-Before diffusion, I tried spatial recovery with CopyCat on the same film: a small model learning detail from the telecine. It's in the [case studies]({{ '/case-studies/' | relative_url }}).
+Before diffusion, I tried [spatial recovery with CopyCat]({{ '/spatial-recovery/' | relative_url }}) on the same film: a small model learning detail from the telecine.
 
 ## Downloads
 

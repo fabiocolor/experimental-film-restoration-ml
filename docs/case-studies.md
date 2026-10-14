@@ -1,8 +1,8 @@
 ---
 layout: default
 title: Case Studies
-nav_order: 3
-parent: Colour Recovery
+nav_order: 2
+parent: "Temporal CbCr"
 ---
 
 # Case Studies

@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Research Routes & Evidence
-parent: Open-Weight Color Recovery
+parent: "Unbalanced Sources: Open-Weight Routes"
 nav_order: 2
 permalink: /open-weight-color-recovery/research-routes/
-grand_parent: Colour Recovery
+grand_parent: "Faded Colour Recovery"
 ---
 
 

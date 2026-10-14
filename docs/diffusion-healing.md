@@ -1,12 +1,16 @@
 ---
 layout: default
-title: Gap Filling & Reconstruction
-nav_order: 2
-permalink: /gap-filling/
+title: "Diffusion Healing"
+nav_order: 3
+permalink: /diffusion-healing/
+redirect_from: 
+  - /gap-filling/
 ---
 
 
-# Gap filling and reconstruction
+# Diffusion healing
+
+For films with damage across the whole frame, or missing frames, where most of the original still survives. Every surviving element is used first; the model only heals what is gone.
 
 Sometimes the picture isn't just damaged, it's gone, or so decayed that there's nothing clean left to borrow. A nitrate section was cut out, a negative has a gap while the sound keeps running, or the emulsion has broken up across the whole shot.
 

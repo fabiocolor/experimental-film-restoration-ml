@@ -1,14 +1,14 @@
 ---
 layout: default
-title: "Download: upscaling stairs kit"
-parent: "Upscaling"
-nav_order: 90
+title: "Download: Reconstruction Stairs Kit"
+parent: "Diffusion Reconstruction"
+nav_order: 1
 permalink: /downloads/upscaling-stairs/
 ---
 
-# Upscaling stairs: overlapping H3 windows and seam blend
+# Diffusion reconstruction stairs kit: overlapping H3 windows and seam blend
 
-This is the method behind the stairs shot on the upscaling page. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, then a light seam blend removes the tone steps at the cuts.
+This is the method behind the stairs shot on the diffusion reconstruction page. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, then a light seam blend removes the tone steps at the cuts.
 
 I checked the seam blend against the result I approved: run on the four example windows below, it matches mine to an average colour difference of ΔE 1.07 (you can't see it).
 
@@ -28,7 +28,7 @@ I checked the seam blend against the result I approved: run on the four example 
 
 ## Example
 
-`example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The result I approved is the stairs video on the upscaling page.
+`example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The result I approved is the stairs video on the diffusion reconstruction page.
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 

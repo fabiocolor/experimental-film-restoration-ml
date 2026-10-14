@@ -1,8 +1,9 @@
 ---
 layout: default
-title: Dirt Removal
-nav_order: 3
+title: "Advanced Dirt Removal"
+nav_order: 2
 permalink: /dirt-removal/
+parent: "Tools Used in This Research"
 ---
 
 

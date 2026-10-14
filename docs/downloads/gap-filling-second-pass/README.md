@@ -1,14 +1,14 @@
 ---
 layout: default
-title: "Download: gap filling second pass"
-parent: "Gap Filling & Reconstruction"
+title: "Download: Healing Second Pass"
+parent: "Diffusion Healing"
 nav_order: 90
 permalink: /downloads/gap-filling-second-pass/
 ---
 
-# Gap filling: the second pass
+# Diffusion healing: the second pass
 
-This is the last step of the flute players and drummer reconstruction on the gap-filling page. The first pass (the whole shot rebuilt with MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light second pass with Wan VACE makes them one picture without moving anything.
+This is the last step of the flute players and drummer reconstruction on the diffusion healing page. The first pass (the whole shot rebuilt with MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light second pass with Wan VACE makes them one picture without moving anything.
 
 I checked it against the result I approved: run on the example files below, it matches mine to an average colour difference of ΔE 0.9 (you can't see it), and the three windows on their own match to ΔE 0.6 or better.
 
@@ -28,7 +28,7 @@ The prompt in the graph describes this shot. Write your own for your footage, an
 
 ## Example
 
-`example/` has the three first-pass windows of the flute players shot (frames 0–80, 51–131 and 102–182, 768 × 560). The result I approved is the reconstruction video on the gap-filling page.
+`example/` has the three first-pass windows of the flute players shot (frames 0–80, 51–131 and 102–182, 768 × 560). The result I approved is the reconstruction video on the diffusion healing page.
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 

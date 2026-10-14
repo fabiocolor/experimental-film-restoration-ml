@@ -1,10 +1,10 @@
 ---
 layout: default
-title: Open-Weight Color Recovery
-nav_order: 1
+title: "Unbalanced Sources: Open-Weight Routes"
+nav_order: 2
 has_children: true
 permalink: /open-weight-color-recovery/
-parent: Colour Recovery
+parent: "Faded Colour Recovery"
 ---
 
 

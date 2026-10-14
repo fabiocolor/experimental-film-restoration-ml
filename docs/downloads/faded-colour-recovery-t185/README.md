@@ -1,8 +1,8 @@
 ---
 layout: default
-title: "Download: faded colour recovery kit"
-parent: "Colour Recovery"
-nav_order: 90
+title: "Balanced Sources: Download Kit"
+parent: "Faded Colour Recovery"
+nav_order: 1
 permalink: /downloads/faded-colour-recovery-t185/
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Where the Research Stands
-nav_order: 6
+nav_order: 7
 permalink: /research-status/
 ---
 
@@ -12,13 +12,7 @@ This is where my research is in October 2026, after SEAPAVAA in June and FIAT/IF
 
 What I'm trying to do is rescue the original colour, not colorize a black-and-white image. The colour that survives in the picture is evidence, so I respect it first and build on top of it, and references and generated colour only fill what was lost. Looking back at this year, what has worked best is exactly that: keeping the original picture of the film and letting the model add only what's missing, whether that's the colour, a gap or a word. None of it is one click, though. It takes a lot of patience, and it's always a restorer who decides what's acceptable and who says what was generated.
 
-## Colour with a reference: CopyCat in Nuke
-
-This is where I started, and it's still my baseline. You train a small model for each film from matching frames of two copies: the damaged scan as the source, and a better copy as the result you want. So it needs that better copy to learn from.
-
-The Nuke template runs locally in Nuke Non-Commercial or Nuke Indie, with your own footage. You use it to build a small dataset for each shot and train CopyCat on it. You can get it from the [releases page](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), and the [CopyCat workflow guide]({{ '/copycat-workflow/' | relative_url }}) walks through the steps.
-
-## Colour without a reference: Qwen Image Edit
+## Faded colour recovery
 
 When there's no better copy, I create what I call a synthetic reference: an approved colour frame for each shot. For that I use Qwen Image Edit, running in ComfyUI.
 
@@ -60,16 +54,26 @@ The normal first step is to balance the scan, for example with the [Faded Balanc
 - The whole-shot routes aren't on this site yet. They still depend on my own job system and on the adapter, which isn't public.
 - The example workflows from SEAPAVAA and FIAT/IFTA exist, but they need more work before someone else can use them.
 
-## Rebuilding picture: diffusion upscaling and reconstruction
+## Temporal CbCr: colour with a reference
+
+This is where I started, and it's still my baseline. You train a small model for each film from matching frames of two copies: the damaged scan as the source, and a better copy as the result you want. So it needs that better copy to learn from.
+
+The Nuke template runs locally in Nuke Non-Commercial or Nuke Indie, with your own footage. You use it to build a small dataset for each shot and train CopyCat on it. You can get it from the [releases page](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), and the [CopyCat workflow guide]({{ '/copycat-workflow/' | relative_url }}) walks through the steps.
+
+## Diffusion healing and diffusion reconstruction
 
 The second half of the FIAT/IFTA talk was about the picture itself.
 
-- **Diffusion upscaling.** When every frame of the surviving element is damaged, there's nothing left to borrow. On *El Tinterillo* I combined a 16mm print and a telecine, cleaned the result with a median filter to get a rough outline, and guided MiniMax H3 with a synthetic reference. The result has a synthetic look, and I wouldn't call it proper film restoration myself. Small faces and lip movement are still a problem.
-- **Diffusion reconstruction.** When frames are completely gone, or the whole shot has decayed, I first use whatever survives in the other elements, and then generate only what's missing, guided by the movement around it. On a decayed 16mm colour shot of flute players and a drummer from the Wong Rengifo collection, I kept the film's own drumming where generation couldn't follow it and approved the result, with notes, at reduced resolution.
+- **Diffusion reconstruction.** For films beyond repair: when every frame of the surviving element is damaged, there's nothing left to borrow. On *El Tinterillo* I combined a 16mm print and a telecine, cleaned the result with a median filter to get a rough outline, and guided MiniMax H3 with a synthetic reference. The result has a synthetic look, and I wouldn't call it proper film restoration myself. Small faces and lip movement are still a problem.
+- **Diffusion healing.** When frames are completely gone, or the whole shot has decayed, I first use whatever survives in the other elements, and then generate only what's missing, guided by the movement around it. On a decayed 16mm colour shot of flute players and a drummer from the Wong Rengifo collection, I kept the film's own drumming where generation couldn't follow it and approved the result, with notes, at reduced resolution.
 
-The examples, with stills, clips and downloads, are on the [Gap Filling]({{ '/gap-filling/' | relative_url }}) and [Upscaling]({{ '/upscaling/' | relative_url }}) pages. The workflows aren't public yet.
+The examples, with stills, clips and downloads, are on the [Diffusion Healing]({{ '/diffusion-healing/' | relative_url }}) and [Diffusion Reconstruction]({{ '/diffusion-reconstruction/' | relative_url }}) pages, each with a download kit checked against the approved result.
 
-## Dirt removal
+## Black-and-white colourization
+
+Colour for orthochromatic and panchromatic film, inferred from the recorded greyscale and the stock's spectral response. Fifteen public-domain shots are approved or approved with notes; skin on the earliest shots and some foliage are still open. See [Black-and-White Colourization]({{ '/black-and-white-colourization/' | relative_url }}).
+
+## Tools: dirt removal
 
 [Advanced Dirt Removal]({{ '/dirt-removal/' | relative_url }}) is a free macro for DaVinci Resolve, with a Motion Mask and a Recovery Brush to bring back what the cleaning took. It's a finished tool, on version 1.1.3.
 

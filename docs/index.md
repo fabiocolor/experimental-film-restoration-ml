@@ -22,35 +22,45 @@ nav_order: 0
 <div class="track-grid">
   <article class="research-card research-card-featured">
     <p class="card-kicker">1</p>
-    <h3>Colour recovery</h3>
-    <p>Rescuing the original colour of faded film, not colorizing it. Balance the scan first, keep the colour that survived, and fill only what faded, with a reference when one exists and with open-weight models when it doesn't.</p>
-    <a class="card-link" href="{{ '/colour-recovery/' | relative_url }}">Colour recovery <span aria-hidden="true">→</span></a>
+    <h3>Faded colour recovery</h3>
+    <p>Rescuing the original colour of faded film, for balanced and unbalanced scans. The colour that survived is kept; only what faded is filled in.</p>
+    <a class="card-link" href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery <span aria-hidden="true">→</span></a>
   </article>
 
   <article class="research-card">
     <p class="card-kicker">2</p>
-    <h3>Gap filling and reconstruction</h3>
-    <p>Rebuilding frames that are completely gone, using every surviving element first and generating only inside the gap.</p>
-    <a class="card-link" href="{{ '/gap-filling/' | relative_url }}">Gap filling <span aria-hidden="true">→</span></a>
+    <h3>Temporal CbCr</h3>
+    <p>Colour recovery or colourization from a direct reference, historical or synthetic, carried consistently through the shot.</p>
+    <a class="card-link" href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr <span aria-hidden="true">→</span></a>
   </article>
 
   <article class="research-card">
     <p class="card-kicker">3</p>
-    <h3>Dirt removal</h3>
-    <p>Advanced Dirt Removal, a free macro for DaVinci Resolve that cleans dirt and lets you bring back what the cleaning took.</p>
-    <a class="card-link" href="{{ '/dirt-removal/' | relative_url }}">Dirt removal <span aria-hidden="true">→</span></a>
+    <h3>Diffusion healing</h3>
+    <p>Healing full-frame damage and missing frames while keeping most of the original picture.</p>
+    <a class="card-link" href="{{ '/diffusion-healing/' | relative_url }}">Diffusion healing <span aria-hidden="true">→</span></a>
   </article>
 
   <article class="research-card">
     <p class="card-kicker">4</p>
-    <h3>Upscaling</h3>
-    <p>When every frame is too damaged to restore conventionally, a video model rebuilds the picture. The detail is partly synthetic, and I say so.</p>
-    <a class="card-link" href="{{ '/upscaling/' | relative_url }}">Upscaling <span aria-hidden="true">→</span></a>
+    <h3>Diffusion reconstruction</h3>
+    <p>For films beyond repair: a video model rebuilds the picture from what survives. The detail is partly synthetic, and I say so.</p>
+    <a class="card-link" href="{{ '/diffusion-reconstruction/' | relative_url }}">Diffusion reconstruction <span aria-hidden="true">→</span></a>
+  </article>
+
+  <article class="research-card">
+    <p class="card-kicker">5</p>
+    <h3>Black-and-white colourization</h3>
+    <p>Colour for orthochromatic and panchromatic film, inferred from the recorded greyscale and the stock's spectral response.</p>
+    <a class="card-link" href="{{ '/black-and-white-colourization/' | relative_url }}">Black-and-white colourization <span aria-hidden="true">→</span></a>
   </article>
 
 </div>
 
-## Colour recovery: source, proposal, composite
+Also: the [tools used in this research]({{ '/tools/' | relative_url }}), Faded Balancer and Advanced Dirt Removal.
+
+
+## Faded colour recovery: source, proposal, composite
 
 <div class="app-hero-strip" aria-label="Colour recovery example">
   <figure>

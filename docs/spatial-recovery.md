@@ -1,9 +1,9 @@
 ---
 layout: default
-title: Spatial Recovery
-parent: CopyCat Workflow
-nav_order: 3
-grand_parent: Colour Recovery
+title: "Earlier Route: Spatial Recovery"
+parent: "Diffusion Reconstruction"
+nav_order: 2
+permalink: /spatial-recovery/
 ---
 
 # Spatial Recovery: Building the Detail Target

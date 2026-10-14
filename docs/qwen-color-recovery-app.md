@@ -1,9 +1,9 @@
 ---
 layout: default
 title: Qwen Image Edit Workflow
-parent: Open-Weight Color Recovery
+parent: "Unbalanced Sources: Open-Weight Routes"
 nav_order: 1
-grand_parent: Colour Recovery
+grand_parent: "Faded Colour Recovery"
 ---
 
 # Qwen Image Edit Colour Recovery Workflow

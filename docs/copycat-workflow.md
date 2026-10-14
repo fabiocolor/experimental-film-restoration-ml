@@ -1,10 +1,10 @@
 ---
 layout: default
 title: CopyCat Workflow
-nav_order: 2
+nav_order: 1
 has_children: true
 permalink: /copycat-workflow/
-parent: Colour Recovery
+parent: "Temporal CbCr"
 ---
 
 

@@ -3,7 +3,7 @@ layout: default
 title: Shared Workflow
 parent: CopyCat Workflow
 nav_order: 1
-grand_parent: Colour Recovery
+grand_parent: "Temporal CbCr"
 ---
 
 # Shared Workflow: Stages 0–2

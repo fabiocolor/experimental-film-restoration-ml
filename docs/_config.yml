@@ -4,6 +4,7 @@ remote_theme: just-the-docs/just-the-docs@v0.10.0
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-redirect-from
 
 url: ""
 baseurl: "/custom-machine-learning-for-film-restoration"
