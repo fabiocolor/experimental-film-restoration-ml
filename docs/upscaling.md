@@ -45,4 +45,4 @@ Before diffusion, I tried spatial recovery with CopyCat on the same film: a smal
 
 - [The approved stairs shot (26 s, MP4, 23 MB)]({{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }})
 
-The workflow will go up once it reproduces this result.
+- [Stairs kit: ComfyUI graphs, seam blend and the example windows](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/upscaling-stairs). Checked against the approved result (average colour difference ΔE 1.07).
