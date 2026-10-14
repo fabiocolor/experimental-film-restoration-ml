@@ -378,9 +378,9 @@ parent: Talks
   <h2 id="workflows-title">Workflows and guides</h2>
   <ul class="fc-points">
     <li><a href="{{ '/chroma-recovery/' | relative_url }}">Reference-trained colour recovery</a>: learn from matched source and reference frames, then combine the predicted colour with the brightness of the scan.</li>
-    <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Open-weight colour recovery</a>: create and review colour proposals while the scan stays the authority.</li>
+    <li><a href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery</a>: create and review colour proposals while the scan stays the authority.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Training, inference and review</a>: preparing material, iterating, and deciding when a result is acceptable.</li>
-    <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Research routes and open questions</a>: an earlier snapshot of the research, with its evidence and limits.</li>
+    <li><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a>: colour learned from a historical or synthetic reference and carried through the whole shot.</li>
     <li><a href="{{ '/research-status/' | relative_url }}">Where the research stands (October 2026)</a>: what works, what doesn't yet, and what you can reproduce. The Nuke template runs locally in Nuke Non-Commercial or Indie with your own footage, and the Qwen Image Edit workflows run in ComfyUI. Both still need some work before they're easy to use.</li>
     <li><a href="{{ '/' | relative_url }}">All research on this site</a>, or the <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repository on GitHub</a>.</li>
   </ul>

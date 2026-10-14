@@ -377,9 +377,9 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <h2 id="workflows-title">Fluxos de trabalho e guias</h2>
   <ul class="fc-points">
     <li><a href="{{ '/chroma-recovery/' | relative_url }}">Recuperação de cor treinada com referência</a>: aprender com quadros correspondentes da fonte e da referência e, depois, combinar a cor prevista com o brilho da digitalização.</li>
-    <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Recuperação de cor com modelos de pesos abertos</a>: criar e revisar propostas de cor, enquanto a digitalização continua sendo a referência principal.</li>
+    <li><a href="{{ '/colour-recovery/' | relative_url }}">Recuperação de cor desbotada</a> (em inglês): criar e revisar propostas de cor, enquanto a digitalização continua sendo a referência principal.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Treinamento, inferência e revisão</a>: preparar o material, iterar e decidir quando um resultado é aceitável.</li>
-    <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Caminhos de pesquisa e questões em aberto</a>: um retrato anterior da pesquisa, com as suas evidências e limitações.</li>
+    <li><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a> (em inglês): a cor aprendida de uma referência histórica ou sintética e levada por todo o plano.</li>
     <li><a href="{{ '/research-status/' | relative_url }}">Onde a pesquisa está (outubro de 2026)</a> (em inglês): o que funciona, o que ainda não funciona e o que você pode reproduzir. O template do Nuke roda localmente no Nuke Non-Commercial ou Indie com o seu próprio material, e os fluxos do Qwen Image Edit rodam no ComfyUI. Os dois ainda precisam de algum trabalho para ficarem fáceis de usar.</li>
     <li><a href="{{ '/' | relative_url }}">Toda a pesquisa deste site</a>, ou o <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repositório no GitHub</a>.</li>
   </ul>

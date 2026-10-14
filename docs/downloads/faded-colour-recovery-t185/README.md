@@ -1,14 +1,14 @@
 ---
 layout: default
-title: "Balanced Sources: Download Kit"
+title: "Download: Balanced Sources Kit"
 parent: "Faded Colour Recovery"
 nav_order: 1
 permalink: /downloads/faded-colour-recovery-t185/
 ---
 
-# Faded colour recovery for pre-balanced scans
+# Faded colour recovery for balanced scans
 
-This is the route I use now for faded film that has already been balanced (black is black, white is white, and the colour has collapsed). It works on one shot at a time, at reduced resolution (768 × 576 for the video model).
+This is the route on the [faded colour recovery](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/colour-recovery/) page for faded film that has already been balanced (black is black, white is white, and the colour has collapsed). It works on one shot at a time, at reduced resolution (768 × 576 for the video model).
 
 I checked every step here against a shot I approved, and each step's output matches mine to within a colour difference you can't see. The average difference (ΔE) was 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
 

@@ -377,9 +377,9 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
   <h2 id="workflows-title">Flujos de trabajo y guías</h2>
   <ul class="fc-points">
     <li><a href="{{ '/chroma-recovery/' | relative_url }}">Recuperación de color entrenada con referencia</a>: aprender de fotogramas equivalentes de la fuente y la referencia, y luego combinar el color predicho con el brillo del escaneo.</li>
-    <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Recuperación de color con modelos de pesos abiertos</a>: crear y revisar propuestas de color mientras el escaneo sigue siendo la autoridad.</li>
+    <li><a href="{{ '/colour-recovery/' | relative_url }}">Recuperación de color desvanecido</a> (en inglés): crear y revisar propuestas de color mientras el escaneo sigue siendo la autoridad.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Entrenamiento, inferencia y revisión</a>: preparar el material, iterar y decidir cuándo un resultado es aceptable.</li>
-    <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Líneas de investigación y preguntas abiertas</a>: una instantánea anterior de la investigación, con su evidencia y sus límites.</li>
+    <li><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a> (en inglés): el color aprendido de una referencia histórica o sintética y llevado por todo el plano.</li>
     <li><a href="{{ '/research-status/' | relative_url }}">Dónde está la investigación (octubre de 2026)</a> (en inglés): qué funciona, qué todavía no y qué puedes reproducir. La plantilla de Nuke se ejecuta localmente en Nuke Non-Commercial o Indie con tu propio material, y los flujos de Qwen Image Edit se ejecutan en ComfyUI. Los dos todavía necesitan algo de trabajo para que sean fáciles de usar.</li>
     <li><a href="{{ '/' | relative_url }}">Toda la investigación de este sitio</a>, o el <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repositorio en GitHub</a>.</li>
   </ul>
