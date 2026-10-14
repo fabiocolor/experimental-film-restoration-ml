@@ -8,10 +8,7 @@ grand_parent: "Temporal CbCr"
 
 # Training, Inference, and Review
 
-This page covers the stages shared by chroma and spatial recovery. Build the correct branch target first:
-
-- [Chroma recovery]({{ '/chroma-recovery/' | relative_url }}): Source Y with Reference Cb and Cr.
-- [Spatial recovery]({{ '/spatial-recovery/' | relative_url }}): Reference Y with Source Cb and Cr.
+The last stages of the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}). Build the [colour target]({{ '/chroma-recovery/' | relative_url }}) first: Source Y with Reference Cb and Cr.
 
 ## Stage 4: Train and monitor
 
@@ -26,7 +23,7 @@ Start with a modest model and a held-out frame that is not part of the training 
 | Checkpoints | Every 10,000 steps | Compare the same held-out material at each checkpoint |
 | Contact sheets | About every 100 steps | Use them to spot divergence and memorisation |
 
-Use small geometric augmentation only when the composition allows it. Mild exposure variation can help, but do not introduce transformations that change the property being learned. Chroma training should not distort colour relationships. Spatial training should not add sharpening, blur, or synthetic grain.
+Use small geometric augmentation only when the composition allows it. Mild exposure variation can help, but do not introduce transformations that distort colour relationships, because colour is what the model is learning.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }}" alt="CopyCat Progress contact sheet">
@@ -38,7 +35,7 @@ Use small geometric augmentation only when the composition allows it. Mild expos
   <figcaption>A held-out preview is more useful than loss alone because it tests an unseen frame.</figcaption>
 </figure>
 
-Check range and bounding-box parity in both branches. For chroma recovery, source and target luminance should remain nearly identical. For spatial recovery, source and target chroma should remain nearly identical.
+Check range and bounding-box parity between input and target. Their luminance should remain nearly identical.
 
 ## Stage 5: Infer the source sequence
 
@@ -63,10 +60,9 @@ For archival renders, follow the project’s delivery standard. A common working
 
 Compare original and recovered renders in the same colour-managed Resolve project with grades and effects disabled. Use a wipe, split screen, or track toggle, then watch the sequence at normal speed as well as frame by frame.
 
-| Recovery branch | Protect in the source | Optional Resolve composite | Reject when |
-| --- | --- | --- | --- |
-| Chroma | Luminance and detail | `Color` | Colour bleeds, flickers, changes identity, or contradicts evidence |
-| Spatial | Chroma | `Luminosity` | Detail is invented, halos appear, or grain and sharpness vary through time |
+| Protect in the source | Optional Resolve composite | Reject when |
+| --- | --- | --- |
+| Luminance and detail | `Color` | Colour bleeds, flickers, changes identity, or contradicts evidence |
 
 Scopes can reveal range, luminance, or chroma changes, but they do not decide whether a restoration is historically or aesthetically acceptable. Human review remains the acceptance gate.
 

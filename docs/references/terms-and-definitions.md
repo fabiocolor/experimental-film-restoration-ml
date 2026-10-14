@@ -7,13 +7,13 @@ nav_order: 2
 
 # Glossary
 
-Terms specific to the chroma and spatial recovery workflows in this repository. Standard Nuke node names (`Read`, `Write`, `Merge`, `Transform`, `Crop`, etc.) are not redefined here; consult Foundry documentation for those.
+Terms used in the research on this site. Standard Nuke node names (`Read`, `Write`, `Merge`, `Transform`, `Crop`, etc.) are not redefined here; consult Foundry documentation for those.
 
 ### ACES 2065-1
 Linear AP0 scene-referred color space for archival/exchange masters. Recommended delivery space with EXR half.
 
 ### Alignment
-Pixel-accurate registration of Reference to Source, including crop, so branches differ only in the intended characteristic (color or spatial).
+Pixel-accurate registration of Reference to Source, including crop, so the two differ only in colour.
 
 ### Chroma (Cb, Cr)
 Color-difference channels in YCbCr. In chroma recovery, these come from the Reference branch.
@@ -31,9 +31,7 @@ Physical film width (16mm, 35mm). Different gauges have distinct spatial charact
 Duplication stage (original negative, internegative, print, duplicate). Generational differences affect spatial quality.
 
 ### Ground truth (Target)
-The desired output used as Target during training:
-- **Chroma recovery:** Source Y + Reference Cb/Cr
-- **Spatial recovery:** Reference Y + Source Cb/Cr
+The desired output used as Target during training. For colour recovery: Source Y + Reference Cb/Cr.
 
 ### Hold-out frames
 Frame pairs excluded from training, used only for validation.
@@ -53,8 +51,17 @@ Nuke node for look matching. Used in these workflows as an optional baseline to 
 ### Provenance
 Recorded history of sources, processes, and parameters enabling reproducibility and auditability.
 
+### Synthetic reference
+An approved colour frame for a shot, made with an open model when no better copy of the film survives. It guides the colour of the shot, and the result is an interpretation.
+
+### Teacher frames
+The frames of a shot that pass review and are used to train the Temporal CbCr adapter for that shot.
+
 ### Telecine
 Video transfer of a film element from earlier preservation workflows. May preserve cleaner sections despite lower resolution.
+
+### Temporal CbCr adapter
+A small model, trained for one shot, that learns its colour (Cb and Cr) from teacher frames and carries it through every frame while the scan keeps its own brightness.
 
 ### Training pair
 A single supervised example: Input (degraded) and Target (ground truth) sharing identical content and alignment.

@@ -42,7 +42,7 @@ If a pair is uncertain, it should not be used. A smaller honest teaching set is 
 
 Two frames can look almost identical in a static background while a person or foreground object is displaced. That mismatch teaches the network that motion errors are part of the desired restoration.
 
-The Frontier Experience research therefore added checks that pay special attention to moving regions, compare each candidate with neighbouring frames, and reject examples close to uncertain shot boundaries. Difficult shots can use more advanced alignment methods, but they must pass the same final review as easy shots.
+Good preparation therefore adds checks that pay special attention to moving regions, compare each candidate with neighbouring frames, and reject examples close to uncertain shot boundaries. Difficult shots can use more advanced alignment methods, but they must pass the same final review as easy shots.
 
 ## What should be saved
 
@@ -58,11 +58,11 @@ A reusable training set should be accompanied by:
 
 These records are not administrative decoration. They are what allows another person to understand where the model learned its result and to remove a bad example later.
 
-## The Frontier Experience example
+## Long references that drift
 
-The Frontier Experience project tested this method on a long reference with timing drift, shot changes, and difficult foreground motion. The preparation process began with conservative whole-sequence alignment, then expanded under-represented shots without lowering the acceptance standard.
+On a long reference with timing drift, shot changes and difficult foreground motion, start with conservative whole-sequence alignment, then add pairs for under-represented shots without lowering the acceptance standard.
 
-The example demonstrates why accepted-pair counts alone are not enough: coverage, source identity, rendered-file integrity, and review of moving subjects all have to agree before a dataset is treated as ready. Another film may need fewer pairs, more pairs, or a different balance between sequence-wide and shot-specific models.
+Accepted-pair counts alone are not enough: coverage, source identity, rendered-file integrity and review of moving subjects all have to agree before a dataset is treated as ready. Another film may need fewer pairs, more pairs, or a different balance between sequence-wide and shot-specific models.
 
 ## When to train by shot
 

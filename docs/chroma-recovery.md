@@ -1,33 +1,18 @@
 ---
 layout: default
-title: Chroma Recovery
+title: Building the Colour Target
 parent: CopyCat Workflow
 nav_order: 2
 grand_parent: "Temporal CbCr"
 ---
 
-# Chroma Recovery: Building the Colour Target
+# Building the Colour Target
 
-Use this branch when picture detail survives but colour has faded, shifted, or collapsed. Complete the [shared preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. This page covers only the branch-specific target. Training, inference, and delivery are documented once in [Training, Inference, and Review]({{ '/training-inference-review/' | relative_url }}).
+Picture detail survives in the scan, but its colour has faded, shifted or collapsed; a better copy of the same frames keeps the colour. Complete the [preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. Training, inference and delivery are on [Training, Inference and Review]({{ '/training-inference-review/' | relative_url }}).
 
-## Choose the evidence
+## Record the reference
 
-| Reference approach | When to use it | What must be recorded |
-| --- | --- | --- |
-| **Matched reference** | A DVD, telecine, alternate print, or other colour record shows the same frame | Edition, owner or provider, transforms, compression, crop, and alignment limits |
-| **Constructed reference** | No direct colour record survives | Historical sources, creative decisions, assumptions, and the people who approved them |
-
-A constructed reference can support a plausible interpretation, but it is not historical proof. The [case studies]({{ '/case-studies/' | relative_url }}) show both approaches.
-
-<figure class="figure">
-  <img src="{{ '/images_kebab/general/chroma-recovery-non-reference.png' | relative_url }}" alt="Non-reference chroma recovery example">
-  <figcaption>Faded scan at left and an output trained from a constructed colour reference at right.</figcaption>
-</figure>
-
-<figure class="figure">
-  <img src="{{ '/images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg' | relative_url }}" alt="Photoshop Colorize reference creation">
-  <figcaption>A constructed reference for Ben. Focal points guide the colour proposal; the result remains interpretive.</figcaption>
-</figure>
+Note the reference's edition, owner or provider, transforms, compression, crop and alignment limits. A DVD, a telecine, another print or a video master can all work, as long as it shows the same frames with better colour.
 
 ## Build the target
 
@@ -55,7 +40,7 @@ The training target combines **source luminance** with **reference chroma**. Thi
   <figcaption>The chroma target uses Source Y with Reference Cb and Cr.</figcaption>
 </figure>
 
-## Branch-specific checks
+## Checks
 
 - Difference the input and target in YCbCr. Their luminance should be nearly identical.
 - Confirm that the paired crops and bounding boxes match.
@@ -68,7 +53,7 @@ The training target combines **source luminance** with **reference chroma**. Thi
   <figcaption>Candy Candy training checkpoints. The PAL DVD provided the colour reference.</figcaption>
 </figure>
 
-## Chroma troubleshooting
+## Troubleshooting
 
 | Problem | Check |
 | --- | --- |
@@ -83,8 +68,6 @@ Continue with [Training, Inference, and Review]({{ '/training-inference-review/'
 
 The images on this page, full size:
 
-- [Non-reference chroma recovery example]({{ '/images_kebab/general/chroma-recovery-non-reference.png' | relative_url }}) (PNG, 1.4 MB)
-- [Photoshop Colorize reference creation]({{ '/images_kebab/ben/ben-photoshop-chroma-reference-creation-3.jpeg' | relative_url }}) (JPG, under 0.1 MB)
 - [CopyCat training setup]({{ '/images_kebab/cropped/copycat-training-cropped.png' | relative_url }}) (PNG, 0.6 MB)
 - [Shuffle node settings]({{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }}) (PNG, 0.2 MB)
 - [Training steps progression]({{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}) (JPG, 0.2 MB)
