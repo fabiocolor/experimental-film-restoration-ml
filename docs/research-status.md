@@ -8,16 +8,16 @@ permalink: /research-status/
 
 # Where the research stands
 
-This is where my research is in October 2026, after SEAPAVAA in June and FIAT/IFTA in October: what works, what doesn't yet, and what you can try yourself.
+Where things are in October 2026, after SEAPAVAA in June and FIAT/IFTA in October: what works, what doesn't yet, and what you can try.
 
-Looking back at this year, what has worked best is keeping the original picture of the film and letting the model add only what's missing, whether that's the colour, a gap or the detail. None of it is one click. It takes patience, and it's always a restorer who decides what's acceptable and who says what was generated.
+What has worked best this year is keeping the film's own picture and letting the model add only what's missing: the colour, a gap or the detail. It takes patience, and a restorer still makes the calls.
 
 ## 1. Faded colour recovery
 
 **What works now**
 
 - **Balanced sources.** One palette still from the scan's luma, carried through the shot with MiniMax H3, the Fun ControlNet and the Temporal CbCr adapter, then checked so the red-green colour that survived is never flipped or weakened. Tested on four shots from one source so far, at reduced resolution.
-- **Unbalanced sources, single frames.** Qwen Image Edit 2511, guided by an edge map and a softly blurred colour chart, gives useful colour on all kinds of faded material, with someone reviewing every frame.
+- **Unbalanced sources, single frames.** Qwen Image Edit 2511, guided by an edge map and a softly blurred colour chart, gives useful colour on most faded material, with every frame reviewed.
 - **Unbalanced sources, whole shots.** Frames from H3 or TeleStyle that pass review become teachers for the Temporal CbCr adapter, which fills in the rest of the shot.
 
 **What still doesn't**
@@ -56,7 +56,7 @@ Colour for orthochromatic and panchromatic film, inferred from the recorded grey
 ## What's next
 
 - One app that runs the current colour route on new shots, and a cleaner ComfyUI version someone else can run on their own machine.
-- A few workflows from the best examples on ComfyUI Cloud, so you can try them without your own GPU. That's a goal, not something that's ready.
+- A few of the best examples as ComfyUI Cloud workflows, so you can try them without your own GPU. Not ready yet.
 
 ## Hardware
 
@@ -78,6 +78,6 @@ Colour for orthochromatic and panchromatic film, inferred from the recorded grey
 
 ## A note on "approved"
 
-When I say I approved a result, I mean I watched the whole shot at full size and accepted it as a research result for that shot. The colour that survived in the scan is evidence. The colour the model filled in where nothing survived is an interpretation, and the film can't confirm it.
+Approved means I watched the whole shot at full size and accepted it as a research result. Colour that survived in the scan is evidence. Colour the model filled in is an interpretation the film can't confirm.
 
 The examples on these pages are my research tests: faded trailers from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps), and copies of other films I worked with. The films belong to their rights holders.

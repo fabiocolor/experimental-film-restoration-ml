@@ -9,22 +9,22 @@ grand_parent: "Temporal CbCr"
 
 # Preparing Reliable Training Pairs
 
-A reference-trained model can only be as trustworthy as the examples used to teach it. Each training pair should show the same instant and the same image content in both the degraded source and the better reference.
+A model is only as good as the pairs it learns from. Each pair has to show the same moment in the faded scan and the better reference.
 
-This is simple when two scans come from the same film element. It becomes much harder when the reference is a telecine, broadcast master, home-video release, or another generation with different edits, cadence, framing, distortion, or missing frames.
+That's easy when both scans come from the same element. It's much harder with a telecine, a broadcast master or a home-video release, which can differ in edits, cadence, framing, distortion and missing frames.
 
 ## What counts as a good pair
 
-A training pair is useful when:
+A good pair:
 
-- both images represent the same moment;
-- important edges and moving subjects occupy the same positions;
-- neither image comes from a fade, dissolve, splice, or unrelated shot;
-- the reference contains genuinely better information for the chosen task;
-- the alignment has not stretched faces, bodies, or objects into false shapes;
-- the pair still agrees after the aligned files are rendered and inspected.
+- shows the same moment in both images;
+- has edges and moving subjects in the same places;
+- isn't from a fade, dissolve, splice or a different shot;
+- has a reference that's actually better for the job;
+- hasn't had faces, bodies or objects stretched by the alignment;
+- still matches once the aligned files are rendered.
 
-If a pair is uncertain, it should not be used. A smaller honest teaching set is safer than a larger one padded with weak matches.
+If you're not sure about a pair, drop it. A few good pairs beat many weak ones.
 
 ## A careful preparation sequence
 
@@ -32,7 +32,7 @@ If a pair is uncertain, it should not be used. A smaller honest teaching set is 
 2. **Find broad correspondence.** Establish the overall timing relationship before solving individual shots.
 3. **Work shot by shot.** A single offset rarely describes a complete historical transfer.
 4. **Try the simplest alignment first.** Translation, scale, rotation, and a modest affine correction are easier to interpret than a complex warp.
-5. **Use stronger methods only when they make a clear improvement.** Perspective correction or learned feature matching can help difficult material, but should not be accepted simply because a solver returned an answer.
+5. **Use stronger methods only when they clearly help.** Perspective correction or feature matching can rescue hard material, but a solver returning an answer doesn't make it right.
 6. **Render the candidates.** Judge the files the model will actually see, not only the alignment controls.
 7. **Check motion and shot boundaries.** Background agreement can hide a moving face, hand, or object that is one frame out of time.
 8. **Keep only defensible pairs.** Record rejections instead of filling gaps with generated or interpolated “ground truth.”
@@ -40,9 +40,9 @@ If a pair is uncertain, it should not be used. A smaller honest teaching set is 
 
 ## Why motion needs special attention
 
-Two frames can look almost identical in a static background while a person or foreground object is displaced. That mismatch teaches the network that motion errors are part of the desired restoration.
+Two frames can match perfectly in the background while a person in front is a frame off. Train on that and the model learns the error.
 
-Good preparation therefore adds checks that pay special attention to moving regions, compare each candidate with neighbouring frames, and reject examples close to uncertain shot boundaries. Difficult shots can use more advanced alignment methods, but they must pass the same final review as easy shots.
+So check the moving areas, compare each candidate with its neighbours, and drop pairs near uncertain cuts. Hard shots can use stronger alignment, but they get the same final review as easy ones.
 
 ## What should be saved
 

@@ -117,7 +117,7 @@ What matters is whether the reference preserves better information for the probl
 
 ## Stage 1: Dataset Curation
 
-Build a small teaching set from representative frames. Do not put the whole sequence into training.
+Train on a small set of representative frames, not the whole sequence.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }}" alt="Dataset curation">

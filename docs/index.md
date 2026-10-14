@@ -31,7 +31,7 @@ nav_order: 0
 <p class="experiment-credit"><em>Reptilicus</em> (1961) trailer, from a 35mm trailer reel scan posted publicly on <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>. The trailer belongs to its rights holders.</p>
 
 <div class="research-intro">
-  <p>This is where I keep my research on machine learning for film restoration. Each area below is one kind of problem, worked the same way: start from the scan, keep its original picture, and let a model add only what's missing. None of it is one click, and it's always a restorer who decides what's acceptable and who says what was generated.</p>
+  <p>My research on machine learning for film restoration. Each area is a different problem, but the approach is the same: start from the scan, keep its picture, and let a model add only what's missing. None of it is one click. A restorer decides what's acceptable and says what was generated.</p>
 </div>
 
 ## Five research areas
@@ -40,7 +40,7 @@ nav_order: 0
   <article class="research-card research-card-featured">
     <p class="card-kicker">1</p>
     <h3>Faded colour recovery</h3>
-    <p>The original colour of faded film, from balanced and unbalanced scans. The colour that survived is kept; only what faded is filled in.</p>
+    <p>Bringing back the colour of faded film, from balanced or unbalanced scans. What survived is kept; only what faded is filled in.</p>
     <p class="card-link-secondary">Examples: Counter Attack, Folgers</p>
     <a class="card-link" href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery <span aria-hidden="true">→</span></a>
   </article>
@@ -48,7 +48,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">2</p>
     <h3>Temporal CbCr</h3>
-    <p>Colour recovery or colourization from a direct reference, historical or synthetic, carried consistently through the shot.</p>
+    <p>Colour learned from a reference for the shot, historical or synthetic, and kept steady through it.</p>
     <p class="card-link-secondary">Examples: Candy Candy, Unman, Wittering and Zigo</p>
     <a class="card-link" href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr <span aria-hidden="true">→</span></a>
   </article>
@@ -56,7 +56,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">3</p>
     <h3>Diffusion healing</h3>
-    <p>Full-frame damage or missing frames, healed while keeping most of the original picture.</p>
+    <p>Healing damage across the frame, or missing frames, while keeping most of the original.</p>
     <p class="card-link-secondary">Example: Wong flute players</p>
     <a class="card-link" href="{{ '/diffusion-healing/' | relative_url }}">Diffusion healing <span aria-hidden="true">→</span></a>
   </article>
@@ -64,7 +64,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">4</p>
     <h3>Diffusion reconstruction</h3>
-    <p>For films beyond repair: a video model rebuilds the picture from what survives. The detail is partly synthetic, and I say so.</p>
+    <p>For films beyond repair. A video model rebuilds the picture from what's left. Some of the detail is synthetic, and I say so.</p>
     <p class="card-link-secondary">Example: El Tinterillo</p>
     <a class="card-link" href="{{ '/diffusion-reconstruction/' | relative_url }}">Diffusion reconstruction <span aria-hidden="true">→</span></a>
   </article>
@@ -72,7 +72,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">5</p>
     <h3>Black-and-white colourization</h3>
-    <p>Colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response.</p>
+    <p>Colour for panchromatic and orthochromatic film, worked out from the greyscale and what the stock could see.</p>
     <a class="card-link" href="{{ '/black-and-white-colourization/' | relative_url }}">Black-and-white colourization <span aria-hidden="true">→</span></a>
   </article>
 </div>

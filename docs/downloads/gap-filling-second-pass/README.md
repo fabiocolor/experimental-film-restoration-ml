@@ -8,9 +8,9 @@ permalink: /downloads/gap-filling-second-pass/
 
 # Diffusion healing: the second pass
 
-This is the last step of the flute players and drummer reconstruction on the diffusion healing page. The first pass (the whole shot rebuilt with MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light second pass with Wan VACE makes them one picture without moving anything.
+The last step of the flute players shot on the diffusion healing page. The first pass (MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light Wan VACE pass makes them one picture without moving anything.
 
-I checked it against the result I approved: run on the example files below, it matches mine to an average colour difference of ΔE 0.9 (you can't see it), and the three windows on their own match to ΔE 0.6 or better.
+On the example files it matches my approved result to ΔE 0.9 on average, and each window to ΔE 0.6 or better. You can't see the difference.
 
 ## What you need
 

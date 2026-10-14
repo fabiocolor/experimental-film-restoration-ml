@@ -3,8 +3,8 @@
 ## Faded colour recovery
 
 - Get at least three out of four new shots working on the first pass.
-- One app that runs the current route on new shots, and a cleaner ComfyUI version someone else can run on their own machine.
-- A few workflows from the best examples on ComfyUI Cloud, so people can try them without their own GPU. This is a goal; it isn't ready yet.
+- One app that runs the current route on new shots, and a cleaner ComfyUI version others can run themselves.
+- A few of the best examples as ComfyUI Cloud workflows, so people can try them without their own GPU.
 
 ## Temporal CbCr
 

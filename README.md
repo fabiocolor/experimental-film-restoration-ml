@@ -1,6 +1,6 @@
 # Experimental Film Restoration with Machine Learning
 
-This is where I keep my research on machine learning for film restoration. What survives in the film is evidence: I respect it first and let the models fill only what was lost, whether that's the colour that faded, frames that are missing or picture that's gone. None of it is one click, and it's always a restorer who decides what's acceptable and who says what was generated.
+My research on machine learning for film restoration. What survives in the film is evidence. I keep it, and let the models fill only what was lost: faded colour, missing frames, picture that's gone. None of it is one click, and a restorer decides what's acceptable and says what was generated.
 
 **Website:** [fabiocolor.github.io/custom-machine-learning-for-film-restoration/](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/)
 
@@ -38,7 +38,7 @@ The examples are workflow demonstrations, not finished restorations.
 
 ## Responsible use
 
-Generated colour or picture is an interpretation unless supported by a known reference. Keep the original scan, identify all references, show intermediate results, and record the choices that shaped the output. The source and its historical context should remain more authoritative than the model.
+Generated colour or picture is an interpretation unless a known reference backs it up. Keep the original scan, name your references, show the in-between results and note the choices you made. The source outranks the model.
 
 ## Support
 
@@ -46,6 +46,6 @@ If this research is useful to your work, you can [sponsor it on GitHub](https://
 
 ## Rights, licences, and attribution
 
-No single licence covers everything referenced in this repository. Original research material, third-party film footage, visual references, model files, and software may each have different owners and terms.
+No single licence covers everything here. My material, third-party footage, references, models and software each have their own owners and terms.
 
 See [Credits & Attribution](docs/credits.md) for the public source record and [Third-Party Notices](THIRD_PARTY_NOTICES.md) for the principal model and software projects. Credit is not permission to reuse third-party material, and this repository does not relicense it.

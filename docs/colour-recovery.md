@@ -12,28 +12,28 @@ redirect_from:
 
 # Faded colour recovery
 
-Rescuing the original colour of faded film, from balanced or unbalanced scans. This isn't black-and-white colourization. Whatever colour still survives in the picture is evidence, so I respect it first and only fill in what faded. Every final frame keeps the scan's own brightness (luma), with the recovered colour on top, so the grain, the detail and even the dirt stay.
+Bringing back the colour of faded film, from balanced or unbalanced scans. The colour that survives is evidence, so I keep it and fill in only what faded. Every final frame keeps the scan's own brightness (luma), so the grain, the detail and even the dirt stay.
 
-When a better copy of the same frames survives, the colour can be learned from it directly. That's [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}). This page is for when there's no better copy.
+If a better copy of the same frames survives, use [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}) instead.
 
 ## Balanced and unbalanced sources
 
-In a proper restoration the scan usually arrives balanced: black is black, white is white, and the colour has collapsed, often towards cyan. Footage loaded as found is usually unbalanced, with a strong magenta or red cast. Balancing only sets levels, so both hold the same dye information; the routes differ in how they use it.
+In a proper restoration the scan usually arrives balanced: black is black, white is white, and the colour has collapsed, often towards cyan. Footage loaded as found is usually unbalanced, with a strong magenta or red cast. Balancing only sets levels, so both carry the same dye information.
 
-When there's no better copy, I make a synthetic reference: an approved colour frame for the shot, made with Qwen Image Edit in ComfyUI. A person reviews it before anything else happens.
+With no better copy, I make a colour frame for the shot with Qwen Image Edit in ComfyUI and review it before going further.
 
 ## Balanced sources
 
 1. **One palette still.** Qwen Image Edit 2511 colours one frame from the scan's luma, with the faded frame as a hint of which hue each object had.
 2. **Carry it through the shot.** MiniMax H3 with Alibaba's Fun ControlNet follows the edges of every frame, and the Temporal CbCr adapter learns the colour of the shot from the frames that pass review.
-3. **Respect the surviving colour.** The red-green colour that survived in the scan may be strengthened, but never flipped or weakened.
+3. **Respect the surviving colour.** The red-green colour left in the scan can be strengthened, never flipped or weakened.
 
-The yellow-blue choices are still an interpretation, because yellow is mostly the dye that's lost. I've tested this route on four shots from one source so far, at reduced resolution. The [download kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) has the ComfyUI graphs, the Python steps and an example shot, each step checked against the approved result.
+Yellow is mostly the dye that's lost, so the yellow-blue choices are still an interpretation. So far I've tested this on four shots from one source, at reduced resolution. The [download kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) has the graphs, the Python steps and an example shot.
 
 ## Unbalanced sources
 
-- **Single frames.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on all kinds of faded material, with someone reviewing every frame. A plain chart works better than a picture as the colour guide: a person in the guide tends to end up in the shot.
-- **Whole shots.** Frames coloured one at a time flicker. The shot only holds together when one approved reference guides all of it. MiniMax H3 with the Fun ControlNet, or TeleStyle (a LoRA for Qwen Image Edit), makes candidate frames; the ones that pass review become teachers, and the Temporal CbCr adapter learns the colour of that one shot from them and fills in the rest.
+- **Single frames.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on most faded material, with every frame reviewed. Use a plain chart as the guide, not a picture: a person in the guide tends to turn up in the shot.
+- **Whole shots.** Frames coloured one at a time flicker, so one approved reference has to guide the whole shot. MiniMax H3 with the Fun ControlNet, or TeleStyle (a LoRA for Qwen Image Edit), makes candidate frames. The good ones teach the Temporal CbCr adapter, which colours the rest.
 
 ## Examples
 
@@ -54,8 +54,8 @@ The yellow-blue choices are still an interpretation, because yellow is mostly th
 ## What still doesn't work
 
 - **Frame by frame.** Each frame on its own is a fair interpretation, but together they flicker.
-- **A plausible picture can still be wrong.** On a hard-to-read frame, the model can invent objects or faces. The scan stays visible, and a person accepts or rejects every result.
-- **Resolution and length.** The video models see a reduced picture, around 768 × 432, about ten seconds at a time. Splitting the frame into tiles keeps more detail, but the colour drifts between tiles and you get seams.
+- **Plausible isn't the same as right.** On a hard-to-read frame the model can invent objects or faces, so every result gets checked against the scan.
+- **Resolution and length.** The video models work at around 768 × 432, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles and leaves seams.
 - **New shots.** I'd like at least three out of four new shots to work on the first pass. I'm not there yet.
 
 ## Downloads

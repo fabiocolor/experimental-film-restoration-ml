@@ -10,18 +10,18 @@ redirect_from:
 
 # Diffusion healing
 
-For films with damage across the whole frame, or missing frames, where most of the original still survives. Every surviving element is used first; the model only heals what is gone.
+For damage across the whole frame, or missing frames, where most of the original survives. I use every surviving element first, and the model heals only what's gone.
 
-Sometimes the picture isn't just damaged, it's gone, or so decayed that there's nothing clean left to borrow. A nitrate section was cut out, a negative has a gap while the sound keeps running, or the emulsion has broken up across the whole shot.
+A nitrate section was cut out, a negative has a gap while the sound keeps running, or the emulsion has broken up across the shot.
 
-With tools like Phoenix, DIAMANT or DaVinci Resolve you can bridge two or three missing frames with optical flow, and that kind of works. Across a longer gap, or a shot where every frame is damaged, it starts to feel wrong, because you're only interpolating what survives.
+Phoenix, DIAMANT or Resolve can bridge two or three missing frames with optical flow. Over a longer gap, or when every frame is damaged, interpolation stops looking right.
 
 ## How I approach it
 
 1. **Use everything that survives first.** If there are several elements of the same film, I line them up and pick, frame by frame, whichever one survives undamaged.
 2. **Generate only what's missing.** A video model (MiniMax H3 or Wan VACE) fills the missing or destroyed picture, guided by the movement around it and by references that keep people, props and look consistent through the shot.
 3. **Keep the film's own motion where generation can't follow it.** Fast, thin action, like a hand or a drumstick, gets redrawn by the models. Where the film still carries it, I keep the film's own picture there.
-4. **Say what was generated.** The generated picture is an inference, not a recovery, and I always mark it.
+4. **Say what was generated.** It's an inference, not a recovery, and I mark it.
 
 ## Example: Wong flute players
 
@@ -66,13 +66,13 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 - [Frame 30, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }})
 - [Frame 160, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f160.jpg' | relative_url }})
 
-These are the files I approved, at the working resolution of 768 × 560. The videos on this page are smaller web previews of them.
+These are the approved files at 768 × 560. The videos above are smaller previews.
 
 - [The second pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}): ComfyUI graph, seam blend and the example windows. Checked against the approved result (average colour difference ΔE 0.9).
 
 ## Limits
 
-- These models see a reduced picture, around 768 × 432 to 768 × 576, and about ten seconds at a time.
+- The models work at around 768 × 432 to 768 × 576, about ten seconds at a time.
 - Small or fast movement is often smoothed or lost.
 - Every shot takes several attempts and a lot of review.
 - Only the second pass is public so far; the first pass isn't yet.

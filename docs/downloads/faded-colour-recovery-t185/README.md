@@ -8,9 +8,9 @@ permalink: /downloads/faded-colour-recovery-t185/
 
 # Faded colour recovery for balanced scans
 
-This is the route on the [faded colour recovery](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/colour-recovery/) page for faded film that has already been balanced (black is black, white is white, and the colour has collapsed). It works on one shot at a time, at reduced resolution (768 × 576 for the video model).
+The [faded colour recovery](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/colour-recovery/) route for balanced scans (black is black, white is white, the colour has collapsed). One shot at a time, at 768 × 576 for the video model.
 
-I checked every step here against a shot I approved, and each step's output matches mine to within a colour difference you can't see. The average difference (ΔE) was 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
+I checked every step against a shot I approved. The differences are too small to see: average ΔE 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
 
 ## What you need
 
@@ -34,7 +34,7 @@ I checked every step here against a shot I approved, and each step's output matc
 
 1. **Prepare the shot.** `python tools/run_step.py prepare --update-hashes --source shot.mkv --out out/prepare`
    Makes the grey carrier video (`context.mp4`), the edge video (`control.mp4`) and the palette frame. Edit `tools/steps/prepare/prep_spec.json` first for your shot's length, the frame to use for the palette and the start of the 124 frames the video model sees.
-2. **Palette still.** `python tools/prepare_still_inputs.py out/prepare/palette_frame.png still`, then load `graphs/1_palette_still_fp8mixed_local.json` in ComfyUI, point the three Load Image nodes at `source_y.png`, `faded_frame.png` and `canny.png`, and run. Then `python tools/composite_still.py still/faded_frame.png <graph output>.png palette.png`. Look at it: this one still sets the colour of the whole shot, so only go on with one you'd approve.
+2. **Palette still.** `python tools/prepare_still_inputs.py out/prepare/palette_frame.png still`, then load `graphs/1_palette_still_fp8mixed_local.json` in ComfyUI, point the three Load Image nodes at `source_y.png`, `faded_frame.png` and `canny.png`, and run. Then `python tools/composite_still.py still/faded_frame.png <graph output>.png palette.png`. This still sets the colour of the whole shot, so only go on if you'd approve it.
 3. **The shot with MiniMax H3.** Load `graphs/2_h3_fun_controlnet_local.json`, give it `context.mp4`, `control.mp4` and `palette.png` (all three reference images), and run.
 4. **Preview.** `python tools/run_step.py preview --update-hashes --source shot.mkv --carrier out/prepare/context.mp4 --h3 <H3 output>.mp4 --out out/preview`
    Lines H3 up with the film and keeps the frames that pass a brightness check as teachers.
@@ -43,7 +43,7 @@ I checked every step here against a shot I approved, and each step's output matc
 6. **Respect the surviving colour.** `python tools/run_step.py respect --update-hashes --source shot.mkv --recovered out/adapter/full_recovered.mp4 --out out/respect`
    The red-green colour that survived in the scan can be strengthened but never flipped or weakened. `respect.mp4` is the result.
 
-Every final frame keeps the scan's own brightness; only the colour is new. The yellow-blue choices are still an interpretation, because yellow is mostly the dye that's lost.
+Every frame keeps the scan's brightness; only the colour is new. Yellow is mostly the lost dye, so the yellow-blue choices are an interpretation.
 
 ## Example
 
@@ -60,7 +60,7 @@ The larger example files are hosted outside the repository. Download them into `
 - `palette.png`: the palette still I approved.
 - `result_respect.mp4`: the result I approved.
 
-Run the steps on `source_shot.mkv` and compare your result with `result_respect.mp4`. Expect small differences, not identical files: the models don't give byte-identical output from run to run.
+Run the steps on `source_shot.mkv` and compare your result with `result_respect.mp4`. Expect small differences: the models don't give identical output from run to run.
 
 ## Comfy Cloud (palette still only)
 

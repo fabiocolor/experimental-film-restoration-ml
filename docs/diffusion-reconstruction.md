@@ -13,9 +13,9 @@ redirect_from:
 
 For films beyond repair, where every frame is too damaged for conventional restoration.
 
-Conventional restoration tools borrow from the same frame or the frames around it. When every frame is damaged, there's nothing clean left to borrow. That's where I use diffusion reconstruction: a video model rebuilds the picture from what survives, following its structure and movement.
+Restoration tools borrow from the same frame or the ones around it. When every frame is damaged, there's nothing clean to borrow. Here a video model rebuilds the picture from what's left, following its structure and movement.
 
-The result is partly synthetic. The model invents fine detail the film no longer carries. Some people will call this heresy, and to a degree it is. I wouldn't call it proper film restoration myself, but for some footage I don't see another way.
+The model invents fine detail the film no longer has. Some people will call that heresy, and they have a point. I wouldn't call it proper restoration, but for some footage I don't see another way.
 
 ## Example: *El Tinterillo*
 
@@ -31,7 +31,7 @@ The stairs shot, 624 frames, also shown in my [FIAT/IFTA 2026 talk]({{ '/fiat-if
 **What I did**
 
 1. **Combine the sources.** The telecine goes inside and the 16mm around it, which gives the full frame. I call this the hybrid.
-2. **Clean the hybrid with a strong median filter.** That removes the damage and leaves a rough outline to guide the geometry, but it also removes the fine detail.
+2. **Clean the hybrid with a strong median filter.** It removes the damage and the fine detail, leaving a rough outline to guide the geometry.
 3. **Make a synthetic reference** for how the picture should look, with an image generator. One "look" reference for the whole shot keeps every part reading as the same film.
 4. **Generate with MiniMax H3** in reference mode, in overlapping sections of about ten seconds. Each section starts in a calm passage, because a section that starts mid-move lags behind.
 5. **Join the sections** with cuts or a short blend inside the overlaps.
@@ -42,7 +42,7 @@ The stairs shot, 624 frames, also shown in my [FIAT/IFTA 2026 talk]({{ '/fiat-if
 - The model works at about 768 × 432, so faces and fine detail are limited.
 - Small mouths don't follow the dialogue well; the lips get damped.
 - Video upscalers (SeedVR2, FlashVSR) and VACE were the wrong direction for this material. So was my earlier attempt with CopyCat, a small model learning detail from the telecine.
-- I keep the original scan and the raw sections as the record, and I say what was generated.
+- I keep the original scan and the raw sections as the record.
 
 ## Downloads
 

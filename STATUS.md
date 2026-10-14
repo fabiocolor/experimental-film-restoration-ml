@@ -2,7 +2,7 @@
 
 **Updated:** 2026-10-14
 
-This repository holds the public website and download kits for my research on machine learning for film restoration, in five areas:
+The website and download kits for my research on machine learning for film restoration, in five areas:
 
 1. Faded Colour Recovery
 2. Temporal CbCr (including the CopyCat workflow for Nuke)

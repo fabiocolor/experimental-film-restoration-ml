@@ -8,9 +8,9 @@ permalink: /downloads/upscaling-stairs/
 
 # Diffusion reconstruction stairs kit: overlapping H3 windows and seam blend
 
-This is the method behind the stairs shot on the diffusion reconstruction page. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, then a light seam blend removes the tone steps at the cuts.
+How the stairs shot on the diffusion reconstruction page was made. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, and a light seam blend removes the tone steps at the cuts.
 
-I checked the seam blend against the result I approved: run on the four example windows below, it matches mine to an average colour difference of ΔE 1.07 (you can't see it).
+On the four example windows, the seam blend matches my approved result to ΔE 1.07 on average. You can't see the difference.
 
 ## What you need
 
