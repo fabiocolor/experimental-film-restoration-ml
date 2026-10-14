@@ -10,8 +10,16 @@ jobs:
       - name: Reject archives, model files and anything over 1 MiB
         shell: bash
         run: |
+          # Compare against the PR base, or the previous commit of the branch. A new branch
+          # has no "before" commit (all zeros), so fall back to the merge base with main
+          # rather than the root commit; historical media that predates this check is not
+          # a new file.
           base="${{ github.event.pull_request.base.sha || github.event.before }}"
-          if [ -z "$base" ] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then base=$(git rev-list --max-parents=0 HEAD | tail -1); fi
+          if [ -z "$base" ] || [ "$base" = "0000000000000000000000000000000000000000" ] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+            git fetch --no-tags --quiet origin main
+            base=$(git merge-base origin/main HEAD)
+          fi
+          echo "Comparing new files against $base"
           bad=0
           while IFS= read -r f; do
             [ -f "$f" ] || continue
@@ -20,6 +28,11 @@ jobs:
                 echo "New archive, raw scan or model file: $f"; bad=1;;
             esac
             size=$(stat -c %s "$f")
-            if [ "$size" -gt 1048576 ]; then echo "File over 1 MiB: $f ($size bytes); host it on Google Drive and link it instead"; bad=1; fi
+            if [ "$size" -gt 1048576 ]; then echo "File over 1 MiB: $f ($size bytes); attach it to the examples release and link it instead"; bad=1; fi
           done < <(git diff --name-only --diff-filter=A "$base" HEAD)
           exit $bad
+      - name: Internal links and assets
+        shell: bash
+        run: |
+          python3 -m pip install --quiet pyyaml
+          python3 tools/site-check/audit_links.py . --strict

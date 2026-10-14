@@ -8,6 +8,7 @@ redirect_from:
   - /spatial-recovery/
 ---
 
+<span class="kicker">Research area 4</span>
 
 # Diffusion reconstruction
 
@@ -23,9 +24,25 @@ The model generates fine detail that the film no longer contains. This is not re
 
 The stairs shot, 624 frames, also shown in the [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}):
 
+<figure class="pair">
+  <div class="pair-media" data-compare="Hybrid|Reconstruction">
+    <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w1-f120-source.jpg' | relative_url }}" alt="El Tinterillo, stairs, frame 121: the hybrid of the damaged 16mm print and the telecine, a man on the stairs behind a balustrade" loading="lazy">
+    <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w1-f120-result.jpg' | relative_url }}" alt="The reconstructed frame: the balustrade, the man and the wall rebuilt by the video model" loading="lazy">
+  </div>
+  <figcaption><em>El Tinterillo</em>, stairs, frame 121 (window w1). The hybrid (left) is the median-cleaned 16mm frame with the registered telecine inside it; the reconstruction (right) is the MiniMax H3 window at 768 × 432, before the seam blend.</figcaption>
+</figure>
+
+<figure class="pair">
+  <div class="pair-media" data-compare="Hybrid|Reconstruction">
+    <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w2b-f150-source.jpg' | relative_url }}" alt="Frame 278: the hybrid, heavily damaged over the figure and the wall" loading="lazy">
+    <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w2b-f150-result.jpg' | relative_url }}" alt="The reconstruction of the same frame" loading="lazy">
+  </div>
+  <figcaption>Frame 278 (window w2b). The four windows overlap and are joined with a short tone blend at the cuts; the kit has the blend.</figcaption>
+</figure>
+
 <figure class="figure">
   <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}"></video>
-  <figcaption>The stairs shot (26 seconds, 768 × 432).</figcaption>
+  <figcaption>The whole stairs shot, 624 frames (26 seconds, 768 × 432), as approved on 26 September 2026 and shown in the <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026 talk</a>.</figcaption>
 </figure>
 
 **Workflow** ([record]({{ '/records/el-tinterillo-stairs/' | relative_url }}))
@@ -46,5 +63,7 @@ The stairs shot, 624 frames, also shown in the [FIAT/IFTA 2026 talk]({{ '/fiat-i
 
 ## Downloads
 
-- [The stairs shot (26 s, MP4, 23 MB)]({{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }})
-- [Stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}): ComfyUI graphs, seam blend and the example windows. Checked against the result above (average colour difference ΔE 1.07).
+<ul class="downloads">
+  <li><a href="{{ '/downloads/upscaling-stairs/' | relative_url }}">Stairs kit</a><span class="size">ComfyUI + Python</span><span class="what">The H3 reference-mode graphs for each window, the hybrid step, the seam blend and the example windows. Checked against the result above: hybrid identical, seam blend average ΔE 1.07.</span></li>
+  <li><a href="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}">The stairs shot</a><span class="size">MP4 · 26 s · 23 MB</span><span class="what">The approved reconstruction at 768 × 432.</span></li>
+</ul>

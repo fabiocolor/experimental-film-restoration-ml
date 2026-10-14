@@ -1,0 +1,540 @@
+{
+ "2": {
+  "class_type": "LoadImage",
+  "inputs": {
+   "image": "source.png"
+  },
+  "_meta": {
+   "title": "1 \u00b7 Source frame"
+  }
+ },
+ "3": {
+  "class_type": "LoadImage",
+  "inputs": {
+   "image": "chart.png"
+  },
+  "_meta": {
+   "title": "2 \u00b7 Colour chart (soft)"
+  }
+ },
+ "4": {
+  "class_type": "LoadImage",
+  "inputs": {
+   "image": "control.png"
+  },
+  "_meta": {
+   "title": "3 \u00b7 Edge map (Canny 80/160)"
+  }
+ },
+ "5": {
+  "class_type": "Canny",
+  "inputs": {
+   "image": [
+    "2",
+    0
+   ],
+   "low_threshold": 0.31,
+   "high_threshold": 0.63
+  },
+  "_meta": {
+   "title": "Detect edges here instead (for your own frame)"
+  }
+ },
+ "7": {
+  "class_type": "FluxKontextImageScale",
+  "inputs": {
+   "image": [
+    "2",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Scale source to the model grid"
+  }
+ },
+ "8": {
+  "class_type": "FluxKontextImageScale",
+  "inputs": {
+   "image": [
+    "4",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Scale edge map"
+  }
+ },
+ "9": {
+  "class_type": "UNETLoader",
+  "inputs": {
+   "unet_name": "qwen_image_edit_2511_bf16.safetensors",
+   "weight_dtype": "default"
+  },
+  "_meta": {
+   "title": "Qwen Image Edit 2511"
+  }
+ },
+ "10": {
+  "class_type": "CLIPLoader",
+  "inputs": {
+   "clip_name": "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+   "type": "qwen_image",
+   "device": "default"
+  },
+  "_meta": {
+   "title": "Text encoder"
+  }
+ },
+ "11": {
+  "class_type": "VAELoader",
+  "inputs": {
+   "vae_name": "qwen_image_vae.safetensors"
+  },
+  "_meta": {
+   "title": "VAE"
+  }
+ },
+ "12": {
+  "class_type": "ModelSamplingAuraFlow",
+  "inputs": {
+   "model": [
+    "9",
+    0
+   ],
+   "shift": 3.1,
+   "sampling": "flow"
+  },
+  "_meta": {
+   "title": "Shift 3.1"
+  }
+ },
+ "13": {
+  "class_type": "CFGNorm",
+  "inputs": {
+   "model": [
+    "12",
+    0
+   ],
+   "strength": 1.0,
+   "pre_cfg": false
+  },
+  "_meta": {
+   "title": "CFG norm"
+  }
+ },
+ "14": {
+  "class_type": "LoraLoaderModelOnly",
+  "inputs": {
+   "model": [
+    "13",
+    0
+   ],
+   "lora_name": "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+   "strength_model": 1.0
+  },
+  "_meta": {
+   "title": "Lightning 4-step LoRA"
+  }
+ },
+ "15": {
+  "class_type": "TextEncodeQwenImageEditPlus",
+  "inputs": {
+   "clip": [
+    "10",
+    0
+   ],
+   "prompt": "Recover integrated RGB chroma for this faded film frame with a source-preserving C-anchor personality. Use image2 as a soft non-spatial calibration field for period film hue relationships, natural skin, believable material colors, clean neutrals, and restrained saturation. Use image3 as source-derived control so chroma boundaries stay aligned to source luma. Preserve the same source shot, people, faces, clothing, objects, foreground/background layout, framing, broad pixel geometry, luminance relationships, grain, scratches, softness, and visible detail. Keep color integrated into the original light and shadows, not pasted on top. Reduce warm, reddish, brown, and magenta drift without swinging into cold blue, cyan, gray, or black-and-white. Maintain a minimum useful chroma level in wide scenery, faces, walls, signs, clothing, shadows, and red/magenta probes. Whites and grays should stay neutral, blues should remain blue, greens should remain green, and reds or magentas should appear only where supported. Avoid copied chart patterns, chart layout leakage, reference-content takeover, invented objects, redesigned faces, sharpening, denoising, or beautification.",
+   "vae": [
+    "11",
+    0
+   ],
+   "image1": [
+    "7",
+    0
+   ],
+   "image2": [
+    "3",
+    0
+   ],
+   "image3": [
+    "8",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Encode: prompt + source + chart + edges"
+  }
+ },
+ "16": {
+  "class_type": "TextEncodeQwenImageEditPlus",
+  "inputs": {
+   "clip": [
+    "10",
+    0
+   ],
+   "prompt": "",
+   "vae": [
+    "11",
+    0
+   ],
+   "image1": [
+    "7",
+    0
+   ],
+   "image2": [
+    "3",
+    0
+   ],
+   "image3": [
+    "8",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Encode: empty prompt (negative)"
+  }
+ },
+ "17": {
+  "class_type": "FluxKontextMultiReferenceLatentMethod",
+  "inputs": {
+   "conditioning": [
+    "15",
+    0
+   ],
+   "reference_latents_method": "index_timestep_zero"
+  },
+  "_meta": {
+   "title": "Reference method"
+  }
+ },
+ "18": {
+  "class_type": "FluxKontextMultiReferenceLatentMethod",
+  "inputs": {
+   "conditioning": [
+    "16",
+    0
+   ],
+   "reference_latents_method": "index_timestep_zero"
+  },
+  "_meta": {
+   "title": "Reference method"
+  }
+ },
+ "19": {
+  "class_type": "VAEEncode",
+  "inputs": {
+   "pixels": [
+    "7",
+    0
+   ],
+   "vae": [
+    "11",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Encode source"
+  }
+ },
+ "20": {
+  "class_type": "KSampler",
+  "inputs": {
+   "model": [
+    "14",
+    0
+   ],
+   "seed": 0,
+   "steps": 4,
+   "cfg": 0.9,
+   "sampler_name": "euler",
+   "scheduler": "simple",
+   "positive": [
+    "17",
+    0
+   ],
+   "negative": [
+    "18",
+    0
+   ],
+   "latent_image": [
+    "19",
+    0
+   ],
+   "denoise": 1.0
+  },
+  "_meta": {
+   "title": "Sample: 4 steps, cfg 0.9, seed 0"
+  }
+ },
+ "21": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "20",
+    0
+   ],
+   "vae": [
+    "11",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Decode"
+  }
+ },
+ "22": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "images": [
+    "21",
+    0
+   ],
+   "filename_prefix": "colour_recovery_single_frame/model_output"
+  },
+  "_meta": {
+   "title": "Model output (raw proposal)"
+  }
+ },
+ "24": {
+  "class_type": "GetImageSize",
+  "inputs": {
+   "image": [
+    "2",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Source size"
+  }
+ },
+ "25": {
+  "class_type": "ImageScale",
+  "inputs": {
+   "image": [
+    "21",
+    0
+   ],
+   "upscale_method": "lanczos",
+   "width": [
+    "24",
+    0
+   ],
+   "height": [
+    "24",
+    1
+   ],
+   "crop": "disabled"
+  },
+  "_meta": {
+   "title": "Scale result to source size"
+  }
+ },
+ "26": {
+  "class_type": "ImageRGBToYUV",
+  "inputs": {
+   "image": [
+    "2",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Source -> Y U V"
+  }
+ },
+ "27": {
+  "class_type": "ImageRGBToYUV",
+  "inputs": {
+   "image": [
+    "25",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Result -> Y U V"
+  }
+ },
+ "29": {
+  "class_type": "ImageToMask",
+  "inputs": {
+   "image": [
+    "26",
+    0
+   ],
+   "channel": "red"
+  },
+  "_meta": {
+   "title": "Y as mask"
+  }
+ },
+ "30": {
+  "class_type": "SolidMask",
+  "inputs": {
+   "value": 0.125,
+   "width": [
+    "24",
+    0
+   ],
+   "height": [
+    "24",
+    1
+   ]
+  },
+  "_meta": {
+   "title": "0.125 (= 32/255)"
+  }
+ },
+ "31": {
+  "class_type": "MaskComposite",
+  "inputs": {
+   "destination": [
+    "29",
+    0
+   ],
+   "source": [
+    "30",
+    0
+   ],
+   "x": 0,
+   "y": 0,
+   "operation": "subtract"
+  },
+  "_meta": {
+   "title": "Y - 0.125"
+  }
+ },
+ "32": {
+  "class_type": "MaskComposite",
+  "inputs": {
+   "destination": [
+    "31",
+    0
+   ],
+   "source": [
+    "31",
+    0
+   ],
+   "x": 0,
+   "y": 0,
+   "operation": "add"
+  },
+  "_meta": {
+   "title": "x 2"
+  }
+ },
+ "33": {
+  "class_type": "MaskComposite",
+  "inputs": {
+   "destination": [
+    "32",
+    0
+   ],
+   "source": [
+    "32",
+    0
+   ],
+   "x": 0,
+   "y": 0,
+   "operation": "add"
+  },
+  "_meta": {
+   "title": "x 2 again = weight"
+  }
+ },
+ "34": {
+  "class_type": "EmptyImage",
+  "inputs": {
+   "width": [
+    "24",
+    0
+   ],
+   "height": [
+    "24",
+    1
+   ],
+   "batch_size": 1,
+   "color": 8421504
+  },
+  "_meta": {
+   "title": "Neutral colour (grey)"
+  }
+ },
+ "35": {
+  "class_type": "ImageCompositeMasked",
+  "inputs": {
+   "destination": [
+    "34",
+    0
+   ],
+   "source": [
+    "27",
+    1
+   ],
+   "x": 0,
+   "y": 0,
+   "resize_source": false,
+   "mask": [
+    "33",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "U, gated"
+  }
+ },
+ "36": {
+  "class_type": "ImageCompositeMasked",
+  "inputs": {
+   "destination": [
+    "34",
+    0
+   ],
+   "source": [
+    "27",
+    2
+   ],
+   "x": 0,
+   "y": 0,
+   "resize_source": false,
+   "mask": [
+    "33",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "V, gated"
+  }
+ },
+ "37": {
+  "class_type": "ImageYUVToRGB",
+  "inputs": {
+   "Y": [
+    "26",
+    0
+   ],
+   "U": [
+    "35",
+    0
+   ],
+   "V": [
+    "36",
+    0
+   ]
+  },
+  "_meta": {
+   "title": "Source Y + result U V"
+  }
+ },
+ "38": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "images": [
+    "37",
+    0
+   ],
+   "filename_prefix": "colour_recovery_single_frame/composite"
+  },
+  "_meta": {
+   "title": "Composite (colour on the source brightness)"
+  }
+ }
+}

@@ -12,8 +12,9 @@ One record for each example on this site: the source, the route, the graph and m
 
 | Example | Area | Route | Reproduced from the published files |
 | --- | --- | --- | --- |
-| [Reptilicus, beach]({{ '/records/reptilicus-beach/' | relative_url }}) | Faded colour recovery (home page) | Earlier single-frame route | Inputs and outputs published; no kit |
-| [Counter Attack, waterfront]({{ '/records/counter-attack-waterfront/' | relative_url }}) | Faded colour recovery | MiniMax H3 with TeleStyle repairs | Not yet |
+| [Reptilicus, beach]({{ '/records/reptilicus-beach/' | relative_url }}) | Faded colour recovery (home page) | Earlier single-frame route | Inputs and outputs published; the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) is the same route with the later prompt |
+| [Counter Attack, crowd]({{ '/records/counter-attack-crowd/' | relative_url }}) | Faded colour recovery (home page) | MiniMax H3 with the Fun ControlNet, Temporal CbCr adapter | Not yet |
+| [Counter Attack, waterfront]({{ '/records/counter-attack-waterfront/' | relative_url }}) | Faded colour recovery | MiniMax H3 with TeleStyle repairs | The approved first still: [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}), core-node rerun mean ΔE 1.89 |
 | [Folgers]({{ '/records/folgers/' | relative_url }}) | Faded colour recovery, balanced kit | Balanced-source route | Yes, every stage within ΔE 1.5 |
 | [Frontier Experience]({{ '/records/frontier-experience/' | relative_url }}) | Temporal CbCr, historical reference | Temporal CbCr adapter | Not yet |
 | [Unman, Wittering and Zigo, choir]({{ '/records/unman-wittering-zigo-choir/' | relative_url }}) | Temporal CbCr, synthetic reference | TeleStyle and Temporal CbCr | Not yet |

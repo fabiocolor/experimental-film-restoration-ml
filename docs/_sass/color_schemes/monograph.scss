@@ -1,0 +1,26 @@
+// "Monograph" colour scheme: warm paper, near-black ink, one oxide-red accent.
+// These feed the theme's own components (navigation, search, tables, code).
+// The custom stylesheet repeats them as CSS variables and adds the dark version.
+@import "./color_schemes/light";
+
+$paper: #f7f4ee;
+$surface: #fffdf9;
+$ink: #1b1917;
+$ink-soft: #5b5751;
+$rule: #e3ddd2;
+$accent: #a8432f;
+
+$body-background-color: $paper;
+$sidebar-color: $paper;
+$body-text-color: $ink;
+$body-heading-color: $ink;
+$link-color: $ink;
+$nav-child-link-color: $ink-soft;
+$base-button-color: $surface;
+$btn-primary-color: $ink;
+$search-background-color: $surface;
+$search-result-preview-color: $ink-soft;
+$border-color: $rule;
+$feedback-color: #efebe3;
+$table-background-color: $surface;
+$code-background-color: #efebe3;

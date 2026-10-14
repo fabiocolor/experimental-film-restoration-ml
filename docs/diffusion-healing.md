@@ -7,6 +7,7 @@ redirect_from:
   - /gap-filling/
 ---
 
+<span class="kicker">Research area 3</span>
 
 # Diffusion healing
 
@@ -27,24 +28,29 @@ Phoenix, DIAMANT or Resolve can bridge two or three missing frames with optical 
 
 Flute players and a drummer, 183 frames of 16mm colour reversal footage from the Wong Rengifo collection. The colour has faded to magenta, and the emulsion is breaking up across the whole shot. No other print exists.
 
-<figure class="figure">
-  <img src="{{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }}" alt="Left: the decayed, magenta-faded 16mm scan of three flute players. Right: the reconstructed frame with restored colour.">
-  <figcaption>The scan on the left, the approved reconstruction on the right.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Scan|Healed">
+    <img src="{{ '/images_kebab/examples/wong-flute-players-f030-source.jpg' | relative_url }}" alt="Frame 30 of the 16mm scan: three flute players, the image faded to magenta and the emulsion broken up" loading="lazy">
+    <img src="{{ '/images_kebab/examples/wong-flute-players-f030-result.jpg' | relative_url }}" alt="The healed frame: the players intact, in colour, with the film's grain" loading="lazy">
+  </div>
+  <figcaption>Frame 30 of 183: the scan and the approved reconstruction at 768 × 560.</figcaption>
 </figure>
 
-<figure class="figure">
-  <img src="{{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f160.jpg' | relative_url }}" alt="Left: the decayed scan of a flute player and the drummer. Right: the reconstruction, with the drum and the hands intact.">
-  <figcaption>Later in the shot: the drummer. The film's own drumming is kept.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Scan|Healed">
+    <img src="{{ '/images_kebab/examples/wong-flute-players-f160-source.jpg' | relative_url }}" alt="Frame 160 of the scan: a flute player and the drummer, the drum half destroyed by decay" loading="lazy">
+    <img src="{{ '/images_kebab/examples/wong-flute-players-f160-result.jpg' | relative_url }}" alt="The healed frame: the drum and the hands intact" loading="lazy">
+  </div>
+  <figcaption>Frame 160: the drummer. In the feathered area around the hands and beater, the film's own brightness is kept with the restored colour.</figcaption>
 </figure>
 
-<figure class="figure">
-  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-scan-web.mp4' | relative_url }}"></video>
-  <figcaption>The scan (8 seconds).</figcaption>
-</figure>
-
-<figure class="figure">
-  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-reconstruction-web.mp4' | relative_url }}"></video>
-  <figcaption>The approved reconstruction (8 seconds).</figcaption>
+<figure class="pair">
+  <span class="pair-labels"><span>Scan</span><span>Healed</span></span>
+  <div class="pair-media" data-sync>
+    <video controls playsinline preload="metadata" muted src="{{ '/media/gap-filling/16mm-flute-players-scan-web.mp4' | relative_url }}"></video>
+    <video controls playsinline preload="metadata" muted src="{{ '/media/gap-filling/16mm-flute-players-reconstruction-web.mp4' | relative_url }}"></video>
+  </div>
+  <figcaption>The whole shot, 8 seconds. The two players run together; play either one. Smaller previews of the <a href="#downloads">approved files</a>.</figcaption>
 </figure>
 
 **Workflow** ([record]({{ '/records/wong-flute-players/' | relative_url }}))
@@ -61,14 +67,11 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 
 ## Downloads
 
-- [The scan (8 s, MP4, 34 MB)](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4)
-- [The approved reconstruction (8 s, MP4, 22 MB)](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4)
-- [Frame 30, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }})
-- [Frame 160, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f160.jpg' | relative_url }})
-
-These are the approved files at 768 × 560. The videos above are smaller previews.
-
-- [The second pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}): ComfyUI graph, seam blend and the example windows. Checked against the approved result (average colour difference ΔE 0.9).
+<ul class="downloads">
+  <li><a href="{{ '/downloads/gap-filling-second-pass/' | relative_url }}">Second-pass kit</a><span class="size">ComfyUI + Python</span><span class="what">The Wan VACE graph, the seam blend and the example windows. Checked against the approved result: average ΔE 0.9.</span></li>
+  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4">The scan</a><span class="size">MP4 · 8 s · 34 MB</span><span class="what">The approved file at 768 × 560.</span></li>
+  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4">The approved reconstruction</a><span class="size">MP4 · 8 s · 22 MB</span><span class="what">The approved file at 768 × 560.</span></li>
+</ul>
 
 ## Limits
 

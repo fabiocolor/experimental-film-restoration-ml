@@ -1,0 +1,27 @@
+// Theme setup: typography and layout widths for the whole site.
+// Imported by Just the Docs before its modules, so plain assignments here win.
+//
+// Type: Newsreader (display serif, with true italics) for titles and ledes,
+// IBM Plex Sans for text and interface, IBM Plex Mono for frame numbers, delta E and files.
+// The fonts are loaded from Google Fonts in _includes/head_custom.html.
+
+$body-font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+$mono-font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+$display-font-family: "Newsreader", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+
+$body-line-height: 1.5;
+$content-line-height: 1.65;
+$body-heading-line-height: 1.15;
+
+// Text sizes used by the theme's h1-h3 (the custom stylesheet restyles them anyway)
+$font-size-5: 1.0625rem;
+$font-size-6: 1.3125rem;
+$font-size-8: 2.25rem;
+
+// A wider content column so figures can run wide; text keeps its own measure
+// (see --measure in custom.scss).
+$content-width: 62rem;
+$nav-width: 17rem;
+$nav-width-md: 16rem;
+$header-height: 3.5rem;
+$border-radius: 2px;

@@ -4,6 +4,12 @@ All notable changes to this repository are documented here.
 
 ## [Unreleased]
 
+### 15 October 2026: design, kits, Comfy Cloud
+- One stylesheet and one figure grammar for the whole site: every example is a labelled source | result pair with a compare wipe, cut from the published videos and stills (`tools/examples/make_examples.py`); the home page shows different frames from the area pages. Light and dark follow the system setting; the navigation is visible on desktop.
+- New single-frame colour-recovery kit: the "Clara" Qwen Image Edit 2511 graph as a laid-out ComfyUI workflow with the composite (source brightness, shadow gate) made inside the graph, in a published-model (fp8mixed) and a Comfy Cloud library (bf16) variant, with the *Counter Attack* test frame, chart, edge map and approved still. The balanced kit's palette still has the same two Cloud-ready variants.
+- A downloads index, a record for the *Counter Attack* crowd shot, a hardware table and a reproducibility note on the research-status page.
+- CI: the new-file size check compares against the merge base with `main` instead of the first commit (it failed on every new branch); the internal link audit (`tools/site-check/audit_links.py`) runs in CI.
+
 ### October 2026: five research areas
 - Reorganised the website, README and repository notes around five research areas: Faded Colour Recovery, Temporal CbCr, Diffusion Healing, Diffusion Reconstruction and Black-and-White Colourization.
 - Folded the open-weight routes, research routes and Qwen workflow pages into Faded Colour Recovery; the case studies and research-evidence pages into Temporal CbCr and the CopyCat workflow; and the earlier spatial-recovery route into Diffusion Reconstruction. All old URLs redirect.

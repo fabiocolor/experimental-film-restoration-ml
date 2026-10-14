@@ -6,6 +6,8 @@ nav_order: 1
 permalink: /downloads/faded-colour-recovery-t185/
 ---
 
+<span class="kicker">Download kit · ComfyUI + Python, NVIDIA GPU</span>
+
 # Faded colour recovery for balanced scans
 
 The [faded colour recovery](https://fabiocolor.github.io/experimental-film-restoration-ml/colour-recovery/) route for balanced scans (black is black, white is white, the colour has collapsed). One shot at a time, at 768 × 576 for the video model.
@@ -34,7 +36,7 @@ Every step was checked against an approved shot ([record]({{ '/records/folgers/'
 
 1. **Prepare the shot.** `python tools/run_step.py prepare --update-hashes --source shot.mkv --out out/prepare`
    Makes the grey carrier video (`context.mp4`), the edge video (`control.mp4`) and the palette frame. Edit `tools/steps/prepare/prep_spec.json` first for your shot's length, the frame to use for the palette and the start of the 124 frames the video model sees.
-2. **Palette still.** `python tools/prepare_still_inputs.py out/prepare/palette_frame.png still`, then load `graphs/1_palette_still_fp8mixed_local.json` in ComfyUI, point the three Load Image nodes at `source_y.png`, `faded_frame.png` and `canny.png`, and run. Then `python tools/composite_still.py still/faded_frame.png <graph output>.png palette.png`. This still sets the colour of the whole shot, so only go on if you'd approve it.
+2. **Palette still.** `python tools/prepare_still_inputs.py out/prepare/palette_frame.png still`, then load `graphs/1_palette_still_fp8mixed_ui.json` in ComfyUI (laid out, with notes; `1_palette_still_fp8mixed_local.json` is the same graph in API format), point the three Load Image nodes at `source_y.png`, `faded_frame.png` and `canny.png`, and run. Then `python tools/composite_still.py still/faded_frame.png <graph output>.png palette.png`. This still sets the colour of the whole shot, so only go on if you'd approve it.
 3. **The shot with MiniMax H3.** Load `graphs/2_h3_fun_controlnet_local.json`, give it `context.mp4`, `control.mp4` and `palette.png` (all three reference images), and run.
 4. **Preview.** `python tools/run_step.py preview --update-hashes --source shot.mkv --carrier out/prepare/context.mp4 --h3 <H3 output>.mp4 --out out/preview`
    Lines H3 up with the film and keeps the frames that pass a brightness check as teachers.
@@ -64,14 +66,16 @@ Run the steps on `source_shot.mkv` and compare your result with `result_respect.
 
 ## Comfy Cloud (palette still only)
 
-The palette still can run on Comfy Cloud with the same graph and model. It has not been tested there yet.
+The palette still runs in Comfy Cloud with the same graph. Two versions are provided:
 
-1. Import `qwen_image_edit_2511_fp8mixed.safetensors` from [Comfy-Org on Hugging Face](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors). Importing your own models needs a Creator plan or higher. If Cloud is missing the text encoder, the VAE or the Lightning LoRA listed above, import those the same way.
-2. Open `graphs/1_palette_still_fp8mixed_local.json` in Cloud.
-3. Upload `example/source_y.png`, `example/faded_frame.png` and `example/canny.png` into the three Load Image nodes, in that order, and run.
-4. Put the colour on the frame's own brightness on your computer: `python tools/composite_still.py example/faded_frame.png <Cloud output>.png palette.png`, and compare with `example/palette.png`.
+- `graphs/1_palette_still_bf16_cloud_ui.json` uses the bf16 model, which is in Cloud's own library, so it runs without importing anything. In testing its colour differed visibly from the approved still (ΔE 2.67), so use it to try the route, not to reproduce the example.
+- `graphs/1_palette_still_fp8mixed_ui.json` is the published recipe. To run it in Cloud, import `qwen_image_edit_2511_fp8mixed.safetensors` from [Comfy-Org on Hugging Face](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors) into your library (Creator plan or higher). The text encoder, the VAE and the Lightning LoRA are already in Cloud's library.
 
-Do not use the bf16 model instead; in testing, its colour was visibly different. The H3 step is for running locally.
+1. Open [Comfy Cloud](https://cloud.comfy.org/) and import one of the two graphs.
+2. Upload `example/source_y.png`, `faded_frame.png` (from the release, below) and `example/canny.png` into the three Load Image nodes, in that order, and run.
+3. Both graphs save the raw palette proposal (`model_output`) and a composite on the source brightness made inside the graph (`composite`). For the shot, make the palette still with `tools/composite_still.py` on the model output on your computer; it is the reference composite (inverse Kontext geometry, smoothstep shadow gate) and what the H3 step expects. The in-graph composite is within ΔE 1.4 of it.
+
+The H3 step and the Python steps run locally. Comfy Cloud may need an active plan and credits to run a graph.
 
 ## Licences
 

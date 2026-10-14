@@ -10,54 +10,92 @@ redirect_from:
   - /qwen-color-recovery-app/
 ---
 
+<span class="kicker">Research area 1</span>
+
 # Faded colour recovery
 
-Recovery of the colour of faded film from balanced or unbalanced scans. The surviving colour is treated as evidence and kept; only faded colour is filled in. Every final frame keeps the scan's own brightness (luma), so grain, detail and dirt are preserved.
+Recovery of the colour of faded film from balanced or unbalanced scans. The surviving colour is treated as evidence and kept; only the lost colour is filled in. Every final frame keeps the scan's own brightness (luma), so grain, detail and dirt are preserved.
 
-If a better copy of the same frames survives, use [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}) instead.
+If a better copy of the same frames survives (a DVD, a telecine, another print), that copy is the reference: use [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}) instead. This page is for film with no surviving colour reference.
 
 ## Balanced and unbalanced sources
 
-In a proper restoration the scan usually arrives balanced: black is black, white is white, and the colour has collapsed, often towards cyan. Footage loaded as found is usually unbalanced, with a strong magenta or red cast. Balancing only sets levels, so both carry the same dye information.
+In a proper restoration the scan usually arrives balanced: black is black, white is white, and the colour has collapsed, often towards cyan. Footage loaded as found is usually unbalanced, with a strong magenta or red cast. Balancing only sets levels, so both carry the same dye information; the routes differ in how the first colour frame is made.
 
-When no better copy exists, a colour frame for the shot is made with Qwen Image Edit in ComfyUI and reviewed before the next step.
+In both cases a colour frame for the shot is made with Qwen Image Edit in ComfyUI and reviewed before anything else happens. One good frame sets the colour of the whole shot, so nothing goes forward unless that frame would be approved.
+
+## Unbalanced sources
+
+1. **One frame.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on most faded material. Use a plain chart as the guide, not a picture: a person in the guide image tends to appear in the shot. Every frame is reviewed.
+2. **The whole shot.** Frames coloured one at a time flicker, so one approved frame guides the shot. MiniMax H3 with Alibaba's Fun ControlNet follows the edges of every frame and carries the colour through it; TeleStyle (a LoRA for Qwen Image Edit) is the slower alternative, or the repair where H3 loses registration.
+3. **Finish with the adapter.** The H3 or TeleStyle frames that pass review teach the [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}) adapter, which colours every frame of the shot consistently.
+
+The [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) is step 1 as a ComfyUI graph, with a test frame from *Counter Attack*. It runs locally or in Comfy Cloud.
+
+<figure class="pair">
+  <div class="pair-media" data-compare="Faded source|Recovered">
+    <img src="{{ '/images_kebab/examples/counter-attack-crowd-f230-source.jpg' | relative_url }}" alt="Counter Attack, crowd shot, frame 230: the surviving film copy, faded to red, a man raising his fist above the crowd" loading="lazy">
+    <img src="{{ '/images_kebab/examples/counter-attack-crowd-f230-result.jpg' | relative_url }}" alt="The same frame with the recovered colour: blue and white clothes, flags, a pale sky" loading="lazy">
+  </div>
+  <figcaption><em>Counter Attack</em> (1976), crowd shot, frame 230 of the 308-frame proxy. An unbalanced source, no colour reference. H3 with the Fun ControlNet on 124-frame sections; 278 frames admitted as teachers; the adapter coloured all 385 frames on the scan's brightness. Approved 30 September 2026. <a href="{{ '/records/counter-attack-crowd/' | relative_url }}">Record</a></figcaption>
+</figure>
+
+<figure class="pair">
+  <div class="pair-media" data-compare="Faded source|Recovered">
+    <img src="{{ '/images_kebab/examples/counter-attack-waterfront-f160-source.jpg' | relative_url }}" alt="Counter Attack, waterfront, frame 160: the faded crowd on the quay, red throughout" loading="lazy">
+    <img src="{{ '/images_kebab/examples/counter-attack-waterfront-f160-result.jpg' | relative_url }}" alt="The same frame recovered: a red shirt, a white towel, blue work clothes, the sky" loading="lazy">
+  </div>
+  <figcaption><em>Counter Attack</em> (1976), waterfront, frame 160 of 338. The earlier route: MiniMax H3 from three reference stills, and on 30 frames of fast hand movement, where H3 lost registration, an independent TeleStyle pass replaced the colour. <a href="{{ '/records/counter-attack-waterfront/' | relative_url }}">Record</a></figcaption>
+</figure>
 
 ## Balanced sources
 
 1. **One palette still.** Qwen Image Edit 2511 colours one frame from the scan's luma, with the faded frame as a hint of which hue each object had.
-2. **Carry it through the shot.** MiniMax H3 with Alibaba's Fun ControlNet follows the edges of every frame, and the Temporal CbCr adapter learns the colour of the shot from the frames that pass review.
-3. **Respect the surviving colour.** The red-green colour left in the scan can be strengthened, never flipped or weakened.
+2. **Carry it through the shot.** MiniMax H3 with the Fun ControlNet follows the edges of every frame; the Temporal CbCr adapter learns the colour of the shot from the frames that pass review.
+3. **Respect the surviving colour.** The red-green colour left in the scan can be strengthened, never flipped or weakened. Yellow is usually the lost dye, so the yellow-blue choices remain an interpretation.
 
-Yellow is usually the lost dye, so the yellow-blue choices remain an interpretation. The route has been tested on four shots from one source, at reduced resolution. The [download kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) has the graphs, the Python steps and a test shot.
+The route has been tested on four shots from one source, at reduced resolution. The [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) has every step: the ComfyUI graphs, the Python steps and a test shot reproduced within ΔE 1.5 at every stage.
 
-## Unbalanced sources
-
-- **Single frames.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on most faded material, with every frame reviewed. Use a plain chart as the guide, not a picture; a person in the guide image tends to appear in the shot.
-- **Whole shots.** Frames coloured one at a time flicker, so one approved reference has to guide the whole shot. MiniMax H3 with the Fun ControlNet, or TeleStyle (a LoRA for Qwen Image Edit), makes candidate frames. The good ones teach the Temporal CbCr adapter, which colours the rest.
-
-## Examples
-
-**Counter Attack (1976): an unbalanced source, the whole shot.** A waterfront crowd from a film copy faded to magenta-red. No colour reference survives. MiniMax H3 with three reference stills carried the colour through the 338-frame shot. On 30 frames of fast hand movement, where H3 lost registration, an independent TeleStyle pass on the same shot replaced the colour. The scan's luma is kept on every frame.
-
-<figure class="figure">
-  <img src="{{ '/images_kebab/colour-recovery/counter-attack-waterfront-t148-f160.jpg' | relative_url }}" alt="Counter Attack: the faded waterfront crowd on the left and the recovered colour on the right" loading="lazy">
-  <figcaption><em>Counter Attack</em>: the faded source and the result, frame 160. <a href="{{ '/records/counter-attack-waterfront/' | relative_url }}">Record</a>.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Balanced scan|Recovered">
+    <img src="{{ '/images_kebab/examples/folgers-f067-source.jpg' | relative_url }}" alt="Folgers commercial, frame 67: the balanced scan, almost grey, a woman holding up a coffee tin" loading="lazy">
+    <img src="{{ '/images_kebab/examples/folgers-f067-result.jpg' | relative_url }}" alt="The same frame recovered: the red tin, warm skin, the blue blouse" loading="lazy">
+  </div>
+  <figcaption><em>Folgers</em>, 1970s commercial, frame 67 of 135. The balanced-source route end to end; the shot and the approved result are in the kit. <a href="{{ '/records/folgers/' | relative_url }}">Record</a></figcaption>
 </figure>
+
+## The single-frame route, step by step
+
+The first, still-frame route from June 2026, shown at SEAPAVAA. It is still the way the first colour frame of any shot is made.
+
+<div class="stage-strip" aria-label="Juggernaut auditorium: source, model output, composite">
+  <figure>
+    <img src="{{ '/images_kebab/examples/juggernaut-auditorium-f066-source.jpg' | relative_url }}" alt="Juggernaut trailer, frame 66: the auditorium, faded to magenta" loading="lazy">
+    <figcaption><strong>Source</strong>The faded frame, 2048 × 1556.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/examples/juggernaut-auditorium-f066-model.jpg' | relative_url }}" alt="Qwen Image Edit's colour proposal for the frame, at 1184 × 880" loading="lazy">
+    <figcaption><strong>Model output</strong>Qwen Image Edit 2511, guided by the edge map and a soft colour chart, 1184 × 880.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/examples/juggernaut-auditorium-f066-result.jpg' | relative_url }}" alt="The composite: the proposed colour on the scan's own brightness and detail" loading="lazy">
+    <figcaption><strong>Composite</strong>Only the colour is taken; the brightness, grain and damage are the scan's.</figcaption>
+  </figure>
+</div>
+
+<p class="experiment-credit"><em>Juggernaut</em> (1974) trailer, from the same 35mm trailer reel scan as <em>Reptilicus</em>. The full comparison set, prompts and failures are on the <a href="{{ '/seapavaa-2026-companion/' | relative_url }}">SEAPAVAA 2026 companion</a>.</p>
 
 ## What still doesn't work
 
-- **Frame by frame.** Each frame on its own is a fair interpretation, but together they flicker.
+- **Frame by frame.** Each frame on its own is a fair interpretation, but together they flicker. That is why one approved frame has to guide the shot.
 - **Plausible results can be wrong.** On an unclear frame the model can invent objects or faces, so every result is checked against the scan.
-- **Resolution and length.** The video models work at around 768 × 432, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles and leaves seams.
+- **Resolution and length.** The video models work at around 768 × 432 to 768 × 576, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles and leaves seams.
+- **Hard motion and broken cadence** still leave some tint, as in the shadows of the crowd shot above.
 - **New shots.** The target is for at least three out of four new shots to work on the first pass. This has not been reached yet.
-
-**Folgers (1970s commercial): a balanced source.** The test shot for the balanced-source kit, reproduced at every stage within ΔE 1.5. The yellow-blue result is limited, as is usual when yellow is the lost dye.
-
-<figure class="figure">
-  <img src="{{ '/images_kebab/colour-recovery/commercials-folgers-before-after-f067.jpg' | relative_url }}" alt="A Folgers coffee commercial: the balanced, faded scan on the left and the recovered colour on the right" loading="lazy">
-  <figcaption><em>Folgers</em>: the balanced scan and the result, frame 67. The shot and the result are in the <a href="{{ '/downloads/faded-colour-recovery-t185/' | relative_url }}">download kit</a>. <a href="{{ '/records/folgers/' | relative_url }}">Record</a>.</figcaption>
-</figure>
 
 ## Downloads
 
-- [Faded colour recovery kit for balanced scans]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}): ComfyUI graphs, Python steps and a test shot from a 1970s commercial, reproduced at every stage within ΔE 1.5 ([record]({{ '/records/folgers/' | relative_url }})).
+<ul class="downloads">
+  <li><a href="{{ '/downloads/colour-recovery-single-frame/' | relative_url }}">Single-frame kit</a><span class="size">ComfyUI · local or Comfy Cloud</span><span class="what">One faded frame to one colour frame: the Qwen Image Edit graph with the edge map and the colour chart, a test frame from <em>Counter Attack</em>, and the composite on the scan's brightness inside the graph. Two variants: the exact published model, and the model in Comfy Cloud's free library.</span></li>
+  <li><a href="{{ '/downloads/faded-colour-recovery-t185/' | relative_url }}">Balanced-source kit</a><span class="size">ComfyUI + Python · NVIDIA GPU</span><span class="what">The whole route for a balanced shot: palette still, H3 with the Fun ControlNet, the Temporal CbCr adapter and the surviving-colour step, with the <em>Folgers</em> test shot reproduced within ΔE 1.5 at every stage. The palette still also runs in Comfy Cloud.</span></li>
+</ul>

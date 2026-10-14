@@ -2,7 +2,7 @@
 layout: default
 title: "Counter Attack, waterfront"
 parent: "Example Records"
-nav_order: 2
+nav_order: 2.5
 permalink: /records/counter-attack-waterfront/
 ---
 
@@ -17,6 +17,6 @@ permalink: /records/counter-attack-waterfront/
 | Approval | Fabio accepted the shot and promoted the method on 9 August 2026. |
 | Method record | SHA-256 `a76a53b432e7e9b844f9ad91bea357cc28857f6946f3b9af99dbe101d2afdcc7` (research repository). H3 base video SHA-256 `51214a94c6a3d6796a7a3fc1fa6b9b227edb64742d053a15c6198c06782eec6f`. |
 | Colour check | Red, green and blue all present: median score 3.52 across the shot, 6.21 on the frame shown (R 29.5, G 19.0, B 6.2). |
-| Reproduction | Not yet. The H3 and TeleStyle graphs, the reference stills and the source frames are not published, and the run has not been repeated from public files. |
+| Reproduction | The whole shot: not yet. The H3 and TeleStyle graphs, the reference stills and the source frames are not published. The approved first still (frame 000007 of the frame dump, the "Clara" anchor the shot started from): yes, the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) is that graph with its inputs; a core-node rerun came within a mean ΔE of 1.89 of the approved still. |
 
-The still on the [colour recovery page]({{ '/colour-recovery/' | relative_url }}) is frame 160 of the shot (source frame 17964). The source panel comes from an earlier comparison of the same shot, so the framing differs slightly.
+The pair on the [colour recovery page]({{ '/colour-recovery/' | relative_url }}) is frame 160 of the shot (source frame 17964), cut from an earlier side-by-side comparison of the same shot, so the source panel's framing differs slightly from the scan. The single-frame kit's test frame is frame 000007 of the same shot's frame dump.

@@ -104,3 +104,4 @@ docs/.jekyll-cache/
 /.research/
 /scripts/research_storage.py
 /scripts/research_artifacts.py
+docs/Gemfile.lock

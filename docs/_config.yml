@@ -9,7 +9,7 @@ plugins:
 url: "https://fabiocolor.github.io"
 baseurl: "/experimental-film-restoration-ml"
 
-color_scheme: option
+color_scheme: monograph
 
 aux_links:
   "GitHub":
@@ -68,11 +68,9 @@ exclude:
   - "images_kebab/seapavaa2026/originals/candy_ending_frame_1619/06_source_raw_composite_contact_sheet.png"
   - "images_kebab/seapavaa2026/originals/candy_ending_frame_1619/PROVENANCE.md"
   - "images_kebab/seapavaa2026/originals/fanji_garden/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png"
-  - "images_kebab/seapavaa2026/originals/fanji_waterfront_top3/"
   - "images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/"
   - "images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/"
   - "images_kebab/seapavaa2026/originals/fanji_waterfront_top3_stills/"
-  - "images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/02_reference_chart.png"
   - "images_kebab/seapavaa2026/originals/interior_woman_paths/03_balanced_source.png"
   - "images_kebab/seapavaa2026/originals/jug_auditorium/01_source_juggernaut_tlr_000066-ed2dda29.png"
   - "images_kebab/seapavaa2026/originals/jug_auditorium/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png"

@@ -3,8 +3,8 @@
 ## Faded colour recovery
 
 - Get at least three out of four new shots working on the first pass.
-- One app that runs the current route on new shots, and a cleaner ComfyUI version others can run themselves.
-- A few of the best examples as ComfyUI Cloud workflows, so people can try them without their own GPU.
+- One app that runs the current route on new shots.
+- Done in October 2026: the single-frame graph and the balanced palette still as self-contained ComfyUI graphs that run locally or in Comfy Cloud. Next: the H3 and adapter steps as graphs others can run without the Python steps.
 
 ## Temporal CbCr
 

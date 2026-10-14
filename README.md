@@ -6,13 +6,13 @@ Research on machine learning for film restoration. What survives in the film is 
 
 ## Five research areas
 
-1. **[Faded Colour Recovery](https://fabiocolor.github.io/experimental-film-restoration-ml/colour-recovery/)**: the original colour of faded film, from balanced and unbalanced scans. Examples: *Counter Attack*, Folgers. Download kit for balanced scans included.
+1. **[Faded Colour Recovery](https://fabiocolor.github.io/experimental-film-restoration-ml/colour-recovery/)**: the original colour of faded film, from balanced and unbalanced scans. Examples: *Counter Attack*, Folgers, *Juggernaut*. Two kits: a [single-frame graph](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/colour-recovery-single-frame/) that runs in ComfyUI locally or in Comfy Cloud, and the [balanced-source route](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/faded-colour-recovery-t185/) end to end.
 2. **[Temporal CbCr](https://fabiocolor.github.io/experimental-film-restoration-ml/temporal-cbcr/)**: colour recovery or colourization from a direct historical or synthetic reference, carried through the shot. Examples: *Frontier Experience* and *Candy Candy* (historical reference), *Unman, Wittering and Zigo* (synthetic reference). Includes the [CopyCat workflow](https://fabiocolor.github.io/experimental-film-restoration-ml/copycat-workflow/) for Nuke.
 3. **[Diffusion Healing](https://fabiocolor.github.io/experimental-film-restoration-ml/diffusion-healing/)**: full-frame damage or missing frames, healed while keeping most of the original. Example: the Wong flute players.
 4. **[Diffusion Reconstruction](https://fabiocolor.github.io/experimental-film-restoration-ml/diffusion-reconstruction/)**: for films beyond repair. Example: the *El Tinterillo* stairs.
 5. **[Black-and-White Colourization](https://fabiocolor.github.io/experimental-film-restoration-ml/black-and-white-colourization/)**: colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response. Examples: seven public-domain films from 1921–1929, including *Her Boy Friend*, *The Wildcat* and *Rambles 'Round Rio*.
 
-[Where the research stands](https://fabiocolor.github.io/experimental-film-restoration-ml/research-status/) summarises the state of the research as of October 2026: what works, what does not yet, and what can be reproduced. The [tools](https://fabiocolor.github.io/experimental-film-restoration-ml/tools/) used alongside the research have their own repositories.
+[Where the research stands](https://fabiocolor.github.io/experimental-film-restoration-ml/research-status/) summarises the state of the research as of October 2026: what works, what does not yet, what can be reproduced, and what hardware it takes. Every example has a [record](https://fabiocolor.github.io/experimental-film-restoration-ml/records/) of its source, models, settings and approval; the [download kits](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/) reproduce four of them from the published files. The [tools](https://fabiocolor.github.io/experimental-film-restoration-ml/tools/) used alongside the research have their own repositories.
 
 ## Faded colour recovery example
 
@@ -33,8 +33,20 @@ The examples are workflow demonstrations, not finished restorations.
 
 ## Repository guide
 
-- `docs/`: the website, including the download kits in `docs/downloads/`
+- `docs/`: the website (Jekyll, Just the Docs), including the download kits in `docs/downloads/` and one record per example in `docs/records/`
 - `templates/`: the Nuke Indie template for the CopyCat workflow (the Non-Commercial version is on the [releases page](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest))
+- `tools/site-check/`: the link and asset audit that runs in CI; `tools/examples/`: how the example figures were cut from the published videos
+- Files over 1 MiB are not added to the repository; they go on the [examples release](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/tag/examples-2026-10) and are linked.
+
+## Building the site locally
+
+```
+cd docs
+bundle install
+bundle exec jekyll serve
+```
+
+The site builds with the `github-pages` gem (Jekyll 3.10), the same as GitHub Pages. `python3 tools/site-check/audit_links.py . --strict` checks every internal link and asset without a build.
 
 ## Responsible use
 

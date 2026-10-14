@@ -5,6 +5,8 @@ nav_order: 5
 permalink: /black-and-white-colourization/
 ---
 
+<span class="kicker">Research area 5</span>
+
 # Black-and-white colourization
 
 Adding colour to film shot in black and white. Film does not record brightness the way the eye sees it; it records according to the spectral sensitivity of its stock. The greyscale is therefore a measurement, and the colour has to agree with it.
@@ -30,39 +32,60 @@ A red dress on orthochromatic film can therefore come out lighter than it appear
 
 One shot per film, from public-domain fiction and non-fiction of the 1920s. The palettes are an interpretation, not historical fact.
 
-<figure>
-  <img src="{{ '/images_kebab/black-and-white-colourization/general-1926-garden-f062.jpg' | relative_url }}" alt="The General, garden: the black-and-white original on the left and the colourized result on the right" loading="lazy">
-  <figcaption>*The General* (1926, Buster Keaton and Clyde Bruckman): original and result, frame 62. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a>.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Original|Colourized">
+    <img src="{{ '/images_kebab/examples/general-1926-garden-f062-source.jpg' | relative_url }}" alt="The General, garden: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+    <img src="{{ '/images_kebab/examples/general-1926-garden-f062-result.jpg' | relative_url }}" alt="The General, garden: the colourized result" loading="lazy">
+  </div>
+  <figcaption><em>The General</em> (1926, Buster Keaton and Clyde Bruckman): frame 62. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
-<figure>
-  <img src="{{ '/images_kebab/black-and-white-colourization/her-boy-friend-cafe-f062.jpg' | relative_url }}" alt="Her Boy Friend, café: the black-and-white original on the left and the colourized result on the right" loading="lazy">
-  <figcaption>*Her Boy Friend* (1924, Larry Semon): original and result, frame 62. <a href="{{ '/records/her-boy-friend-cafe/' | relative_url }}">Record</a>.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Original|Colourized">
+    <img src="{{ '/images_kebab/examples/her-boy-friend-cafe-f062-source.jpg' | relative_url }}" alt="Her Boy Friend, café: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+    <img src="{{ '/images_kebab/examples/her-boy-friend-cafe-f062-result.jpg' | relative_url }}" alt="Her Boy Friend, café: the colourized result" loading="lazy">
+  </div>
+  <figcaption><em>Her Boy Friend</em> (1924, Larry Semon): frame 62. <a href="{{ '/records/her-boy-friend-cafe/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
-<figure>
-  <img src="{{ '/images_kebab/black-and-white-colourization/below-the-deadline-parlour-f062.jpg' | relative_url }}" alt="Below the Deadline, parlour: the black-and-white original on the left and the colourized result on the right" loading="lazy">
-  <figcaption>*Below the Deadline* (1929): original and result, frame 62. <a href="{{ '/records/below-the-deadline-parlour/' | relative_url }}">Record</a>.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Original|Colourized">
+    <img src="{{ '/images_kebab/examples/below-the-deadline-parlour-f062-source.jpg' | relative_url }}" alt="Below the Deadline, parlour: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+    <img src="{{ '/images_kebab/examples/below-the-deadline-parlour-f062-result.jpg' | relative_url }}" alt="Below the Deadline, parlour: the colourized result" loading="lazy">
+  </div>
+  <figcaption><em>Below the Deadline</em> (1929): frame 62. <a href="{{ '/records/below-the-deadline-parlour/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
-<figure>
-  <img src="{{ '/images_kebab/black-and-white-colourization/racing-fool-couple-f062.jpg' | relative_url }}" alt="The Racing Fool, couple: the black-and-white original on the left and the colourized result on the right" loading="lazy">
-  <figcaption>*The Racing Fool* (1927), reel 2: original and result, frame 62. <a href="{{ '/records/racing-fool-couple/' | relative_url }}">Record</a>.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Original|Colourized">
+    <img src="{{ '/images_kebab/examples/racing-fool-couple-f062-source.jpg' | relative_url }}" alt="The Racing Fool, couple: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+    <img src="{{ '/images_kebab/examples/racing-fool-couple-f062-result.jpg' | relative_url }}" alt="The Racing Fool, couple: the colourized result" loading="lazy">
+  </div>
+  <figcaption><em>The Racing Fool</em> (1927), reel 2: frame 62. <a href="{{ '/records/racing-fool-couple/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
-<figure>
-  <img src="{{ '/images_kebab/black-and-white-colourization/wildcat-yard-f062.jpg' | relative_url }}" alt="The Wildcat, ranch yard: the black-and-white original on the left and the colourized result on the right" loading="lazy">
-  <figcaption>*The Wildcat* (1925), reel 3: original and result, frame 62. <a href="{{ '/records/wildcat-yard/' | relative_url }}">Record</a>.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Original|Colourized">
+    <img src="{{ '/images_kebab/examples/wildcat-yard-f062-source.jpg' | relative_url }}" alt="The Wildcat, ranch yard: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+    <img src="{{ '/images_kebab/examples/wildcat-yard-f062-result.jpg' | relative_url }}" alt="The Wildcat, ranch yard: the colourized result" loading="lazy">
+  </div>
+  <figcaption><em>The Wildcat</em> (1925), reel 3: frame 62. <a href="{{ '/records/wildcat-yard/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
-<figure>
-  <img src="{{ '/images_kebab/black-and-white-colourization/books-manuscript-classroom-f062.jpg' | relative_url }}" alt="Books: From Manuscript to Classroom: the black-and-white original on the left and the colourized result on the right" loading="lazy">
-  <figcaption>*Books: From Manuscript to Classroom* (late 1920s), non-fiction: original and result, frame 62. <a href="{{ '/records/books-manuscript-classroom/' | relative_url }}">Record</a>.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Original|Colourized">
+    <img src="{{ '/images_kebab/examples/books-manuscript-classroom-f062-source.jpg' | relative_url }}" alt="Books: From Manuscript to Classroom: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+    <img src="{{ '/images_kebab/examples/books-manuscript-classroom-f062-result.jpg' | relative_url }}" alt="Books: From Manuscript to Classroom: the colourized result" loading="lazy">
+  </div>
+  <figcaption><em>Books: From Manuscript to Classroom</em> (late 1920s), non-fiction: frame 62. <a href="{{ '/records/books-manuscript-classroom/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
-<figure>
-  <img src="{{ '/images_kebab/black-and-white-colourization/rambles-round-rio-oxcart-f062.jpg' | relative_url }}" alt="Rambles 'Round Rio, ox cart: the black-and-white original on the left and the colourized result on the right" loading="lazy">
-  <figcaption>*Rambles 'Round Rio* (1921), non-fiction: original and result, frame 62. <a href="{{ '/records/rambles-round-rio-oxcart/' | relative_url }}">Record</a>.</figcaption>
+<figure class="pair">
+  <div class="pair-media" data-compare="Original|Colourized">
+    <img src="{{ '/images_kebab/examples/rambles-round-rio-oxcart-f062-source.jpg' | relative_url }}" alt="Rambles 'Round Rio, ox cart: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+    <img src="{{ '/images_kebab/examples/rambles-round-rio-oxcart-f062-result.jpg' | relative_url }}" alt="Rambles 'Round Rio, ox cart: the colourized result" loading="lazy">
+  </div>
+  <figcaption><em>Rambles 'Round Rio</em> (1921), non-fiction: frame 62. <a href="{{ '/records/rambles-round-rio-oxcart/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
 ## Status
