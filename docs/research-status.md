@@ -75,7 +75,7 @@ Colour for orthochromatic and panchromatic film, inferred from the recorded grey
 
 ## Tools: dirt removal
 
-[Advanced Dirt Removal]({{ '/dirt-removal/' | relative_url }}) is a free macro for DaVinci Resolve, with a Motion Mask and a Recovery Brush to bring back what the cleaning took. It's a finished tool, on version 1.1.3.
+[Advanced Dirt Removal](https://github.com/fabiocolor/Advanced-Dirt-Removal) is a free macro for DaVinci Resolve, with a Motion Mask and a Recovery Brush to bring back what the cleaning took. It's a finished tool, on version 1.1.3.
 
 ## Hardware
 

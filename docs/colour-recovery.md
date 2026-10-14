@@ -13,7 +13,7 @@ This is about rescuing the original colour of faded film. It isn't black-and-whi
 
 ## Balance first, then recover
 
-In a proper restoration the scan usually arrives balanced: black is black, white is white, and the colour is collapsed, often towards cyan. So the normal first step is to balance the scan, for example with the [Faded Balancer]({{ '/tools/faded-balancer/' | relative_url }}) in DaVinci Resolve, and then recover.
+In a proper restoration the scan usually arrives balanced: black is black, white is white, and the colour is collapsed, often towards cyan. So the normal first step is to balance the scan, for example with the [Faded Balancer](https://github.com/fabiocolor/Faded-Balancer-DCTL) in DaVinci Resolve, and then recover.
 
 Balancing only sets levels, so a balanced and an unbalanced scan hold the same dye information. Working from the unbalanced scan is just a convenience for footage loaded as found.
 

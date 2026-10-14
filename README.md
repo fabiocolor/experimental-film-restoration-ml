@@ -12,7 +12,7 @@ This is where I keep all my research on machine learning for film restoration. I
    - the Temporal CbCr adapter for whole shots;
    - the reference-trained [CopyCat workflow](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/copycat-workflow/) in Nuke. Its template runs locally in Nuke Non-Commercial or Indie, with your own footage, and is available from the [latest release](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest).
 2. **[Gap filling and reconstruction](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/gap-filling/)**: rebuilding missing frames, using every surviving element first and generating only inside the gap.
-3. **[Dirt removal](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/dirt-removal/)**: [Advanced Dirt Removal](https://github.com/fabiocolor/Advanced-Dirt-Removal), a free macro for DaVinci Resolve (`winget install FabioColor.AdvancedDirtRemoval`).
+3. [Advanced Dirt Removal](https://github.com/fabiocolor/Advanced-Dirt-Removal), a free macro for DaVinci Resolve (`winget install FabioColor.AdvancedDirtRemoval`).
 4. **[Upscaling](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/upscaling/)**: rebuilding picture that is too damaged to restore conventionally. The detail is partly synthetic.
 
 [Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/) has the full picture as of October 2026: what works, what doesn't yet, and what you can reproduce. On hardware, the Qwen Image Edit workflows need a modern NVIDIA GPU, with 8 GB of VRAM or more for still frames and 16 GB or more for video.
