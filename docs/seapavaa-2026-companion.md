@@ -86,7 +86,7 @@ nav_order: 2
 
 # SEAPAVAA 2026 Companion
 
-**Talk archive, June 2026.** This page lists the examples shown at SEAPAVAA 2026, by slide title. They are earlier versions of the research and are no longer the recommended methods.
+**Talk archive, June 2026.** This page keeps what I showed at SEAPAVAA 2026, by slide title. These are earlier versions of the research, not what I use or recommend now.
 
 The research has moved on since June: see [where the research stands now]({{ '/research-status/' | relative_url }}) and the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}).
 
@@ -115,7 +115,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
 
 <section id="slide-1" class="seapavaa-slide">
   <h2>Advancing Open-Weight AI Models for Color Recovery in Faded Film</h2>
-  <p class="seapavaa-slide-intro">The image from the presentation, followed by its separate parts.</p>
+  <p class="seapavaa-slide-intro">This is the exact image from the presentation, followed by the separate parts behind the same example.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -123,7 +123,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Counter Attack split hero image">
       </a>
-      <p>Full-frame split view of the faded scan and the recovered composite, used as the opening example.</p>
+      <p>A full-frame split view of the faded scan and the recovered composite used as the opening before-and-after example.</p>
       <details class="seapavaa-files">
         <summary>Open the prompt</summary>
         <div class="seapavaa-filelist">
@@ -139,7 +139,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
 
 <section id="slide-2" class="seapavaa-slide">
   <h2>Presentation Companion</h2>
-  <p class="seapavaa-slide-intro">The link to this companion page, shown before the case studies.</p>
+  <p class="seapavaa-slide-intro">This is the companion-page call shown before the case-study sequence begins.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -147,7 +147,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/seapavaa-2026-companion/' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/custom_machine_learning_for_film_restoration_qr.png' | relative_url }}" alt="QR code for the SEAPAVAA 2026 companion page">
       </a>
-      <p>The QR code and link point to this page.</p>
+      <p>The QR/link slide sends viewers to this companion page so the examples can be opened during or after the talk.</p>
       <details class="seapavaa-files">
         <summary>Open the companion link</summary>
         <div class="seapavaa-filelist">
@@ -161,7 +161,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
 
 <section id="slide-3" class="seapavaa-slide">
   <h2>From CopyCat to Open-Weight Chroma Recovery</h2>
-  <p class="seapavaa-slide-intro">The Muralla Verde comparison, used for the transition from CopyCat to open-weight models.</p>
+  <p class="seapavaa-slide-intro">This is the Muralla Verde comparison now used for the CopyCat-to-open-weight transition.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -169,7 +169,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/muralla-verde/muralla-verde-comparison-preview.gif' | relative_url }}" alt="Animated Muralla Verde source-to-recovery comparison">
       </a>
-      <p>Source and recovery, showing the difference between source correction and chroma recovery.</p>
+      <p>A source-to-recovery comparison showing the practical difference between source correction and chroma recovery.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -182,7 +182,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
 
 <section id="slide-4" class="seapavaa-slide">
   <h2>Correction Versus Recovery</h2>
-  <p class="seapavaa-slide-intro">The still comparison used to define the difference between correction and recovery.</p>
+  <p class="seapavaa-slide-intro">This is the exact still comparison used to define the boundary between correction and recovery.</p>
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
@@ -190,7 +190,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/recovery_pair_reptilicus_beach_fullframe.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/recovery_pair_reptilicus_beach_fullframe.png' | relative_url }}" alt="Reptilicus recovery pair">
       </a>
-      <p>Full-frame comparison of a faded source and an accepted composite.</p>
+      <p>A full-frame comparison between a faded source and an accepted composite, separating image correction from generated chroma recovery.</p>
       <details class="seapavaa-files">
         <summary>Open the prompt</summary>
         <div class="seapavaa-filelist">
@@ -213,7 +213,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" alt="ComfyUI workflow screenshot">
       </a>
-      <p>The test setup: source, reference, control image, prompt, model and output in one graph.</p>
+      <p>The workflow view shows the test setup: source, reference, control image, prompt, model and output in one graph.</p>
       <details class="seapavaa-files">
         <summary>Open the workflow and its parts</summary>
         <div class="seapavaa-filelist">
@@ -235,7 +235,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/interior_woman_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/interior_woman_balanced_vs_unbalanced_paths_2x2.png' | relative_url }}" alt="Balanced versus unbalanced comparison">
       </a>
-      <p>The same subject gives different results depending on whether the source is used raw or balanced before inference.</p>
+      <p>The same subject behaves differently depending on whether the source is used raw or manually balanced before inference.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -258,7 +258,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/leader_lady_semantic_contamination_gar01_triptych.png' | relative_url }}" alt="Leader lady semantic contamination">
       </a>
-      <p>A reference image can transfer identity or scene content to the subject, not only color.</p>
+      <p>This example shows why reference images can contaminate the subject when the model borrows identity or scene content instead of only color.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -280,7 +280,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/ben_row2_source_vs_bad_semantic_inference.png' | relative_url }}" alt="Source versus bad semantic inference">
       </a>
-      <p>A failure case: the model produces a plausible image that does not match the content of the original frame.</p>
+      <p>A semantic failure case where the model produces a plausible image but misses what the original frame is actually showing.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -301,7 +301,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/jug_auditorium_full_lineage_5stage.png' | relative_url }}" alt="Full lineage board">
       </a>
-      <p>The lineage board shows source, control, reference, raw inference and final composite as separate items.</p>
+      <p>The lineage board makes the contract explicit: source, control, reference, raw inference, and final composite are separate things.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -324,7 +324,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" alt="Counter Attack row-9 top three raw generations">
       </a>
-      <p>Three prompt variants on the same source, from the prompt tests that made the still route more reliable.</p>
+      <p>Three prompt variants from the same source show how the still route became more reliable through repeated prompt testing.</p>
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
@@ -345,7 +345,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Interior Woman temporal comparison</h3>
       <img src="{{ '/media/seapavaa2026/interior-woman-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for the Interior Woman shot">
-      <p>A low-motion shot where source, raw inference and final composite stay consistent over time.</p>
+      <p>A low-motion shot where source, raw inference, and final composite hold together well enough to demonstrate temporal potential.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -370,7 +370,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <span class="seapavaa-role">Seen in the talk</span>
       <h3><em>Obsession</em>, shot 6: source, model output and composite</h3>
       <img src="{{ '/media/seapavaa2026/shot0006-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for shot 0006">
-      <p>A second Wan/VACE test with consistent results over time, shown as source, inference and composite.</p>
+      <p>This Wan/VACE test shows a second bounded temporal success with the same three-way source, inference, and composite structure.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -394,7 +394,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <span class="seapavaa-role">Seen in the talk</span>
       <h3><em>Obsession</em>, shot 11: a failure with hard motion</h3>
       <img src="{{ '/media/seapavaa2026/shot0011-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for shot 0011">
-      <p>A shot with fast motion, where stitching and temporal generation fail.</p>
+      <p>A hard-motion example where stitching and temporal generation still break down, even when the individual parts are available.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -413,7 +413,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <span class="seapavaa-role">Seen in the talk</span>
       <h3><em>Obsession</em>, shot 1, with a context board</h3>
       <img src="{{ '/media/seapavaa2026/shot0001-context-source-proposal-composite.gif' | relative_url }}" alt="Animated context-board, source, raw inference, and source-preserving composite comparison for shot 0001">
-      <p>The context board gives the model fixed visual references; the video comparison shows their effect on the shot.</p>
+      <p>The context board gives the model stable visual anchors while the video comparison shows how those anchors affect the shot.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -431,7 +431,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Selected atlas target</h3>
+      <h3>Liked atlas target</h3>
       <a href="{{ '/images_kebab/seapavaa2026/liked_t085_target_resized_to_t092.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/liked_t085_target_resized_to_t092.png' | relative_url }}" alt="Liked atlas target">
       </a>
@@ -457,7 +457,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/reptilicus_beach_tiled_vs_fullframe_raw_inference.png' | relative_url }}" alt="Tiled versus full-frame raw inference">
       </a>
-      <p>Tests whether tiling, which adds spatial context, changes the raw inference.</p>
+      <p>The comparison tests whether adding spatial context through tiling changes the raw inference before any final composite step.</p>
       <details class="seapavaa-files">
         <summary>Open the full-size images behind this comparison</summary>
         <div class="seapavaa-filelist">
@@ -476,7 +476,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <span class="seapavaa-role">Seen in the talk</span>
       <h3>Counter Attack 600-frame full run</h3>
       <img src="{{ '/media/seapavaa2026/fanji-600-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for the Counter Attack sequence">
-      <p>The method applied frame by frame across a longer sequence.</p>
+      <p>The full Counter Attack run shows what the method looks like when it is applied frame by frame across a longer sequence.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">
@@ -497,7 +497,7 @@ The research has moved on since June: see [where the research stands now]({{ '/r
       <a href="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" alt="Candy Ending matched-reference recovery">
       </a>
-      <p>A matched, non-generated reference frame provides the color; the faded source frame provides geometry and luma.</p>
+      <p>This final example uses a matched non-generated reference frame for color evidence while the faded source frame remains the geometry and luma authority.</p>
       <details class="seapavaa-files">
         <summary>Open the full-size images behind this example</summary>
         <div class="seapavaa-filelist">
