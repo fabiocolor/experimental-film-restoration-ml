@@ -1,42 +1,18 @@
 # Project Status
 
-**Updated:** 2026-09-14
+**Updated:** 2026-10-14
 
-## Current stage
+This repository holds the public website and download kits for my research on machine learning for film restoration, in five areas:
 
-This repository holds the public Machine Learning for Film Restoration research website and workflows. It documents two research tracks:
+1. Faded Colour Recovery
+2. Temporal CbCr (including the CopyCat workflow for Nuke)
+3. Diffusion Healing
+4. Diffusion Reconstruction
+5. Black-and-White Colourization
 
-1. **Reference-trained recovery** (CopyCat workflow): established method for chroma and spatial recovery using aligned source/reference pairs
-2. **Open-weight colour recovery** (Qwen Image Edit): active research using generative models for colour proposals
+What works, what doesn't yet, and what you can try yourself is on [Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/).
 
-## Documentation scope
-
-This **public repository** provides:
-- Workflow documentation and practitioner guidance
-- Case studies with decision trails and lessons learned
-- Method patterns showing what has worked, what has failed, and why
-- Downloadable workflows and templates
-
-This repository is **not**:
-- A private experiment registry (see related private research repos)
-- An authorization system for new inference or training runs
-- A substitute for archival policies or institutional review
-
-## Related research
-
-This project is part of a broader research portfolio:
-- **Private colour recovery experiments:** fabiocolor/qwen-color-recovery-workflow (access restricted)
-- **Temporal processing:** fabiocolor/temporal-cbcr-adapter (access restricted)
-- **Upscaling and reconstruction research** (repositories not yet public)
-
-## Getting started
-
-Start with:
-1. [README.md](README.md) — Repository overview
-2. [How to Use These Docs](docs/HOW_TO_USE_RESEARCH_DOCS.md) — Reading guide and decision-trail framework
-3. [Case Studies](docs/case-studies.md) — Real-world examples with lessons learned
-4. [CopyCat Workflow](docs/copycat-workflow.md) — Reference-trained recovery method
-5. [Open-Weight Colour Recovery](docs/open-weight-color-recovery.md) — Generative AI research track
+The examples are workflow demonstrations, not finished restorations. Generated colour or picture is an interpretation unless a known reference supports it.
 
 **Public site:** https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/  
 **GitHub:** https://github.com/fabiocolor/custom-machine-learning-for-film-restoration
