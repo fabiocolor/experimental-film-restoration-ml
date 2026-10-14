@@ -294,7 +294,8 @@ parent: Talks
 
 <section class="fc-section" id="diffusion-upscaling">
   <p class="fc-slide">Slides 14–15</p>
-  <h2 id="diffusion-upscaling-section-title">Diffusion upscaling</h2>
+  <h2 id="diffusion-upscaling-section-title">Diffusion upscaling*</h2>
+  <p><small>* Since October 2026 I call this <a href="{{ '/diffusion-reconstruction/' | relative_url }}">diffusion reconstruction</a>: for films beyond saving, the whole shot has to be generated. The talk used the earlier name.</small></p>
   <p>So far, the model only adds colour and the scan keeps its own picture. But sometimes the surviving element doesn't carry enough information for a traditional restoration. Our tools borrow from the same frame or the frames around it, and when every frame is damaged, there's nothing left to borrow. Diffusion upscaling lets a video model rebuild the picture from what survives, following its structure and movement.</p>
   <p><em>El Tinterillo</em> survives only as a damaged 16mm print and a telecine that is cleaner, but soft, cropped and with the strange cadence of telecines from that time. I smoothed the 16mm with a median filter, then combined the two, with the telecine inside and the 16mm around it. That gives a rough outline to guide the geometry, but the filter also removes the fine detail. So, for how the picture should look, I made more synthetic references with ChatGPT Images. MiniMax H3, in reference mode, then uses those references, with the telecine clip for the movement, to generate each section of the shot.</p>
 
@@ -326,7 +327,8 @@ parent: Talks
 
 <section class="fc-section" id="diffusion-reconstruction">
   <p class="fc-slide">Slides 16–17</p>
-  <h2 id="diffusion-reconstruction-title">Diffusion reconstruction</h2>
+  <h2 id="diffusion-reconstruction-title">Diffusion reconstruction*</h2>
+  <p><small>* Since October 2026 I call this <a href="{{ '/diffusion-healing/' | relative_url }}">diffusion healing</a>: the surviving image stays, and diffusion only heals what is missing or damaged. The talk used the earlier name.</small></p>
   <p>Sometimes the picture isn't damaged, it's gone: frames missing from the only surviving element. This happens a lot with nitrate, when a decaying section was cut out so it wouldn't damage the rest of the reel.</p>
   <p>Tools like Phoenix, DIAMANT or DaVinci Resolve can bridge two or three missing frames with optical flow. Across a longer gap, the motion starts to feel wrong, because they can only interpolate what survives.</p>
   <p>In the talk, the example is a 15-frame gap in a camera negative where the sound still survives, so the gap has to be filled to keep picture and sound together. I tracked the actors from the last frame before the gap to the first frame after it, and carried that movement through the missing frames: those are the skeletons on slide 16. Then Alibaba's VACE video model generated the picture, guided by that movement, only inside the gap.</p>

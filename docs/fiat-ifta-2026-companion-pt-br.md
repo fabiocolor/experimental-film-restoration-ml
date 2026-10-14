@@ -293,7 +293,8 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
 
 <section class="fc-section" id="diffusion-upscaling">
   <p class="fc-slide">Slides 14–15</p>
-  <h2 id="diffusion-upscaling-section-title">Upscaling por difusão</h2>
+  <h2 id="diffusion-upscaling-section-title">Upscaling por difusão*</h2>
+  <p><small>* Desde outubro de 2026 chamo isto de <a href="{{ '/diffusion-reconstruction/' | relative_url }}">reconstrução por difusão</a>: em filmes que já não podem ser salvos, é preciso gerar o plano inteiro. Na palestra usei o nome anterior.</small></p>
   <p>Até aqui, o modelo só acrescenta cor, e a digitalização mantém a sua própria imagem. Mas às vezes o elemento que sobreviveu não tem informação suficiente para uma restauração tradicional. Nossas ferramentas pegam emprestado do mesmo quadro ou dos quadros ao redor, e quando todos os quadros estão danificados, não sobra nada para pegar emprestado. O upscaling por difusão permite que um modelo de vídeo reconstrua a imagem a partir do que sobreviveu, seguindo a sua estrutura e o seu movimento.</p>
   <p><em>El Tinterillo</em> sobrevive apenas como uma cópia em 16mm danificada e uma telecinagem mais limpa, mas suave, cortada nas bordas e com a cadência estranha das telecinagens daquela época. Suavizei o 16mm com um filtro de mediana e depois combinei os dois, com a telecinagem por dentro e o 16mm em volta. Isso dá um contorno aproximado para guiar a geometria, mas o filtro também remove os detalhes finos. Então, para definir como a imagem deveria ficar, fiz outras referências sintéticas com o ChatGPT Images. O MiniMax H3, no modo de referência, usa então essas referências, com o clipe da telecinagem para o movimento, para gerar cada trecho do plano.</p>
 
@@ -325,7 +326,8 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
 
 <section class="fc-section" id="diffusion-reconstruction">
   <p class="fc-slide">Slides 16–17</p>
-  <h2 id="diffusion-reconstruction-title">Reconstrução por difusão</h2>
+  <h2 id="diffusion-reconstruction-title">Reconstrução por difusão*</h2>
+  <p><small>* Desde outubro de 2026 chamo isto de <a href="{{ '/diffusion-healing/' | relative_url }}">diffusion healing</a> (cura por difusão): a imagem que sobreviveu permanece, e a difusão só cura o que falta ou está danificado. Na palestra usei o nome anterior.</small></p>
   <p>Às vezes a imagem não está danificada, ela simplesmente não existe mais: são quadros que faltam no único elemento sobrevivente. Isso acontece muito com nitrato, quando um trecho em decomposição foi cortado para não danificar o resto do rolo.</p>
   <p>Ferramentas como Phoenix, DIAMANT ou DaVinci Resolve conseguem preencher dois ou três quadros faltantes com fluxo óptico. Em uma lacuna mais longa, o movimento começa a parecer errado, porque elas só conseguem interpolar o que sobreviveu.</p>
   <p>Na palestra, o exemplo é uma lacuna de 15 quadros em um negativo de câmera cujo som ainda sobrevive, então a lacuna precisa ser preenchida para manter imagem e som juntos. Rastreei os atores do último quadro antes da lacuna até o primeiro quadro depois dela, e levei esse movimento pelos quadros faltantes: são os esqueletos do slide 16. Depois, o modelo de vídeo VACE, da Alibaba, gerou a imagem, guiado por esse movimento, somente dentro da lacuna.</p>

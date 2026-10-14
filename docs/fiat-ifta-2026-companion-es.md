@@ -293,7 +293,8 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
 
 <section class="fc-section" id="diffusion-upscaling">
   <p class="fc-slide">Diapositivas 14–15</p>
-  <h2 id="diffusion-upscaling-section-title">Escalado por difusión</h2>
+  <h2 id="diffusion-upscaling-section-title">Escalado por difusión*</h2>
+  <p><small>* Desde octubre de 2026 llamo a esto <a href="{{ '/diffusion-reconstruction/' | relative_url }}">reconstrucción por difusión</a>: en películas que ya no se pueden salvar, hay que generar el plano entero. En la charla usé el nombre anterior.</small></p>
   <p>Hasta aquí, el modelo solo agrega color y el escaneo conserva su propia imagen. Pero a veces el elemento que sobrevive no tiene suficiente información para una restauración tradicional. Nuestras herramientas toman prestado del mismo fotograma o de los fotogramas de alrededor, y cuando todos los fotogramas están dañados, no queda nada que tomar. El escalado por difusión permite que un modelo de video reconstruya la imagen a partir de lo que sobrevive, siguiendo su estructura y su movimiento.</p>
   <p>De <em>El Tinterillo</em> solo sobreviven una copia de 16mm dañada y un telecine más limpio, pero blando, recortado y con la cadencia extraña de los telecines de esa época. Suavicé el 16mm con un filtro de mediana y luego combiné los dos, con el telecine en el centro y el 16mm alrededor. Eso da un contorno aproximado para guiar la geometría, pero el filtro también elimina el detalle fino. Así que, para definir cómo debía verse la imagen, hice otras referencias sintéticas con ChatGPT Images. Luego MiniMax H3, en modo referencia, usa esas referencias, con el clip del telecine para el movimiento, para generar cada sección del plano.</p>
 
@@ -325,7 +326,8 @@ description: Ejemplos a tamaño completo y notas de la charla de Fabio Bedoya en
 
 <section class="fc-section" id="diffusion-reconstruction">
   <p class="fc-slide">Diapositivas 16–17</p>
-  <h2 id="diffusion-reconstruction-title">Reconstrucción por difusión</h2>
+  <h2 id="diffusion-reconstruction-title">Reconstrucción por difusión*</h2>
+  <p><small>* Desde octubre de 2026 llamo a esto <a href="{{ '/diffusion-healing/' | relative_url }}">diffusion healing</a> (curación por difusión): la imagen que sobrevive se queda, y la difusión solo cura lo que falta o está dañado. En la charla usé el nombre anterior.</small></p>
   <p>A veces la imagen no está dañada, sino que ya no existe: faltan fotogramas en el único elemento que sobrevive. Esto pasa mucho con el nitrato, cuando se cortó una sección en descomposición para que no dañara el resto del rollo.</p>
   <p>Herramientas como Phoenix, DIAMANT o DaVinci Resolve pueden cubrir dos o tres fotogramas faltantes con flujo óptico. En un hueco más largo, el movimiento empieza a sentirse raro, porque solo pueden interpolar lo que sobrevive.</p>
   <p>En la charla, el ejemplo es un hueco de 15 fotogramas en un negativo de cámara en el que el sonido sí sobrevive, así que hay que llenar el hueco para mantener juntos imagen y sonido. Hice el seguimiento de los actores desde el último fotograma antes del hueco hasta el primero después de él, y llevé ese movimiento a través de los fotogramas faltantes: esos son los esqueletos de la diapositiva 16. Luego el modelo de video VACE de Alibaba generó la imagen, guiado por ese movimiento, solo dentro del hueco.</p>
