@@ -26,6 +26,45 @@ If either is treated as ordinary video brightness, the colour is wrong in predic
 
 A red dress on orthochromatic film can therefore come out lighter than it appears in the scan. This is correct, because the film did not record its red.
 
+## Examples
+
+One shot per film, from public-domain fiction and non-fiction of the 1920s. The palettes are an interpretation, not historical fact.
+
+<figure>
+  <img src="{{ '/images_kebab/black-and-white-colourization/general-1926-garden-f062.jpg' | relative_url }}" alt="The General, garden: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+  <figcaption>*The General* (1926, Buster Keaton and Clyde Bruckman): original and result, frame 62. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a>.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/images_kebab/black-and-white-colourization/her-boy-friend-cafe-f062.jpg' | relative_url }}" alt="Her Boy Friend, café: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+  <figcaption>*Her Boy Friend* (1924, Larry Semon): original and result, frame 62. <a href="{{ '/records/her-boy-friend-cafe/' | relative_url }}">Record</a>.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/images_kebab/black-and-white-colourization/below-the-deadline-parlour-f062.jpg' | relative_url }}" alt="Below the Deadline, parlour: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+  <figcaption>*Below the Deadline* (1929): original and result, frame 62. <a href="{{ '/records/below-the-deadline-parlour/' | relative_url }}">Record</a>.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/images_kebab/black-and-white-colourization/racing-fool-couple-f062.jpg' | relative_url }}" alt="The Racing Fool, couple: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+  <figcaption>*The Racing Fool* (1927), reel 2: original and result, frame 62. <a href="{{ '/records/racing-fool-couple/' | relative_url }}">Record</a>.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/images_kebab/black-and-white-colourization/wildcat-yard-f062.jpg' | relative_url }}" alt="The Wildcat, ranch yard: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+  <figcaption>*The Wildcat* (1925), reel 3: original and result, frame 62. <a href="{{ '/records/wildcat-yard/' | relative_url }}">Record</a>.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/images_kebab/black-and-white-colourization/books-manuscript-classroom-f062.jpg' | relative_url }}" alt="Books: From Manuscript to Classroom: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+  <figcaption>*Books: From Manuscript to Classroom* (late 1920s), non-fiction: original and result, frame 62. <a href="{{ '/records/books-manuscript-classroom/' | relative_url }}">Record</a>.</figcaption>
+</figure>
+
+<figure>
+  <img src="{{ '/images_kebab/black-and-white-colourization/rambles-round-rio-oxcart-f062.jpg' | relative_url }}" alt="Rambles 'Round Rio, ox cart: the black-and-white original on the left and the colourized result on the right" loading="lazy">
+  <figcaption>*Rambles 'Round Rio* (1921), non-fiction: original and result, frame 62. <a href="{{ '/records/rambles-round-rio-oxcart/' | relative_url }}">Record</a>.</figcaption>
+</figure>
+
 ## Status
 
-Fifteen shots from public-domain fiction and non-fiction films, from the 1920s to 1970, are approved or approved with notes. Two things are still open: skin can come out too red on the earliest shots, and foliage in some exteriors still looks artificial. Examples will be added once they are cleared.
+Two things are still open: skin can come out too red on the earliest shots, and foliage in some exteriors still looks artificial.

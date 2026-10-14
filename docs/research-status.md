@@ -51,7 +51,7 @@ For films beyond repair. On *El Tinterillo*, a 16mm print and a telecine were co
 
 ## 5. Black-and-white colourization
 
-Colour for orthochromatic and panchromatic film, inferred from the recorded greyscale and the stock's spectral response. Fifteen public-domain shots are done; skin on the earliest shots and some foliage are still open. See [Black-and-White Colourization]({{ '/black-and-white-colourization/' | relative_url }}).
+Colour for orthochromatic and panchromatic film, inferred from the recorded greyscale and the stock's spectral response. Fifteen shots are approved; seven public-domain ones are shown on the site; skin on the earliest shots and some foliage are still open. See [Black-and-White Colourization]({{ '/black-and-white-colourization/' | relative_url }}).
 
 ## Next steps
 

@@ -17,3 +17,5 @@ permalink: /records/frontier-experience/
 | Evaluation | 504 held-out frames from 16 shots. Lower colour error than CopyCat on 9 of 16 shots; overall colour error 1.79% higher than CopyCat. |
 | Approval | Accepted by Fabio as the promoted checkpoint. Some skies and shadows do not fully resolve. |
 | Reproduction | Not yet. The checkpoint (11 MB), the frame pairs and the film material are not published. |
+
+A newer version of this example is in development.

@@ -73,6 +73,7 @@ nav_order: 0
     <p class="card-kicker">5</p>
     <h3>Black-and-white colourization</h3>
     <p>Colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response.</p>
+    <p class="card-link-secondary">Examples: Her Boy Friend, Rambles 'Round Rio</p>
     <a class="card-link" href="{{ '/black-and-white-colourization/' | relative_url }}">Black-and-white colourization <span aria-hidden="true">→</span></a>
   </article>
 </div>
@@ -103,6 +104,14 @@ nav_order: 0
   <figure>
     <a href="{{ '/diffusion-reconstruction/' | relative_url }}"><img src="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" alt="El Tinterillo: the stairs shot, rebuilt by diffusion reconstruction" loading="lazy"></a>
     <figcaption><strong>El Tinterillo</strong>: diffusion reconstruction.</figcaption>
+  </figure>
+  <figure>
+    <a href="{{ '/black-and-white-colourization/' | relative_url }}"><img src="{{ '/images_kebab/black-and-white-colourization/her-boy-friend-cafe-f062.jpg' | relative_url }}" alt="Her Boy Friend: the black-and-white original and the colourized result, side by side" loading="lazy"></a>
+    <figcaption><strong>Her Boy Friend</strong>: black-and-white colourization, orthochromatic film.</figcaption>
+  </figure>
+  <figure>
+    <a href="{{ '/black-and-white-colourization/' | relative_url }}"><img src="{{ '/images_kebab/black-and-white-colourization/rambles-round-rio-oxcart-f062.jpg' | relative_url }}" alt="Rambles 'Round Rio: the black-and-white original and the colourized result, side by side" loading="lazy"></a>
+    <figcaption><strong>Rambles 'Round Rio</strong>: black-and-white colourization, non-fiction.</figcaption>
   </figure>
 </div>
 
