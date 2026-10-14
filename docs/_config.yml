@@ -76,8 +76,6 @@ exclude:
   - "images_kebab/seapavaa2026/originals/interior_woman_paths/03_balanced_source.png"
   - "images_kebab/seapavaa2026/originals/jug_auditorium/01_source_juggernaut_tlr_000066-ed2dda29.png"
   - "images_kebab/seapavaa2026/originals/jug_auditorium/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png"
-  - "images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.png"
-  - "images_kebab/seapavaa2026/originals/reptilicus_beach/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png"
   - "images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/"
   - "images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/PROVENANCE.md"
   - "images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_source_rgb.png"

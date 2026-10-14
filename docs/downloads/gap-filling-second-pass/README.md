@@ -10,12 +10,15 @@ permalink: /downloads/gap-filling-second-pass/
 
 The last step of the flute players shot on the diffusion healing page. The first pass (MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light Wan VACE pass makes them consistent without changing geometry or motion.
 
-On the example files it matches the approved result to ΔE 0.9 on average, and each window to ΔE 0.6 or better, below the visible threshold.
+On the example files it matches the approved result to ΔE 0.9 on average, and each window to ΔE 0.6 or better, below the visible threshold. Source, first pass, models and approval are in the [record]({{ '/records/wong-flute-players/' | relative_url }}).
 
 ## What you need
 
 - ComfyUI with the built-in Wan nodes. No custom nodes.
-- Models: `wan2.1_vace_14B_fp16.safetensors`, `umt5_xxl_fp8_e4m3fn_scaled.safetensors`, `wan_2.1_vae.safetensors`.
+- Models, all public:
+  - [`wan2.1_vace_14B_fp16.safetensors`](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/diffusion_models/wan2.1_vace_14B_fp16.safetensors) (diffusion_models)
+  - [`umt5_xxl_fp8_e4m3fn_scaled.safetensors`](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors) (text_encoders)
+  - [`wan_2.1_vae.safetensors`](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/vae/wan_2.1_vae.safetensors) (vae)
 - Python 3.10+ with `numpy` and `opencv-python`, and `ffmpeg` on your path, for the seam blend.
 
 ## Steps

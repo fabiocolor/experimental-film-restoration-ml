@@ -10,7 +10,7 @@ permalink: /downloads/faded-colour-recovery-t185/
 
 The [faded colour recovery](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/colour-recovery/) route for balanced scans (black is black, white is white, the colour has collapsed). One shot at a time, at 768 × 576 for the video model.
 
-Every step was checked against an approved shot. The differences are below the visible threshold: average ΔE 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
+Every step was checked against an approved shot ([record]({{ '/records/folgers/' | relative_url }})). The differences are below the visible threshold: average ΔE 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
 
 ## What you need
 

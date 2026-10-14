@@ -28,7 +28,7 @@ nav_order: 0
   </figure>
 </div>
 
-<p class="experiment-credit"><em>Reptilicus</em> (1961) trailer, from a 35mm trailer reel scan posted publicly on <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>. The trailer belongs to its rights holders.</p>
+<p class="experiment-credit">Made with an earlier single-frame route (<a href="{{ '/records/reptilicus-beach/' | relative_url }}">record</a>). <em>Reptilicus</em> (1961) trailer, from a 35mm trailer reel scan posted publicly on <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>. The trailer belongs to its rights holders.</p>
 
 <div class="research-intro">
   <p>Research on machine learning for film restoration. Each area addresses a different problem with the same approach: start from the scan, keep its picture, and use a model only for what is missing. The process is not automatic. A restorer decides what is acceptable and records what was generated.</p>
@@ -41,7 +41,7 @@ nav_order: 0
     <p class="card-kicker">1</p>
     <h3>Faded colour recovery</h3>
     <p>Recovery of the colour of faded film from balanced or unbalanced scans. Surviving colour is kept; only faded colour is filled in.</p>
-    <p class="card-link-secondary">Examples: Counter Attack, Folgers</p>
+    <p class="card-link-secondary">Example: Counter Attack</p>
     <a class="card-link" href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery <span aria-hidden="true">→</span></a>
   </article>
 
@@ -49,7 +49,7 @@ nav_order: 0
     <p class="card-kicker">2</p>
     <h3>Temporal CbCr</h3>
     <p>Colour learned from a historical or synthetic reference and kept consistent through the shot.</p>
-    <p class="card-link-secondary">Examples: Candy Candy, Unman, Wittering and Zigo</p>
+    <p class="card-link-secondary">Examples: Candy Candy, Reptilicus</p>
     <a class="card-link" href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr <span aria-hidden="true">→</span></a>
   </article>
 
@@ -81,20 +81,16 @@ nav_order: 0
 
 <div class="example-grid">
   <figure>
-    <a href="{{ '/colour-recovery/' | relative_url }}"><img src="https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w640" alt="Counter Attack: the faded crowd shot and the recovered colour, side by side" loading="lazy" referrerpolicy="no-referrer"></a>
+    <a href="{{ '/colour-recovery/' | relative_url }}"><img src="{{ '/images_kebab/colour-recovery/counter-attack-waterfront-t148-f160.jpg' | relative_url }}" alt="Counter Attack: the faded waterfront crowd and the recovered colour, side by side" loading="lazy"></a>
     <figcaption><strong>Counter Attack</strong>: faded colour recovery, the whole shot.</figcaption>
-  </figure>
-  <figure>
-    <a href="{{ '/colour-recovery/' | relative_url }}"><img src="{{ '/images_kebab/colour-recovery/commercials-folgers-before-after-f067.jpg' | relative_url }}" alt="A Folgers coffee commercial: the balanced scan and the recovered colour, side by side" loading="lazy"></a>
-    <figcaption><strong>Folgers</strong>: faded colour recovery from a balanced scan.</figcaption>
   </figure>
   <figure>
     <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="{{ '/images_kebab/candy-candy/candy-candy-comparison-still.jpg' | relative_url }}" alt="Candy Candy: the scan, the DVD reference and the result, side by side" loading="lazy"></a>
     <figcaption><strong>Candy Candy</strong>: Temporal CbCr from a historical reference.</figcaption>
   </figure>
   <figure>
-    <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w640" alt="Unman, Wittering and Zigo: the faded choir shot and the result, side by side" loading="lazy" referrerpolicy="no-referrer"></a>
-    <figcaption><strong>Unman, Wittering and Zigo</strong>: Temporal CbCr from a synthetic reference.</figcaption>
+    <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="{{ '/images_kebab/temporal-cbcr/reptilicus-office-t178-f66.jpg' | relative_url }}" alt="Reptilicus: the faded office scene and the result, side by side" loading="lazy"></a>
+    <figcaption><strong>Reptilicus</strong>: Temporal CbCr from a synthetic reference.</figcaption>
   </figure>
   <figure>
     <a href="{{ '/diffusion-healing/' | relative_url }}"><img src="{{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }}" alt="Wong flute players: the decayed 16mm scan and the healed frame, side by side" loading="lazy"></a>
@@ -109,7 +105,7 @@ nav_order: 0
 <div class="quiet-panel">
   <div>
     <h3>Where the research stands</h3>
-    <p>What works, what does not yet, and what can be reproduced.</p>
+    <p>What works, what does not yet, and what can be reproduced. Each example has a <a href="{{ '/records/' | relative_url }}">record</a> of its source, models and approval.</p>
   </div>
   <a href="{{ '/research-status/' | relative_url }}" class="btn btn-primary">Read the status</a>
 </div>

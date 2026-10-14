@@ -27,7 +27,7 @@ Colour learned from a historical or synthetic reference for the shot. The scan k
 
 ## Examples
 
-**Candy Candy (1976): a historical reference.** A 16mm print of the opening, faded to magenta, with the colour learned from a French PAL DVD in CopyCat. The detail and grain come from the 16mm scan, the colour from the DVD.
+**Candy Candy (1976): a historical reference.** A 16mm print of the opening, faded to magenta, with the colour learned from a French PAL DVD in CopyCat. The detail and grain come from the 16mm scan, the colour from the DVD ([record]({{ '/records/candy-candy/' | relative_url }})).
 
 - The standard-definition DVD was fine as a colour reference, because only its colour is used, not its detail.
 - Both copies were cropped to the picture area they share, so the model never learned the DVD's borders or burned-in subtitles.
@@ -39,22 +39,21 @@ Colour learned from a historical or synthetic reference for the shot. The scan k
   <figcaption><em>Candy Candy</em>: the original scan, the balanced scan, the DVD reference and the result. A still from the video on Google Drive.</figcaption>
 </figure>
 
-**Unman, Wittering and Zigo (1971): a synthetic reference.** A choir scene from a faded trailer. TeleStyle made the candidate frames; 101 of the 164 frames passed review and became teachers, the adapter filled in the rest, and training took about a minute and a half. The stained glass remains consistent through the pan.
+**Reptilicus (1961): a synthetic reference.** An office scene from a trailer faded to magenta, 253 frames. MiniMax H3 and TeleStyle made candidate frames from one approved palette frame; the frames that passed review taught the adapter, which coloured the rest. The scan keeps its luma, timing and sound.
 
 <figure class="figure">
-  <a href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view"><img src="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w960" alt="Unman, Wittering and Zigo: the faded choir shot and the adapter result, side by side" loading="lazy" referrerpolicy="no-referrer"></a>
-  <figcaption><em>Unman, Wittering and Zigo</em>: the faded choir shot and the adapter result, side by side (video on Google Drive).</figcaption>
+  <img src="{{ '/images_kebab/temporal-cbcr/reptilicus-office-t178-f66.jpg' | relative_url }}" alt="Reptilicus: the faded office scene on the left and the result on the right" loading="lazy">
+  <figcaption><em>Reptilicus</em>: the faded source and the result, frame 66. <a href="{{ '/records/reptilicus-office/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
 ## What still doesn't work
 
 - Alignment is still semi-manual; cuts and changing speeds need checking by hand.
 - A synthetic reference is only as good as the frames a person approves.
-- The adapter isn't public yet. The CopyCat template is.
+- The adapter code is published in the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). Each adapter is trained for one shot, so no weights are shared.
 
 ## Downloads
 
 - [Candy Candy: comparison video, 1 min 10 s (102 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&export=download&confirm=t)
 - [Candy Candy: the recovered scan at 4400 × 3300, 1 min 10 s (298 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1&export=download&confirm=t)
-- [Unman, Wittering and Zigo: Temporal CbCr adapter, 7 s (20.4 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&export=download&confirm=t)
 - [The Nuke template for CopyCat](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), for Nuke Non-Commercial or Indie.

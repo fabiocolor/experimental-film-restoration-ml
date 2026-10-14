@@ -47,7 +47,7 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
   <figcaption>The approved reconstruction (8 seconds).</figcaption>
 </figure>
 
-**Workflow**
+**Workflow** ([record]({{ '/records/wong-flute-players/' | relative_url }}))
 
 1. **One storyboard sheet for the whole shot.** All keyframes were restored together on one sheet so that people, props and look are consistent. The sheet then guided MiniMax H3 across the shot.
 2. **The film's own drumming.** H3 redrew the fast, hooked drumstick regardless of the control used. In a feathered area that follows the drummer's hands and beater (about 8% of the frame), the film's own brightness was used with the restored colour.

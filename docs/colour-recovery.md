@@ -28,27 +28,20 @@ When no better copy exists, a colour frame for the shot is made with Qwen Image 
 2. **Carry it through the shot.** MiniMax H3 with Alibaba's Fun ControlNet follows the edges of every frame, and the Temporal CbCr adapter learns the colour of the shot from the frames that pass review.
 3. **Respect the surviving colour.** The red-green colour left in the scan can be strengthened, never flipped or weakened.
 
-Yellow is usually the lost dye, so the yellow-blue choices remain an interpretation. The route has been tested on four shots from one source, at reduced resolution. The [download kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) has the graphs, the Python steps and an example shot.
+Yellow is usually the lost dye, so the yellow-blue choices remain an interpretation. The route has been tested on four shots from one source, at reduced resolution. The [download kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) has the graphs, the Python steps and a test shot.
 
 ## Unbalanced sources
 
 - **Single frames.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on most faded material, with every frame reviewed. Use a plain chart as the guide, not a picture; a person in the guide image tends to appear in the shot.
 - **Whole shots.** Frames coloured one at a time flicker, so one approved reference has to guide the whole shot. MiniMax H3 with the Fun ControlNet, or TeleStyle (a LoRA for Qwen Image Edit), makes candidate frames. The good ones teach the Temporal CbCr adapter, which colours the rest.
 
-## Examples
+## Example
 
-**Counter Attack (1976): an unbalanced source, the whole shot.** No colour reference survives for this Chinese film. MiniMax H3 and the Fun ControlNet gave the teacher frames, and the Temporal CbCr adapter carried the colour through a 385-frame crowd shot with a fast pan. Some tint remains in the shadows because the source copy had a broken cadence.
-
-<figure class="figure">
-  <a href="https://drive.google.com/file/d/1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi/view"><img src="https://drive.google.com/thumbnail?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&amp;sz=w960" alt="Counter Attack: the faded crowd shot and the recovered colour, side by side" loading="lazy" referrerpolicy="no-referrer"></a>
-  <figcaption><em>Counter Attack</em>: the faded source and the result, side by side (video on Google Drive).</figcaption>
-</figure>
-
-**Folgers (1970s commercial): a balanced source.** One of four shots from a compilation of commercials, recovered with the balanced-source route.
+**Counter Attack (1976): an unbalanced source, the whole shot.** A waterfront crowd from a film copy faded to magenta-red. No colour reference survives. MiniMax H3 with three reference stills carried the colour through the 338-frame shot. On 30 frames of fast hand movement, where H3 lost registration, an independent TeleStyle pass on the same shot replaced the colour. The scan's luma is kept on every frame.
 
 <figure class="figure">
-  <img src="{{ '/images_kebab/colour-recovery/commercials-folgers-before-after-f067.jpg' | relative_url }}" alt="A Folgers coffee commercial: the balanced, faded scan on the left and the recovered colour on the right" loading="lazy">
-  <figcaption>The balanced scan on the left, the result on the right. The shot and the result are in the <a href="{{ '/downloads/faded-colour-recovery-t185/' | relative_url }}">download kit</a>.</figcaption>
+  <img src="{{ '/images_kebab/colour-recovery/counter-attack-waterfront-t148-f160.jpg' | relative_url }}" alt="Counter Attack: the faded waterfront crowd on the left and the recovered colour on the right" loading="lazy">
+  <figcaption><em>Counter Attack</em>: the faded source and the result, frame 160. <a href="{{ '/records/counter-attack-waterfront/' | relative_url }}">Record</a>.</figcaption>
 </figure>
 
 ## What still doesn't work
@@ -60,5 +53,4 @@ Yellow is usually the lost dye, so the yellow-blue choices remain an interpretat
 
 ## Downloads
 
-- [Faded colour recovery kit for balanced scans]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}): ComfyUI graphs, Python steps and the Folgers example.
-- [Counter Attack: the whole shot, 13 s (11.6 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1OQcp7SrwmFZoUiFJ6NC8EfHgI68TGmxi&export=download&confirm=t)
+- [Faded colour recovery kit for balanced scans]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}): ComfyUI graphs, Python steps and a test shot from a 1970s commercial, reproduced at every stage within ΔE 1.5 ([record]({{ '/records/folgers/' | relative_url }})).

@@ -28,7 +28,7 @@ The stairs shot, 624 frames, also shown in the [FIAT/IFTA 2026 talk]({{ '/fiat-i
   <figcaption>The stairs shot (26 seconds, 768 × 432).</figcaption>
 </figure>
 
-**Workflow**
+**Workflow** ([record]({{ '/records/el-tinterillo-stairs/' | relative_url }}))
 
 1. **Combine the sources.** The telecine goes inside and the 16mm around it, which gives the full frame. This is called the hybrid.
 2. **Clean the hybrid with a strong median filter.** It removes the damage and the fine detail, leaving a rough outline to guide the geometry.
