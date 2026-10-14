@@ -27,9 +27,16 @@ Colour learned from a historical or synthetic reference for the shot. The scan k
 
 ## Examples
 
-**Candy Candy (1976): a historical reference.** A 16mm print of the opening, faded to magenta, with the colour learned from a French PAL DVD in CopyCat. The detail and grain come from the 16mm scan, the colour from the DVD ([record]({{ '/records/candy-candy/' | relative_url }})).
+**Frontier Experience (1975): a historical reference, Temporal CbCr adapter.** A faded film print, with the colour learned from a telecine of the same film supplied by Ross Lipman. The telecine had cadence problems but stayed aligned closely enough to serve as a colour reference. The adapter was trained on 926 frame pairs at 1464 × 1080. On 16 held-out shots it had lower colour error than CopyCat on 9; its overall colour error was 1.79% higher. Some skies and shadows do not fully resolve ([record]({{ '/records/frontier-experience/' | relative_url }})).
 
-- The standard-definition DVD was fine as a colour reference, because only its colour is used, not its detail.
+<figure class="figure">
+  <img src="{{ '/images_kebab/temporal-cbcr/frontier-experience-scan-reference-result-f020.jpg' | relative_url }}" alt="Frontier Experience: the faded scan, the adapter result and the telecine reference" loading="lazy">
+  <figcaption><em>Frontier Experience</em>: the original scan (left), the adapter result (right) and the telecine reference (bottom).</figcaption>
+</figure>
+
+**Candy Candy (1976): a historical reference, CopyCat.** The same approach in Nuke, before the adapter existed. A 16mm print of the opening, faded to magenta, with the colour learned from a French PAL DVD in CopyCat. The detail and grain come from the 16mm scan, the colour from the DVD ([record]({{ '/records/candy-candy/' | relative_url }})).
+
+- The standard-definition DVD was usable as a colour reference, because only its colour is used, not its detail.
 - Both copies were cropped to the picture area they share, so the model never learned the DVD's borders or burned-in subtitles.
 - One model for the whole sequence failed on fast pans and changing light. Separate models for the difficult shots, with four to nine frame pairs each, solved this.
 - A DVD brings its own grading and softness, and the result inherits it.
@@ -39,11 +46,11 @@ Colour learned from a historical or synthetic reference for the shot. The scan k
   <figcaption><em>Candy Candy</em>: the original scan, the balanced scan, the DVD reference and the result. A still from the video on Google Drive.</figcaption>
 </figure>
 
-**Reptilicus (1961): a synthetic reference.** An office scene from a trailer faded to magenta, 253 frames. MiniMax H3 and TeleStyle made candidate frames from one approved palette frame; the frames that passed review taught the adapter, which coloured the rest. The scan keeps its luma, timing and sound.
+**Unman, Wittering and Zigo (1971): a synthetic reference.** A choir scene from a trailer faded to magenta, 164 frames. TeleStyle made the candidate frames; 101 passed review and became teachers, and the adapter coloured the rest. Training took about a minute and a half. The stained glass stays consistent through the pan ([record]({{ '/records/unman-wittering-zigo-choir/' | relative_url }})).
 
 <figure class="figure">
-  <img src="{{ '/images_kebab/temporal-cbcr/reptilicus-office-t178-f66.jpg' | relative_url }}" alt="Reptilicus: the faded office scene on the left and the result on the right" loading="lazy">
-  <figcaption><em>Reptilicus</em>: the faded source and the result, frame 66. <a href="{{ '/records/reptilicus-office/' | relative_url }}">Record</a>.</figcaption>
+  <a href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view"><img src="{{ '/images_kebab/temporal-cbcr/unman-wittering-zigo-choir-adapter.jpg' | relative_url }}" alt="Unman, Wittering and Zigo: the faded choir shot on the left and the adapter result on the right" loading="lazy"></a>
+  <figcaption><em>Unman, Wittering and Zigo</em>: the faded source and the adapter result. A still from the video on Google Drive.</figcaption>
 </figure>
 
 ## What still doesn't work
@@ -56,4 +63,5 @@ Colour learned from a historical or synthetic reference for the shot. The scan k
 
 - [Candy Candy: comparison video, 1 min 10 s (102 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&export=download&confirm=t)
 - [Candy Candy: the recovered scan at 4400 × 3300, 1 min 10 s (298 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1&export=download&confirm=t)
+- [Unman, Wittering and Zigo: Temporal CbCr adapter, 7 s (20.4 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&export=download&confirm=t)
 - [The Nuke template for CopyCat](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), for Nuke Non-Commercial or Indie.

@@ -35,7 +35,7 @@ Yellow is usually the lost dye, so the yellow-blue choices remain an interpretat
 - **Single frames.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on most faded material, with every frame reviewed. Use a plain chart as the guide, not a picture; a person in the guide image tends to appear in the shot.
 - **Whole shots.** Frames coloured one at a time flicker, so one approved reference has to guide the whole shot. MiniMax H3 with the Fun ControlNet, or TeleStyle (a LoRA for Qwen Image Edit), makes candidate frames. The good ones teach the Temporal CbCr adapter, which colours the rest.
 
-## Example
+## Examples
 
 **Counter Attack (1976): an unbalanced source, the whole shot.** A waterfront crowd from a film copy faded to magenta-red. No colour reference survives. MiniMax H3 with three reference stills carried the colour through the 338-frame shot. On 30 frames of fast hand movement, where H3 lost registration, an independent TeleStyle pass on the same shot replaced the colour. The scan's luma is kept on every frame.
 
@@ -50,6 +50,13 @@ Yellow is usually the lost dye, so the yellow-blue choices remain an interpretat
 - **Plausible results can be wrong.** On an unclear frame the model can invent objects or faces, so every result is checked against the scan.
 - **Resolution and length.** The video models work at around 768 × 432, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles and leaves seams.
 - **New shots.** The target is for at least three out of four new shots to work on the first pass. This has not been reached yet.
+
+**Folgers (1970s commercial): a balanced source.** The test shot for the balanced-source kit, reproduced at every stage within ΔE 1.5. The yellow-blue result is limited, as is usual when yellow is the lost dye.
+
+<figure class="figure">
+  <img src="{{ '/images_kebab/colour-recovery/commercials-folgers-before-after-f067.jpg' | relative_url }}" alt="A Folgers coffee commercial: the balanced, faded scan on the left and the recovered colour on the right" loading="lazy">
+  <figcaption><em>Folgers</em>: the balanced scan and the result, frame 67. The shot and the result are in the <a href="{{ '/downloads/faded-colour-recovery-t185/' | relative_url }}">download kit</a>. <a href="{{ '/records/folgers/' | relative_url }}">Record</a>.</figcaption>
+</figure>
 
 ## Downloads
 

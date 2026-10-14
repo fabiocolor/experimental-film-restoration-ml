@@ -41,7 +41,7 @@ nav_order: 0
     <p class="card-kicker">1</p>
     <h3>Faded colour recovery</h3>
     <p>Recovery of the colour of faded film from balanced or unbalanced scans. Surviving colour is kept; only faded colour is filled in.</p>
-    <p class="card-link-secondary">Example: Counter Attack</p>
+    <p class="card-link-secondary">Examples: Counter Attack, Folgers</p>
     <a class="card-link" href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery <span aria-hidden="true">→</span></a>
   </article>
 
@@ -49,7 +49,7 @@ nav_order: 0
     <p class="card-kicker">2</p>
     <h3>Temporal CbCr</h3>
     <p>Colour learned from a historical or synthetic reference and kept consistent through the shot.</p>
-    <p class="card-link-secondary">Examples: Candy Candy, Reptilicus</p>
+    <p class="card-link-secondary">Examples: Frontier Experience, Unman, Wittering and Zigo</p>
     <a class="card-link" href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr <span aria-hidden="true">→</span></a>
   </article>
 
@@ -85,12 +85,16 @@ nav_order: 0
     <figcaption><strong>Counter Attack</strong>: faded colour recovery, the whole shot.</figcaption>
   </figure>
   <figure>
-    <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="{{ '/images_kebab/candy-candy/candy-candy-comparison-still.jpg' | relative_url }}" alt="Candy Candy: the scan, the DVD reference and the result, side by side" loading="lazy"></a>
-    <figcaption><strong>Candy Candy</strong>: Temporal CbCr from a historical reference.</figcaption>
+    <a href="{{ '/colour-recovery/' | relative_url }}"><img src="{{ '/images_kebab/colour-recovery/commercials-folgers-before-after-f067.jpg' | relative_url }}" alt="Folgers: the balanced, faded scan and the recovered colour, side by side" loading="lazy"></a>
+    <figcaption><strong>Folgers</strong>: faded colour recovery from a balanced scan, with a download kit.</figcaption>
   </figure>
   <figure>
-    <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="{{ '/images_kebab/temporal-cbcr/reptilicus-office-t178-f66.jpg' | relative_url }}" alt="Reptilicus: the faded office scene and the result, side by side" loading="lazy"></a>
-    <figcaption><strong>Reptilicus</strong>: Temporal CbCr from a synthetic reference.</figcaption>
+    <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="{{ '/images_kebab/temporal-cbcr/frontier-experience-scan-reference-result-f020.jpg' | relative_url }}" alt="Frontier Experience: the faded scan, the result and the telecine reference" loading="lazy"></a>
+    <figcaption><strong>Frontier Experience</strong>: Temporal CbCr from a historical reference.</figcaption>
+  </figure>
+  <figure>
+    <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="{{ '/images_kebab/temporal-cbcr/unman-wittering-zigo-choir-adapter.jpg' | relative_url }}" alt="Unman, Wittering and Zigo: the faded choir shot and the result, side by side" loading="lazy"></a>
+    <figcaption><strong>Unman, Wittering and Zigo</strong>: Temporal CbCr from a synthetic reference.</figcaption>
   </figure>
   <figure>
     <a href="{{ '/diffusion-healing/' | relative_url }}"><img src="{{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }}" alt="Wong flute players: the decayed 16mm scan and the healed frame, side by side" loading="lazy"></a>

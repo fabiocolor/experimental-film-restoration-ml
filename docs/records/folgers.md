@@ -8,7 +8,7 @@ permalink: /records/folgers/
 
 # Folgers (1970s commercial): record
 
-The reference shot for the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). It is the only balanced-source example that has been reproduced end to end. It is not used as a showcase image: the result has too little blue (colour score 0.07, pass mark 3).
+The reference shot for the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). It is the only balanced-source example that has been reproduced end to end. It is shown on the colour recovery page as the balanced-source example. Its colour score is low (0.07, preferred minimum 3), but no other balanced-source result has been approved.
 
 | | |
 | --- | --- |

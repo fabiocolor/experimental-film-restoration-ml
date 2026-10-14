@@ -16,6 +16,7 @@ Film frames and clips remain the property of their respective rights holders. Th
 ## Research and source acknowledgements
 
 - Film names are given beside each example on the research pages and the talk pages.
+- Ross Lipman supplied the *Frontier Experience* telecine used as the historical reference on the [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}) page.
 - The flute players shot on the [Diffusion Healing]({{ '/diffusion-healing/' | relative_url }}) page is from the Wong Rengifo collection.
 - The faded trailers shown on the home page, the research pages and the talk pages (*Reptilicus*, *Obsession*, *Unman, Wittering and Zigo*, *Point Blank*, *Juggernaut*, *Ben*, *Martin*, *Tales of the Bizarre*) come from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps). The trailers belong to their rights holders.
 

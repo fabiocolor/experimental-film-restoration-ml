@@ -2,7 +2,7 @@
 layout: default
 title: "Wong flute players"
 parent: "Example Records"
-nav_order: 6
+nav_order: 7
 permalink: /records/wong-flute-players/
 ---
 

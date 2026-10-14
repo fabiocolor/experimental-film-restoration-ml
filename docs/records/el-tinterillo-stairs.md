@@ -2,7 +2,7 @@
 layout: default
 title: "El Tinterillo, stairs"
 parent: "Example Records"
-nav_order: 7
+nav_order: 8
 permalink: /records/el-tinterillo-stairs/
 ---
 

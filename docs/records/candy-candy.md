@@ -2,7 +2,7 @@
 layout: default
 title: "Candy Candy"
 parent: "Example Records"
-nav_order: 5
+nav_order: 6
 permalink: /records/candy-candy/
 ---
 
