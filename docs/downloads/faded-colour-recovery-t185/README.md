@@ -49,6 +49,12 @@ Every final frame keeps the scan's own brightness; only the colour is new. The y
 
 `example/` has the shot I checked the kit against: a 1970s Folgers coffee commercial, 135 frames at 1024 × 768.
 
+The larger example files are hosted outside the repository. Download them into `example/` before you start:
+
+- [`faded_frame.png`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/faded_frame.png)
+- [`result_respect.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/result_respect.mp4)
+- [`source_shot.mkv`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/source_shot.mkv)
+
 - `source_shot.mkv`: the balanced scan.
 - `source_y.png`, `faded_frame.png`, `canny.png`: the three inputs for the palette graph.
 - `palette.png`: the palette still I approved.

@@ -30,6 +30,16 @@ I checked the seam blend against the result I approved: run on the four example 
 
 `example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The result I approved is the stairs video on the upscaling page.
 
+The larger example files are hosted outside the repository. Download them into `example/` before you start:
+
+- [`w1.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w1.mp4)
+- [`w1_source.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w1_source.mp4)
+- [`w2b.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w2b.mp4)
+- [`w2b_source.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w2b_source.mp4)
+- [`w3.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w3.mp4)
+- [`w3_source.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w3_source.mp4)
+- [`w3b_source.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w3b_source.mp4)
+
 ## Comfy Cloud
 
 The graphs are ordinary ComfyUI JSON. I haven't run this kit on Comfy Cloud yet.

@@ -30,6 +30,12 @@ The prompt in the graph describes this shot. Write your own for your footage, an
 
 `example/` has the three first-pass windows of the flute players shot (frames 0–80, 51–131 and 102–182, 768 × 560). The result I approved is the reconstruction video on the gap-filling page.
 
+The larger example files are hosted outside the repository. Download them into `example/` before you start:
+
+- [`first_pass_frames_0_80.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/first_pass_frames_0_80.mp4)
+- [`first_pass_frames_102_182.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/first_pass_frames_102_182.mp4)
+- [`first_pass_frames_51_131.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/first_pass_frames_51_131.mp4)
+
 ## Comfy Cloud
 
 The graph uses only built-in nodes and standard Wan 2.1 files, so it should run on Comfy Cloud. I haven't run it there yet.

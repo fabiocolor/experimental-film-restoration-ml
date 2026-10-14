@@ -34,12 +34,12 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 </figure>
 
 <figure class="figure">
-  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-scan.mp4' | relative_url }}"></video>
+  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-scan-web.mp4' | relative_url }}"></video>
   <figcaption>The scan (8 seconds).</figcaption>
 </figure>
 
 <figure class="figure">
-  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-reconstruction.mp4' | relative_url }}"></video>
+  <video controls playsinline preload="metadata" src="{{ '/media/gap-filling/16mm-flute-players-reconstruction-web.mp4' | relative_url }}"></video>
   <figcaption>The approved reconstruction (8 seconds).</figcaption>
 </figure>
 
@@ -57,12 +57,12 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 
 ## Downloads
 
-- [The scan (8 s, MP4, 34 MB)]({{ '/media/gap-filling/16mm-flute-players-scan.mp4' | relative_url }})
-- [The approved reconstruction (8 s, MP4, 22 MB)]({{ '/media/gap-filling/16mm-flute-players-reconstruction.mp4' | relative_url }})
+- [The scan (8 s, MP4, 34 MB)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/16mm-flute-players-scan.mp4)
+- [The approved reconstruction (8 s, MP4, 22 MB)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4)
 - [Frame 30, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }})
 - [Frame 160, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f160.jpg' | relative_url }})
 
-These are the files I approved, at the working resolution of 768 × 560.
+These are the files I approved, at the working resolution of 768 × 560. The videos on this page are smaller web previews of them.
 
 - [The second pass: ComfyUI graph, seam blend and the example windows](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/gap-filling-second-pass). Checked against the approved result (average colour difference ΔE 0.9).
 
