@@ -144,8 +144,8 @@ def main():
     ap.add_argument('--dissolve', type=int, default=12)
     ap.add_argument('--label', default='stairs')
     a = ap.parse_args()
-    inp = Path(os.environ.get('CWC_INPUT_DIR', '.'))
-    outd = Path(os.environ.get('CWC_OUTPUT_DIR', 'out'))
+    inp = Path(os.environ.get('INPUT_DIR') or os.environ.get('CWC_INPUT_DIR', '.'))
+    outd = Path(os.environ.get('OUTPUT_DIR') or os.environ.get('CWC_OUTPUT_DIR', 'out'))
     outd.mkdir(parents=True, exist_ok=True)
     windows, src = {}, {}
     for spec in a.window:

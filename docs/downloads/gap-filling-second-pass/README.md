@@ -22,7 +22,7 @@ I checked it against the result I approved: run on the example files below, it m
 
 1. **Second pass.** Load `graph/second_pass_vace_refine.json`, point the Load Video node at one 81-frame window of your first pass, and run. It encodes the window as the starting point and samples at denoise 0.30 (seed 0, 30 steps, CFG 4.5), with the same window as the VACE control. Run it once for each window. Each window overlaps the next by 30 frames.
 2. **Pack each window.** The graph saves PNG frames. Pack each window losslessly, for example `ffmpeg -framerate 24 -i second_pass_%05d_.png -c:v ffv1 -pix_fmt bgr0 W1.mkv`.
-3. **Seam blend.** `CWC_INPUT_DIR=<folder with W1.mkv W2.mkv W3.mkv> CWC_OUTPUT_DIR=out python tools/run_blend_example.py`. It uses the overlaps to remove the tone steps at the cuts. For your own shot, change the windows and cuts in `run_blend_example.py`.
+3. **Seam blend.** `INPUT_DIR=<folder with W1.mkv W2.mkv W3.mkv> OUTPUT_DIR=out python tools/run_blend_example.py`. It uses the overlaps to remove the tone steps at the cuts. For your own shot, change the windows and cuts in `run_blend_example.py`.
 
 The prompt in the graph describes this shot. Write your own for your footage, and keep the last sentence: it asks the model to keep every person, hand, prop and movement exactly as they are.
 

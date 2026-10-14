@@ -5,6 +5,7 @@ nav_order: 4
 permalink: /diffusion-reconstruction/
 redirect_from: 
   - /upscaling/
+  - /spatial-recovery/
 ---
 
 
@@ -12,7 +13,7 @@ redirect_from:
 
 For films beyond repair, where every frame is too damaged for conventional restoration.
 
-Sometimes the picture survives, but it's too damaged for a traditional restoration. Our tools borrow from the same frame or the frames around it, and when every frame is damaged there's nothing clean left to borrow. That's where I use diffusion reconstruction: a video model rebuilds the picture from what survives, following its structure and movement.
+Conventional restoration tools borrow from the same frame or the frames around it. When every frame is damaged, there's nothing clean left to borrow. That's where I use diffusion reconstruction: a video model rebuilds the picture from what survives, following its structure and movement.
 
 The result is partly synthetic. The model invents fine detail the film no longer carries. Some people will call this heresy, and to a degree it is. I wouldn't call it proper film restoration myself, but for some footage I don't see another way.
 
@@ -20,11 +21,11 @@ The result is partly synthetic. The model invents fine detail the film no longer
 
 *El Tinterillo* is a medium-length black-and-white film that survives as a 16mm print with almost everything wrong with it, and a telecine that's cleaner, but soft, cropped and with the odd cadence of telecines from that time.
 
-The approved stairs shot, 624 frames, also shown in my [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}):
+The stairs shot, 624 frames, also shown in my [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}):
 
 <figure class="figure">
   <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}"></video>
-  <figcaption>The approved stairs shot (26 seconds, 768 × 432).</figcaption>
+  <figcaption>The stairs shot (26 seconds, 768 × 432).</figcaption>
 </figure>
 
 **What I did**
@@ -37,16 +38,13 @@ The approved stairs shot, 624 frames, also shown in my [FIAT/IFTA 2026 talk]({{ 
 
 **What worked, and what didn't**
 
-- On the 624-frame stairs shot the sections join into one consistent look, and I approved it. It's now the method for the other shots in the film, and several reels have been approved, some with notes.
+- On the 624-frame stairs shot the sections join into one consistent look. It's now the method for the other shots in the film.
 - The model works at about 768 × 432, so faces and fine detail are limited.
 - Small mouths don't follow the dialogue well; the lips get damped.
-- Video upscalers (SeedVR2, FlashVSR) and VACE were the wrong direction for this material.
+- Video upscalers (SeedVR2, FlashVSR) and VACE were the wrong direction for this material. So was my earlier attempt with CopyCat, a small model learning detail from the telecine.
 - I keep the original scan and the raw sections as the record, and I say what was generated.
-
-Before diffusion, I tried [spatial recovery with CopyCat]({{ '/spatial-recovery/' | relative_url }}) on the same film: a small model learning detail from the telecine.
 
 ## Downloads
 
-- [The approved stairs shot (26 s, MP4, 23 MB)]({{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }})
-
-- [Stairs kit: ComfyUI graphs, seam blend and the example windows](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/upscaling-stairs). Checked against the approved result (average colour difference ΔE 1.07).
+- [The stairs shot (26 s, MP4, 23 MB)]({{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }})
+- [Stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}): ComfyUI graphs, seam blend and the example windows. Checked against the result above (average colour difference ΔE 1.07).

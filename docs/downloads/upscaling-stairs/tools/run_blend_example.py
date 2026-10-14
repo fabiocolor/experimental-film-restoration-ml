@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Stairs example: four H3 windows (w1, w2b, w3b, w3) joined at cuts 200, 340, 400.
 
-Put the four window MP4s in CWC_INPUT_DIR as w1.mp4, w2b.mp4, w3b.mp4 and w3.mp4
+Put the four window MP4s in INPUT_DIR as w1.mp4, w2b.mp4, w3b.mp4 and w3.mp4
 (the files in example/ are ready to use), then:
 
-  CWC_INPUT_DIR=example CWC_OUTPUT_DIR=out python tools/run_blend_example.py
+  INPUT_DIR=example OUTPUT_DIR=out python tools/run_blend_example.py
 
 Window global starts: w1=1, w2b=128, w3b=300, w3=382. Half-pool 12, dissolve 12.
 For your own shot, change the windows and cuts below.
@@ -31,7 +31,7 @@ sys.argv = [
 # seam_blend resolves NAME:START:SUBDIR via (inp/sub).glob('*.mp4') - one mp4 per subdir.
 # Flat example/ has four mp4s, so stage into temp subdirs named by window.
 import os, tempfile, shutil
-inp = Path(os.environ.get('CWC_INPUT_DIR', 'example')).resolve()
+inp = Path(os.environ.get('INPUT_DIR') or os.environ.get('CWC_INPUT_DIR', 'example')).resolve()
 staging = Path(tempfile.mkdtemp(prefix='stairs_blend_'))
 try:
     for name in ('w1', 'w2b', 'w3b', 'w3'):
@@ -41,7 +41,7 @@ try:
         d = staging / name
         d.mkdir()
         os.symlink(src, d / src.name)
-    os.environ['CWC_INPUT_DIR'] = str(staging)
+    os.environ['INPUT_DIR'] = str(staging)
     sys.argv = [
         'seam_blend.py',
         '--window', 'w1:1:w1',

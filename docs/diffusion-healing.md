@@ -23,7 +23,7 @@ With tools like Phoenix, DIAMANT or DaVinci Resolve you can bridge two or three 
 3. **Keep the film's own motion where generation can't follow it.** Fast, thin action, like a hand or a drumstick, gets redrawn by the models. Where the film still carries it, I keep the film's own picture there.
 4. **Say what was generated.** The generated picture is an inference, not a recovery, and I always mark it.
 
-## Example: decayed 16mm colour footage
+## Example: Wong flute players
 
 Flute players and a drummer, 183 frames of 16mm colour reversal footage from the Wong Rengifo collection. The colour has faded to magenta, and the emulsion is breaking up across the whole shot. No other print exists.
 
@@ -68,12 +68,11 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 
 These are the files I approved, at the working resolution of 768 × 560. The videos on this page are smaller web previews of them.
 
-- [The second pass: ComfyUI graph, seam blend and the example windows](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/gap-filling-second-pass). Checked against the approved result (average colour difference ΔE 0.9).
+- [The second pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}): ComfyUI graph, seam blend and the example windows. Checked against the approved result (average colour difference ΔE 0.9).
 
 ## Limits
 
 - These models see a reduced picture, around 768 × 432 to 768 × 576, and about ten seconds at a time.
 - Small or fast movement is often smoothed or lost.
 - Every shot takes several attempts and a lot of review.
-
-The workflows aren't public yet.
+- Only the second pass is public so far; the first pass isn't yet.

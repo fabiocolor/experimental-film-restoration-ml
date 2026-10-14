@@ -1,6 +1,6 @@
 """The second-pass example: windows W1 0-80, W2 51-131, W3 102-182 at 768x560, cuts at 57 and 114.
 
-  CWC_INPUT_DIR=<folder with W1.mkv W2.mkv W3.mkv> CWC_OUTPUT_DIR=out python run_blend_example.py"""
+  INPUT_DIR=<folder with W1.mkv W2.mkv W3.mkv> OUTPUT_DIR=out python run_blend_example.py"""
 import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
