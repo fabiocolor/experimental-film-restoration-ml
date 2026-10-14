@@ -8,74 +8,55 @@ permalink: /research-status/
 
 # Where the research stands
 
-This is where my research is in October 2026, after SEAPAVAA in June and FIAT/IFTA in October: what works, what doesn't yet, and what you can try yourself. The examples are on the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}) and the [SEAPAVAA 2026 companion]({{ '/seapavaa-2026-companion/' | relative_url }}).
+This is where my research is in October 2026, after SEAPAVAA in June and FIAT/IFTA in October: what works, what doesn't yet, and what you can try yourself.
 
-What I'm trying to do is rescue the original colour, not colorize a black-and-white image. The colour that survives in the picture is evidence, so I respect it first and build on top of it, and references and generated colour only fill what was lost. Looking back at this year, what has worked best is exactly that: keeping the original picture of the film and letting the model add only what's missing, whether that's the colour, a gap or a word. None of it is one click, though. It takes a lot of patience, and it's always a restorer who decides what's acceptable and who says what was generated.
+Looking back at this year, what has worked best is keeping the original picture of the film and letting the model add only what's missing, whether that's the colour, a gap or the detail. None of it is one click. It takes patience, and it's always a restorer who decides what's acceptable and who says what was generated.
 
-## Faded colour recovery
-
-When there's no better copy, I create what I call a synthetic reference: an approved colour frame for each shot. For that I use Qwen Image Edit, running in ComfyUI.
-
-The normal first step is to balance the scan, for example with the [Faded Balancer DCTL](https://github.com/fabiocolor/Faded-Balancer-DCTL) in DaVinci Resolve, and then recover. In a proper restoration the scan usually arrives balanced anyway. Balancing only sets levels, so a balanced and an unbalanced scan hold the same dye information. Working from the unbalanced scan is a convenience for footage loaded as found.
+## 1. Faded colour recovery
 
 **What works now**
 
-- **Pre-balanced footage.** For balanced scans I now use what I call the neutral-source route, which I promoted on 13 October. One palette still comes from the scan's luma, with the faded frame as a hint of which hue each object had. H3 with the Fun ControlNet and the Temporal CbCr adapter carry it through the shot. Then the red-green colour that survived in the scan is respected: the recovery may strengthen it, but never flip or weaken it. The yellow-blue choices are still interpretation, because yellow is mostly the dye that's lost. I've tested it on four shots from one source so far, at reduced resolution.
-- **Single frames.** Qwen Image Edit 2511, guided by an edge map of the frame and a softly blurred colour chart, gives useful colour on all kinds of faded material. Someone still has to review every frame, and the colour is an interpretation.
-- **Whole shots.** The frames only agree with each other when the whole shot is guided by an approved reference. Three routes have worked for me:
-  - TeleStyle, a LoRA for Qwen Image Edit, which copies one approved reference onto every frame.
-  - MiniMax H3 with Alibaba's Fun ControlNet for H3, which uses the edges of every frame to keep the geometry.
-  - The Temporal CbCr adapter, a small model I built. You keep the frames that pass review (I call them teachers), and the adapter learns the colour of that one shot from them and fills in the rest. On the choir scene from *Unman, Wittering and Zigo*, about a hundred frames became teachers, and training took about a minute and a half.
-
-  Each of these worked on the shots where I tested them, which isn't the same as working on every shot.
+- **Balanced sources.** One palette still from the scan's luma, carried through the shot with MiniMax H3, the Fun ControlNet and the Temporal CbCr adapter, then checked so the red-green colour that survived is never flipped or weakened. Tested on four shots from one source so far, at reduced resolution.
+- **Unbalanced sources, single frames.** Qwen Image Edit 2511, guided by an edge map and a softly blurred colour chart, gives useful colour on all kinds of faded material, with someone reviewing every frame.
+- **Unbalanced sources, whole shots.** Frames from H3 or TeleStyle that pass review become teachers for the Temporal CbCr adapter, which fills in the rest of the shot.
 
 **What still doesn't**
 
-- **Semantic contamination.** If you use a leader lady as the reference, she ends up in the shot. A plain colour chart, softly blurred, avoids that.
-- **Frame by frame.** Each frame is a fair interpretation on its own, but together they flicker.
-- **Resolution and length.** The video models see a reduced picture, around 768 × 432, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles and you get seams.
-- **Hard motion and broken cadence.** My best *Counter Attack* result, a fast crowd shot, still has some tint in the shadows, because my copy had a broken cadence.
-- **Time.** One 11-second shot with TeleStyle took around four hours.
-- **New shots.** I'd like at least three out of four new shots to work on the first pass. I'm not there yet.
+- Frames coloured one at a time flicker.
+- A picture used as the colour guide leaks into the shot; a plain colour chart avoids that.
+- The video models see a reduced picture, around 768 × 432, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles.
+- Hard motion and a broken cadence still leave some tint, as in the *Counter Attack* crowd shot.
+- One 11-second shot with TeleStyle took around four hours.
+- I'd like at least three out of four new shots to work on the first pass. I'm not there yet.
 
-**What I'm working on**
+**What you can try today:** the [download kit for balanced sources]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). See [Faded Colour Recovery]({{ '/colour-recovery/' | relative_url }}).
 
-- One app that runs the current route on new shots (H3 with the Fun ControlNet, then the Temporal CbCr adapter), instead of one experiment at a time.
-- Building the neutral-source route into that app.
-- A cleaner ComfyUI version that someone else can run on their own machine.
+## 2. Temporal CbCr
 
-**What I'd like to do next**
+With a historical reference (a DVD, a telecine, another print), a small model learns the colour from matching frames, as on *Candy Candy*. With a synthetic reference, the frames a person approves teach the adapter, as on *Unman, Wittering and Zigo*, where about a hundred frames became teachers and training took about a minute and a half.
 
-- Make a few workflows from the best examples usable on ComfyUI Cloud, so you can try them without setting up your own GPU. That's a goal for now, not something that's ready.
+**What you can try today:** the Nuke template for CopyCat, from the [releases page](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), with the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) guide. The adapter isn't public yet. See [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}).
 
-**What you can try today**
+## 3. Diffusion healing
 
-- The current colour route for pre-balanced scans is available as a [kit](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/tree/main/docs/downloads/faded-colour-recovery-t185), checked step by step against a shot I approved. I took the earlier single-frame workflow down.
-- The whole-shot routes aren't on this site yet. They still depend on my own job system and on the adapter, which isn't public.
-- The example workflows from SEAPAVAA and FIAT/IFTA exist, but they need more work before someone else can use them.
+When frames are gone or the whole shot has decayed, I first use whatever survives in the other elements, then generate only what's missing, guided by the movement around it. On the decayed 16mm Wong flute players shot, I kept the film's own drumming where generation couldn't follow it. The picture is softer than I'd like, and the fastest strikes still move oddly.
 
-## Temporal CbCr: colour with a reference
+**What you can try today:** the [second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}). See [Diffusion Healing]({{ '/diffusion-healing/' | relative_url }}).
 
-This is where I started, and it's still my baseline. You train a small model for each film from matching frames of two copies: the damaged scan as the source, and a better copy as the result you want. So it needs that better copy to learn from.
+## 4. Diffusion reconstruction
 
-The Nuke template runs locally in Nuke Non-Commercial or Nuke Indie, with your own footage. You use it to build a small dataset for each shot and train CopyCat on it. You can get it from the [releases page](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), and the [CopyCat workflow guide]({{ '/copycat-workflow/' | relative_url }}) walks through the steps.
+For films beyond repair. On *El Tinterillo* I combined a 16mm print and a telecine, cleaned the result with a median filter to get a rough outline, and guided MiniMax H3 with a synthetic reference. The result has a synthetic look, and small faces and lip movement are still a problem.
 
-## Diffusion healing and diffusion reconstruction
+**What you can try today:** the [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}). See [Diffusion Reconstruction]({{ '/diffusion-reconstruction/' | relative_url }}).
 
-The second half of the FIAT/IFTA talk was about the picture itself.
+## 5. Black-and-white colourization
 
-- **Diffusion reconstruction.** For films beyond repair: when every frame of the surviving element is damaged, there's nothing left to borrow. On *El Tinterillo* I combined a 16mm print and a telecine, cleaned the result with a median filter to get a rough outline, and guided MiniMax H3 with a synthetic reference. The result has a synthetic look, and I wouldn't call it proper film restoration myself. Small faces and lip movement are still a problem.
-- **Diffusion healing.** When frames are completely gone, or the whole shot has decayed, I first use whatever survives in the other elements, and then generate only what's missing, guided by the movement around it. On a decayed 16mm colour shot of flute players and a drummer from the Wong Rengifo collection, I kept the film's own drumming where generation couldn't follow it and approved the result, with notes, at reduced resolution.
+Colour for orthochromatic and panchromatic film, inferred from the recorded greyscale and the stock's spectral response. Fifteen public-domain shots are done; skin on the earliest shots and some foliage are still open. See [Black-and-White Colourization]({{ '/black-and-white-colourization/' | relative_url }}).
 
-The examples, with stills, clips and downloads, are on the [Diffusion Healing]({{ '/diffusion-healing/' | relative_url }}) and [Diffusion Reconstruction]({{ '/diffusion-reconstruction/' | relative_url }}) pages, each with a download kit checked against the approved result.
+## What's next
 
-## Black-and-white colourization
-
-Colour for orthochromatic and panchromatic film, inferred from the recorded greyscale and the stock's spectral response. Fifteen public-domain shots are approved or approved with notes; skin on the earliest shots and some foliage are still open. See [Black-and-White Colourization]({{ '/black-and-white-colourization/' | relative_url }}).
-
-## Tools: dirt removal
-
-[Advanced Dirt Removal](https://github.com/fabiocolor/Advanced-Dirt-Removal) is a free macro for DaVinci Resolve, with a Motion Mask and a Recovery Brush to bring back what the cleaning took. It's a finished tool, on version 1.1.3.
+- One app that runs the current colour route on new shots, and a cleaner ComfyUI version someone else can run on their own machine.
+- A few workflows from the best examples on ComfyUI Cloud, so you can try them without your own GPU. That's a goal, not something that's ready.
 
 ## Hardware
 
@@ -93,7 +74,7 @@ Colour for orthochromatic and panchromatic film, inferred from the recorded grey
 | [Qwen Image Edit Lightning LoRAs](https://huggingface.co/lightx2v/Qwen-Image-Edit-2511-Lightning) | LightX2V | Apache-2.0 |
 | [TeleStyle V2](https://huggingface.co/Tele-AI/TeleStyleV2) | TeleAI | Apache-2.0 |
 | [MiniMax H3](https://huggingface.co/MiniMaxAI/MiniMax-H3) | MiniMax | MiniMax H3 Community License Agreement. The card has an application form for the USA, the EU, the UK and South Korea, so it's worth checking the terms where you are. |
-| Fun ControlNet for H3 | Alibaba PAI | See the model card |
+| [Fun ControlNet for H3](https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union) | Alibaba PAI | See the model card |
 
 ## A note on "approved"
 

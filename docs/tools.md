@@ -10,7 +10,7 @@ redirect_from:
 
 # Tools
 
-Two free tools for DaVinci Resolve that I use alongside this research. Each has its own repo.
+Two free tools I use alongside this research. Each has its own repository.
 
-- **Faded Balancer**: balances a faded scan before colour recovery. [github.com/fabiocolor/Faded-Balancer-DCTL](https://github.com/fabiocolor/Faded-Balancer-DCTL)
-- **Advanced Dirt Removal**: a Fusion macro for cleaning dirt, with a way to bring back what the cleaning took. [github.com/fabiocolor/Advanced-Dirt-Removal](https://github.com/fabiocolor/Advanced-Dirt-Removal)
+- [Faded Balancer](https://github.com/fabiocolor/Faded-Balancer-DCTL)
+- [Advanced Dirt Removal](https://github.com/fabiocolor/Advanced-Dirt-Removal)
