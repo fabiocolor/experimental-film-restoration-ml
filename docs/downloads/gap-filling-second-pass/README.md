@@ -8,9 +8,9 @@ permalink: /downloads/gap-filling-second-pass/
 
 # Diffusion healing: the second pass
 
-The last step of the flute players shot on the diffusion healing page. The first pass (MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light Wan VACE pass makes them one picture without moving anything.
+The last step of the flute players shot on the diffusion healing page. The first pass (MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light Wan VACE pass makes them consistent without changing geometry or motion.
 
-On the example files it matches my approved result to ΔE 0.9 on average, and each window to ΔE 0.6 or better. You can't see the difference.
+On the example files it matches the approved result to ΔE 0.9 on average, and each window to ΔE 0.6 or better, below the visible threshold.
 
 ## What you need
 
@@ -28,7 +28,7 @@ The prompt in the graph describes this shot. Write your own for your footage, an
 
 ## Example
 
-`example/` has the three first-pass windows of the flute players shot (frames 0–80, 51–131 and 102–182, 768 × 560). The result I approved is the reconstruction video on the diffusion healing page.
+`example/` has the three first-pass windows of the flute players shot (frames 0–80, 51–131 and 102–182, 768 × 560). The approved result is the reconstruction video on the diffusion healing page.
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 
@@ -38,4 +38,4 @@ The larger example files are hosted outside the repository. Download them into `
 
 ## Comfy Cloud
 
-The graph uses only built-in nodes and standard Wan 2.1 files, so it should run on Comfy Cloud. I haven't run it there yet.
+The graph uses only built-in nodes and standard Wan 2.1 files, so it should run on Comfy Cloud. It has not been tested there yet.

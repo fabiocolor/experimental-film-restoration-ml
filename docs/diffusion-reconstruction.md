@@ -13,36 +13,36 @@ redirect_from:
 
 For films beyond repair, where every frame is too damaged for conventional restoration.
 
-Restoration tools borrow from the same frame or the ones around it. When every frame is damaged, there's nothing clean to borrow. Here a video model rebuilds the picture from what's left, following its structure and movement.
+Restoration tools take picture information from the same frame or neighbouring frames. When every frame is damaged, no clean information is available. In this approach a video model rebuilds the picture from the surviving elements, following their structure and movement.
 
-The model invents fine detail the film no longer has. Some people will call that heresy, and they have a point. I wouldn't call it proper restoration, but for some footage I don't see another way.
+The model generates fine detail that the film no longer contains. This is not restoration in the conventional sense, but for some footage no other method is available.
 
 ## Example: *El Tinterillo*
 
-*El Tinterillo* is a medium-length black-and-white film that survives as a 16mm print with almost everything wrong with it, and a telecine that's cleaner, but soft, cropped and with the odd cadence of telecines from that time.
+*El Tinterillo* is a medium-length black-and-white film that survives as a heavily damaged 16mm print and a telecine that is cleaner but soft, cropped and with the irregular cadence of telecines from that period.
 
-The stairs shot, 624 frames, also shown in my [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}):
+The stairs shot, 624 frames, also shown in the [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}):
 
 <figure class="figure">
   <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}"></video>
   <figcaption>The stairs shot (26 seconds, 768 × 432).</figcaption>
 </figure>
 
-**What I did**
+**Workflow**
 
-1. **Combine the sources.** The telecine goes inside and the 16mm around it, which gives the full frame. I call this the hybrid.
+1. **Combine the sources.** The telecine goes inside and the 16mm around it, which gives the full frame. This is called the hybrid.
 2. **Clean the hybrid with a strong median filter.** It removes the damage and the fine detail, leaving a rough outline to guide the geometry.
-3. **Make a synthetic reference** for how the picture should look, with an image generator. One "look" reference for the whole shot keeps every part reading as the same film.
+3. **Make a synthetic reference** for how the picture should look, with an image generator. One "look" reference for the whole shot keeps all sections visually consistent.
 4. **Generate with MiniMax H3** in reference mode, in overlapping sections of about ten seconds. Each section starts in a calm passage, because a section that starts mid-move lags behind.
 5. **Join the sections** with cuts or a short blend inside the overlaps.
 
-**What worked, and what didn't**
+**Results**
 
-- On the 624-frame stairs shot the sections join into one consistent look. It's now the method for the other shots in the film.
+- On the 624-frame stairs shot the sections join into one consistent look. This is now the method for the other shots in the film.
 - The model works at about 768 × 432, so faces and fine detail are limited.
-- Small mouths don't follow the dialogue well; the lips get damped.
-- Video upscalers (SeedVR2, FlashVSR) and VACE were the wrong direction for this material. So was my earlier attempt with CopyCat, a small model learning detail from the telecine.
-- I keep the original scan and the raw sections as the record.
+- Small mouths do not follow the dialogue well; lip movement is reduced.
+- Video upscalers (SeedVR2, FlashVSR) and VACE did not suit this material. Neither did an earlier attempt with CopyCat, a small model learning detail from the telecine.
+- The original scan and the raw sections are kept as the record.
 
 ## Downloads
 

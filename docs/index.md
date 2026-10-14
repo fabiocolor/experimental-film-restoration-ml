@@ -6,7 +6,7 @@ nav_order: 0
 
 <div class="research-hero">
   <h1>Experimental Film Restoration with Machine Learning</h1>
-  <p class="hero-lede">What survives in the film is evidence. I respect it first, and let the models fill only what was lost: the colour that faded, the frames that are missing, the picture that's gone.</p>
+  <p class="hero-lede">What survives in the film is treated as evidence and kept. The models fill only what was lost: faded colour, missing frames and lost picture.</p>
   <div class="hero-buttons">
     <a href="{{ '/colour-recovery/' | relative_url }}" class="btn btn-primary">Start with faded colour recovery</a>
     <a href="{{ '/research-status/' | relative_url }}" class="btn btn-outline">Where the research stands</a>
@@ -31,7 +31,7 @@ nav_order: 0
 <p class="experiment-credit"><em>Reptilicus</em> (1961) trailer, from a 35mm trailer reel scan posted publicly on <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>. The trailer belongs to its rights holders.</p>
 
 <div class="research-intro">
-  <p>My research on machine learning for film restoration. Each area is a different problem, but the approach is the same: start from the scan, keep its picture, and let a model add only what's missing. None of it is one click. A restorer decides what's acceptable and says what was generated.</p>
+  <p>Research on machine learning for film restoration. Each area addresses a different problem with the same approach: start from the scan, keep its picture, and use a model only for what is missing. The process is not automatic. A restorer decides what is acceptable and records what was generated.</p>
 </div>
 
 ## Five research areas
@@ -40,7 +40,7 @@ nav_order: 0
   <article class="research-card research-card-featured">
     <p class="card-kicker">1</p>
     <h3>Faded colour recovery</h3>
-    <p>Bringing back the colour of faded film, from balanced or unbalanced scans. What survived is kept; only what faded is filled in.</p>
+    <p>Recovery of the colour of faded film from balanced or unbalanced scans. Surviving colour is kept; only faded colour is filled in.</p>
     <p class="card-link-secondary">Examples: Counter Attack, Folgers</p>
     <a class="card-link" href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery <span aria-hidden="true">→</span></a>
   </article>
@@ -48,7 +48,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">2</p>
     <h3>Temporal CbCr</h3>
-    <p>Colour learned from a reference for the shot, historical or synthetic, and kept steady through it.</p>
+    <p>Colour learned from a historical or synthetic reference and kept consistent through the shot.</p>
     <p class="card-link-secondary">Examples: Candy Candy, Unman, Wittering and Zigo</p>
     <a class="card-link" href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr <span aria-hidden="true">→</span></a>
   </article>
@@ -56,7 +56,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">3</p>
     <h3>Diffusion healing</h3>
-    <p>Healing damage across the frame, or missing frames, while keeping most of the original.</p>
+    <p>Repair of full-frame damage or missing frames while keeping most of the original.</p>
     <p class="card-link-secondary">Example: Wong flute players</p>
     <a class="card-link" href="{{ '/diffusion-healing/' | relative_url }}">Diffusion healing <span aria-hidden="true">→</span></a>
   </article>
@@ -64,7 +64,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">4</p>
     <h3>Diffusion reconstruction</h3>
-    <p>For films beyond repair. A video model rebuilds the picture from what's left. Some of the detail is synthetic, and I say so.</p>
+    <p>For films beyond repair. A video model rebuilds the picture from the surviving elements. Some of the detail is synthetic and is labelled as such.</p>
     <p class="card-link-secondary">Example: El Tinterillo</p>
     <a class="card-link" href="{{ '/diffusion-reconstruction/' | relative_url }}">Diffusion reconstruction <span aria-hidden="true">→</span></a>
   </article>
@@ -72,7 +72,7 @@ nav_order: 0
   <article class="research-card">
     <p class="card-kicker">5</p>
     <h3>Black-and-white colourization</h3>
-    <p>Colour for panchromatic and orthochromatic film, worked out from the greyscale and what the stock could see.</p>
+    <p>Colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response.</p>
     <a class="card-link" href="{{ '/black-and-white-colourization/' | relative_url }}">Black-and-white colourization <span aria-hidden="true">→</span></a>
   </article>
 </div>
@@ -109,7 +109,7 @@ nav_order: 0
 <div class="quiet-panel">
   <div>
     <h3>Where the research stands</h3>
-    <p>What works now, what doesn't yet, and what you can try yourself.</p>
+    <p>What works, what does not yet, and what can be reproduced.</p>
   </div>
   <a href="{{ '/research-status/' | relative_url }}" class="btn btn-primary">Read the status</a>
 </div>
@@ -119,4 +119,4 @@ nav_order: 0
 - [Talks]({{ '/talks/' | relative_url }}): the companion pages for FIAT/IFTA 2026 and SEAPAVAA 2026.
 - [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35): the peer-reviewed paper behind the CopyCat workflow.
 - [Video walkthrough](https://youtu.be/kXerjFGX9Kg) of the CopyCat colour-recovery workflow in Nuke.
-- [Tools]({{ '/tools/' | relative_url }}) I use alongside this research.
+- [Tools]({{ '/tools/' | relative_url }}) used alongside this research.

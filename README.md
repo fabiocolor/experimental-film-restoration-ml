@@ -1,6 +1,6 @@
 # Experimental Film Restoration with Machine Learning
 
-My research on machine learning for film restoration. What survives in the film is evidence. I keep it, and let the models fill only what was lost: faded colour, missing frames, picture that's gone. None of it is one click, and a restorer decides what's acceptable and says what was generated.
+Research on machine learning for film restoration. What survives in the film is treated as evidence and kept. The models fill only what was lost: faded colour, missing frames and lost picture. The process is not automatic. A restorer decides what is acceptable and records what was generated.
 
 **Website:** [fabiocolor.github.io/custom-machine-learning-for-film-restoration/](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/)
 
@@ -12,7 +12,7 @@ My research on machine learning for film restoration. What survives in the film 
 4. **[Diffusion Reconstruction](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/diffusion-reconstruction/)**: for films beyond repair. Example: the *El Tinterillo* stairs.
 5. **[Black-and-White Colourization](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/black-and-white-colourization/)**: colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response.
 
-[Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/) has the full picture as of October 2026: what works, what doesn't yet, and what you can try yourself. The [tools](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/tools/) I use alongside the research have their own repositories.
+[Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/) summarises the state of the research as of October 2026: what works, what does not yet, and what can be reproduced. The [tools](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/tools/) used alongside the research have their own repositories.
 
 ## Faded colour recovery example
 
@@ -38,7 +38,7 @@ The examples are workflow demonstrations, not finished restorations.
 
 ## Responsible use
 
-Generated colour or picture is an interpretation unless a known reference backs it up. Keep the original scan, name your references, show the in-between results and note the choices you made. The source outranks the model.
+Generated colour or picture is an interpretation unless a known reference backs it up. Keep the original scan, name your references, show the in-between results and note the choices you made. The source takes priority over the model.
 
 ## Support
 
@@ -46,6 +46,6 @@ If this research is useful to your work, you can [sponsor it on GitHub](https://
 
 ## Rights, licences, and attribution
 
-No single licence covers everything here. My material, third-party footage, references, models and software each have their own owners and terms.
+No single licence covers everything here. Original material, third-party footage, references, models and software each have their own owners and terms.
 
 See [Credits & Attribution](docs/credits.md) for the public source record and [Third-Party Notices](THIRD_PARTY_NOTICES.md) for the principal model and software projects. Credit is not permission to reuse third-party material, and this repository does not relicense it.

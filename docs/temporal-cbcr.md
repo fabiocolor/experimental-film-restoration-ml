@@ -11,12 +11,12 @@ redirect_from:
 
 # Temporal CbCr
 
-Colour learned from a reference for the shot, historical or synthetic. The scan keeps its brightness, detail and motion. Only the colour (the Cb and Cr channels) comes from the reference.
+Colour learned from a historical or synthetic reference for the shot. The scan keeps its brightness, detail and motion. Only the colour (the Cb and Cr channels) comes from the reference.
 
 ## Two kinds of reference
 
 - **Historical.** A better copy of the same frames survives: a DVD, a telecine, another print. If it lines up with the scan, it teaches the colour, and the result is a recovery.
-- **Synthetic.** No better copy survives, so open models (MiniMax H3, Qwen Image Edit, TeleStyle) make candidate colour frames and I approve the good ones. The result is an interpretation.
+- **Synthetic.** No better copy survives, so open models (MiniMax H3, Qwen Image Edit, TeleStyle) make candidate colour frames, and only approved frames are used. The result is an interpretation.
 
 ## How it works
 
@@ -31,7 +31,7 @@ Colour learned from a reference for the shot, historical or synthetic. The scan 
 
 - The standard-definition DVD was fine as a colour reference, because only its colour is used, not its detail.
 - Both copies were cropped to the picture area they share, so the model never learned the DVD's borders or burned-in subtitles.
-- One model for the whole sequence failed on fast pans and changing light. Separate models for the hard shots, with four to nine frame pairs each, fixed it.
+- One model for the whole sequence failed on fast pans and changing light. Separate models for the difficult shots, with four to nine frame pairs each, solved this.
 - A DVD brings its own grading and softness, and the result inherits it.
 
 <figure class="figure">
@@ -39,7 +39,7 @@ Colour learned from a reference for the shot, historical or synthetic. The scan 
   <figcaption><em>Candy Candy</em>: the original scan, the balanced scan, the DVD reference and the result. A still from the video on Google Drive.</figcaption>
 </figure>
 
-**Unman, Wittering and Zigo (1971): a synthetic reference.** A choir scene from a faded trailer. TeleStyle made the candidate frames; 101 of the 164 frames passed review and became teachers, the adapter filled in the rest, and training took about a minute and a half. The stained glass stays consistent through the pan.
+**Unman, Wittering and Zigo (1971): a synthetic reference.** A choir scene from a faded trailer. TeleStyle made the candidate frames; 101 of the 164 frames passed review and became teachers, the adapter filled in the rest, and training took about a minute and a half. The stained glass remains consistent through the pan.
 
 <figure class="figure">
   <a href="https://drive.google.com/file/d/1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD/view"><img src="https://drive.google.com/thumbnail?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&amp;sz=w960" alt="Unman, Wittering and Zigo: the faded choir shot and the adapter result, side by side" loading="lazy" referrerpolicy="no-referrer"></a>

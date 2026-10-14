@@ -10,7 +10,7 @@ permalink: /downloads/upscaling-stairs/
 
 How the stairs shot on the diffusion reconstruction page was made. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, and a light seam blend removes the tone steps at the cuts.
 
-On the four example windows, the seam blend matches my approved result to ΔE 1.07 on average. You can't see the difference.
+On the four example windows, the seam blend matches the approved result to ΔE 1.07 on average, below the visible threshold.
 
 ## What you need
 
@@ -19,7 +19,7 @@ On the four example windows, the seam blend matches my approved result to ΔE 1.
 
 ## Steps
 
-1. **Generate each window.** Load one of the graphs in `graphs/`, point it at the matching `example/` source MP4 and three reference stills, and run. The graphs are for this stairs shot: w1 (frames 1–243), w2b (128–370), w3b (300–542) and w3 (382–624). Keep a calm start for each section. The kit already includes the four H3 windows I used for the check (`example/w1.mp4` and so on), so you can skip this step if you only want to try the join.
+1. **Generate each window.** Load one of the graphs in `graphs/`, point it at the matching `example/` source MP4 and three reference stills, and run. The graphs are for this stairs shot: w1 (frames 1–243), w2b (128–370), w3b (300–542) and w3 (382–624). Keep a calm start for each section. The kit already includes the four H3 windows used for the check (`example/w1.mp4` and so on), so you can skip this step if you only want to try the join.
 2. **Seam blend.** From this folder:
 
    `INPUT_DIR=example OUTPUT_DIR=out python tools/run_blend_example.py`
@@ -28,7 +28,7 @@ On the four example windows, the seam blend matches my approved result to ΔE 1.
 
 ## Example
 
-`example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The result I approved is the stairs video on the diffusion reconstruction page.
+`example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The approved result is the stairs video on the diffusion reconstruction page.
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 
@@ -42,4 +42,4 @@ The larger example files are hosted outside the repository. Download them into `
 
 ## Comfy Cloud
 
-The graphs are ordinary ComfyUI JSON. I haven't run this kit on Comfy Cloud yet.
+The graphs are standard ComfyUI JSON. The kit has not been tested on Comfy Cloud yet.

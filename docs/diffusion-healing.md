@@ -10,18 +10,18 @@ redirect_from:
 
 # Diffusion healing
 
-For damage across the whole frame, or missing frames, where most of the original survives. I use every surviving element first, and the model heals only what's gone.
+For damage across the whole frame, or missing frames, where most of the original survives. Every surviving element is used first, and the model fills only what is lost.
 
-A nitrate section was cut out, a negative has a gap while the sound keeps running, or the emulsion has broken up across the shot.
+Typical cases: a nitrate section was cut out, a negative has a gap while the sound continues, or the emulsion has broken up across the shot.
 
-Phoenix, DIAMANT or Resolve can bridge two or three missing frames with optical flow. Over a longer gap, or when every frame is damaged, interpolation stops looking right.
+Phoenix, DIAMANT or Resolve can bridge two or three missing frames with optical flow. Over a longer gap, or when every frame is damaged, interpolation no longer gives acceptable results.
 
-## How I approach it
+## Method
 
-1. **Use everything that survives first.** If there are several elements of the same film, I line them up and pick, frame by frame, whichever one survives undamaged.
+1. **Use everything that survives first.** If several elements of the same film exist, they are aligned and, frame by frame, the undamaged one is used.
 2. **Generate only what's missing.** A video model (MiniMax H3 or Wan VACE) fills the missing or destroyed picture, guided by the movement around it and by references that keep people, props and look consistent through the shot.
-3. **Keep the film's own motion where generation can't follow it.** Fast, thin action, like a hand or a drumstick, gets redrawn by the models. Where the film still carries it, I keep the film's own picture there.
-4. **Say what was generated.** It's an inference, not a recovery, and I mark it.
+3. **Keep the film's own motion where generation cannot follow it.** The models redraw fast, thin action such as a hand or a drumstick. Where the film still carries it, the film's own picture is kept.
+4. **Label what was generated.** Generated picture is an inference, not a recovery, and is marked as such.
 
 ## Example: Wong flute players
 
@@ -47,17 +47,17 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
   <figcaption>The approved reconstruction (8 seconds).</figcaption>
 </figure>
 
-**What I did**
+**Workflow**
 
-1. **One storyboard sheet for the whole shot.** I restored all the keyframes together on one sheet, so that people, props and look agree, then guided MiniMax H3 with it across the shot.
-2. **The film's own drumming.** H3 redrew the fast, hooked drumstick no matter what control I gave it. So in a feathered area that follows the drummer's hands and beater (about 8% of the frame) I used the film's own brightness with the restored colour.
+1. **One storyboard sheet for the whole shot.** All keyframes were restored together on one sheet so that people, props and look are consistent. The sheet then guided MiniMax H3 across the shot.
+2. **The film's own drumming.** H3 redrew the fast, hooked drumstick regardless of the control used. In a feathered area that follows the drummer's hands and beater (about 8% of the frame), the film's own brightness was used with the restored colour.
 3. **One low-denoise pass to make it a single picture.** A light video-to-video pass with Wan VACE, starting from that assembly, made the drumming area and the rest of the frame match without moving the geometry or the motion.
 
-**What worked, and what didn't**
+**Results**
 
-- I approved it, with notes, at the working resolution of 768 × 560. The drumming area now matches its surroundings much better, specks drop from about 10% to 7.5% of the frame, and the picture is steadier from frame to frame.
-- The cost is softness: the picture is less detailed than the earlier version. More detail should come from a sharper first pass or an upscale, not from more denoising.
-- There's still some odd movement around the drum during the fastest strikes. In many of those frames the film's emulsion around the beater is destroyed, so there's no real beater left to keep. I've paused the shot here, to combine it later with conventional restoration.
+- Approved, with notes, at the working resolution of 768 × 560. The drumming area now matches its surroundings much better, specks drop from about 10% to 7.5% of the frame, and the picture is steadier from frame to frame.
+- The picture is softer and less detailed than the earlier version. More detail should come from a sharper first pass or an upscale, not from more denoising.
+- Some unnatural movement remains around the drum during the fastest strikes. In many of those frames the emulsion around the beater is destroyed, so no original beater remains to keep. Work on the shot is paused here, to be combined later with conventional restoration.
 
 ## Downloads
 

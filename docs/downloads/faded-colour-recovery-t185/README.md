@@ -10,13 +10,13 @@ permalink: /downloads/faded-colour-recovery-t185/
 
 The [faded colour recovery](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/colour-recovery/) route for balanced scans (black is black, white is white, the colour has collapsed). One shot at a time, at 768 × 576 for the video model.
 
-I checked every step against a shot I approved. The differences are too small to see: average ΔE 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
+Every step was checked against an approved shot. The differences are below the visible threshold: average ΔE 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
 
 ## What you need
 
 - ComfyUI, recent enough to have the MiniMax H3 nodes. Every node in these graphs is a built-in ComfyUI node; no custom nodes.
 - Python 3.10+ with `opencv-python`, `numpy` and `pillow`, and `ffmpeg`/`ffprobe` on your path. The adapter step also needs PyTorch with an NVIDIA GPU.
-- Models (put them in the usual ComfyUI folders). These are the exact files I used, all public:
+- Models (put them in the usual ComfyUI folders). These are the exact files used for the check, all public:
   - Palette still:
     - [`qwen_image_edit_2511_fp8mixed.safetensors`](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors) (diffusion_models)
     - [`qwen_2.5_vl_7b_fp8_scaled.safetensors`](https://huggingface.co/Comfy-Org/Qwen-Image_ComfyUI/blob/main/split_files/text_encoders/qwen_2.5_vl_7b_fp8_scaled.safetensors) (text_encoders)
@@ -28,7 +28,7 @@ I checked every step against a shot I approved. The differences are too small to
     - [`minimax_h3_video_vae_fp16.safetensors`](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_video_vae_fp16.safetensors) (vae)
     - [`minimax_h3_audio_vae_fp32.safetensors`](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_audio_vae_fp32.safetensors) (vae)
     - [`MiniMax-H3-Fun-Controlnet-Union.safetensors`](https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union/blob/main/MiniMax-H3-Fun-Controlnet-Union.safetensors) (model_patches). Use this original release, not 2.0 or a pruned copy.
-  - The NVFP4 text encoder needs an NVIDIA Blackwell GPU (RTX 50-series or newer). On older cards, use the [int8_convrot](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors) or [bf16](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_bf16.safetensors) encoder from the same repo. I haven't checked those against my result, so compare yours with the example before relying on it.
+  - The NVFP4 text encoder needs an NVIDIA Blackwell GPU (RTX 50-series or newer). On older cards, use the [int8_convrot](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors) or [bf16](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_bf16.safetensors) encoder from the same repo. These have not been checked against the approved result, so compare your output with the example before relying on it.
 
 ## The steps
 
@@ -47,7 +47,7 @@ Every frame keeps the scan's brightness; only the colour is new. Yellow is mostl
 
 ## Example
 
-`example/` has the shot I checked the kit against: a 1970s Folgers coffee commercial, 135 frames at 1024 × 768.
+`example/` has the shot the kit was checked against: a 1970s Folgers coffee commercial, 135 frames at 1024 × 768.
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 
@@ -57,22 +57,22 @@ The larger example files are hosted outside the repository. Download them into `
 
 - `source_shot.mkv`: the balanced scan.
 - `source_y.png`, `faded_frame.png`, `canny.png`: the three inputs for the palette graph.
-- `palette.png`: the palette still I approved.
-- `result_respect.mp4`: the result I approved.
+- `palette.png`: the approved palette still.
+- `result_respect.mp4`: the approved result.
 
 Run the steps on `source_shot.mkv` and compare your result with `result_respect.mp4`. Expect small differences: the models don't give identical output from run to run.
 
 ## Comfy Cloud (palette still only)
 
-The palette still runs on Comfy Cloud with the same graph and the same model I used. I haven't run it there yet.
+The palette still can run on Comfy Cloud with the same graph and model. It has not been tested there yet.
 
 1. Import `qwen_image_edit_2511_fp8mixed.safetensors` from [Comfy-Org on Hugging Face](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_edit_2511_fp8mixed.safetensors). Importing your own models needs a Creator plan or higher. If Cloud is missing the text encoder, the VAE or the Lightning LoRA listed above, import those the same way.
 2. Open `graphs/1_palette_still_fp8mixed_local.json` in Cloud.
 3. Upload `example/source_y.png`, `example/faded_frame.png` and `example/canny.png` into the three Load Image nodes, in that order, and run.
 4. Put the colour on the frame's own brightness on your computer: `python tools/composite_still.py example/faded_frame.png <Cloud output>.png palette.png`, and compare with `example/palette.png`.
 
-Don't swap in the bf16 model: I tried it, and the colour came out visibly different. The H3 step is for running locally.
+Do not use the bf16 model instead; in testing, its colour was visibly different. The H3 step is for running locally.
 
 ## Licences
 
-The code is mine, under the repository's licence. The models keep their own licences.
+The code is under the repository's licence. The models keep their own licences.

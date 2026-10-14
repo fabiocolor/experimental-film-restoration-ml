@@ -23,7 +23,7 @@ Start with a modest model and a held-out frame that is not part of the training 
 | Checkpoints | Every 10,000 steps | Compare the same held-out material at each checkpoint |
 | Contact sheets | About every 100 steps | Use them to spot divergence and memorisation |
 
-Use small geometric augmentation only when the composition allows it. Mild exposure variation can help, but do not introduce transformations that distort colour relationships, because colour is what the model is learning.
+Use small geometric augmentation only when the composition allows it. Mild exposure variation can help. Do not use transformations that change colour relationships, because the model is learning colour.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }}" alt="CopyCat Progress contact sheet">
@@ -64,7 +64,7 @@ Compare original and recovered renders in the same colour-managed Resolve projec
 | --- | --- | --- |
 | Luminance and detail | `Color` | Colour bleeds, flickers, changes identity, or contradicts evidence |
 
-Scopes can reveal range, luminance, or chroma changes, but they do not decide whether a restoration is historically or aesthetically acceptable. Human review remains the acceptance gate.
+Scopes show range, luminance and chroma changes, but do not decide whether a restoration is acceptable. Acceptance is decided by human review.
 
 ## Record the delivery
 

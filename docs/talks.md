@@ -8,7 +8,7 @@ permalink: /talks/
 
 # Talks
 
-Companion pages for my talks. Each follows the slides in order, with the examples and what worked.
+Companion pages for talks. Each follows the slides in order, with the examples and results.
 
 - [FIAT/IFTA 2026: The Current Limits of AI in Film Restoration and How They May Be Surpassed]({{ '/fiat-ifta-2026-companion/' | relative_url }}). Cinemateca Brasileira, São Paulo, 8 October 2026. Also in [Portuguese]({{ '/fiat-ifta-2026-companion/pt-br/' | relative_url }}) and [Spanish]({{ '/fiat-ifta-2026-companion/es/' | relative_url }}).
 - [SEAPAVAA 2026: Advancing Open-Weight AI Models for Color Recovery in Faded Film]({{ '/seapavaa-2026-companion/' | relative_url }}). June 2026.

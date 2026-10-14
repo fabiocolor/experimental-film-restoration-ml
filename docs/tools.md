@@ -10,7 +10,7 @@ redirect_from:
 
 # Tools
 
-Two free tools I use alongside this research. Each has its own repository.
+Two free tools used alongside this research. Each has its own repository.
 
 - [Faded Balancer](https://github.com/fabiocolor/Faded-Balancer-DCTL)
 - [Advanced Dirt Removal](https://github.com/fabiocolor/Advanced-Dirt-Removal)

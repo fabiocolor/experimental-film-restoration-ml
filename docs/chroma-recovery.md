@@ -8,7 +8,7 @@ grand_parent: "Temporal CbCr"
 
 # Building the Colour Target
 
-Picture detail survives in the scan, but its colour has faded, shifted or collapsed; a better copy of the same frames keeps the colour. Complete the [preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. Training, inference and delivery are on [Training, Inference and Review]({{ '/training-inference-review/' | relative_url }}).
+This stage applies when picture detail survives in the scan but its colour has faded or shifted, and a better copy of the same frames has the colour. Complete the [preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. Training, inference and delivery are on [Training, Inference and Review]({{ '/training-inference-review/' | relative_url }}).
 
 ## Record the reference
 
@@ -16,7 +16,7 @@ Note the reference's edition, owner or provider, transforms, compression, crop a
 
 ## Build the target
 
-The training target combines **source luminance** with **reference chroma**. This teaches colour recovery without asking the model to replace surviving source detail.
+The training target combines **source luminance** with **reference chroma**. The model learns colour only and does not replace source detail.
 
 1. If necessary, apply a restrained median or debanding pass to a compressed video reference. Record it.
 2. Clone the aligned reference crop onto the source so both branches use the same picture area.
