@@ -35,9 +35,9 @@ The prompt in the graph describes this shot. Write your own for your footage, an
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 
-- [`first_pass_frames_0_80.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/first_pass_frames_0_80.mp4)
-- [`first_pass_frames_102_182.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/first_pass_frames_102_182.mp4)
-- [`first_pass_frames_51_131.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/first_pass_frames_51_131.mp4)
+- [`first_pass_frames_0_80.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/first_pass_frames_0_80.mp4)
+- [`first_pass_frames_102_182.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/first_pass_frames_102_182.mp4)
+- [`first_pass_frames_51_131.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/first_pass_frames_51_131.mp4)
 
 ## Comfy Cloud
 

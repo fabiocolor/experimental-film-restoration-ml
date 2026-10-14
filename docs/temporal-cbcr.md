@@ -64,4 +64,4 @@ Colour learned from a historical or synthetic reference for the shot. The scan k
 - [Candy Candy: comparison video, 1 min 10 s (102 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=11UucDpEAC5QRlfF3BN12f3mggg-S58Ds&export=download&confirm=t)
 - [Candy Candy: the recovered scan at 4400 × 3300, 1 min 10 s (298 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1EgkquRW2zm2lQzR_uWOQCSvpl0agE7G1&export=download&confirm=t)
 - [Unman, Wittering and Zigo: Temporal CbCr adapter, 7 s (20.4 MB, on Google Drive)](https://drive.usercontent.google.com/download?id=1s7i8nd7tRFuwbACbc-MnJHQNtpNxyhDD&export=download&confirm=t)
-- [The Nuke template for CopyCat](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), for Nuke Non-Commercial or Indie.
+- [The Nuke template for CopyCat](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest), for Nuke Non-Commercial or Indie.

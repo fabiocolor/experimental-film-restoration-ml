@@ -61,8 +61,8 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
 
 ## Downloads
 
-- [The scan (8 s, MP4, 34 MB)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/16mm-flute-players-scan.mp4)
-- [The approved reconstruction (8 s, MP4, 22 MB)](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4)
+- [The scan (8 s, MP4, 34 MB)](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4)
+- [The approved reconstruction (8 s, MP4, 22 MB)](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4)
 - [Frame 30, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }})
 - [Frame 160, side by side (JPEG)]({{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f160.jpg' | relative_url }})
 

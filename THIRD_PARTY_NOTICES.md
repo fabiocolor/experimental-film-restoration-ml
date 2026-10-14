@@ -4,7 +4,7 @@ This repository documents independent research by Fabio P. Bedoya Huerta and inc
 
 The full public attribution record is maintained at:
 
-https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/credits/
+https://fabiocolor.github.io/experimental-film-restoration-ml/credits/
 
 ## Important rights distinction
 

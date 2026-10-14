@@ -20,7 +20,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p class="fc-byline">Fabio Bedoya<span>Diretor de Restauração, Filmfinity</span></p>
   <p class="fc-panel">Cinemateca Brasileira<span>8 de outubro de 2026</span></p>
   <div class="fc-buttons">
-    <a class="fc-btn fc-btn-primary" href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">A pesquisa no GitHub</a>
+    <a class="fc-btn fc-btn-primary" href="https://github.com/fabiocolor/experimental-film-restoration-ml">A pesquisa no GitHub</a>
     <a class="fc-btn" href="#workflows">Fluxos de trabalho e guias</a>
   </div>
   <p>Esta página acompanha a minha palestra. Ela segue os slides na ordem, então você pode encontrar a versão em tamanho real de cada exemplo à medida que ele aparece, ou voltar a ela depois. Para cada experimento, anotei o que funcionou e onde ainda há limitações.</p>
@@ -381,7 +381,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Treinamento, inferência e revisão</a>: preparar o material, iterar e decidir quando um resultado é aceitável.</li>
     <li><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a> (em inglês): a cor aprendida de uma referência histórica ou sintética e levada por todo o plano.</li>
     <li><a href="{{ '/research-status/' | relative_url }}">Onde a pesquisa está (outubro de 2026)</a> (em inglês): o que funciona, o que ainda não funciona e o que você pode reproduzir. O template do Nuke roda localmente no Nuke Non-Commercial ou Indie com o seu próprio material, e os fluxos do Qwen Image Edit rodam no ComfyUI. Os dois ainda precisam de algum trabalho para ficarem fáceis de usar.</li>
-    <li><a href="{{ '/' | relative_url }}">Toda a pesquisa deste site</a>, ou o <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repositório no GitHub</a>.</li>
+    <li><a href="{{ '/' | relative_url }}">Toda a pesquisa deste site</a>, ou o <a href="https://github.com/fabiocolor/experimental-film-restoration-ml">repositório no GitHub</a>.</li>
   </ul>
 </section>
 

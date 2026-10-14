@@ -8,7 +8,7 @@ permalink: /downloads/faded-colour-recovery-t185/
 
 # Faded colour recovery for balanced scans
 
-The [faded colour recovery](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/colour-recovery/) route for balanced scans (black is black, white is white, the colour has collapsed). One shot at a time, at 768 × 576 for the video model.
+The [faded colour recovery](https://fabiocolor.github.io/experimental-film-restoration-ml/colour-recovery/) route for balanced scans (black is black, white is white, the colour has collapsed). One shot at a time, at 768 × 576 for the video model.
 
 Every step was checked against an approved shot ([record]({{ '/records/folgers/' | relative_url }})). The differences are below the visible threshold: average ΔE 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
 
@@ -51,9 +51,9 @@ Every frame keeps the scan's brightness; only the colour is new. Yellow is mostl
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 
-- [`faded_frame.png`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/faded_frame.png)
-- [`result_respect.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/result_respect.mp4)
-- [`source_shot.mkv`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/source_shot.mkv)
+- [`faded_frame.png`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/faded_frame.png)
+- [`result_respect.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/result_respect.mp4)
+- [`source_shot.mkv`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/source_shot.mkv)
 
 - `source_shot.mkv`: the balanced scan.
 - `source_y.png`, `faded_frame.png`, `canny.png`: the three inputs for the palette graph.

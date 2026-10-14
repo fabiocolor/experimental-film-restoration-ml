@@ -10,9 +10,9 @@ The website and download kits for research on machine learning for film restorat
 4. Diffusion Reconstruction
 5. Black-and-White Colourization
 
-What works, what does not yet, and what can be reproduced is on [Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/).
+What works, what does not yet, and what can be reproduced is on [Where the research stands](https://fabiocolor.github.io/experimental-film-restoration-ml/research-status/).
 
 The examples are workflow demonstrations, not finished restorations. Generated colour or picture is an interpretation unless a known reference supports it.
 
-**Public site:** https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/  
-**GitHub:** https://github.com/fabiocolor/custom-machine-learning-for-film-restoration
+**Public site:** https://fabiocolor.github.io/experimental-film-restoration-ml/  
+**GitHub:** https://github.com/fabiocolor/experimental-film-restoration-ml
