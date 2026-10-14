@@ -131,7 +131,7 @@ body {
     width: 100%;
     height: auto;
     max-height: none;
-    padding: 1.6rem max(3rem, calc((100% - #{$c-wide}) / 2 + 3rem));
+    padding: 1.6rem unquote("max(3rem, calc((100% - #{$c-wide}) / 2 + 3rem))");
     justify-content: space-between;
   }
 
