@@ -10,6 +10,8 @@
   function compare(media) {
     var imgs = media.querySelectorAll('img');
     if (imgs.length !== 2) return;
+    // The browser's own image drag would take over the pointer; turn it off for the pair.
+    imgs.forEach(function (im) { im.draggable = false; im.addEventListener('dragstart', function (e) { e.preventDefault(); }); });
     var figure = media.closest('figure');
     var labels = media.getAttribute('data-compare').split('|');
     if (figure && !figure.querySelector('.pair-labels')) {
@@ -83,6 +85,7 @@
     var dragging = false;
     media.addEventListener('pointerdown', function (e) {
       if (!on) return;
+      e.preventDefault();
       dragging = true;
       media.setPointerCapture(e.pointerId);
       fromEvent(e);

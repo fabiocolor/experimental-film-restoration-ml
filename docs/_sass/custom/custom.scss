@@ -785,6 +785,13 @@ a {
   display: block;
   cursor: col-resize;
   user-select: none;
+  touch-action: none;
+
+  img {
+    -webkit-user-drag: none;
+    user-drag: none;
+    pointer-events: none;
+  }
 
   img:first-child {
     position: relative;
