@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Download: gap filling second pass"
+parent: "Gap Filling & Reconstruction"
+nav_order: 90
+permalink: /downloads/gap-filling-second-pass/
+---
+
 # Gap filling: the second pass
 
 This is the last step of the flute players and drummer reconstruction on the gap-filling page. The first pass (the whole shot rebuilt with MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light second pass with Wan VACE makes them one picture without moving anything.

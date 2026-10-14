@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Download: upscaling stairs kit"
+parent: "Upscaling"
+nav_order: 90
+permalink: /downloads/upscaling-stairs/
+---
+
 # Upscaling stairs: overlapping H3 windows and seam blend
 
 This is the method behind the stairs shot on the upscaling page. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, then a light seam blend removes the tone steps at the cuts.

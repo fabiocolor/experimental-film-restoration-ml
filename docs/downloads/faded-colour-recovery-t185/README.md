@@ -1,3 +1,11 @@
+---
+layout: default
+title: "Download: faded colour recovery kit"
+parent: "Colour Recovery"
+nav_order: 90
+permalink: /downloads/faded-colour-recovery-t185/
+---
+
 # Faded colour recovery for pre-balanced scans
 
 This is the route I use now for faded film that has already been balanced (black is black, white is white, and the colour has collapsed). It works on one shot at a time, at reduced resolution (768 × 576 for the video model).
