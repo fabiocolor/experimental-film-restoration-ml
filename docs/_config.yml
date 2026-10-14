@@ -6,14 +6,14 @@ plugins:
   - jekyll-remote-theme
   - jekyll-redirect-from
 
-url: ""
-baseurl: "/custom-machine-learning-for-film-restoration"
+url: "https://fabiocolor.github.io"
+baseurl: "/experimental-film-restoration-ml"
 
 color_scheme: option
 
 aux_links:
   "GitHub":
-    - "https://github.com/fabiocolor/custom-machine-learning-for-film-restoration"
+    - "https://github.com/fabiocolor/experimental-film-restoration-ml"
   "Research Paper":
     - "https://library.imaging.org/archiving/articles/22/1/35"
 
@@ -24,7 +24,7 @@ heading_anchors: true
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "<span class=\"footnote\">* The examples on this site are workflow demonstrations, not finished restorations.</span><br>Independent research in machine learning for film preservation and restoration. <a href=\"/custom-machine-learning-for-film-restoration/credits/\">Credits &amp; attribution</a>."
+footer_content: "<span class=\"footnote\">* The examples on this site are workflow demonstrations, not finished restorations.</span><br>Independent research in machine learning for film preservation and restoration. <a href=\"/experimental-film-restoration-ml/credits/\">Credits &amp; attribution</a>."
 
 permalink: pretty
 

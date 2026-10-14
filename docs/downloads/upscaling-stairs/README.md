@@ -42,13 +42,13 @@ On the four example windows, the seam blend matches the approved result to ΔE 1
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 
-- [`w1.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w1.mp4)
-- [`w1_source.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w1_source.mp4)
-- [`w2b.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w2b.mp4)
-- [`w2b_source.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w2b_source.mp4)
-- [`w3.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w3.mp4)
-- [`w3_source.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w3_source.mp4)
-- [`w3b_source.mp4`](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/download/examples-2026-10/w3b_source.mp4)
+- [`w1.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/w1.mp4)
+- [`w1_source.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/w1_source.mp4)
+- [`w2b.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/w2b.mp4)
+- [`w2b_source.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/w2b_source.mp4)
+- [`w3.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/w3.mp4)
+- [`w3_source.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/w3_source.mp4)
+- [`w3b_source.mp4`](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/w3b_source.mp4)
 
 ## Comfy Cloud
 

@@ -21,7 +21,7 @@ parent: Talks
   <p class="fc-byline">Fabio Bedoya<span>Head of Restoration, Filmfinity</span></p>
   <p class="fc-panel">Cinemateca Brasileira<span>8 October 2026</span></p>
   <div class="fc-buttons">
-    <a class="fc-btn fc-btn-primary" href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">The research on GitHub</a>
+    <a class="fc-btn fc-btn-primary" href="https://github.com/fabiocolor/experimental-film-restoration-ml">The research on GitHub</a>
     <a class="fc-btn" href="#workflows">Workflows and guides</a>
   </div>
   <p>This page goes with my talk. It follows the slides in order, so you can find the full-size version of each example as it comes up, or come back to it later. For each experiment, I've written down what worked and where it still falls short.</p>
@@ -382,7 +382,7 @@ parent: Talks
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Training, inference and review</a>: preparing material, iterating, and deciding when a result is acceptable.</li>
     <li><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a>: colour learned from a historical or synthetic reference and carried through the whole shot.</li>
     <li><a href="{{ '/research-status/' | relative_url }}">Where the research stands (October 2026)</a>: what works, what doesn't yet, and what you can reproduce. The Nuke template runs locally in Nuke Non-Commercial or Indie with your own footage, and the Qwen Image Edit workflows run in ComfyUI. Both still need some work before they're easy to use.</li>
-    <li><a href="{{ '/' | relative_url }}">All research on this site</a>, or the <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repository on GitHub</a>.</li>
+    <li><a href="{{ '/' | relative_url }}">All research on this site</a>, or the <a href="https://github.com/fabiocolor/experimental-film-restoration-ml">repository on GitHub</a>.</li>
   </ul>
 </section>
 

@@ -21,7 +21,7 @@ The Nuke template runs locally in Nuke Non-Commercial or Nuke Indie, with your o
 
 <div class="hero-buttons">
   <a href="{{ '/start-here/' | relative_url }}" class="btn btn-primary">Start the workflow</a>
-  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-outline">Get the Nuke template</a>
+  <a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest" class="btn btn-outline">Get the Nuke template</a>
 </div>
 
 ## The steps

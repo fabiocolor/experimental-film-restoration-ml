@@ -50,4 +50,4 @@ Commercial product names and trademarks belong to their respective owners. Their
 
 ## Corrections
 
-Please report a missing or incorrect credit through the [GitHub issue tracker](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/issues/new?title=Attribution%20correction).
+Please report a missing or incorrect credit through the [GitHub issue tracker](https://github.com/fabiocolor/experimental-film-restoration-ml/issues/new?title=Attribution%20correction).

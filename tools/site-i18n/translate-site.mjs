@@ -28,7 +28,7 @@ const cacheDirectory = path.resolve(
 const cacheFile = path.join(cacheDirectory, "translations.json");
 const basePath = normalizeBasePath(
   process.env.SITE_BASE_PATH ||
-    "/custom-machine-learning-for-film-restoration",
+    "/experimental-film-restoration-ml",
 );
 const siteOrigin = (
   process.env.SITE_ORIGIN || "https://fabiocolor.github.io"

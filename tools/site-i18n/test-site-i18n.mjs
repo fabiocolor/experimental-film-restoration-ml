@@ -25,8 +25,8 @@ try {
   <body>
     <main class="main-content">
       <h1>Open research</h1>
-      <a href="/custom-machine-learning-for-film-restoration/start-here/">Start here</a>
-      <img src="/custom-machine-learning-for-film-restoration/assets/source.png" alt="Source frame">
+      <a href="/experimental-film-restoration-ml/start-here/">Start here</a>
+      <img src="/experimental-film-restoration-ml/assets/source.png" alt="Source frame">
       <pre>do not translate</pre>
     </main>
   </body>
@@ -65,15 +65,15 @@ try {
   );
   assert.match(
     spanish,
-    /class="translation-notice"[\s\S]*href="\/custom-machine-learning-for-film-restoration\/"/,
+    /class="translation-notice"[\s\S]*href="\/experimental-film-restoration-ml\/"/,
   );
   assert.match(
     spanish,
-    /href="\/custom-machine-learning-for-film-restoration\/es\/start-here\/"/,
+    /href="\/experimental-film-restoration-ml\/es\/start-here\/"/,
   );
   assert.match(
     spanish,
-    /src="\/custom-machine-learning-for-film-restoration\/assets\/source.png"/,
+    /src="\/experimental-film-restoration-ml\/assets\/source.png"/,
   );
   assert.match(spanish, /<pre>do not translate<\/pre>/);
   assert.match(spanish, /data-language="es" selected/);
@@ -95,7 +95,7 @@ try {
   assert.doesNotMatch(englishOnly, /hreflang=/);
   assert.doesNotMatch(
     englishOnly,
-    /\/custom-machine-learning-for-film-restoration\/es\//,
+    /\/experimental-film-restoration-ml\/es\//,
   );
 
   console.log("Multilingual routing, metadata, translation, and asset tests passed.");

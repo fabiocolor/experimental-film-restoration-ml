@@ -35,7 +35,7 @@ The most reliable approach this year has been to keep the film's own picture and
 
 With a historical reference (a DVD, a telecine, another print), a small model learns the colour from matching frames, as on *Frontier Experience* (the adapter, from a telecine) and *Candy Candy* (CopyCat, from a DVD). *Frontier Experience* is the only example completed with the adapter from a historical reference so far. With a synthetic reference, the frames a person approves teach the adapter: on a choir shot from *Unman, Wittering and Zigo*, about a hundred frames became teachers and training took about a minute and a half.
 
-**What you can try today:** the Nuke template for CopyCat, from the [releases page](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest), with the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) guide. The adapter code is in the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). See [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}).
+**What you can try today:** the Nuke template for CopyCat, from the [releases page](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest), with the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) guide. The adapter code is in the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). See [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}).
 
 ## 3. Diffusion healing
 
