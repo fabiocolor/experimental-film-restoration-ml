@@ -97,3 +97,10 @@ docs/.jekyll-cache/
 *.pth
 .env.local
 .env.*.local
+
+# Internal maintainer tooling (kept locally, not published)
+/AGENTS.md
+/.cursor/
+/.research/
+/scripts/research_storage.py
+/scripts/research_artifacts.py

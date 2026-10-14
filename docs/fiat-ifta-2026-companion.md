@@ -1,10 +1,11 @@
 ---
 layout: default
 title: FIAT/IFTA 2026 Companion
-nav_order: 2
+nav_order: 1
 permalink: /fiat-ifta-2026-companion/
 fc_lang: en
 description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 talk, The Current Limits of AI in Film Restoration and How They May Be Surpassed.
+parent: Talks
 ---
 
 {% include fiat-companion/style.html %}
@@ -24,9 +25,10 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
     <a class="fc-btn" href="#workflows">Workflows and guides</a>
   </div>
   <p>This page goes with my talk. It follows the slides in order, so you can find the full-size version of each example as it comes up, or come back to it later. For each experiment, I've written down what worked and where it still falls short.</p>
+  <p>Since the talk, I've also written up <a href="{{ '/research-status/' | relative_url }}">where the research stands</a>: what works, what doesn't yet, and which workflows you can reproduce today.</p>
 </header>
 
-<p class="fc-tip">Tap a video to play it here. The player streams from Google Drive, so it may show a lower quality than the original, especially on a slow connection. The parts and evidence under each example open at full size in a viewer, where you can zoom in to see the detail. Most videos are side-by-side comparisons, so each half is smaller than the full file.</p>
+<p class="fc-tip">Tap a video to play it here. The player streams from Google Drive, so it may show a lower quality than the original, especially on a slow connection. The parts and evidence under each example open at full size in a viewer, where you can zoom in to see the detail. Most videos are side-by-side comparisons, so each half is smaller than the full file. Under each video there's a link to download the file.</p>
 
 <nav class="fc-toc" aria-labelledby="contents">
   <h2 id="contents">Follow the talk</h2>
@@ -41,9 +43,9 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
     <li><a href="#temporal-cbcr"><span class="fc-n">12–13</span>The Temporal CbCr adapter<span class="fc-v">Video</span></a></li>
     <li><a href="#diffusion-upscaling"><span class="fc-n">14–15</span>Diffusion upscaling<span class="fc-v">Video</span></a></li>
     <li><a href="#diffusion-reconstruction"><span class="fc-n">16–17</span>Diffusion reconstruction</a></li>
-    <li><a href="#combining-sources"><span class="fc-n">18–19</span>Combining sources, then reconstructing<span class="fc-v">Video</span></a></li>
+    <li><a href="#combining-sources"><span class="fc-n">18–19</span>Combining sources, then reconstructing</a></li>
     <li><a href="#dialogue-recovery"><span class="fc-n">20</span>Dialogue recovery</a></li>
-    <li><a href="#inside-existing-tools"><span class="fc-n">21</span>AI inside the tools we already use<span class="fc-v">Video</span></a></li>
+    <li><a href="#inside-existing-tools"><span class="fc-n">21</span>AI inside the tools we already use</a></li>
     <li><a href="#limits-now"><span class="fc-n">22</span>Where the limits are now</a></li>
     <li><a href="#thanks"><span class="fc-n">23</span>Thank you and credits</a></li>
   </ol>
@@ -187,7 +189,7 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
         <li><button type="button" class="fc-part fc-ev" data-id="v-04-inference-frame-000000-te-b3c5" data-kind="image" data-w="1184" data-h="880" data-title="Synthetic reference">Synthetic reference<span class="fc-dims">1184 × 880</span></button><p>What Qwen Image Edit returns. It's a reduced picture; only its colour is used.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="v-05-final-composite-fanji-fil-9236" data-kind="image" data-w="1920" data-h="1440" data-title="Final frame">Final frame<span class="fc-dims">1920 × 1440</span></button><p>The synthetic reference's colour on top of the brightness of the original scan, at full size.</p></li>
       </ol>
-      <p class="fc-more">The test setup in ComfyUI, with the source, the chart, the edge map, the prompt, the model and the output in one graph. It's from the crowd shot of the slide 9 video. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="ComfyUI screenshot">ComfyUI screenshot</button> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Workflow file (JSON)</a></p>
+      <p class="fc-more">The test setup in ComfyUI, with the source, the chart, the edge map, the prompt, the model and the output in one graph. It's from the crowd shot of the slide 9 video. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="ComfyUI screenshot">ComfyUI screenshot</button></p>
     </figcaption>
   </figure>
 {% include fiat-companion/evidence.html key="slide07" %}
@@ -329,40 +331,17 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <p>Tools like Phoenix, DIAMANT or DaVinci Resolve can bridge two or three missing frames with optical flow. Across a longer gap, the motion starts to feel wrong, because they can only interpolate what survives.</p>
   <p>In the talk, the example is a 15-frame gap in a camera negative where the sound still survives, so the gap has to be filled to keep picture and sound together. I tracked the actors from the last frame before the gap to the first frame after it, and carried that movement through the missing frames: those are the skeletons on slide 16. Then Alibaba's VACE video model generated the picture, guided by that movement, only inside the gap.</p>
   <div class="fc-limits"><p><strong>What worked, and the limits.</strong> The generated frames hold up well, and every original frame stays untouched. The resolution limit from slide 4 still applies, and what is generated has to be declared.</p></div>
-  <div class="fc-missing" style="margin-top: 1rem"><p>The clip shown on slide 17 isn't included on this page. The <a href="#combining-sources"><em>Knight of the Trail</em> example</a> below uses the same idea on nitrate damage.</p></div>
+  <div class="fc-missing" style="margin-top: 1rem"><p>The clip shown on slide 17 isn't included on this page.</p></div>
 </section>
 
 <section class="fc-section" id="combining-sources">
   <p class="fc-slide">Slides 18–19</p>
   <h2 id="combining-sources-section-title">Combining sources, then reconstructing</h2>
-  <p>When several elements survive, each one is usually damaged in different places. The George Eastman Museum sent me <em>Knight of the Trail</em> (1915) as a nitrate print and a diacetate safety copy. Together they cover most of the film, but in some places the nitrate has decayed and the safety copy is missing those frames too.</p>
+  <p>When several elements survive, each one is usually damaged in different places. In the talk I showed this on a silent film that survives as a nitrate print and a diacetate safety copy. Together they cover most of the film, but in some places the nitrate has decayed and the safety copy is missing those frames too.</p>
   <p>First, I bring the two elements together. They had different colour, warping and framing, so each frame of one is matched to the other by its features and warped into place. Then one tone correction, fitted on the cleanest matching frames, gives both the same look.</p>
-  <p>After that, each frame comes from whichever element survives undamaged: 155 frames from the nitrate print and 53 from the safety copy. The timeline on slide 18 is a map of this, with orange for the nitrate, blue for the safety copy and red where neither survives. In those 18 frames, I mask only the damaged areas, including damaged still background, and Wan VACE 14B, Alibaba's video model, reconstructs those. The surviving picture stays original, because we don't want to replace a whole frame just because part of it is damaged.</p>
-
-  <figure class="fc-media">
-{% include fiat-companion/video.html key="slide19" title="Knight of the Trail: diffusion reconstruction of nitrate damage" label="Play video: Knight of the Trail, reconstruction of nitrate damage (9 seconds)" %}
-    <p class="fc-bar">Slide 19 · <em>Knight of the Trail</em> (1915): diffusion reconstruction of nitrate damage. Courtesy of the George Eastman Museum.</p>
-    <figcaption class="fc-body">
-      <p>The nitrate original is on the left, and the approved result is on the right.</p>
-      <div class="fc-verdict">
-        <div><strong>What worked</strong><p>It holds together well, and here the resolution isn't much of an issue.</p></div>
-        <div><strong>Limits</strong><p>This is a working test at 640 × 512, shown inside an HD comparison. It isn't a native HD restoration.</p></div>
-      </div>
-{% include fiat-companion/files.html key="slide19" desc="1920 × 832 comparison · 9 s · 24 fps · silent" %}
-      <p class="fc-file">How it was made, from the research records</p>
-      <ol class="fc-parts fc-steps">
-        <li><span class="fc-part-label">Two elements</span><p>The nitrate print and the diacetate safety copy of this shot: 226 frames at 24 frames per second, worked at 640 × 512.</p></li>
-        <li><span class="fc-part-label">Registration</span><p>The safety copy was aligned to the nitrate by matching features, with one transform for the whole frame in each pair. 160 of the 162 overlapping pairs gave strong matches.</p></li>
-        <li><span class="fc-part-label">Tone</span><p>One tone and colour correction, fitted on the 40 cleanest pairs, made the safety copy match the nitrate.</p></li>
-        <li><span class="fc-part-label">Frame by frame</span><p>155 frames come from the nitrate, 53 from the safety copy, and 18 have no undamaged source, in five short gaps.</p></li>
-        <li><span class="fc-part-label">Generation</span><p>Wan VACE 14B generated each gap in a 33-frame window at 640 × 512, with one clean nitrate frame as its reference and the actors' tracked poses as control. 20 steps, CFG 3.5, seed 0.</p></li>
-        <li><span class="fc-part-label">Keeping the original</span><p>Everything that moves stayed original. Gross losses and damaged still background were replaced, and blended in over 24 pixels. 64.8% of the pixels in the gap frames are original.</p></li>
-        <li><span class="fc-part-label">Approval</span><p>This version was approved on 26 September. Frames outside the gaps are identical to the prepared plate.</p></li>
-      </ol>
-      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
-    </figcaption>
-  </figure>
-{% include fiat-companion/evidence.html key="slide19" %}
+  <p>After that, each frame comes from whichever element survives undamaged. A timeline of the shot works as a map of this: which element each frame comes from, and where neither survives. In those frames I mask only the damaged areas, and Wan VACE 14B, Alibaba's video model, reconstructs only those. The surviving picture stays original, because we don't want to replace a whole frame just because part of it is damaged.</p>
+  <div class="fc-limits"><p><strong>What worked, and the limits.</strong> It holds together well, and everything that survives stays untouched. It was a working test at reduced resolution, not a native HD restoration.</p></div>
+  <div class="fc-missing" style="margin-top: 1rem"><p>The example from the talk isn't shown on this page.</p></div>
 </section>
 
 <section class="fc-section" id="dialogue-recovery">
@@ -379,26 +358,6 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <h2 id="inside-existing-tools-section-title">AI inside the tools we already use</h2>
   <p>AI can also work through the tools we already use. The companies that make them are building it in, for control and management as well as processing. DaVinci Resolve 21.1 lets AI assistants operate it directly, Premiere Pro has an AI Assistant that works inside the project, and Avid has shown agentic AI for Media Composer. Restoration tools can work the same way.</p>
 
-  <figure class="fc-media">
-{% include fiat-companion/video.html key="slide21" title="Point Blank: a model working inside Phoenix" label="Play video: Point Blank, a model working inside Phoenix (30 seconds)" %}
-    <p class="fc-bar">Slide 21 · <em>Point Blank</em> (1967): a model working inside Phoenix</p>
-    <figcaption class="fc-body">
-      <p>One of my research tests. After Dry Clean runs in Phoenix, a model paints the protection masks directly in the project. The red shows what Dry Clean changed.</p>
-      <div class="fc-limits"><p><strong>Limits.</strong> It's still at an early stage. This is a screen recording of the workflow, not a finished restoration.</p></div>
-{% include fiat-companion/files.html key="slide21" desc="1920 × 1080 screen recording · 30 s · 24 fps · silent" %}
-      <p class="fc-file">How it was made, from the research records</p>
-      <ol class="fc-parts fc-steps">
-        <li><span class="fc-part-label">Source</span><p>A teaching copy of the Point Blank trailer project in Phoenix: a 52-frame shot, 2048 × 1556, at 24 frames per second.</p></li>
-        <li><span class="fc-part-label">Two renders</span><p>The shot was exported twice from Phoenix: once without Dry Clean and once with it.</p></li>
-        <li><span class="fc-part-label">What Dry Clean changed</span><p>The difference between the two renders shows what Dry Clean changed. Changes larger than 8 code values were grouped into separate marks.</p></li>
-        <li><span class="fc-part-label">The model</span><p>A small image classifier (ResNet18), trained on brush strokes from another film, looked at each mark with the frames before and after it and predicted whether to bring the original picture back there.</p></li>
-        <li><span class="fc-part-label">Into the project</span><p>Its choices became Matte Paint brush strokes: 630 over the 52 frames, written into the Phoenix project and read back to check them.</p></li>
-        <li><span class="fc-part-label">Review</span><p>The recording is Phoenix playing the result with Red Difference on. In review, it also brought back wall areas where no meaningful information was lost, so it isn't accepted yet.</p></li>
-      </ol>
-      <p class="fc-more fc-steps-note">The images for these steps are in private research folders and aren't on this page yet.</p>
-    </figcaption>
-  </figure>
-{% include fiat-companion/evidence.html key="slide21" %}
 </section>
 
 <section class="fc-section" id="limits-now">
@@ -419,9 +378,10 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
   <h2 id="workflows-title">Workflows and guides</h2>
   <ul class="fc-points">
     <li><a href="{{ '/chroma-recovery/' | relative_url }}">Reference-trained colour recovery</a>: learn from matched source and reference frames, then combine the predicted colour with the brightness of the scan.</li>
-    <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Open-weight colour recovery</a>: create and review colour proposals while the scan stays the authority.</li>
+    <li><a href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery</a>: create and review colour proposals while the scan remains the primary source.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Training, inference and review</a>: preparing material, iterating, and deciding when a result is acceptable.</li>
-    <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Research routes and open questions</a>: an earlier snapshot of the research, with its evidence and limits.</li>
+    <li><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a>: colour learned from a historical or synthetic reference and carried through the whole shot.</li>
+    <li><a href="{{ '/research-status/' | relative_url }}">Where the research stands (October 2026)</a>: what works, what doesn't yet, and what you can reproduce. The Nuke template runs locally in Nuke Non-Commercial or Indie with your own footage, and the Qwen Image Edit workflows run in ComfyUI. Both still need some work before they're easy to use.</li>
     <li><a href="{{ '/' | relative_url }}">All research on this site</a>, or the <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repository on GitHub</a>.</li>
   </ul>
 </section>
@@ -429,12 +389,8 @@ description: Full-size examples and notes from Fabio Bedoya's FIAT/IFTA 2026 tal
 <section class="fc-thanks" id="thanks">
   <p class="fc-slide fc-slide-light">Slide 23</p>
   <h2 id="thanks-title">Thank you</h2>
-  <p>Thank you to FIAT/IFTA and the organisers. Special thanks to:</p>
-  <ul>
-    <li>Studiocanal, for <em>For Better, For Worse</em> (1954) and <em>Poison Pen</em> (1939)</li>
-    <li>the George Eastman Museum, for <em>Knight of the Trail</em> (1915)</li>
-  </ul>
-  <p class="fc-small">Other examples are research tests on publicly available copies, mostly faded trailers from archive.org. Film excerpts remain the property of their rights holders, and showing them here doesn't grant permission to reuse them. See <a href="{{ '/credits/' | relative_url }}">credits and attribution</a>.</p>
+  <p>Thank you to FIAT/IFTA and the organisers.</p>
+  <p class="fc-small">The examples on this page are my research tests: faded trailers from a 35mm trailer reel scan posted publicly on <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>, and copies of other films I worked with. Film excerpts remain the property of their rights holders, and showing them here doesn't grant permission to reuse them. See <a href="{{ '/credits/' | relative_url }}">credits and attribution</a>.</p>
   <p>Questions or suggestions are welcome:</p>
   <ul>
     <li>Email: <a href="mailto:info@fabiocolor.com">info@fabiocolor.com</a></li>

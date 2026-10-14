@@ -1,14 +1,15 @@
-title: Machine Learning for Film Restoration
-description: Open research on Qwen Image Edit, open-weight colour recovery, and reference-trained film restoration
+title: Experimental Film Restoration with Machine Learning
+description: "Research on film restoration with machine learning: faded colour recovery, Temporal CbCr, diffusion healing, diffusion reconstruction and black-and-white colourization. What survives in the film is evidence; models only fill what was lost."
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 
 plugins:
   - jekyll-remote-theme
+  - jekyll-redirect-from
 
 url: ""
 baseurl: "/custom-machine-learning-for-film-restoration"
 
-color_scheme: dark
+color_scheme: option
 
 aux_links:
   "GitHub":
@@ -23,19 +24,70 @@ heading_anchors: true
 back_to_top: true
 back_to_top_text: "Back to top"
 
-footer_content: "Independent research in machine learning for film preservation and restoration. <a href=\"/custom-machine-learning-for-film-restoration/credits/\">Credits &amp; attribution</a>."
+footer_content: "<span class=\"footnote\">* The examples on this site are workflow demonstrations, not finished restorations.</span><br>Independent research in machine learning for film preservation and restoration. <a href=\"/custom-machine-learning-for-film-restoration/credits/\">Credits &amp; attribution</a>."
 
 permalink: pretty
 
-defaults:
-  - scope:
-      path: "downloads/qwen-color-recovery/THIRD_PARTY_NOTICES.md"
-    values:
-      nav_exclude: true
+include:
+  - __init__.py
 
 exclude:
   - images_kebab/full/
   - film-element-pair-alignment-runbook.md
-  - downloads/qwen-color-recovery/README.md
-  - downloads/qwen-color-recovery/custom_nodes/faded_color_recovery/README.md
   - Gemfile.lock
+  # Media that no page links to. The files stay in the repository as research records, but aren't published.
+  - "images_kebab/ben/"
+  - "images_kebab/beta/"
+  - "images_kebab/friends/"
+  - "images_kebab/frontier-experience/"
+  - "images_kebab/psm/"
+  - "images_kebab/rebelion-de-las-tapadas/"
+  - "images_kebab/tinterillo/"
+  - "images_kebab/muralla-verde/muralla-verde-chroma-recovery-finished.png"
+  - "images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif"
+  - "images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif"
+  - "images_kebab/general/chroma-recovery-non-reference.png"
+  - "images_kebab/general/spatial-recovery-proof-of-concept-preview.gif"
+  - "images_kebab/cropped/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png"
+  - "images_kebab/cropped/shuffle-node-spatial-settings-cropped.png"
+  - "images_kebab/candy-candy/candy-candy-chroma-recovery-finished.png"
+  - "images_kebab/candy-candy/candy-candy-comparison-preview.gif"
+  - "media/seapavaa2026/muralla-verde-comparison-1080p.mp4"
+  - "images_kebab/candy-candy/candy-candy-resolve-dctl-after-correction-red-channel.png"
+  - "images_kebab/candy-candy/candy-candy-resolve-dctl-before-correction-faded.png"
+  - "images_kebab/cropped/colorspace-node-ycbcr-to-linear-settings-cropped.png"
+  - "images_kebab/cropped/copycat-settings-cropped.png"
+  - "images_kebab/cropped/node-graph-overview-cropped.png"
+  - "images_kebab/digitization/first-scan-last-chance-cover.jpg"
+  - "images_kebab/full/"
+  - "images_kebab/general/inference-output-scrub-preview.gif"
+  - "images_kebab/seapavaa2026/atlas_top_comparison.png"
+  - "images_kebab/seapavaa2026/candy_ending_frame_1619_seed1_powerpoint_safe.png"
+  - "images_kebab/seapavaa2026/fanji_c4_row3_garden_source_vs_composite.png"
+  - "images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.png"
+  - "images_kebab/seapavaa2026/originals/candy_ending_frame_1619/06_source_raw_composite_contact_sheet.png"
+  - "images_kebab/seapavaa2026/originals/candy_ending_frame_1619/PROVENANCE.md"
+  - "images_kebab/seapavaa2026/originals/fanji_garden/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png"
+  - "images_kebab/seapavaa2026/originals/fanji_waterfront_top3/"
+  - "images_kebab/seapavaa2026/originals/fanji_waterfront_top3_fullframe/"
+  - "images_kebab/seapavaa2026/originals/fanji_waterfront_top3_panels_exact/"
+  - "images_kebab/seapavaa2026/originals/fanji_waterfront_top3_stills/"
+  - "images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/02_reference_chart.png"
+  - "images_kebab/seapavaa2026/originals/interior_woman_paths/03_balanced_source.png"
+  - "images_kebab/seapavaa2026/originals/jug_auditorium/01_source_juggernaut_tlr_000066-ed2dda29.png"
+  - "images_kebab/seapavaa2026/originals/jug_auditorium/03_reference_Belak_Color_Patch_Chart_softblur_32-9142a789.png"
+  - "images_kebab/seapavaa2026/originals/reptilicus_t001_source_tiles/"
+  - "images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/PROVENANCE.md"
+  - "images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_source_rgb.png"
+  - "images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_stitched_tile_raw_rgb.png"
+  - "images_kebab/seapavaa2026/originals/reptilicus_t001_tiling/reptilicus_t001_tiled_raw_inference_panel_exact.png"
+  - "images_kebab/seapavaa2026/originals/reptilicus_t001_tiling_tiles/"
+  - "images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/02_color_chart_reference.png"
+  - "images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/PROVENANCE.md"
+  - "images_kebab/seapavaa2026/raw_scan_vs_raw_inference_contact_sheet_4x2.png"
+  - "images_kebab/seapavaa2026/shot0006_balanced_vs_unbalanced_paths_2x2.png"
+  - "images_kebab/workflow/"
+  - "media/seapavaa2026/interior_woman_v3_24f_source_composite_24fps.mp4"
+  - "media/seapavaa2026/originals/shot0001_context_board.png"
+  - "media/seapavaa2026/shot0006_source_raw_composite_native.mp4"
+  - "media/seapavaa2026/shot0011_source_raw_composite_native.mp4"

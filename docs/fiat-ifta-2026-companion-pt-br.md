@@ -24,9 +24,10 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <a class="fc-btn" href="#workflows">Fluxos de trabalho e guias</a>
   </div>
   <p>Esta página acompanha a minha palestra. Ela segue os slides na ordem, então você pode encontrar a versão em tamanho real de cada exemplo à medida que ele aparece, ou voltar a ela depois. Para cada experimento, anotei o que funcionou e onde ainda há limitações.</p>
+  <p>Depois da palestra, também escrevi um resumo de <a href="{{ '/research-status/' | relative_url }}">onde a pesquisa está agora</a> (em inglês): o que funciona, o que ainda não funciona e quais fluxos de trabalho você pode reproduzir hoje.</p>
 </header>
 
-<p class="fc-tip">Toque em um vídeo para assistir aqui mesmo. O player transmite do Google Drive, então pode mostrar uma qualidade menor que a do original, principalmente em uma conexão lenta. As partes e as evidências de cada exemplo abrem em tamanho real em um visualizador, onde você pode dar zoom para ver os detalhes. A maioria dos vídeos são comparações lado a lado, então cada metade é menor que o arquivo completo.</p>
+<p class="fc-tip">Toque em um vídeo para assistir aqui mesmo. O player transmite do Google Drive, então pode mostrar uma qualidade menor que a do original, principalmente em uma conexão lenta. As partes e as evidências de cada exemplo abrem em tamanho real em um visualizador, onde você pode dar zoom para ver os detalhes. A maioria dos vídeos são comparações lado a lado, então cada metade é menor que o arquivo completo. Embaixo de cada vídeo há um link para baixar o arquivo.</p>
 
 <nav class="fc-toc" aria-labelledby="contents">
   <h2 id="contents">Acompanhe a palestra</h2>
@@ -41,9 +42,9 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
     <li><a href="#temporal-cbcr"><span class="fc-n">12–13</span>O adaptador Temporal CbCr<span class="fc-v">Vídeo</span></a></li>
     <li><a href="#diffusion-upscaling"><span class="fc-n">14–15</span>Upscaling por difusão<span class="fc-v">Vídeo</span></a></li>
     <li><a href="#diffusion-reconstruction"><span class="fc-n">16–17</span>Reconstrução por difusão</a></li>
-    <li><a href="#combining-sources"><span class="fc-n">18–19</span>Combinando fontes e depois reconstruindo<span class="fc-v">Vídeo</span></a></li>
+    <li><a href="#combining-sources"><span class="fc-n">18–19</span>Combinando fontes e depois reconstruindo</a></li>
     <li><a href="#dialogue-recovery"><span class="fc-n">20</span>Recuperação de diálogos</a></li>
-    <li><a href="#inside-existing-tools"><span class="fc-n">21</span>IA dentro das ferramentas que já usamos<span class="fc-v">Vídeo</span></a></li>
+    <li><a href="#inside-existing-tools"><span class="fc-n">21</span>IA dentro das ferramentas que já usamos</a></li>
     <li><a href="#limits-now"><span class="fc-n">22</span>Onde estão as limitações hoje</a></li>
     <li><a href="#thanks"><span class="fc-n">23</span>Agradecimentos e créditos</a></li>
   </ol>
@@ -187,7 +188,7 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
         <li><button type="button" class="fc-part fc-ev" data-id="v-04-inference-frame-000000-te-b3c5" data-kind="image" data-w="1184" data-h="880" data-title="Referência sintética">Referência sintética<span class="fc-dims">1184 × 880</span></button><p>O que o Qwen Image Edit devolve. É uma imagem reduzida; só a cor dela é usada.</p></li>
         <li><button type="button" class="fc-part fc-ev" data-id="v-05-final-composite-fanji-fil-9236" data-kind="image" data-w="1920" data-h="1440" data-title="Quadro final">Quadro final<span class="fc-dims">1920 × 1440</span></button><p>A cor da referência sintética sobre o brilho da digitalização original, em tamanho real.</p></li>
       </ol>
-      <p class="fc-more">A configuração do teste no ComfyUI, com a fonte, a carta, o mapa de bordas, o prompt, o modelo e o resultado em um único grafo. É do plano da multidão do vídeo do slide 9. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="Captura de tela do ComfyUI">Captura de tela do ComfyUI</button> · <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}">Arquivo do fluxo de trabalho (JSON)</a></p>
+      <p class="fc-more">A configuração do teste no ComfyUI, com a fonte, a carta, o mapa de bordas, o prompt, o modelo e o resultado em um único grafo. É do plano da multidão do vídeo do slide 9. <button type="button" class="fc-ev fc-ev-link" data-id="v-comfyui-workflow-fanji-water-d2cc" data-kind="image" data-w="1920" data-h="670" data-title="Captura de tela do ComfyUI">Captura de tela do ComfyUI</button></p>
     </figcaption>
   </figure>
 {% include fiat-companion/evidence.html key="slide07" %}
@@ -329,40 +330,17 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <p>Ferramentas como Phoenix, DIAMANT ou DaVinci Resolve conseguem preencher dois ou três quadros faltantes com fluxo óptico. Em uma lacuna mais longa, o movimento começa a parecer errado, porque elas só conseguem interpolar o que sobreviveu.</p>
   <p>Na palestra, o exemplo é uma lacuna de 15 quadros em um negativo de câmera cujo som ainda sobrevive, então a lacuna precisa ser preenchida para manter imagem e som juntos. Rastreei os atores do último quadro antes da lacuna até o primeiro quadro depois dela, e levei esse movimento pelos quadros faltantes: são os esqueletos do slide 16. Depois, o modelo de vídeo VACE, da Alibaba, gerou a imagem, guiado por esse movimento, somente dentro da lacuna.</p>
   <div class="fc-limits"><p><strong>O que funcionou, e as limitações.</strong> Os quadros gerados se sustentam bem, e todos os quadros originais permanecem intactos. A limitação de resolução do slide 4 continua valendo, e o que é gerado precisa ser declarado.</p></div>
-  <div class="fc-missing" style="margin-top: 1rem"><p>O trecho mostrado no slide 17 não está incluído nesta página. O <a href="#combining-sources">exemplo de <em>Knight of the Trail</em></a> mais abaixo usa a mesma ideia em danos de nitrato.</p></div>
+  <div class="fc-missing" style="margin-top: 1rem"><p>O trecho mostrado no slide 17 não está incluído nesta página.</p></div>
 </section>
 
 <section class="fc-section" id="combining-sources">
   <p class="fc-slide">Slides 18–19</p>
   <h2 id="combining-sources-section-title">Combinando fontes e depois reconstruindo</h2>
-  <p>Quando vários elementos sobrevivem, normalmente cada um está danificado em lugares diferentes. O George Eastman Museum me enviou <em>Knight of the Trail</em> (1915) como uma cópia em nitrato e uma cópia de segurança em diacetato. Juntas, elas cobrem a maior parte do filme, mas em alguns pontos o nitrato se decompôs e a cópia de segurança também não tem esses quadros.</p>
+  <p>Quando vários elementos sobrevivem, normalmente cada um está danificado em lugares diferentes. Na palestra, mostrei isso em um filme mudo que sobrevive como uma cópia em nitrato e uma cópia de segurança em diacetato. Juntas, elas cobrem a maior parte do filme, mas em alguns pontos o nitrato se decompôs e a cópia de segurança também não tem esses quadros.</p>
   <p>Primeiro, eu junto os dois elementos. Eles tinham cor, deformação e enquadramento diferentes, então cada quadro de um é alinhado ao outro pelas suas características e deformado até se encaixar. Depois, uma única correção de tom, ajustada nos quadros correspondentes mais limpos, dá aos dois a mesma aparência.</p>
-  <p>Em seguida, cada quadro vem do elemento que sobreviveu sem danos: 155 quadros da cópia em nitrato e 53 da cópia de segurança. A linha do tempo do slide 18 é um mapa disso, com laranja para o nitrato, azul para a cópia de segurança e vermelho onde nenhum dos dois sobreviveu. Nesses 18 quadros, eu mascaro apenas as áreas danificadas, incluindo o fundo parado danificado, e o Wan VACE 14B, modelo de vídeo da Alibaba, reconstrói só essas áreas. A imagem que sobreviveu continua original, porque não queremos substituir um quadro inteiro só porque uma parte dele está danificada.</p>
-
-  <figure class="fc-media">
-{% include fiat-companion/video.html key="slide19" title="Knight of the Trail: reconstrução por difusão de danos de nitrato" label="Assistir ao vídeo: Knight of the Trail, reconstrução de danos de nitrato (9 segundos)" %}
-    <p class="fc-bar">Slide 19 · <em>Knight of the Trail</em> (1915): reconstrução por difusão de danos de nitrato. Cortesia do George Eastman Museum.</p>
-    <figcaption class="fc-body">
-      <p>O original em nitrato está à esquerda, e o resultado aprovado está à direita.</p>
-      <div class="fc-verdict">
-        <div><strong>O que funcionou</strong><p>O resultado se sustenta bem, e aqui a resolução não é um grande problema.</p></div>
-        <div><strong>Limitações</strong><p>Este é um teste de trabalho em 640 × 512, mostrado dentro de uma comparação em HD. Não é uma restauração nativa em HD.</p></div>
-      </div>
-{% include fiat-companion/files.html key="slide19" desc="comparação 1920 × 832 · 9 s · 24 fps · sem som" %}
-      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
-      <ol class="fc-parts fc-steps">
-        <li><span class="fc-part-label">Dois elementos</span><p>A cópia em nitrato e a cópia de segurança em diacetato deste plano: 226 quadros a 24 quadros por segundo, trabalhados em 640 × 512.</p></li>
-        <li><span class="fc-part-label">Registro</span><p>A cópia de segurança foi alinhada ao nitrato pelas suas características, com uma única transformação para o quadro inteiro em cada par. 160 dos 162 pares sobrepostos deram correspondências fortes.</p></li>
-        <li><span class="fc-part-label">Tom</span><p>Uma única correção de tom e cor, ajustada nos 40 pares mais limpos, igualou a cópia de segurança ao nitrato.</p></li>
-        <li><span class="fc-part-label">Quadro a quadro</span><p>155 quadros vêm do nitrato, 53 da cópia de segurança, e 18 não têm nenhuma fonte sem danos, em cinco lacunas curtas.</p></li>
-        <li><span class="fc-part-label">Geração</span><p>O Wan VACE 14B gerou cada lacuna em uma janela de 33 quadros em 640 × 512, com um quadro limpo do nitrato como referência e as poses rastreadas dos atores como controle. 20 passos, CFG 3,5, seed 0.</p></li>
-        <li><span class="fc-part-label">Preservar o original</span><p>Tudo o que se move continuou original. As perdas grandes e o fundo parado danificado foram substituídos, com uma mesclagem de 24 pixels. 64,8% dos pixels dos quadros das lacunas são originais.</p></li>
-        <li><span class="fc-part-label">Aprovação</span><p>Esta versão foi aprovada em 26 de setembro. Os quadros fora das lacunas são idênticos à base preparada.</p></li>
-      </ol>
-      <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
-    </figcaption>
-  </figure>
-{% include fiat-companion/evidence.html key="slide19" %}
+  <p>Em seguida, cada quadro vem do elemento que sobreviveu sem danos. Uma linha do tempo do plano funciona como um mapa disso: de qual elemento vem cada quadro e onde nenhum dos dois sobreviveu. Nesses quadros, eu mascaro apenas as áreas danificadas, e o Wan VACE 14B, modelo de vídeo da Alibaba, reconstrói só essas áreas. A imagem que sobreviveu continua original, porque não queremos substituir um quadro inteiro só porque uma parte dele está danificada.</p>
+  <div class="fc-limits"><p><strong>O que funcionou e as limitações.</strong> O resultado se sustenta bem, e tudo o que sobreviveu fica intacto. Foi um teste de trabalho em resolução reduzida, não uma restauração nativa em HD.</p></div>
+  <div class="fc-missing" style="margin-top: 1rem"><p>O exemplo da palestra não é mostrado nesta página.</p></div>
 </section>
 
 <section class="fc-section" id="dialogue-recovery">
@@ -379,26 +357,6 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <h2 id="inside-existing-tools-section-title">IA dentro das ferramentas que já usamos</h2>
   <p>A IA também pode trabalhar por meio das ferramentas que já usamos. As empresas que as fabricam estão incorporando a IA, tanto para controle e gerenciamento quanto para processamento. O DaVinci Resolve 21.1 permite que assistentes de IA o operem diretamente, o Premiere Pro tem um AI Assistant que trabalha dentro do projeto, e a Avid já mostrou IA agêntica para o Media Composer. As ferramentas de restauração podem funcionar da mesma forma.</p>
 
-  <figure class="fc-media">
-{% include fiat-companion/video.html key="slide21" title="Point Blank: um modelo trabalhando dentro do Phoenix" label="Assistir ao vídeo: Point Blank, um modelo trabalhando dentro do Phoenix (30 segundos)" %}
-    <p class="fc-bar">Slide 21 · <em>Point Blank</em> (1967): um modelo trabalhando dentro do Phoenix</p>
-    <figcaption class="fc-body">
-      <p>Um dos meus testes de pesquisa. Depois que o Dry Clean roda no Phoenix, um modelo pinta as máscaras de proteção diretamente no projeto. O vermelho mostra o que o Dry Clean alterou.</p>
-      <div class="fc-limits"><p><strong>Limitações.</strong> Ainda está em um estágio inicial. Esta é uma gravação de tela do fluxo de trabalho, não uma restauração finalizada.</p></div>
-{% include fiat-companion/files.html key="slide21" desc="gravação de tela 1920 × 1080 · 30 s · 24 fps · sem som" %}
-      <p class="fc-file">Como foi feito, segundo os registros da pesquisa</p>
-      <ol class="fc-parts fc-steps">
-        <li><span class="fc-part-label">Fonte</span><p>Uma cópia de estudo do projeto do trailer de Point Blank no Phoenix: um plano de 52 quadros, 2048 × 1556, a 24 quadros por segundo.</p></li>
-        <li><span class="fc-part-label">Duas exportações</span><p>O plano foi exportado duas vezes do Phoenix: uma sem o Dry Clean e outra com ele.</p></li>
-        <li><span class="fc-part-label">O que o Dry Clean mudou</span><p>A diferença entre as duas exportações mostra o que o Dry Clean mudou. As mudanças maiores que 8 valores de código foram agrupadas em marcas separadas.</p></li>
-        <li><span class="fc-part-label">O modelo</span><p>Um pequeno classificador de imagem (ResNet18), treinado com pinceladas de outro filme, examinou cada marca com os quadros anterior e seguinte e previu se devia trazer de volta a imagem original naquele ponto.</p></li>
-        <li><span class="fc-part-label">No projeto</span><p>As escolhas viraram pinceladas do Matte Paint: 630 ao longo dos 52 quadros, gravadas no projeto do Phoenix e lidas de volta para conferência.</p></li>
-        <li><span class="fc-part-label">Revisão</span><p>A gravação é o Phoenix reproduzindo o resultado com o Red Difference ligado. Na revisão, ele também trouxe de volta áreas da parede onde não se perdeu nenhuma informação importante, então ainda não foi aceito.</p></li>
-      </ol>
-      <p class="fc-more fc-steps-note">As imagens destes passos estão em pastas de pesquisa privadas e ainda não estão nesta página.</p>
-    </figcaption>
-  </figure>
-{% include fiat-companion/evidence.html key="slide21" %}
 </section>
 
 <section class="fc-section" id="limits-now">
@@ -419,9 +377,10 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
   <h2 id="workflows-title">Fluxos de trabalho e guias</h2>
   <ul class="fc-points">
     <li><a href="{{ '/chroma-recovery/' | relative_url }}">Recuperação de cor treinada com referência</a>: aprender com quadros correspondentes da fonte e da referência e, depois, combinar a cor prevista com o brilho da digitalização.</li>
-    <li><a href="{{ '/open-weight-color-recovery/' | relative_url }}">Recuperação de cor com modelos de pesos abertos</a>: criar e revisar propostas de cor, enquanto a digitalização continua sendo a referência principal.</li>
+    <li><a href="{{ '/colour-recovery/' | relative_url }}">Recuperação de cor desbotada</a> (em inglês): criar e revisar propostas de cor, enquanto a digitalização continua sendo a referência principal.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Treinamento, inferência e revisão</a>: preparar o material, iterar e decidir quando um resultado é aceitável.</li>
-    <li><a href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">Caminhos de pesquisa e questões em aberto</a>: um retrato anterior da pesquisa, com as suas evidências e limitações.</li>
+    <li><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a> (em inglês): a cor aprendida de uma referência histórica ou sintética e levada por todo o plano.</li>
+    <li><a href="{{ '/research-status/' | relative_url }}">Onde a pesquisa está (outubro de 2026)</a> (em inglês): o que funciona, o que ainda não funciona e o que você pode reproduzir. O template do Nuke roda localmente no Nuke Non-Commercial ou Indie com o seu próprio material, e os fluxos do Qwen Image Edit rodam no ComfyUI. Os dois ainda precisam de algum trabalho para ficarem fáceis de usar.</li>
     <li><a href="{{ '/' | relative_url }}">Toda a pesquisa deste site</a>, ou o <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration">repositório no GitHub</a>.</li>
   </ul>
 </section>
@@ -429,12 +388,8 @@ description: Exemplos em tamanho real e notas da palestra de Fabio Bedoya na FIA
 <section class="fc-thanks" id="thanks">
   <p class="fc-slide fc-slide-light">Slide 23</p>
   <h2 id="thanks-title">Obrigado</h2>
-  <p>Obrigado à FIAT/IFTA e aos organizadores. Um agradecimento especial:</p>
-  <ul>
-    <li>à Studiocanal, por <em>For Better, For Worse</em> (1954) e <em>Poison Pen</em> (1939)</li>
-    <li>ao George Eastman Museum, por <em>Knight of the Trail</em> (1915)</li>
-  </ul>
-  <p class="fc-small">Os outros exemplos são testes de pesquisa feitos com cópias disponíveis publicamente, em sua maioria trailers desbotados do archive.org. Os trechos dos filmes continuam sendo propriedade dos seus detentores de direitos, e mostrá-los aqui não dá permissão para reutilizá-los. Veja os <a href="{{ '/credits/' | relative_url }}">créditos e atribuições</a>.</p>
+  <p>Obrigado à FIAT/IFTA e aos organizadores.</p>
+  <p class="fc-small">Os exemplos desta página são os meus testes de pesquisa: trailers desbotados de uma digitalização de um rolo de trailers em 35mm publicada abertamente no <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a> e cópias de outros filmes com que trabalhei. Os trechos dos filmes continuam sendo propriedade dos seus detentores de direitos, e mostrá-los aqui não dá permissão para reutilizá-los. Veja os <a href="{{ '/credits/' | relative_url }}">créditos e atribuições</a>.</p>
   <p>Perguntas e sugestões são bem-vindas:</p>
   <ul>
     <li>E-mail: <a href="mailto:info@fabiocolor.com">info@fabiocolor.com</a></li>

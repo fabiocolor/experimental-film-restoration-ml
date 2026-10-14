@@ -1,21 +1,21 @@
 ---
 layout: default
-title: Shared Workflow
+title: Preparation & Alignment
 parent: CopyCat Workflow
 nav_order: 1
+grand_parent: "Temporal CbCr"
 ---
 
-# Shared Workflow: Stages 0–2
+# Preparation and Alignment: Stages 0–2
 
-This page covers everything both recovery modes share: Resolve export, Nuke project setup, dataset curation, alignment, shared crop, and the branch decision. Follow this page first, then continue in the guide for your chosen branch.
+This page covers the first stages of the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}): Resolve export, Nuke project setup, dataset curation, alignment and the shared crop. Then continue with [building the colour target]({{ '/chroma-recovery/' | relative_url }}).
 
-For reel-, shot-, and frame-level alignment with strict training-pair rejection, see [Preparing Reliable Training Pairs]({{ '/automated-dataset-preparation/' | relative_url }}).
+For reel-, shot- and frame-level alignment with strict training-pair rejection, see [Preparing Reliable Training Pairs]({{ '/automated-dataset-preparation/' | relative_url }}).
 
-- [Chroma Recovery]({{ '/chroma-recovery/' | relative_url }}): when detail is intact but colour is faded, collapsed, or shifted.
-- [Spatial Recovery]({{ '/spatial-recovery/' | relative_url }}): when colour is acceptable but detail, sharpness, or grain are weaker than the reference.
-
-![Workflow overview]({{ '/images_kebab/general/full-overview-comparison.png' | relative_url }})
-*End-to-end overview of the recovery workflow.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/general/full-overview-comparison.png' | relative_url }}" alt="Workflow overview">
+  <figcaption>End-to-end overview of the recovery workflow.</figcaption>
+</figure>
 
 ---
 
@@ -27,38 +27,34 @@ Before starting the workflow, make sure the scan preserves as much recoverable i
 
 What matters is whether the reference preserves better information for the problem you are solving, not whether it is newer, sharper, or higher resolution.
 
-![Raw source before balancing]({{ '/images_kebab/muralla-verde/muralla-verde-scan-27-35-preview.gif' | relative_url }})
-*Source that should be technically balanced before training.*
-
-![Balanced source for training]({{ '/images_kebab/muralla-verde/muralla-verde-source-27-35-preview.gif' | relative_url }})
-*Balanced source plate used as cleaner input to the workflow.*
-
 **Source preparation:**
 
 - Technically balance the source (neutral, not creative).
 - Remove severe flicker, dirt, splice flashes, and instability that would poison training.
-- For chroma recovery: degrain the source for training if grain interferes with chroma learning. Document settings and keep the original plate.
-- For spatial recovery: preserve original grain structure. Do not degrain unless the reference is also degrained.
-- Global cast neutralization: if the source has a strong bias from dye fade or scanning, apply a neutral pre-balance. Recommended: [Faded Balancer DCTL/OFX](https://github.com/fabiocolor/Faded-Balancer-DCTL). For background on magenta dye fade and channel imbalance, see [Why Faded Scans Turn Magenta]({{ '/additional-resources/' | relative_url }}#why-faded-scans-turn-magenta).
+- Degrain the source for training if grain interferes with learning the colour. Document the settings and keep the original plate.
+- Global cast: if the source has a strong bias from dye fade or scanning, apply a neutral, technical pre-balance. For background on magenta dye fade and channel imbalance, see [Why Faded Scans Turn Magenta]({{ '/additional-resources/' | relative_url }}#why-faded-scans-turn-magenta).
 
-| Before (raw faded scan) | After (Faded Balancer applied) |
-| --- | --- |
-| ![Raw faded scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}) | ![Balanced scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}) |
+<div class="media-grid media-grid-2">
+  <figure class="figure">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}" alt="Raw faded scan">
+    <figcaption>Before (raw faded scan)</figcaption>
+  </figure>
+  <figure class="figure">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}" alt="Balanced scan">
+    <figcaption>After a neutral pre-balance</figcaption>
+  </figure>
+</div>
 
-*Faded Balancer DCTL neutralizing magenta dye fade in Resolve before Nuke ingest.*
+<p class="experiment-credit"><em>Candy Candy</em>: the magenta cast neutralized in Resolve before Nuke ingest.</p>
 
 **Reference preparation:**
 
 - Clean enough to remove transfer artifacts that would mislead the model.
-- For chroma recovery: suppress dust, compression noise, banding (light denoise/deband/median). Geometry changes and temporal warping are not recommended.
-- For spatial recovery: remove dust, dirt, and scratches only. **Do not** median filter or blur the reference. Preserve all spatial detail, including grain, sharpness, and edge definition. For magnetic or video references, target only obvious compression artefacts using tools that preserve spatial frequency content.
+- Suppress dust, compression noise and banding (light denoise, deband or median). Geometry changes and temporal warping are not recommended.
 
 **Geometry/stabilization:** prefer cleanup that does not alter geometry. If you must stabilize or reframe, apply identical transforms to both exports.
 
 ### Resolve Export
-
-![Resolve reference prep]({{ '/images_kebab/cropped/muralla-verde-reference-pre-alignment-timeline-resolve-cropped.png' | relative_url }})
-*Source and reference placed in the same Resolve container.*
 
 1. Conform both sources in a single timeline. Disable retimes, effects, and per-clip grades.
 2. Align the reference to the source in Edit/Inspector (Translate/Scale/Rotate). Allow letterbox/pillarbox; keep stable framing.
@@ -102,7 +98,7 @@ What matters is whether the reference preserves better information for the probl
 
 **Alternative, log domain:** Viable in theory but significantly slower and, in testing, inferior for chroma recovery fidelity. Use only if the footage demands it.
 
-**Not recommended, naive linear ACES clamp:** Ingesting ACES 2065-1 and clamping to [0–1] crushes highlights and harms both chroma and spatial mapping. If starting from ACES masters, transform to display-referred first.
+**Not recommended, naive linear ACES clamp:** Ingesting ACES 2065-1 and clamping to [0–1] crushes highlights and harms the colour mapping. If starting from ACES masters, transform to display-referred first.
 
 **Both Input and Target must share the exact same domain and transforms.** Do not mix linear and display-referred between branches.
 
@@ -121,10 +117,12 @@ What matters is whether the reference preserves better information for the probl
 
 ## Stage 1: Dataset Curation
 
-Build a small teaching set from representative frames. Do not put the whole sequence into training.
+Train on a small set of representative frames, not the whole sequence.
 
-![Dataset curation]({{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }})
-*Building paired training examples in Nuke.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }}" alt="Dataset curation">
+  <figcaption>Building paired training examples in Nuke.</figcaption>
+</figure>
 
 ### Selection Criteria
 
@@ -149,7 +147,6 @@ Ensure diversity across:
 - **Lighting:** warm/cool, day/night, interior/exterior
 - **Subjects:** skin tones, foliage/sky, fabrics, neutrals
 - **Extremes:** deep shadows, specular highlights, saturated primaries
-- **Textures** (spatial recovery): fabric, foliage, skin, edges, smooth gradients
 
 ### Pairing Rules
 
@@ -175,10 +172,12 @@ Ensure diversity across:
 
 ## Stage 2: Alignment
 
-Pixel-accurate alignment with shared crop so branches differ only in the intended characteristic (color or spatial detail).
+Pixel-accurate alignment with a shared crop, so Source and Reference differ only in colour.
 
-![Alignment workflow]({{ '/images_kebab/cropped/alignment-cropped.png' | relative_url }})
-*Auto and manual alignment paths inside the template.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/alignment-cropped.png' | relative_url }}" alt="Alignment workflow">
+  <figcaption>Auto and manual alignment paths inside the template.</figcaption>
+</figure>
 
 ### Strategy
 
@@ -186,8 +185,10 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 2. Evaluate immediately with `Merge (difference)`. If edges/geometry remain, switch to manual `Transform` with keyframes.
 3. Keep a `Dissolve` to compare auto/manual paths quickly.
 
-![Merge (difference) alignment check]({{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }})
-*Merge (difference) in the viewer: geometry and edges should be near-black. Visible colour differences are expected; only structural misalignment is a problem.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }}" alt="Merge (difference) alignment check">
+  <figcaption>Merge (difference) in the viewer: geometry and edges should be near-black. Visible colour differences are expected; only structural misalignment is a problem.</figcaption>
+</figure>
 
 ### Crop and Subtitle Handling
 
@@ -195,8 +196,10 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 - Exclude burned-in subtitles/logos. Where unavoidable, animate a shared crop.
 - Apply the **exact same crop** to Source and Reference (clone/link) so pixel areas correspond.
 
-![Crop node settings]({{ '/images_kebab/cropped/crop-node-settings-cropped.png' | relative_url }})
-*Shared crop keeping both branches in the same live picture area.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/crop-node-settings-cropped.png' | relative_url }}" alt="Crop node settings">
+  <figcaption>Shared crop keeping both branches in the same live picture area.</figcaption>
+</figure>
 
 ### Nuke Build
 
@@ -216,25 +219,26 @@ Pixel-accurate alignment with shared crop so branches differ only in the intende
 
 ---
 
-## Branch Decision: Stage 3
+## Next: Stage 3, the colour target
 
-This is where the workflow diverges. The layout is shared; the branch decision is which channels go into the ground-truth target.
+The ground-truth target takes its brightness (`Y`) from the Source and its colour (`Cb/Cr`) from the Reference.
 
-![Colorspace node settings]({{ '/images_kebab/cropped/colorspace-node-linear-to-ycbcr-settings-cropped.png' | relative_url }})
-*Convert both branches to YCbCr before channel recombination.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/colorspace-node-linear-to-ycbcr-settings-cropped.png' | relative_url }}" alt="Colorspace node settings">
+  <figcaption>Convert both branches to YCbCr before channel recombination.</figcaption>
+</figure>
 
-![Shuffle node settings]({{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }})
-*Shuffle node used to build the ground-truth target.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }}" alt="Shuffle node settings">
+  <figcaption>Shuffle node used to build the ground-truth target.</figcaption>
+</figure>
 
-![CopyBBox node]({{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }})
-*CopyBBox ensures identical bbox across Source and Ground Truth before connecting to CopyCat.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }}" alt="CopyBBox node">
+  <figcaption>CopyBBox ensures identical bbox across Source and Ground Truth before connecting to CopyCat.</figcaption>
+</figure>
 
-| Branch | Ground truth target | Continue in |
-| --- | --- | --- |
-| **Chroma recovery** | Source `Y` + Reference `Cb/Cr` | [Chroma recovery]({{ '/chroma-recovery/' | relative_url }}) |
-| **Spatial recovery** | Reference `Y` + Source `Cb/Cr` | [Spatial recovery]({{ '/spatial-recovery/' | relative_url }}) |
-
-Do not combine chroma and spatial recovery in one target. After the target is built, both branches continue through the same [training, inference, and review stages]({{ '/training-inference-review/' | relative_url }}).
+Continue with [building the colour target]({{ '/chroma-recovery/' | relative_url }}), then [training, inference and review]({{ '/training-inference-review/' | relative_url }}).
 
 ### Common Failure Modes
 
@@ -243,3 +247,18 @@ Do not combine chroma and spatial recovery in one target. After the target is bu
 - Keeping misaligned frames in the dataset.
 - Leaving borders, subtitles, or overlays inside the training area.
 - Expecting one model to solve every shot in a difficult sequence.
+
+## Downloads
+
+The images on this page, full size:
+
+- [Workflow overview]({{ '/images_kebab/general/full-overview-comparison.png' | relative_url }}) (PNG, 3.5 MB)
+- [Raw faded scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}) (PNG, 4.3 MB)
+- [Balanced scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}) (PNG, 4.3 MB)
+- [Dataset curation]({{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }}) (PNG, 1.0 MB)
+- [Alignment workflow]({{ '/images_kebab/cropped/alignment-cropped.png' | relative_url }}) (PNG, 0.8 MB)
+- [Merge (difference) alignment check]({{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }}) (GIF, 12.5 MB)
+- [Crop node settings]({{ '/images_kebab/cropped/crop-node-settings-cropped.png' | relative_url }}) (PNG, 0.1 MB)
+- [Colorspace node settings]({{ '/images_kebab/cropped/colorspace-node-linear-to-ycbcr-settings-cropped.png' | relative_url }}) (PNG, 0.3 MB)
+- [Shuffle node settings]({{ '/images_kebab/cropped/shuffle-node-settings-cropped.png' | relative_url }}) (PNG, 0.2 MB)
+- [CopyBBox node]({{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }}) (PNG, 3.5 MB)

@@ -5,83 +5,127 @@ nav_order: 0
 ---
 
 <div class="research-hero">
-  <p class="eyebrow">Independent research in film preservation</p>
-  <h1>Machine learning for recovering colour and detail in moving images</h1>
-  <p class="hero-lede">Practical, openly documented experiments for restoring faded and damaged film while keeping the surviving photographic record in control.</p>
+  <h1>Experimental Film Restoration with Machine Learning</h1>
+  <p class="hero-lede">What survives in the film is treated as evidence and kept. The models fill only what was lost: faded colour, missing frames and lost picture.</p>
   <div class="hero-buttons">
-    <a href="{{ '/open-weight-color-recovery/' | relative_url }}" class="btn btn-primary">Explore open-weight colour recovery</a>
-    <a href="{{ '/copycat-workflow/' | relative_url }}" class="btn btn-outline">Explore the CopyCat workflow</a>
+    <a href="{{ '/colour-recovery/' | relative_url }}" class="btn btn-primary">Start with faded colour recovery</a>
+    <a href="{{ '/research-status/' | relative_url }}" class="btn btn-outline">Where the research stands</a>
   </div>
 </div>
 
-<div class="research-intro">
-  <p>The project combines an established, reference-trained Nuke workflow with active research into Qwen Image Edit and other open-weight models. The work is documented through source material, intermediate results, failures, and bounded claims rather than presented as a finished restoration product.</p>
+<div class="app-hero-strip" aria-label="Faded colour recovery on a frame from the Reptilicus trailer">
+  <figure>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg' | relative_url }}" alt="Faded frame from the Reptilicus trailer">
+    <figcaption><strong>Source</strong><br>The faded frame.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/04_inference_frame_000000_seed_0_cfg_1.000_Belak-0c1f0329.png' | relative_url }}" alt="Qwen Image Edit colour proposal for the Reptilicus frame">
+    <figcaption><strong>Model output</strong><br>What Qwen Image Edit returns.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/seapavaa2026/originals/reptilicus_beach/05_final_composite_reptilicus_tlr_05_beach_woman_source-38de94d1.png' | relative_url }}" alt="Final composite: the recovered colour on the original brightness of the Reptilicus frame">
+    <figcaption><strong>Final composite</strong><br>The recovered colour on the scan's own brightness and detail.</figcaption>
+  </figure>
 </div>
 
-## Current research
+<p class="experiment-credit">Made with an earlier single-frame route (<a href="{{ '/records/reptilicus-beach/' | relative_url }}">record</a>). <em>Reptilicus</em> (1961) trailer, from a 35mm trailer reel scan posted publicly on <a href="https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps">archive.org</a>. The trailer belongs to its rights holders.</p>
+
+<div class="research-intro">
+  <p>Research on machine learning for film restoration. Each area addresses a different problem with the same approach: start from the scan, keep its picture, and use a model only for what is missing. The process is not automatic. A restorer decides what is acceptable and records what was generated.</p>
+</div>
+
+## Five research areas
 
 <div class="track-grid">
   <article class="research-card research-card-featured">
-    <p class="card-kicker">Primary research track</p>
-    <h3>Open-weight colour recovery</h3>
-    <p>Using Qwen Image Edit and related open models to propose colour while the original frame remains the authority for composition, texture, damage, light, and detail.</p>
-    <ul class="plain-list">
-      <li>Source-preserving colour reconstruction</li>
-      <li>Reference images and palette guidance</li>
-      <li>Temporal consistency across shots</li>
-      <li>Transparent comparisons and downloadable workflows</li>
-    </ul>
-    <a class="card-link" href="{{ '/open-weight-color-recovery/' | relative_url }}">Read the research overview <span aria-hidden="true">→</span></a><br>
-    <a class="card-link card-link-secondary" href="{{ '/open-weight-color-recovery/research-routes/' | relative_url }}">See the evidence and open questions <span aria-hidden="true">→</span></a>
+    <p class="card-kicker">1</p>
+    <h3>Faded colour recovery</h3>
+    <p>Recovery of the colour of faded film from balanced or unbalanced scans. Surviving colour is kept; only faded colour is filled in.</p>
+    <p class="card-link-secondary">Examples: Counter Attack, Folgers</p>
+    <a class="card-link" href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery <span aria-hidden="true">→</span></a>
   </article>
 
   <article class="research-card">
-    <p class="card-kicker">Established research track</p>
-    <h3>Reference-trained recovery in Nuke</h3>
-    <p>Training compact CopyCat models on carefully aligned source and reference frames to recover chroma or spatial detail in a controlled production workflow.</p>
-    <ul class="plain-list">
-      <li>Chroma and spatial recovery</li>
-      <li>Training-pair preparation</li>
-      <li>Shot and sequence workflows</li>
-      <li>Ten documented case studies</li>
-    </ul>
-    <a class="card-link" href="{{ '/copycat-workflow/' | relative_url }}">Read the CopyCat overview <span aria-hidden="true">→</span></a>
+    <p class="card-kicker">2</p>
+    <h3>Temporal CbCr</h3>
+    <p>Colour learned from a historical or synthetic reference and kept consistent through the shot.</p>
+    <p class="card-link-secondary">Examples: Frontier Experience, Unman, Wittering and Zigo</p>
+    <a class="card-link" href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr <span aria-hidden="true">→</span></a>
+  </article>
+
+  <article class="research-card">
+    <p class="card-kicker">3</p>
+    <h3>Diffusion healing</h3>
+    <p>Repair of full-frame damage or missing frames while keeping most of the original.</p>
+    <p class="card-link-secondary">Example: Wong flute players</p>
+    <a class="card-link" href="{{ '/diffusion-healing/' | relative_url }}">Diffusion healing <span aria-hidden="true">→</span></a>
+  </article>
+
+  <article class="research-card">
+    <p class="card-kicker">4</p>
+    <h3>Diffusion reconstruction</h3>
+    <p>For films beyond repair. A video model rebuilds the picture from the surviving elements. Some of the detail is synthetic and is labelled as such.</p>
+    <p class="card-link-secondary">Example: El Tinterillo</p>
+    <a class="card-link" href="{{ '/diffusion-reconstruction/' | relative_url }}">Diffusion reconstruction <span aria-hidden="true">→</span></a>
+  </article>
+
+  <article class="research-card">
+    <p class="card-kicker">5</p>
+    <h3>Black-and-white colourization</h3>
+    <p>Colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response.</p>
+    <p class="card-link-secondary">Examples: Her Boy Friend, Rambles 'Round Rio</p>
+    <a class="card-link" href="{{ '/black-and-white-colourization/' | relative_url }}">Black-and-white colourization <span aria-hidden="true">→</span></a>
   </article>
 </div>
 
-## Qwen Image Edit: source, proposal, composite
+## Examples\*
 
-<div class="app-hero-strip" aria-label="Qwen Image Edit colour recovery example">
+<div class="example-grid">
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg' | relative_url }}" alt="Faded source film frame">
-    <figcaption><strong>1 · Source</strong><br>The surviving film image remains the record.</figcaption>
+    <a href="{{ '/colour-recovery/' | relative_url }}"><img src="{{ '/images_kebab/colour-recovery/counter-attack-waterfront-t148-f160.jpg' | relative_url }}" alt="Counter Attack: the faded waterfront crowd and the recovered colour, side by side" loading="lazy"></a>
+    <figcaption><strong>Counter Attack</strong>: faded colour recovery, the whole shot.</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png' | relative_url }}" alt="Colour proposal produced with Qwen Image Edit">
-    <figcaption><strong>2 · Colour proposal</strong><br>Qwen supplies a candidate interpretation.</figcaption>
+    <a href="{{ '/colour-recovery/' | relative_url }}"><img src="{{ '/images_kebab/colour-recovery/commercials-folgers-before-after-f067.jpg' | relative_url }}" alt="Folgers: the balanced, faded scan and the recovered colour, side by side" loading="lazy"></a>
+    <figcaption><strong>Folgers</strong>: faded colour recovery from a balanced scan, with a download kit.</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png' | relative_url }}" alt="Final colour recovery composite">
-    <figcaption><strong>3 · Source-preserving composite</strong><br>Recovered colour is combined with original luminance and detail.</figcaption>
+    <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="{{ '/images_kebab/temporal-cbcr/frontier-experience-scan-reference-result-f020.jpg' | relative_url }}" alt="Frontier Experience: the faded scan, the result and the telecine reference" loading="lazy"></a>
+    <figcaption><strong>Frontier Experience</strong>: Temporal CbCr from a historical reference.</figcaption>
+  </figure>
+  <figure>
+    <a href="{{ '/temporal-cbcr/' | relative_url }}"><img src="{{ '/images_kebab/temporal-cbcr/unman-wittering-zigo-choir-adapter.jpg' | relative_url }}" alt="Unman, Wittering and Zigo: the faded choir shot and the result, side by side" loading="lazy"></a>
+    <figcaption><strong>Unman, Wittering and Zigo</strong>: Temporal CbCr from a synthetic reference.</figcaption>
+  </figure>
+  <figure>
+    <a href="{{ '/diffusion-healing/' | relative_url }}"><img src="{{ '/images_kebab/gap-filling/16mm-flute-players-scan-vs-reconstruction-f030.jpg' | relative_url }}" alt="Wong flute players: the decayed 16mm scan and the healed frame, side by side" loading="lazy"></a>
+    <figcaption><strong>Wong flute players</strong>: diffusion healing.</figcaption>
+  </figure>
+  <figure>
+    <a href="{{ '/diffusion-reconstruction/' | relative_url }}"><img src="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" alt="El Tinterillo: the stairs shot, rebuilt by diffusion reconstruction" loading="lazy"></a>
+    <figcaption><strong>El Tinterillo</strong>: diffusion reconstruction.</figcaption>
+  </figure>
+  <figure>
+    <a href="{{ '/black-and-white-colourization/' | relative_url }}"><img src="{{ '/images_kebab/black-and-white-colourization/her-boy-friend-cafe-f062.jpg' | relative_url }}" alt="Her Boy Friend: the black-and-white original and the colourized result, side by side" loading="lazy"></a>
+    <figcaption><strong>Her Boy Friend</strong>: black-and-white colourization, orthochromatic film.</figcaption>
+  </figure>
+  <figure>
+    <a href="{{ '/black-and-white-colourization/' | relative_url }}"><img src="{{ '/images_kebab/black-and-white-colourization/rambles-round-rio-oxcart-f062.jpg' | relative_url }}" alt="Rambles 'Round Rio: the black-and-white original and the colourized result, side by side" loading="lazy"></a>
+    <figcaption><strong>Rambles 'Round Rio</strong>: black-and-white colourization, non-fiction.</figcaption>
   </figure>
 </div>
 
 <div class="quiet-panel">
   <div>
-    <p class="card-kicker">Try the current workflow</p>
-    <h3>Qwen Image Edit colour recovery</h3>
-    <p>Download the public ComfyUI workflow, test it with the supplied frame, or use a frame from your own material.</p>
+    <h3>Where the research stands</h3>
+    <p>What works, what does not yet, and what can be reproduced. Each example has a <a href="{{ '/records/' | relative_url }}">record</a> of its source, models and approval.</p>
   </div>
-  <a href="{{ '/qwen-color-recovery-app/' | relative_url }}" class="btn btn-primary">Open the workflow guide</a>
+  <a href="{{ '/research-status/' | relative_url }}" class="btn btn-primary">Read the status</a>
 </div>
 
-## Publications and presentations
+## Talks and writing
 
-The research is accompanied by working files, comparisons, and talks rather than presented as a finished “one-click” restoration product.
-
-- [SEAPAVAA 2026 presentation companion]({{ '/seapavaa-2026-companion/' | relative_url }}): open-weight colour recovery examples, prompts, workflows, and source media.
-- [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35): the peer-reviewed paper behind the CopyCat research.
-- [Case studies]({{ '/case-studies/' | relative_url }}): practical results across animation, live action, nitrate, video references, and constructed references.
-- [Video walkthrough](https://youtu.be/kXerjFGX9Kg): an introduction to the earlier Nuke-based chroma-recovery workflow.
-
-> These methods are experimental. A generated result is a restoration proposal, not historical proof. Decisions should be reviewed by people who understand the film, its production context, and the archive’s ethical responsibilities.
+- [Talks]({{ '/talks/' | relative_url }}): the companion pages for FIAT/IFTA 2026 and SEAPAVAA 2026.
+- [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35): the peer-reviewed paper behind the CopyCat workflow.
+- [Video walkthrough](https://youtu.be/kXerjFGX9Kg) of the CopyCat colour-recovery workflow in Nuke.
+- [Tools]({{ '/tools/' | relative_url }}) used alongside this research.

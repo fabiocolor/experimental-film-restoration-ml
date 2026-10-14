@@ -3,14 +3,12 @@ layout: default
 title: Training, Inference & Review
 parent: CopyCat Workflow
 nav_order: 4
+grand_parent: "Temporal CbCr"
 ---
 
 # Training, Inference, and Review
 
-This page covers the stages shared by chroma and spatial recovery. Build the correct branch target first:
-
-- [Chroma recovery]({{ '/chroma-recovery/' | relative_url }}): Source Y with Reference Cb and Cr.
-- [Spatial recovery]({{ '/spatial-recovery/' | relative_url }}): Reference Y with Source Cb and Cr.
+The last stages of the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}). Build the [colour target]({{ '/chroma-recovery/' | relative_url }}) first: Source Y with Reference Cb and Cr.
 
 ## Stage 4: Train and monitor
 
@@ -25,15 +23,19 @@ Start with a modest model and a held-out frame that is not part of the training 
 | Checkpoints | Every 10,000 steps | Compare the same held-out material at each checkpoint |
 | Contact sheets | About every 100 steps | Use them to spot divergence and memorisation |
 
-Use small geometric augmentation only when the composition allows it. Mild exposure variation can help, but do not introduce transformations that change the property being learned. Chroma training should not distort colour relationships. Spatial training should not add sharpening, blur, or synthetic grain.
+Use small geometric augmentation only when the composition allows it. Mild exposure variation can help. Do not use transformations that change colour relationships, because the model is learning colour.
 
-![CopyCat Progress contact sheet]({{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }})
-*The Progress tab shows loss and training crops over time.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }}" alt="CopyCat Progress contact sheet">
+  <figcaption>The Progress tab shows loss and training crops over time.</figcaption>
+</figure>
 
-![CopyCat held-out preview]({{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }})
-*A held-out preview is more useful than loss alone because it tests an unseen frame.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }}" alt="CopyCat held-out preview">
+  <figcaption>A held-out preview is more useful than loss alone because it tests an unseen frame.</figcaption>
+</figure>
 
-Check range and bounding-box parity in both branches. For chroma recovery, source and target luminance should remain nearly identical. For spatial recovery, source and target chroma should remain nearly identical.
+Check range and bounding-box parity between input and target. Their luminance should remain nearly identical.
 
 ## Stage 5: Infer the source sequence
 
@@ -47,8 +49,10 @@ Train on selected pairs and infer on the complete source.
 6. Review motion, transitions, first and last frames, and shot joins.
 7. Add new pairs only when they address a specific observed failure, then test again.
 
-![Inference workflow]({{ '/images_kebab/cropped/inference-render-cropped.png' | relative_url }})
-*The trained model is applied to the complete source sequence.*
+<figure class="figure">
+  <img src="{{ '/images_kebab/cropped/inference-render-cropped.png' | relative_url }}" alt="Inference workflow">
+  <figcaption>The trained model is applied to the complete source sequence.</figcaption>
+</figure>
 
 For archival renders, follow the project’s delivery standard. A common working choice is 16-bit half-float EXR with ZIP or DWAA compression in ACES2065-1. Include the shot, version, and model or checkpoint identifier in the file naming.
 
@@ -56,12 +60,11 @@ For archival renders, follow the project’s delivery standard. A common working
 
 Compare original and recovered renders in the same colour-managed Resolve project with grades and effects disabled. Use a wipe, split screen, or track toggle, then watch the sequence at normal speed as well as frame by frame.
 
-| Recovery branch | Protect in the source | Optional Resolve composite | Reject when |
-| --- | --- | --- | --- |
-| Chroma | Luminance and detail | `Color` | Colour bleeds, flickers, changes identity, or contradicts evidence |
-| Spatial | Chroma | `Luminosity` | Detail is invented, halos appear, or grain and sharpness vary through time |
+| Protect in the source | Optional Resolve composite | Reject when |
+| --- | --- | --- |
+| Luminance and detail | `Color` | Colour bleeds, flickers, changes identity, or contradicts evidence |
 
-Scopes can reveal range, luminance, or chroma changes, but they do not decide whether a restoration is historically or aesthetically acceptable. Human review remains the acceptance gate.
+Scopes show range, luminance and chroma changes, but do not decide whether a restoration is acceptable. Acceptance is decided by human review.
 
 ## Record the delivery
 
@@ -84,3 +87,11 @@ The [provenance guide]({{ '/provenance-metadata/' | relative_url }}) provides a 
 | Training stalls | Improve pair coverage and alignment before increasing model size |
 | Results fail only on certain shots | Add targeted pairs or split those shots into a separate model |
 | Full-range output differs from the held-out test | Confirm ingest, crop, preprocessing, and inference settings match training |
+
+## Downloads
+
+The images on this page, full size:
+
+- [CopyCat Progress contact sheet]({{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }}) (PNG, 1.1 MB)
+- [CopyCat held-out preview]({{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }}) (PNG, 1.1 MB)
+- [Inference workflow]({{ '/images_kebab/cropped/inference-render-cropped.png' | relative_url }}) (PNG, 0.6 MB)

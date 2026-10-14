@@ -1,8 +1,8 @@
 ---
 layout: default
 title: SEAPAVAA 2026 Companion
-parent: Open-Weight Color Recovery
-nav_order: 3
+parent: Talks
+nav_order: 2
 ---
 
 <style>
@@ -86,9 +86,9 @@ nav_order: 3
 
 # SEAPAVAA 2026 Companion
 
-This page follows the presentation by slide title.
+**Talk archive, June 2026.** This page keeps what I showed at SEAPAVAA 2026, by slide title. These are earlier versions of the research, not what I use or recommend now.
 
-Each section gives you the exact element shown in the talk, and when useful, the separate parts behind that same element so you can inspect them individually.
+The research has moved on since June: see [where the research stands now]({{ '/research-status/' | relative_url }}) and the [FIAT/IFTA 2026 companion]({{ '/fiat-ifta-2026-companion/' | relative_url }}).
 
 ## Jump by Title
 
@@ -119,9 +119,9 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Fanji full-frame split hero</h3>
+      <h3><em>Counter Attack</em>: full-frame split</h3>
       <a href="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" target="_blank">
-        <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Fanji split hero image">
+        <img src="{{ '/images_kebab/seapavaa2026/fanji_c4_row3_garden_split_comparison_fullframe_clean.png' | relative_url }}" alt="Counter Attack split hero image">
       </a>
       <p>A full-frame split view of the faded scan and the recovered composite used as the opening before-and-after example.</p>
       <details class="seapavaa-files">
@@ -213,12 +213,10 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <a href="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" target="_blank">
         <img src="{{ '/images_kebab/seapavaa2026/comfyui_workflow_fanji_waterfront_screenshot.png' | relative_url }}" alt="ComfyUI workflow screenshot">
       </a>
-      <p>The workflow view shows the practical test setup: source, reference, control image, prompt, model, and output in one runnable graph.</p>
+      <p>The workflow view shows the test setup: source, reference, control image, prompt, model and output in one graph.</p>
       <details class="seapavaa-files">
         <summary>Open the workflow and its parts</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_workflow.json' | relative_url }}" target="_blank">Workflow JSON</a>
-          <a href="{{ '/images_kebab/seapavaa2026/fanji_waterfront_api_prompt.json' | relative_url }}" target="_blank">API prompt JSON</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}" target="_blank">Source image</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/03_control.png' | relative_url }}" target="_blank">Control image</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/04_output.png' | relative_url }}" target="_blank">Output image</a>
@@ -322,9 +320,9 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Fanji row-9 top three raw generations</h3>
+      <h3>Counter Attack row-9 top three raw generations</h3>
       <a href="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" target="_blank">
-        <img src="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" alt="Fanji row-9 top three raw generations">
+        <img src="{{ '/images_kebab/seapavaa2026/fanji_round4_row9_top3_raw_generations.png' | relative_url }}" alt="Counter Attack row-9 top three raw generations">
       </a>
       <p>Three prompt variants from the same source show how the still route became more reliable through repeated prompt testing.</p>
       <details class="seapavaa-files">
@@ -359,8 +357,6 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_full_prompt.txt' | relative_url }}" target="_blank">Full prompt</a>
-          <a href="{{ '/media/seapavaa2026/originals/obsession_interior_woman24_full_prompt.json' | relative_url }}" target="_blank">Prompt JSON</a>
         </div>
       </details>
     </div>
@@ -372,7 +368,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Shot0006 native three-way comparison</h3>
+      <h3><em>Obsession</em>, shot 6: source, model output and composite</h3>
       <img src="{{ '/media/seapavaa2026/shot0006-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for shot 0006">
       <p>This Wan/VACE test shows a second bounded temporal success with the same three-way source, inference, and composite structure.</p>
       <details class="seapavaa-files">
@@ -385,8 +381,6 @@ Each section gives you the exact element shown in the talk, and when useful, the
       <details class="seapavaa-files">
         <summary>Open the parts of this example</summary>
         <div class="seapavaa-filelist">
-          <a href="{{ '/media/seapavaa2026/originals/shot0006_full_prompt.txt' | relative_url }}" target="_blank">Full prompt</a>
-          <a href="{{ '/media/seapavaa2026/originals/shot0006_full_prompt.json' | relative_url }}" target="_blank">Prompt JSON</a>
         </div>
       </details>
     </div>
@@ -398,7 +392,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Shot0011 native failure comparison</h3>
+      <h3><em>Obsession</em>, shot 11: a failure with hard motion</h3>
       <img src="{{ '/media/seapavaa2026/shot0011-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for shot 0011">
       <p>A hard-motion example where stitching and temporal generation still break down, even when the individual parts are available.</p>
       <details class="seapavaa-files">
@@ -417,7 +411,7 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Shot0001 with context board</h3>
+      <h3><em>Obsession</em>, shot 1, with a context board</h3>
       <img src="{{ '/media/seapavaa2026/shot0001-context-source-proposal-composite.gif' | relative_url }}" alt="Animated context-board, source, raw inference, and source-preserving composite comparison for shot 0001">
       <p>The context board gives the model stable visual anchors while the video comparison shows how those anchors affect the shot.</p>
       <details class="seapavaa-files">
@@ -448,7 +442,6 @@ Each section gives you the exact element shown in the talk, and when useful, the
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/01_source_atlas.png' | relative_url }}" target="_blank">Source atlas</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/03_source_canny_control.png' | relative_url }}" target="_blank">Canny control</a>
           <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/04_generated_atlas_reference.png' | relative_url }}" target="_blank">Generated Atlas reference</a>
-          <a href="{{ '/images_kebab/seapavaa2026/originals/shot0011_t085_atlas_reference/prompt.txt' | relative_url }}" target="_blank">Prompt</a>
         </div>
       </details>
     </div>
@@ -481,9 +474,9 @@ Each section gives you the exact element shown in the talk, and when useful, the
   <div class="seapavaa-grid">
     <div class="seapavaa-card">
       <span class="seapavaa-role">Seen in the talk</span>
-      <h3>Fanji 600-frame full run</h3>
-      <img src="{{ '/media/seapavaa2026/fanji-600-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for the FANJI sequence">
-      <p>The full Fanji run shows what the method looks like when it is applied frame by frame across a longer sequence.</p>
+      <h3>Counter Attack 600-frame full run</h3>
+      <img src="{{ '/media/seapavaa2026/fanji-600-source-proposal-composite.gif' | relative_url }}" alt="Animated source, raw inference, and source-preserving composite comparison for the Counter Attack sequence">
+      <p>The full Counter Attack run shows what the method looks like when it is applied frame by frame across a longer sequence.</p>
       <details class="seapavaa-files">
         <summary>Open this example</summary>
         <div class="seapavaa-filelist">

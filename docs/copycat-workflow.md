@@ -1,56 +1,43 @@
 ---
 layout: default
 title: CopyCat Workflow
-nav_order: 2
+nav_order: 1
 has_children: true
 permalink: /copycat-workflow/
+parent: "Temporal CbCr"
+redirect_from:
+  - /HOW_TO_USE_RESEARCH_DOCS/
+  - /research-evidence/
+  - /research-evidence/README/
+  - /research-evidence/COPYCAT_CHROMA_METHOD_TRAIL/
+  - /research-evidence/DOCUMENTATION_BACKLOG_CHECKPOINT/
 ---
 
-<p class="eyebrow">Established research track</p>
+# The CopyCat workflow
 
-# Reference-Trained Recovery with CopyCat
+Temporal CbCr with a historical reference, in Nuke. CopyCat trains a small model for one shot or sequence from matching frame pairs: the faded scan, and a better copy of the same moment. The scan keeps its brightness and detail; the model learns only the colour. This is how the [Candy Candy]({{ '/temporal-cbcr/' | relative_url }}) example was made.
 
-This workflow trains a small neural network for one film project. It learns from carefully chosen pairs: a degraded source frame and a better reference to the same moment. The method can recover colour, or it can recover spatial detail, while keeping the surviving source material at the centre of the process.
-
-It is intended for film archives, restoration practitioners, colourists, and researchers who have access to Foundry NukeX or Nuke Indie with CopyCat and Inference.
+The Nuke template runs locally in Nuke Non-Commercial or Nuke Indie, with your own footage.
 
 <div class="hero-buttons">
   <a href="{{ '/start-here/' | relative_url }}" class="btn btn-primary">Start the workflow</a>
-  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-outline">Download the Nuke template</a>
+  <a href="https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest" class="btn btn-outline">Get the Nuke template</a>
 </div>
 
-## Choose the recovery task
+## The steps
 
-<div class="track-grid">
-  <article class="research-card">
-    <p class="card-kicker">When colour has faded</p>
-    <h3>Chroma recovery</h3>
-    <p>Use the source frame’s luminance and detail, then learn colour from a stronger reference such as another print, a telecine, a home-video release, or a carefully constructed guide.</p>
-    <a class="card-link" href="{{ '/chroma-recovery/' | relative_url }}">Read the chroma guide <span aria-hidden="true">→</span></a>
-  </article>
-  <article class="research-card">
-    <p class="card-kicker">When detail has been lost</p>
-    <h3>Spatial recovery</h3>
-    <p>Use a sharper or more complete reference to reconstruct detail while preserving the colour information that remains in the source.</p>
-    <a class="card-link" href="{{ '/spatial-recovery/' | relative_url }}">Read the spatial guide <span aria-hidden="true">→</span></a>
-  </article>
-</div>
+1. Prepare the scan and the reference without creative grading.
+2. Align them in time and position.
+3. Pick a small set of trustworthy frame pairs.
+4. Build a target from the scan's brightness and the reference's colour.
+5. Train, and compare checkpoints on frames the model hasn't seen.
+6. Run the model over the whole shot and review it.
+7. Keep the original scan, the reference, the settings and your review notes with the result.
 
-## The working method
+## In this section
 
-1. Prepare the source and reference without creative grading.
-2. Align them in time and space.
-3. Select a small, representative set of trustworthy frame pairs.
-4. Build a target that isolates the information being recovered.
-5. Train and compare checkpoints on material the model has not seen.
-6. Apply the model to the complete source and review the result shot by shot.
-7. Keep the original scan, references, settings, and review notes alongside the output.
-
-## Continue
-
-- [Shared workflow]({{ '/start-here/' | relative_url }}): preparation, alignment, dataset selection, and project setup.
-- [Chroma recovery]({{ '/chroma-recovery/' | relative_url }}) or [spatial recovery]({{ '/spatial-recovery/' | relative_url }}): build the branch-specific target.
-- [Training, inference, and review]({{ '/training-inference-review/' | relative_url }}): the stages shared by both branches.
-- [Preparing training pairs]({{ '/automated-dataset-preparation/' | relative_url }}): what makes a pair trustworthy and how difficult references are handled.
-- [Case studies]({{ '/case-studies/' | relative_url }}): practical examples across different formats and reference types.
-- [Provenance and metadata]({{ '/provenance-metadata/' | relative_url }}): recording how a result was made.
+- [Preparation and alignment]({{ '/start-here/' | relative_url }}): getting the scan and the reference ready, picking frame pairs and lining them up.
+- [Building the colour target]({{ '/chroma-recovery/' | relative_url }}): the scan's brightness with the reference's colour.
+- [Training, inference and review]({{ '/training-inference-review/' | relative_url }}): training, rendering the shot and deciding whether it's acceptable.
+- [Preparing training pairs]({{ '/automated-dataset-preparation/' | relative_url }}): what makes a pair trustworthy when the reference is hard to match.
+- [Video walkthrough](https://youtu.be/kXerjFGX9Kg) of the workflow, and the [peer-reviewed paper](https://library.imaging.org/archiving/articles/22/1/35) behind it.

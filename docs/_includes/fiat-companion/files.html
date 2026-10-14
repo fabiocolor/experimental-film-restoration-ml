@@ -1,2 +1,8 @@
-{%- comment -%} Technical line under a video. No download or Drive links: the videos are view-only. {%- endcomment -%}
+{%- comment -%} File line under a video: technical description, a download link for the video file, and the file on Google Drive, where the videos are hosted. {%- endcomment -%}
+{%- assign v = site.data.fiat_companion.videos[include.key] -%}
+{%- assign t = site.data.fiat_companion.ui[page.fc_lang] -%}
       {% if include.desc %}<p class="fc-file">{{ include.desc }}</p>{% endif %}
+      <ul class="fc-links">
+        <li><a class="fc-full" href="https://drive.usercontent.google.com/download?id={{ v.drive }}&amp;export=download&amp;confirm=t">{{ t.original }}</a><span class="fc-size">MP4 · {{ v.width }} × {{ v.height }} · {{ v.size_mb }} MB</span></li>
+        <li><a href="https://drive.google.com/file/d/{{ v.drive }}/view">{{ t.drive }}</a></li>
+      </ul>

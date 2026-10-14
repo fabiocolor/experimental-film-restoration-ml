@@ -1,80 +1,44 @@
-# Machine Learning for Film Restoration
+# Experimental Film Restoration with Machine Learning
 
-Open research and practical workflows for recovering colour and detail in faded or damaged moving images.
+Research on machine learning for film restoration. What survives in the film is treated as evidence and kept. The models fill only what was lost: faded colour, missing frames and lost picture. The process is not automatic. A restorer decides what is acceptable and records what was generated.
 
-This repository follows two connected lines of work:
+**Website:** [fabiocolor.github.io/custom-machine-learning-for-film-restoration/](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/)
 
-1. **Open-weight colour recovery:** the main current research area, using Qwen Image Edit and related open models to propose colour while preserving the source frame’s luminance, texture, geometry, and damage.
-2. **Reference-trained recovery:** the established Nuke CopyCat workflow, using aligned source/reference pairs to recover chroma or spatial detail with a model trained for one film project.
+## Five research areas
 
-The project is written for film archives, restoration practitioners, colourists, researchers, and students. It is research material rather than a finished commercial product.
+1. **[Faded Colour Recovery](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/colour-recovery/)**: the original colour of faded film, from balanced and unbalanced scans. Examples: *Counter Attack*, Folgers. Download kit for balanced scans included.
+2. **[Temporal CbCr](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/temporal-cbcr/)**: colour recovery or colourization from a direct historical or synthetic reference, carried through the shot. Examples: *Frontier Experience* and *Candy Candy* (historical reference), *Unman, Wittering and Zigo* (synthetic reference). Includes the [CopyCat workflow](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/copycat-workflow/) for Nuke.
+3. **[Diffusion Healing](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/diffusion-healing/)**: full-frame damage or missing frames, healed while keeping most of the original. Example: the Wong flute players.
+4. **[Diffusion Reconstruction](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/diffusion-reconstruction/)**: for films beyond repair. Example: the *El Tinterillo* stairs.
+5. **[Black-and-White Colourization](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/black-and-white-colourization/)**: colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response. Examples: seven public-domain films from 1921–1929, including *Her Boy Friend*, *The Wildcat* and *Rambles 'Round Rio*.
 
-## Using these docs
+[Where the research stands](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/research-status/) summarises the state of the research as of October 2026: what works, what does not yet, and what can be reproduced. The [tools](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/tools/) used alongside the research have their own repositories.
 
-New to this project? Start with the [documentation guide](docs/HOW_TO_USE_RESEARCH_DOCS.md) to understand the reading order, decision trails, and how to learn from what has worked and failed in past projects.
+## Faded colour recovery example
 
-<p align="center">
-  <a href="https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/"><strong>Explore the research website</strong></a>
-  &nbsp;·&nbsp;
-  <a href="docs/qwen-color-recovery-app.md">Try the Qwen workflow</a>
-  &nbsp;·&nbsp;
-  <a href="docs/seapavaa-2026-companion.md">SEAPAVAA 2026 companion</a>
-</p>
-
-## Open-weight colour recovery
-
-Qwen Image Edit can use a faded source frame, visual references, and written direction to create a colour proposal. The public workflow recombines that proposal with the original source luminance so fine detail and photographic structure do not come solely from the generated image.
-
-> **Ongoing research:** the Qwen material records the current state of the experiments, not a fixed final method. Workflows, prompts, recommended settings, and conclusions will change as the research develops and new evidence is reviewed.
-
-Start with:
-
-- [Open-weight colour recovery overview](docs/open-weight-color-recovery.md)
-- [Research routes, evidence, and unresolved questions](docs/open-weight-research-routes.md)
-- [Qwen Image Edit workflow and downloads](docs/qwen-color-recovery-app.md)
-- [SEAPAVAA 2026 presentation companion](docs/seapavaa-2026-companion.md)
-- [Credits and attribution](docs/credits.md)
-
-| Faded source | Qwen colour proposal | Source-preserving composite |
+| Faded source | Model output | Final composite |
 | --- | --- | --- |
-| ![Faded source frame](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/01_source_frame.jpg) | ![Qwen Image Edit colour proposal](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/04_raw_inference.png) | ![Final source-preserving composite](docs/images_kebab/seapavaa2026/originals/candy_ending_frame_1619/05_final_composite.png) |
+| ![Faded frame from the Reptilicus trailer](docs/images_kebab/seapavaa2026/originals/reptilicus_beach/01_source_reptilicus_tlr_000025-40689881.jpg) | ![Qwen Image Edit output](docs/images_kebab/seapavaa2026/originals/reptilicus_beach/04_inference_frame_000000_seed_0_cfg_1.000_Belak-0c1f0329.png) | ![Final composite on the source brightness](docs/images_kebab/seapavaa2026/originals/reptilicus_beach/05_final_composite_reptilicus_tlr_05_beach_woman_source-38de94d1.png) |
 
-## Reference-trained recovery in Nuke
+*Reptilicus* (1961) trailer, from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps). The trailer belongs to its rights holders.
 
-The CopyCat workflow trains a compact model on selected examples from one production. It supports two distinct tasks:
+The examples are workflow demonstrations, not finished restorations.
 
-| Task | Use it when | What the model learns |
-| --- | --- | --- |
-| **Chroma recovery** | Detail survives, but colour has faded, shifted, or collapsed | Colour from a stronger reference while retaining source luminance |
-| **Spatial recovery** | Colour survives, but detail is weaker than the reference | Luminance detail from the reference while retaining source colour |
-
-Start with:
-
-- [CopyCat workflow overview](docs/copycat-workflow.md)
-- [Shared preparation and project setup](docs/start-here.md)
-- [Chroma recovery](docs/chroma-recovery.md)
-- [Spatial recovery](docs/spatial-recovery.md)
-- [Training, inference, and review](docs/training-inference-review.md)
-- [Preparing reliable training pairs](docs/automated-dataset-preparation.md)
-- [Case studies](docs/case-studies.md)
-
-The current Nuke Indie template is available from the [latest release](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest).
-
-## Publications and presentations
+## Talks and writing
 
 - Fabio P. Bedoya Huerta, [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35), *Archiving Conference* 22(1), 2025.
+- FIAT/IFTA 2026, *The Current Limits of AI in Film Restoration and How They May Be Surpassed*, Cinemateca Brasileira, São Paulo, October 2026: [companion page](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/fiat-ifta-2026-companion/).
 - [SEAPAVAA 2026 companion: Advancing Open-Weight AI Models for Color Recovery in Faded Film](https://fabiocolor.github.io/custom-machine-learning-for-film-restoration/seapavaa-2026-companion/).
-- [Video walkthrough of the CopyCat chroma-recovery workflow](https://youtu.be/kXerjFGX9Kg).
+- [Video walkthrough of the CopyCat workflow](https://youtu.be/kXerjFGX9Kg).
 
 ## Repository guide
 
-- `docs/`: the public research website and downloadable Qwen material
-- `templates/`: the Nuke Indie workflow template
-- `scripts/`: checks for the downloadable Qwen material
+- `docs/`: the website, including the download kits in `docs/downloads/`
+- `templates/`: the Nuke Indie template for the CopyCat workflow (the Non-Commercial version is on the [releases page](https://github.com/fabiocolor/custom-machine-learning-for-film-restoration/releases/latest))
 
 ## Responsible use
 
-Generated colour is an interpretation unless supported by a known reference. Keep the original scan, identify all references, show intermediate results, and record the choices that shaped the output. The source and its historical context should remain more authoritative than the model.
+Generated colour or picture is an interpretation unless a known reference backs it up. Keep the original scan, name your references, show the in-between results and note the choices you made. The source takes priority over the model.
 
 ## Support
 
@@ -82,6 +46,6 @@ If this research is useful to your work, you can [sponsor it on GitHub](https://
 
 ## Rights, licences, and attribution
 
-No single licence covers everything referenced in this repository. Original research material, third-party film footage, visual references, model files, and software may each have different owners and terms.
+No single licence covers everything here. Original material, third-party footage, references, models and software each have their own owners and terms.
 
 See [Credits & Attribution](docs/credits.md) for the public source record and [Third-Party Notices](THIRD_PARTY_NOTICES.md) for the principal model and software projects. Credit is not permission to reuse third-party material, and this repository does not relicense it.

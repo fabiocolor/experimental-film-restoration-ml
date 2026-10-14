@@ -4,7 +4,15 @@ All notable changes to this repository are documented here.
 
 ## [Unreleased]
 
-### Website and research direction
+### October 2026: five research areas
+- Reorganised the website, README and repository notes around five research areas: Faded Colour Recovery, Temporal CbCr, Diffusion Healing, Diffusion Reconstruction and Black-and-White Colourization.
+- Folded the open-weight routes, research routes and Qwen workflow pages into Faded Colour Recovery; the case studies and research-evidence pages into Temporal CbCr and the CopyCat workflow; and the earlier spatial-recovery route into Diffusion Reconstruction. All old URLs redirect.
+- Made the CopyCat workflow colour-only.
+- Reduced the Tools page to links.
+- Kept only the current examples: Reptilicus, Counter Attack, Folgers, Candy Candy, Unman Wittering and Zigo, the Wong flute players and El Tinterillo. The talk pages stay as dated archives.
+- The seam-blend kits now read `INPUT_DIR` and `OUTPUT_DIR`.
+
+### Earlier: website and research direction
 - Reframed the project around two public research tracks: open-weight colour recovery and reference-trained CopyCat recovery.
 - Made Qwen Image Edit the primary current research area, with a dedicated overview, workflow guide, downloads, and links to the SEAPAVAA 2026 evidence.
 - Added a confidence-labelled route map separating demonstrated results, promising bounded routes, and unresolved temporal and high-resolution problems.
@@ -19,8 +27,8 @@ All notable changes to this repository are documented here.
 
 ### Added
 - Public guide to preparing reliable training pairs from direct film matches and drifting video references, illustrated by the Frontier research.
-- Case studies page (`docs/case-studies.md`) covering ten projects: Candy Candy, Beta, PSM, Friends, La Muralla Verde, Frontier Experience, Ben, Rebelion de las Tapadas, Knights of the Trail, and El Gran Tinterillo.
-- Comparison GIFs for: Candy Candy, Beta, PSM, Friends, Frontier Experience, Ben, Rebelion de las Tapadas, Knights of the Trail, and El Tinterillo.
+- Case studies page (`docs/case-studies.md`) covering nine projects: Candy Candy, Beta, PSM, Friends, La Muralla Verde, Frontier Experience, Ben, Rebelion de las Tapadas, and El Gran Tinterillo.
+- Comparison GIFs for: Candy Candy, Beta, PSM, Friends, Frontier Experience, Ben, Rebelion de las Tapadas, and El Tinterillo.
 - GIF: merge difference alignment check (extracted from video walkthrough).
 
 ### Changed

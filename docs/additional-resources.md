@@ -11,9 +11,9 @@ These notes support the workflow without being workflow steps themselves. Use th
 
 ## Video Walkthrough: Nuke Chroma Recovery {#video-walkthrough-nuke-chroma-recovery}
 
-The public YouTube walkthrough is a visual companion to the repository. It belongs here as supporting material: a quick way to see the chroma-recovery idea in motion before reading the step-by-step workflow.
+A quick way to see the CopyCat colour-recovery workflow in motion before reading the [step-by-step guide]({{ '/copycat-workflow/' | relative_url }}).
 
-<figure>
+<figure class="figure">
   <a href="https://youtu.be/kXerjFGX9Kg" target="_blank" rel="noopener">
     <img src="{{ '/images_kebab/video_previews/color-recovery-video-preview.gif' | relative_url }}" alt="Animated preview of the Nuke chroma recovery YouTube walkthrough">
   </a>
@@ -24,7 +24,7 @@ The public YouTube walkthrough is a visual companion to the repository. It belon
 
 Digitization is the preservation handoff where the image content is separated from a fragile physical container. Treat the scan as the foundation for every later restoration step, not as a quick transfer or a baked creative grade. For damaged or rare materials, the first scan may also be the only practical scan: the film may not survive repeated handling, the budget may not allow a second pass, or decay may advance before another attempt is possible.
 
-<figure>
+<figure class="figure">
   <a href="https://fabiocolor.substack.com/p/first-scan-last-chance" target="_blank" rel="noopener">
     <img src="{{ '/images_kebab/digitization/first-scan-last-chance-hero.png' | relative_url }}" alt="First Scan, Last Chance article hero image">
   </a>
@@ -34,13 +34,13 @@ Digitization is the preservation handoff where the image content is separated fr
 The goal is to capture the maximum recoverable information in RGB and luminance. A good scan should preserve the film's dynamic range, color-channel separation, density variation, grain, and texture so later tools can make informed decisions. A poor scan can permanently remove evidence: clipped highlights, crushed shadows, bad white balance, automatic exposure decisions, or channel clipping cannot reliably be reconstructed downstream.
 
 <div class="media-grid media-grid-2">
-  <figure>
+  <figure class="figure">
     <a href="https://fabiocolor.substack.com/p/first-scan-last-chance" target="_blank" rel="noopener">
       <img src="{{ '/images_kebab/digitization/first-scan-last-chance-scanner-color-controls.png' | relative_url }}" alt="Article excerpt about adjusting scanner color controls">
     </a>
     <figcaption>Scanner exposure and RGB controls affect how much useful image information is captured before restoration begins.</figcaption>
   </figure>
-  <figure>
+  <figure class="figure">
     <a href="https://fabiocolor.substack.com/p/first-scan-last-chance" target="_blank" rel="noopener">
       <img src="{{ '/images_kebab/digitization/first-scan-last-chance-color-systems-review.png' | relative_url }}" alt="Color systems for motion picture film digitization article screenshot">
     </a>
@@ -78,29 +78,29 @@ Color film records the image through subtractive dye layers. When the surviving 
 For this workflow, the point is practical more than aesthetic: the magenta image often still preserves usable luma, texture, and grain, but its chroma channels are biased, compressed, or partly clipped. A neutral pre-balance gives `CopyCat` a cleaner input distribution before introducing chroma from the reference.
 
 <div class="media-grid media-grid-2">
-  <figure>
-    <img src="{{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }}" alt="Faded live-action scan with strong red/magenta bias">
+  <figure class="figure">
+    <img src="{{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }}" alt="Faded live-action scan with strong red/magenta bias">
     <figcaption>Faded scan with a strong red/magenta bias.</figcaption>
   </figure>
-  <figure>
-    <img src="{{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }}" alt="Live-action scan after technical rebalance">
+  <figure class="figure">
+    <img src="{{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }}" alt="Live-action scan after technical rebalance">
     <figcaption>Technical red compression/rebalance to prepare a cleaner input before ML training.</figcaption>
   </figure>
 </div>
 
-<figure>
+<figure class="figure">
   <img src="{{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-parade-scope-faded-film.png' | relative_url }}" alt="Resolve parade scope showing channel imbalance in faded film">
-  <figcaption>Resolve parade scope and Faded Balancer controls showing channel imbalance in faded film. The goal is a technical pre-balance, not a final creative grade.</figcaption>
+  <figcaption>The Resolve parade scope showing channel imbalance in faded film. The goal is a technical pre-balance, not a final creative grade.</figcaption>
 </figure>
 
 <div class="media-grid media-grid-2">
-  <figure>
-    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}" alt="Faded Candy Candy scan before DCTL correction">
-    <figcaption>Faded animation scan before channel-specific correction.</figcaption>
+  <figure class="figure">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}" alt="Faded Candy Candy scan before balancing">
+    <figcaption>The faded scan in Resolve, before balancing.</figcaption>
   </figure>
-  <figure>
-    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}" alt="Balanced Candy Candy scan after DCTL correction">
-    <figcaption>Diagnostic red-channel correction view used to isolate and control a dominant channel component.</figcaption>
+  <figure class="figure">
+    <img src="{{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}" alt="Balanced Candy Candy scan">
+    <figcaption>The same scan after a neutral, technical balance.</figcaption>
   </figure>
 </div>
 
@@ -133,3 +133,17 @@ For this workflow, the point is practical more than aesthetic: the magenta image
 - [Graphics Atlas - Chromogenic deterioration](https://new.graphicsatlas.org/chromogenic/object-view)
 - [Heritage, 2023 - Digital Unfading of Chromogenic Film Informed by Its Spectral Densities](https://www.mdpi.com/2571-9408/6/4/181)
 - [National Film Preservation Foundation - The Film Preservation Guide](https://www.filmpreservation.org/userfiles/image/PDFs/fpg.pdf)
+
+## Downloads
+
+The images on this page, full size:
+
+- [Animated preview of the Nuke chroma recovery YouTube walkthrough]({{ '/images_kebab/video_previews/color-recovery-video-preview.gif' | relative_url }}) (GIF, 3.2 MB)
+- [First Scan, Last Chance article hero image]({{ '/images_kebab/digitization/first-scan-last-chance-hero.png' | relative_url }}) (PNG, 0.8 MB)
+- [Article excerpt about adjusting scanner color controls]({{ '/images_kebab/digitization/first-scan-last-chance-scanner-color-controls.png' | relative_url }}) (PNG, 0.9 MB)
+- [Color systems for motion picture film digitization article screenshot]({{ '/images_kebab/digitization/first-scan-last-chance-color-systems-review.png' | relative_url }}) (PNG, 0.4 MB)
+- [Faded live-action scan with strong red/magenta bias]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-after.png' | relative_url }}) (PNG, 4.2 MB)
+- [Live-action scan after technical rebalance]({{ '/images_kebab/resolve-dctl/faded-film-resolve-dctl-strong-red-compress-before.png' | relative_url }}) (PNG, 3.6 MB)
+- [Resolve parade scope showing channel imbalance in faded film]({{ '/images_kebab/candy-candy/candy-candy-resolve-dctl-parade-scope-faded-film.png' | relative_url }}) (PNG, 4.5 MB)
+- [Faded Candy Candy scan before balancing]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-raw.png' | relative_url }}) (PNG, 4.3 MB)
+- [Balanced Candy Candy scan]({{ '/images_kebab/candy-candy/candy-candy-faded-balancer-finished.png' | relative_url }}) (PNG, 4.3 MB)
