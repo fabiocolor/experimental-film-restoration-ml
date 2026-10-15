@@ -853,9 +853,22 @@ a {
   }
 }
 
+// "Look at a frame" toolbar under a side-by-side video
+.pair-tools-inspect {
+  .frame-pick[aria-pressed="true"] {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+}
+
 // Video pairs: one side-by-side MP4 (source | result) spans the pair
 .pair-media.pair-video {
   grid-template-columns: 1fr;
+
+  &[hidden] {
+    display: none;
+  }
 
   video {
     width: 100%;

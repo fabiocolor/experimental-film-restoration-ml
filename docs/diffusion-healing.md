@@ -14,7 +14,10 @@ redirect_from:
 When part of a film is simply gone: a stretch of nitrate that decayed to nothing, a gap in a negative while the sound runs on, emulsion breaking up across the frame. Everything that survives, in every element of the film, is used first. A video model generates only what is missing, guided by the movement around it, and every generated pixel is on record.
 
 <figure class="reveal">
-  <video autoplay muted loop playsinline preload="auto" src="{{ '/media/examples/knights-of-the-trail-gap-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/knights-of-the-trail-gap826-source.jpg' | relative_url }}"></video>
+  <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/knights-of-the-trail-gap826-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/knights-of-the-trail-gap-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/knights-of-the-trail-gap-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
   <figcaption><span class="reveal-tag">Reveal</span> <em>Knights of the Trail</em>, nitrate, frames 734–959. The scan plays to its worst frame, holds, and heals: the cowboy, his hands and the bag are the film's in every frame, and only the ruined background is generated. Courtesy of the George Eastman Museum. <a href="{{ '/records/knights-of-the-trail/' | relative_url }}">Record</a></figcaption>
 </figure>
 
@@ -29,8 +32,11 @@ When part of a film is simply gone: a stretch of nitrate that decayed to nothing
 
 <figure class="pair">
   <span class="pair-labels"><span>Nitrate scan</span><span>Healed</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/knights-of-the-trail-gap-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/knights-of-the-trail-gap-b-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="knights-of-the-trail-gap" data-frames="748,826,871,937">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/knights-of-the-trail-gap-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/knights-of-the-trail-gap-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/knights-of-the-trail-gap-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption><em>Knights of the Trail</em>, 226 frames. Two frames come from a diacetate copy, 18 are healed with Wan VACE 14B, and the other 206 are the nitrate scan untouched, byte for byte. In the healed frames, 65 per cent of the pixels are still the film's. Courtesy of the George Eastman Museum. <a href="{{ '/records/knights-of-the-trail/' | relative_url }}">Record</a></figcaption>
 </figure>
@@ -60,10 +66,13 @@ When part of a film is simply gone: a stretch of nitrate that decayed to nothing
 
 <figure class="pair">
   <span class="pair-labels"><span>16mm scan</span><span>Healed</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/wong-flute-players-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/wong-flute-players-f030-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="wong-flute-players" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/wong-flute-players-f030-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/wong-flute-players-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/wong-flute-players-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
-  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Healed from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Approved at the working resolution; work continues from the "heal the original" version. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
+  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Healed from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Approved at working size; work continues on a version that heals the original scan. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
@@ -76,10 +85,10 @@ When part of a film is simply gone: a stretch of nitrate that decayed to nothing
 
 ## Where it stands
 
-- **Nitrate decay is healed.** The Knights of the Trail shot above went through six versions in the review hub, each closer to the rule that what moves stays original; the version shown follows the reviewer's notes on the approved fifth. A 15-frame hole in the camera negative of <em>Poison Pen</em> (1939), with the sound running on, is being filled the same way, with the actors' movement tracked across the gap.
-- **Whole-frame decay is the frontier.** The Wong shot proved the storyboard method and is parked at a strong proxy result, to be finished together with conventional restoration.
-- **Resolution.** The models work at around 768 × 560 and ten seconds at a time; shots are done in overlapping windows, and the Knights of the Trail shot is approved on its 640 × 512 working proxy. The original-resolution pass is a separate, final step.
-- **Public footage.** A survey of 847 archive proxies found no other public-domain title with loss on this scale, which is why these examples are from collections rather than from a trailer reel.
+- **Nitrate decay is healed.** The Knights of the Trail shot above went through six versions, each closer to the rule that what moves stays the film's; the version shown carries out the notes on the approved fifth. A 15-frame hole in the camera negative of <em>Poison Pen</em> (1939), with the sound running on, is being filled the same way, with the actors' movement tracked across the gap.
+- **Whole-frame decay is the frontier.** The Wong shot proved the storyboard method and stops at a good result at working size, to be finished together with conventional restoration.
+- **Resolution.** The models work at around 768 × 560 and ten seconds at a time; shots are done in overlapping windows, and the Knights of the Trail shot was reviewed at its 640 × 512 working size. The original-resolution pass is a separate, final step.
+- **Public footage.** A search through 847 films in public archives found no other public-domain title with loss on this scale, which is why these examples come from collections rather than from a trailer reel.
 
 ## Downloads
 

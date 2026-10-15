@@ -3,11 +3,15 @@
 
    1. Compare mode on figure pairs (.pair-media[data-compare]): a wipe between the
       source and the result, dragged with the pointer or the arrow keys.
-   2. Video pairs (.pair-media[data-sync]): play, pause and seek both players together. */
+   2. Video pairs (.pair-media[data-sync]): play, pause and seek both players together.
+   3. Reveal videos marked data-autoplay start when they scroll into view and pause when they
+      leave it, so a page with several of them only downloads the ones being looked at.
+   4. "Look at a frame" on side-by-side videos (.pair-video[data-inspect]): swaps the video for
+      a full-size still pair of the same shot, in compare mode, and back. */
 (function () {
   'use strict';
 
-  function compare(media) {
+  function compare(media, startOn) {
     var imgs = media.querySelectorAll('img');
     if (imgs.length !== 2) return;
     // The browser's own image drag would take over the pointer; turn it off for the pair.
@@ -81,6 +85,11 @@
     }
 
     btn.addEventListener('click', function () { on ? disable() : enable(); });
+    if (startOn) {
+      var pending = Array.prototype.filter.call(imgs, function (im) { return !im.complete; });
+      if (!pending.length) enable();
+      else pending.forEach(function (im) { im.addEventListener('load', function () { if (!on && Array.prototype.every.call(imgs, function (x) { return x.complete; })) enable(); }); });
+    }
 
     var dragging = false;
     media.addEventListener('pointerdown', function (e) {
@@ -130,9 +139,104 @@
     });
   }
 
+  function lazyPlay() {
+    var vids = document.querySelectorAll('video[data-autoplay]');
+    if (!vids.length) return;
+    if (!('IntersectionObserver' in window)) {
+      vids.forEach(function (v) { v.preload = 'auto'; v.play().catch(function () {}); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        var v = en.target;
+        if (en.isIntersecting) { v.preload = 'auto'; v.play().catch(function () {}); }
+        else if (!v.paused) v.pause();
+      });
+    }, { rootMargin: '200px 0px' });
+    vids.forEach(function (v) { io.observe(v); });
+  }
+
+  function inspect(media) {
+    var video = media.querySelector('video');
+    if (!video) return;
+    var slug = media.getAttribute('data-inspect');
+    var frames = (media.getAttribute('data-frames') || 'b').split(',');
+    var base = (window.siteBase || '') + '/images_kebab/examples/';
+    var figure = media.closest('figure');
+    var labelRow = figure && figure.querySelector('.pair-labels');
+    var labels = labelRow ? Array.prototype.map.call(labelRow.querySelectorAll('span'), function (s) { return s.textContent; }) : ['Source', 'Result'];
+    var tools = document.createElement('div');
+    tools.className = 'pair-tools pair-tools-inspect';
+    var toggle = document.createElement('button');
+    toggle.type = 'button';
+    toggle.textContent = 'Look at a frame';
+    toggle.setAttribute('aria-pressed', 'false');
+    tools.appendChild(toggle);
+    media.insertAdjacentElement('afterend', tools);
+
+    var still = null, pickers = [], current = frames.length > 1 ? frames[1] : frames[0];
+
+    function file(frame, kind) {
+      var sep = /^[a-z]/.test(frame) ? '-' : '';
+      return base + slug + sep + frame + '-' + kind + '.jpg';
+    }
+
+    function show(frame) {
+      current = frame;
+      if (still) still.remove();
+      still = document.createElement('div');
+      still.className = 'pair-media';
+      still.setAttribute('data-compare', labels.join('|'));
+      ['source', 'result'].forEach(function (kind, i) {
+        var im = document.createElement('img');
+        im.src = file(frame, kind);
+        im.alt = (labels[i] || kind) + ', one frame of the shot at full size';
+        still.appendChild(im);
+      });
+      media.insertAdjacentElement('afterend', still);
+      compare(still, true);
+      var own = still.nextElementSibling;   // the still's own Compare button: the wipe stays on while inspecting
+      if (own && own.classList.contains('pair-tools') && own !== tools) own.remove();
+      pickers.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-frame') === frame ? 'true' : 'false'); });
+    }
+
+    function open() {
+      if (!video.paused) video.pause();
+      media.hidden = true;
+      if (frames.length > 1 && !pickers.length) {
+        frames.forEach(function (fr, i) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.className = 'frame-pick';
+          b.setAttribute('data-frame', fr);
+          b.textContent = /^[a-z]/.test(fr) ? 'Frame ' + (i + 1) : 'Frame ' + fr;
+          b.addEventListener('click', function () { show(fr); });
+          tools.insertBefore(b, toggle);
+          pickers.push(b);
+        });
+      }
+      pickers.forEach(function (b) { b.hidden = false; });
+      show(current);
+      toggle.textContent = 'Back to the video';
+      toggle.setAttribute('aria-pressed', 'true');
+    }
+
+    function close() {
+      if (still) { still.remove(); still = null; }
+      pickers.forEach(function (b) { b.hidden = true; });
+      media.hidden = false;
+      toggle.textContent = 'Look at a frame';
+      toggle.setAttribute('aria-pressed', 'false');
+    }
+
+    toggle.addEventListener('click', function () { still ? close() : open(); });
+  }
+
   function init() {
-    document.querySelectorAll('.pair-media[data-compare]').forEach(compare);
+    document.querySelectorAll('.pair-media[data-compare]').forEach(function (m) { compare(m, false); });
     document.querySelectorAll('.pair-media[data-sync]').forEach(sync);
+    document.querySelectorAll('.pair-video[data-inspect]').forEach(inspect);
+    lazyPlay();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);

@@ -17,7 +17,10 @@ redirect_from:
 The colour of a faded film, brought back from the film itself. No surviving print, no DVD, no telecine: the scan's own brightness, grain and damage stay exactly as they are, and the colour that faded is rebuilt around them, frame after frame, through the whole shot.
 
 <figure class="reveal">
-  <video autoplay muted loop playsinline preload="auto" src="{{ '/media/examples/counter-attack-crowd-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/counter-attack-crowd-b-source.jpg' | relative_url }}"></video>
+  <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/counter-attack-crowd-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/counter-attack-crowd-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/counter-attack-crowd-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
   <figcaption><span class="reveal-tag">Reveal</span> <em>Counter Attack</em> (1976), crowd shot. A film copy faded to red, 385 frames with a fast pan; the recovered colour on the scan's own brightness. <a href="{{ '/records/counter-attack-crowd/' | relative_url }}">Record</a></figcaption>
 </figure>
 
@@ -34,24 +37,33 @@ Scans that were balanced before recovery (black is black, white is white, the co
 
 <figure class="pair">
   <span class="pair-labels"><span>Faded source</span><span>Recovered</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/obsession-ballroom-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/obsession-ballroom-a-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="obsession-ballroom" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/obsession-ballroom-a-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/obsession-ballroom-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/obsession-ballroom-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption><em>Obsession</em> (1976), the ballroom, 254 frames at 2048 × 1556. Four approved colour anchors, H3 in four overlapping sections, the colour registered onto the scan's own brightness. <a href="{{ '/records/obsession-ballroom/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
   <span class="pair-labels"><span>Faded source</span><span>Recovered</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/counter-attack-crowd-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/counter-attack-crowd-f040-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="counter-attack-crowd" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/counter-attack-crowd-f040-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/counter-attack-crowd-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/counter-attack-crowd-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
-  <figcaption><em>Counter Attack</em> (1976), crowd shot, 9 of 13 seconds. H3 with the Fun ControlNet on overlapping sections, 278 frames admitted as teachers, the adapter over all 385 frames. Approved 30 September 2026. <a href="{{ '/records/counter-attack-crowd/' | relative_url }}">Record</a></figcaption>
+  <figcaption><em>Counter Attack</em> (1976), crowd shot, 9 of 13 seconds. MiniMax H3 with the Fun ControlNet on overlapping sections; 278 of its frames passed review and taught the adapter, which coloured all 385. Approved 30 September 2026. <a href="{{ '/records/counter-attack-crowd/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
   <span class="pair-labels"><span>Faded source</span><span>Recovered</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/counter-attack-quarry-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/counter-attack-quarry-a-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="counter-attack-quarry" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/counter-attack-quarry-a-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/counter-attack-quarry-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/counter-attack-quarry-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption><em>Counter Attack</em> (1976), the quarry, 681 frames at 1920 × 1440. Six H3 sections stitched in their overlaps, with the palette changing between the second and third as the scene changes. Accepted 9 August 2026. <a href="{{ '/records/counter-attack-quarry/' | relative_url }}">Record</a></figcaption>
 </figure>
@@ -66,16 +78,22 @@ Scans that were balanced before recovery (black is black, white is white, the co
 
 <figure class="pair">
   <span class="pair-labels"><span>Faded source</span><span>Recovered</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/counter-attack-waterfront-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/counter-attack-waterfront-b-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="counter-attack-waterfront" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/counter-attack-waterfront-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/counter-attack-waterfront-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/counter-attack-waterfront-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption><em>Counter Attack</em> (1976), the waterfront, 338 frames at 1920 × 1440. H3 from three reference stills; on 30 frames of fast hand movement an independent TeleStyle pass took over. Approved 9 August 2026. <a href="{{ '/records/counter-attack-waterfront/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
   <span class="pair-labels"><span>Balanced scan</span><span>Recovered</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/folgers-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/folgers-f020-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="folgers" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/folgers-f020-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/folgers-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/folgers-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption><em>Folgers</em>, 1970s commercial, 135 frames. A balanced scan: the surviving red-green record kept, the lost yellow-blue axis recovered. The whole route is the <a href="{{ '/downloads/faded-colour-recovery-t185/' | relative_url }}">balanced-source kit</a>, reproduced within ΔE 1.5 at every stage. <a href="{{ '/records/folgers/' | relative_url }}">Record</a></figcaption>
 </figure>
@@ -111,10 +129,10 @@ The first colour frame of any shot is made this way. The stills below are from t
 
 ## Where it stands
 
-- **Whole shots, with movement.** In June a single still was the result and a moving shot flickered. By September whole shots with pans, crowds and dancing were approved: the ballroom, the crowd, the waterfront, the quarry. Hard motion is a matter of sections, teachers and review, not a wall. Given enough passes, every faded shot tried so far has come back.
+- **Whole shots, with movement.** In June a single still was the result and a moving shot flickered. By September whole shots with pans, crowds and dancing were approved: the ballroom, the crowd, the waterfront, the quarry. Hard motion is handled with sections, review and the adapter; it is not a wall. Given enough passes, every faded shot tried so far has come back.
 - **Full resolution.** The video models see a reduced picture, but only their colour is used, so every result is at the scan's full resolution with the scan's own grain.
 - **Time.** The first whole shot took four hours of TeleStyle. H3 with the ControlNet does a 124-frame section in 20 to 45 minutes, and the adapter trains in about 90 seconds.
-- **Open.** The target is three out of four new shots right on the first pass; some shots still take a second pass. Deep shadows keep a tint on the hardest cadences. The colour is an interpretation unless a surviving reference confirms it, and every page says so.
+- **Open.** The target is three out of four new shots right on the first pass; some shots still take a second pass. Deep shadows keep a tint on the hardest shots. The colour is an interpretation unless a surviving reference confirms it, and every page says so.
 
 ## Downloads
 

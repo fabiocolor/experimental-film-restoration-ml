@@ -14,7 +14,10 @@ nav_order: 0
 </div>
 
 <figure class="reveal">
-  <video autoplay muted loop playsinline preload="auto" src="{{ '/media/examples/obsession-ballroom-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/obsession-ballroom-b-source.jpg' | relative_url }}"></video>
+  <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/obsession-ballroom-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/obsession-ballroom-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/obsession-ballroom-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
   <figcaption><span class="reveal-tag">Reveal</span> <em>Obsession</em> (1976), the ballroom. A trailer faded to solid red, 254 frames of dancing and a moving camera; the colour recovered on the scan's own brightness at 2048 × 1556. <a href="{{ '/records/obsession-ballroom/' | relative_url }}">Record</a></figcaption>
 </figure>
 
@@ -32,7 +35,10 @@ nav_order: 0
       <a class="area-link" href="{{ '/colour-recovery/' | relative_url }}">Method, five shots and two kits</a>
     </div>
     <figure class="reveal">
-      <video autoplay muted loop playsinline preload="metadata" src="{{ '/media/examples/counter-attack-quarry-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/counter-attack-quarry-b-source.jpg' | relative_url }}"></video>
+      <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/counter-attack-quarry-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/counter-attack-quarry-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/counter-attack-quarry-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
       <figcaption><span class="reveal-tag">Reveal</span> <em>Counter Attack</em> (1976), the quarry: 681 frames, six sections, one colour. <a href="{{ '/records/counter-attack-quarry/' | relative_url }}">Record</a></figcaption>
     </figure>
   </li>
@@ -44,7 +50,10 @@ nav_order: 0
       <a class="area-link" href="{{ '/temporal-cbcr/' | relative_url }}">Method, examples and the Nuke template</a>
     </div>
     <figure class="reveal">
-      <video autoplay muted loop playsinline preload="metadata" src="{{ '/media/examples/candy-candy-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/candy-candy-b-source.jpg' | relative_url }}"></video>
+      <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/candy-candy-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/candy-candy-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/candy-candy-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
       <figcaption><span class="reveal-tag">Reveal</span> <em>Candy Candy</em> (1976), a 16mm print faded to pink; the colour learned from a PAL DVD, the detail the print's. <a href="{{ '/records/candy-candy/' | relative_url }}">Record</a></figcaption>
     </figure>
   </li>
@@ -71,7 +80,10 @@ nav_order: 0
       <a class="area-link" href="{{ '/diffusion-reconstruction/' | relative_url }}">Method, a whole reel and kit</a>
     </div>
     <figure class="reveal">
-      <video autoplay muted loop playsinline preload="metadata" src="{{ '/media/examples/el-tinterillo-fg04-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg04-b-source.jpg' | relative_url }}"></video>
+      <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/el-tinterillo-fg04-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/el-tinterillo-fg04-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/el-tinterillo-fg04-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
       <figcaption><span class="reveal-tag">Reveal</span> <em>El Tinterillo</em>, shot FG04: the damaged 16mm print, and the shot rebuilt. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
     </figure>
   </li>
@@ -83,7 +95,10 @@ nav_order: 0
       <a class="area-link" href="{{ '/black-and-white-colourization/' | relative_url }}">Method and public-domain examples</a>
     </div>
     <figure class="reveal">
-      <video autoplay muted loop playsinline preload="metadata" src="{{ '/media/examples/the-general-train-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/the-general-train-b-source.jpg' | relative_url }}"></video>
+      <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/the-general-train-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/the-general-train-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/the-general-train-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
       <figcaption><span class="reveal-tag">Reveal</span> <em>The General</em> (1926), the locomotive below the pines. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a></figcaption>
     </figure>
   </li>

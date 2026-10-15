@@ -30,6 +30,13 @@ def probe(p):
 LUT = OUT / 'cineon_to_rec709.cube'   # log=True applies it; not used for the published videos (it made faded reds look hot)
 STEPS = set(os.environ.get('STEPS','sbs,reveal,master,stills').split(','))
 
+def av1(h264):
+    """An AV1 twin of a web file (about a third smaller at the same quality); the page offers it first and
+    falls back to the H.264 file in browsers that cannot play it."""
+    out = h264.with_suffix('.av1.mp4')
+    run(['ffmpeg', '-v', 'error', '-y', '-i', str(h264), '-c:v', 'libsvtav1', '-preset', '6', '-crf', '30', '-g', '48',
+         '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', str(out)])
+
 def build(slug, src, res, src_crop=None, res_crop=None, start=0.0, dur=None, web_w=1280, master_w=None, fps=None, log=False):
     """src/res: video paths. crops: (x, y, w, h) in the input. start/dur in seconds."""
     sw, sh, sn, sfps = probe(src)
@@ -49,8 +56,10 @@ def build(slug, src, res, src_crop=None, res_crop=None, start=0.0, dur=None, web
          f"[1:v]crop={rc[2]}:{rc[3]}:{rc[0]}:{rc[1]}{view},scale={half_w}:{half_h}:flags=lanczos,setsar=1[b];"
          f"[a][b]hstack=inputs=2,fps={fps},format=yuv420p[v]")
     web = WEB / f'{slug}-sbs.mp4'
-    if 'sbs' in STEPS: run(['ffmpeg', '-v', 'error', '-y', *t, '-i', str(src), *t, '-i', str(res), *d, '-filter_complex', f, '-map', '[v]', '-an',
-         '-c:v', 'libx264', '-preset', 'slow', '-crf', '23', '-movflags', '+faststart', str(web)])
+    if 'sbs' in STEPS:
+        run(['ffmpeg', '-v', 'error', '-y', *t, '-i', str(src), *t, '-i', str(res), *d, '-filter_complex', f, '-map', '[v]', '-an',
+             '-c:v', 'libx264', '-preset', 'slow', '-tune', 'film', '-g', '48', '-crf', '23', '-movflags', '+faststart', str(web)])
+        av1(web)
     # --- web reveal: result wipes over the source left -> right in 2.5 s, holds, then source returns in the last 0.6 s
     rw = min(960, sc[2] if sc[2] % 2 == 0 else sc[2] - 1)
     rh = int(round(rw / aspect / 2)) * 2
@@ -59,8 +68,10 @@ def build(slug, src, res, src_crop=None, res_crop=None, start=0.0, dur=None, web
          f"[a][b]xfade=transition=wipeleft:duration=2.5:offset=0.4,format=yuv420p[v]")
     # xfade needs the two inputs to have the same length; trim both with -t
     reveal = WEB / f'{slug}-reveal.mp4'
-    if 'reveal' in STEPS: run(['ffmpeg', '-v', 'error', '-y', *t, *d, '-i', str(src), *t, *d, '-i', str(res), '-filter_complex', f, '-map', '[v]', '-an',
-         '-c:v', 'libx264', '-preset', 'slow', '-crf', '23', '-movflags', '+faststart', str(reveal)])
+    if 'reveal' in STEPS:
+        run(['ffmpeg', '-v', 'error', '-y', *t, *d, '-i', str(src), *t, *d, '-i', str(res), '-filter_complex', f, '-map', '[v]', '-an',
+             '-c:v', 'libx264', '-preset', 'slow', '-tune', 'film', '-g', '48', '-crf', '23', '-movflags', '+faststart', str(reveal)])
+        av1(reveal)
     # --- master side by side at full input resolution
     mw = master_w or sc[2] * 2
     mh = int(round(mw / 2 / aspect / 2)) * 2

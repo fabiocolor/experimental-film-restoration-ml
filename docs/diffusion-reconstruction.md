@@ -15,7 +15,10 @@ redirect_from:
 For films that are beyond repair. When every frame is damaged, no clean information is left for a restoration tool to borrow. Here a video model rebuilds the picture from the surviving elements, following their structure and their movement, and the result is said to be what it is: a reconstruction, with detail the film no longer holds.
 
 <figure class="reveal">
-  <video autoplay muted loop playsinline preload="auto" src="{{ '/media/examples/el-tinterillo-fg02-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg02-b-source.jpg' | relative_url }}"></video>
+  <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/el-tinterillo-fg02-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/el-tinterillo-fg02-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/el-tinterillo-fg02-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
   <figcaption><span class="reveal-tag">Reveal</span> <em>El Tinterillo</em>, shot FG02, 410 frames. The damaged 16mm print, and the shot rebuilt by MiniMax H3 from the print, the telecine and one look reference. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
 </figure>
 
@@ -28,35 +31,44 @@ For films that are beyond repair. When every frame is damaged, no clean informat
 
 ## The *El Tinterillo* reel
 
-*El Tinterillo* survives as a heavily damaged 16mm print and a soft, cropped telecine with the irregular cadence of its period. In September 2026 the whole reel was brought to the same look, shot by shot.
+*El Tinterillo* survives as a heavily damaged 16mm print and a soft, cropped telecine with the uneven frame rate of its period. In September 2026 the whole reel was brought to the same look, shot by shot.
 
 <figure class="pair">
   <span class="pair-labels"><span>16mm print</span><span>Reconstruction</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/el-tinterillo-fg02-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg02-b-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="el-tinterillo-fg02" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/el-tinterillo-fg02-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/el-tinterillo-fg02-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/el-tinterillo-fg02-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption>Shot FG02, 410 frames. Approved 26 September 2026.</figcaption>
 </figure>
 
 <figure class="pair">
   <span class="pair-labels"><span>16mm print</span><span>Reconstruction</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/el-tinterillo-fg04-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg04-b-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="el-tinterillo-fg04" data-frames="a,b">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/el-tinterillo-fg04-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/el-tinterillo-fg04-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/el-tinterillo-fg04-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption>Shot FG04, 422 frames. Approved 26 September 2026.</figcaption>
 </figure>
 
 <figure class="pair">
   <span class="pair-labels"><span>16mm print</span><span>Reconstruction</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/el-tinterillo-fg03-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg03-b-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="el-tinterillo-fg03" data-frames="b">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/el-tinterillo-fg03-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/el-tinterillo-fg03-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/el-tinterillo-fg03-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption>Shot FG03, 176 frames. Approved with notes: the appearance is approved, the lip movement is the next target.</figcaption>
 </figure>
 
 <figure class="figure">
   <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}"></video>
-  <figcaption>The stairs shot, 624 frames (26 seconds), the first shot approved and the look exemplar for the reel. Shown at <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026</a>. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
+  <figcaption>The stairs shot, 624 frames (26 seconds), the first shot approved and the look reference for the reel. Shown at <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026</a>. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
@@ -64,14 +76,14 @@ For films that are beyond repair. When every frame is damaged, no clean informat
     <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w1-f120-source.jpg' | relative_url }}" alt="El Tinterillo, stairs, frame 121: the hybrid of the damaged 16mm print and the telecine, a man on the stairs behind a balustrade" loading="lazy">
     <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w1-f120-result.jpg' | relative_url }}" alt="The reconstructed frame: the balustrade, the man and the wall rebuilt by the video model" loading="lazy">
   </div>
-  <figcaption>Stairs, frame 121. The hybrid (left) is the median-cleaned 16mm frame with the registered telecine inside it.</figcaption>
+  <figcaption>Stairs, frame 121. The hybrid (left) is the 16mm frame cleaned with a median filter, with the telecine aligned inside it.</figcaption>
 </figure>
 
 ## Where it stands
 
-- **A whole reel, one look.** Five shots of *El Tinterillo* are approved on the same playbook; the stairs set the look and the others followed.
-- **Faces and lips.** The models work at 768 × 432, so small faces are limited and lip movement is reduced. The next pass targets articulation; a codec test showed the information survives, so the limit is in the conditioning, not the source.
-- **What was tried and dropped.** Video upscalers (SeedVR2, FlashVSR), VACE as a source-first route and a CopyCat detail model did not suit this material.
+- **A whole reel, one look.** Five shots of *El Tinterillo* are approved with the same method; the stairs set the look and the others followed.
+- **Faces and lips.** The models work at 768 × 432, so small faces are limited and lip movement is reduced. The next pass targets the lips; a test showed the detail is there in the source, so the limit is in how the model is guided, not in the film.
+- **What was tried and dropped.** Video upscalers (SeedVR2, FlashVSR), Wan VACE driven by the source, and a CopyCat detail model did not suit this material.
 - **The record.** The original scan and every raw window are kept, and the reconstruction is labelled as one.
 
 ## Downloads

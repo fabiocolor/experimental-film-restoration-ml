@@ -10,6 +10,7 @@ All notable changes to this repository are documented here.
 - The *Counter Attack* waterfront and quarry videos are cut from the approved finals (T148, T157/T158) at 1920 × 1440.
 - The research-status page is now "What is possible now": done, open and reproducible, area by area, as of October 2026. New records for *Knights of the Trail*, *Obsession* ballroom and *Counter Attack* quarry; the *General* and *El Tinterillo* records cover their second shots and the reel. Every area page ends with sources and references.
 - Every kit graph is now also published laid out with notes (`_ui.json`): the H3 Fun ControlNet step, the Wan VACE second pass and the four stairs windows, built from their API recipes by `tools/examples/api_to_ui.py` and checked in the ComfyUI frontend to give back the identical prompt. The downloads page opens with the two single-frame graphs that run in Comfy Cloud.
+- Video: every web comparison is published twice, as AV1 (offered first, about a third smaller) and H.264 (the fallback); only the hero reveal of a page loads on its own, the others start when they scroll into view; and every side-by-side video has a "Look at a frame" button that swaps it for a full-size still pair of the same shot in the compare wipe. `build_videos.py` makes the AV1 twins and tunes the H.264 for film grain.
 - Compare wipe: the browser's native image drag no longer captures the pointer.
 
 ### 15 October 2026: design, kits, Comfy Cloud

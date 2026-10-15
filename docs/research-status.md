@@ -14,7 +14,7 @@ Status in October 2026, after SEAPAVAA in June and FIAT/IFTA in October. The sho
 
 **Done.** Whole shots with hard motion, at the scan's full resolution: a crowd with a fast pan (385 frames), a ballroom with a moving camera (254 frames at 2048 × 1556), a quarry in six sections (681 frames), a waterfront with fast hands (all three from the same faded copy of *Counter Attack*), and the balanced-source route end to end on a commercial. From one approved colour frame, MiniMax H3 with the Fun ControlNet carries the colour through the shot, the frames that pass review teach the Temporal CbCr adapter, and the adapter colours every frame consistently. Only the colour is taken; brightness, grain and damage stay the scan's.
 
-**Open.** Some shots still need a second pass; the target of three out of four new shots right first time is close but not reached. Deep shadows keep a tint on the hardest cadences. The video models see a reduced picture (about 768 × 576, ten seconds at a time), which is why shots are done in sections. The colour is an interpretation unless a surviving reference confirms it.
+**Open.** Some shots still need a second pass; the target of three out of four new shots right first time is close but not reached. Deep shadows keep a tint on the hardest shots. The video models see a reduced picture (about 768 × 576, ten seconds at a time), which is why shots are done in sections. The colour is an interpretation unless a surviving reference confirms it.
 
 **Try it.** The [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) (one faded frame to one colour frame, in Comfy Cloud or locally, no Python) and the balanced palette still from the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) are the two graphs anyone can run; the rest of the balanced kit does a whole shot, end to end, on a local card. See [faded colour recovery]({{ '/colour-recovery/' | relative_url }}).
 
@@ -22,7 +22,7 @@ Status in October 2026, after SEAPAVAA in June and FIAT/IFTA in October. The sho
 
 **Done.** With a historical reference (a DVD, a telecine, another print) a small model learns the colour from matching frames: *Candy Candy* from a PAL DVD, *Frontier Experience* from a telecine. With a synthetic reference, about a hundred approved frames teach the adapter, which trains in 90 seconds and colours the rest of the shot: *Unman, Wittering and Zigo*. The adapter is the finishing step of the whole-shot colour results above.
 
-**Open.** Alignment of a historical reference is still semi-manual. A synthetic reference is only as good as the frames a person approves.
+**Open.** Lining up a historical reference is still partly done by hand. A synthetic reference is only as good as the frames a person approves.
 
 **Try it.** The Nuke template for CopyCat, from the [releases page](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest), with the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) guide; the adapter code is in the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). See [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}).
 
@@ -30,21 +30,21 @@ Status in October 2026, after SEAPAVAA in June and FIAT/IFTA in October. The sho
 
 **Done.** Nitrate decay healed on a whole shot of *Knights of the Trail*: in the 18 damaged frames the actor stays the film's and only the ruined background is generated; the other 206 frames are untouched, and every generated pixel is on record. A 16mm reversal shot with the emulsion breaking up across the whole frame (the Wong flute players) healed from one storyboard sheet, with the film's own drumming kept. A 15-frame hole in a camera negative (*Poison Pen*, 1939), with the sound running on, is being filled with the actors' movement tracked across the gap.
 
-**Open.** The healed shots are approved on working proxies (640 × 512, 768 × 560); the original-resolution pass is a separate step. The Wong shot is parked at a strong proxy result, to be finished together with conventional restoration. The fastest, thinnest movement (a drumstick) is still better kept from the film than generated.
+**Open.** The healed shots are approved at working size (640 × 512, 768 × 560); the pass at the scan's full resolution is a separate step. The Wong shot stops at a good result at working size, to be finished together with conventional restoration. The fastest, thinnest movement (a drumstick) is still better kept from the film than generated.
 
 **Try it.** The [second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}). See [diffusion healing]({{ '/diffusion-healing/' | relative_url }}).
 
 ## 4. Diffusion reconstruction
 
-**Done.** A whole reel of *El Tinterillo*, a film that survives only as a heavily damaged 16mm print and a soft telecine, rebuilt shot by shot to one look: the stairs (624 frames), FG02 (410), FG04 (422) and FG03 (176, approved with notes) on the same playbook. The result is labelled as a reconstruction, with detail the film no longer holds.
+**Done.** A whole reel of *El Tinterillo*, a film that survives only as a heavily damaged 16mm print and a soft telecine, rebuilt shot by shot to one look: the stairs (624 frames) and three more shots of 410, 422 and 176 frames, the last approved with notes, all with the same method. The result is labelled as a reconstruction, with detail the film no longer holds.
 
-**Open.** Small faces and lip movement, because the models work at 768 × 432; the next pass targets articulation. Video upscalers, VACE as a source-first route and a CopyCat detail model were tried and dropped for this material.
+**Open.** Small faces and lip movement, because the models work at 768 × 432; the next pass targets articulation. Video upscalers, Wan VACE driven by the source, and a CopyCat detail model were tried and dropped for this material.
 
 **Try it.** The [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}). See [diffusion reconstruction]({{ '/diffusion-reconstruction/' | relative_url }}).
 
 ## 5. Black-and-white colourization
 
-**Done.** Fifteen shots approved, whole shots at full resolution with the source luminance byte-exact, the colour fitted to the stock that recorded the film: *The General* (a garden scene and a pan on a locomotive) and six other public-domain films of the 1920s.
+**Done.** Fifteen shots approved, whole shots at full resolution with the original brightness untouched, the colour fitted to the stock that recorded the film: *The General* (a garden scene and a pan on a locomotive) and six other public-domain films of the 1920s.
 
 **Open.** Skin on the earliest shots, some foliage, and soft, low-detail sources, which give the model too little to work from. More complex movement and subjects are the next tests. The palettes are interpretations.
 

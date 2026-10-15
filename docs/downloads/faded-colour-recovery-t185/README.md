@@ -39,9 +39,9 @@ Every step was checked against an approved shot ([record]({{ '/records/folgers/'
 2. **Palette still.** `python tools/prepare_still_inputs.py out/prepare/palette_frame.png still`, then load `graphs/1_palette_still_fp8mixed_ui.json` in ComfyUI (laid out, with notes; `1_palette_still_fp8mixed_local.json` is the same graph in API format), point the three Load Image nodes at `source_y.png`, `faded_frame.png` and `canny.png`, and run. Then `python tools/composite_still.py still/faded_frame.png <graph output>.png palette.png`. This still sets the colour of the whole shot, so only go on if you'd approve it.
 3. **The shot with MiniMax H3.** Load `graphs/2_h3_fun_controlnet_ui.json` (laid out, with notes on what the step does and what should and should not happen on the footage; `2_h3_fun_controlnet_local.json` is the same graph in API format), give it `context.mp4`, `control.mp4` and `palette.png` (all three reference images), and run.
 4. **Preview.** `python tools/run_step.py preview --update-hashes --source shot.mkv --carrier out/prepare/context.mp4 --h3 <H3 output>.mp4 --out out/preview`
-   Lines H3 up with the film and keeps the frames that pass a brightness check as teachers.
+   Lines the H3 video up with the film and keeps the frames whose brightness matches, which are the frames the adapter learns from.
 5. **Temporal CbCr adapter.** `python tools/run_step.py adapter --update-hashes --source shot.mkv --targets out/preview/teacher_targets.npz --report out/preview/registration_report.json --out out/adapter`
-   Learns the colour of this shot from the teachers and colours every frame. List your shot's teacher frames and their hashes (from the preview report) in `tools/steps/adapter/adapter_spec.json`.
+   Learns the colour of this shot from those frames and colours every frame. List your shot's frames and their hashes (from the preview report) in `tools/steps/adapter/adapter_spec.json`.
 6. **Respect the surviving colour.** `python tools/run_step.py respect --update-hashes --source shot.mkv --recovered out/adapter/full_recovered.mp4 --out out/respect`
    The red-green colour that survived in the scan can be strengthened but never flipped or weakened. `respect.mp4` is the result.
 
@@ -73,7 +73,7 @@ The palette still runs in Comfy Cloud with the same graph. Two versions are prov
 
 1. Open [Comfy Cloud](https://cloud.comfy.org/) and import one of the two graphs.
 2. Upload `example/source_y.png`, `faded_frame.png` (from the release, below) and `example/canny.png` into the three Load Image nodes, in that order, and run.
-3. Both graphs save the raw palette proposal (`model_output`) and a composite on the source brightness made inside the graph (`composite`). For the shot, make the palette still with `tools/composite_still.py` on the model output on your computer; it is the reference composite (inverse Kontext geometry, smoothstep shadow gate) and what the H3 step expects. The in-graph composite is within ΔE 1.4 of it.
+3. Both graphs save the raw palette proposal (`model_output`) and a composite on the source brightness made inside the graph (`composite`). For the shot, make the palette still with `tools/composite_still.py` on the model output on your computer; it is the reference composite (the model's picture scaled back onto the source exactly, with a soft shadow gate) and what the H3 step expects. The in-graph composite is within ΔE 1.4 of it.
 
 The H3 step and the Python steps run locally. Comfy Cloud may need an active plan and credits to run a graph.
 

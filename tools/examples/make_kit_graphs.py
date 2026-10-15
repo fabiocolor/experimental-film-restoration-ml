@@ -35,8 +35,8 @@ convert(D / 'faded-colour-recovery-t185/graphs/2_h3_fun_controlnet_local.json',
              '**Should.** Every person, garment and object takes the colour it has in the palette still, and keeps it through the movement. '
              'The picture follows the edge map exactly: same framing, same timing, same gestures.\n\n'
              '**Should not.** New objects, changed faces or hands, colour crossing an edge into the background, a palette that drifts between '
-             'sections, flicker. A frame that shows any of these is not admitted as a teacher for the adapter (step 3): the frames are registered '
-             'against the source and admitted only if their brightness lines up within 1.5 px.\n\n'
+             'sections, flicker. A frame that shows any of these is not used to train the adapter (step 3): every frame is lined up '
+             'against the source and used only if its brightness matches within 1.5 px.\n\n'
              '**Settings that matter.** Seed 0, 20 steps, `res_multistep` / `simple`, ControlNet strength 1.0 over the whole run. '
              'Sections overlap, and the seam is placed in a calm passage.'),
             GPU,

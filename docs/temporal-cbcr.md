@@ -16,7 +16,10 @@ redirect_from:
 Colour learned from a reference for the shot and carried through every frame. The scan keeps its brightness, detail, grain and motion; only the colour (the Cb and Cr channels) comes from the reference. A small model is trained for the shot alone, in minutes, and it is what finishes most of the whole-shot results on this site.
 
 <figure class="reveal">
-  <video autoplay muted loop playsinline preload="auto" src="{{ '/media/examples/unman-wittering-zigo-choir-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/unman-wittering-zigo-choir-b-source.jpg' | relative_url }}"></video>
+  <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/unman-wittering-zigo-choir-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/unman-wittering-zigo-choir-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/unman-wittering-zigo-choir-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
   <figcaption><span class="reveal-tag">Reveal</span> <em>Unman, Wittering and Zigo</em> (1971), the choir. A trailer faded to magenta, 164 frames with a pan; 101 approved frames taught the adapter, which coloured the rest in a minute and a half. <a href="{{ '/records/unman-wittering-zigo-choir/' | relative_url }}">Record</a></figcaption>
 </figure>
 
@@ -28,7 +31,7 @@ Colour learned from a reference for the shot and carried through every frame. Th
 ## How it works
 
 1. **Align the reference** to the scan in time and position, and check the alignment by eye.
-2. **Pick teachers.** Matching frame pairs from the historical reference, or the approved synthetic frames.
+2. **Pick the frames to learn from.** Matching frame pairs from the historical reference, or the approved synthetic frames.
 3. **Train a small model for the shot.** The Temporal CbCr adapter learns only the colour, so it trains in about 90 seconds. With a historical reference, CopyCat in Nuke does the same job; the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) walks through it.
 4. **Run it over the whole shot.** The colour holds from frame to frame, with no flicker, at the scan's full resolution.
 
@@ -36,16 +39,22 @@ Colour learned from a reference for the shot and carried through every frame. Th
 
 <figure class="pair">
   <span class="pair-labels"><span>Faded source</span><span>Adapter</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/unman-wittering-zigo-choir-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/unman-wittering-zigo-choir-a-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="unman-wittering-zigo-choir" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/unman-wittering-zigo-choir-a-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/unman-wittering-zigo-choir-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/unman-wittering-zigo-choir-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
-  <figcaption><em>Unman, Wittering and Zigo</em> (1971), choir, 164 frames: a synthetic reference. TeleStyle made the candidate frames; 101 passed review and became teachers, and the adapter coloured the rest. The stained glass stays put through the pan. <a href="{{ '/records/unman-wittering-zigo-choir/' | relative_url }}">Record</a></figcaption>
+  <figcaption><em>Unman, Wittering and Zigo</em> (1971), choir, 164 frames: a synthetic reference. TeleStyle made the candidate frames; 101 passed review and taught the adapter, which coloured the rest. The stained glass stays put through the pan. <a href="{{ '/records/unman-wittering-zigo-choir/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
   <span class="pair-labels"><span>16mm scan</span><span>CopyCat result</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/candy-candy-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/candy-candy-a-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="candy-candy" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/candy-candy-a-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/candy-candy-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/candy-candy-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption><em>Candy Candy</em> (1976), the opening titles: a historical reference. A 16mm print faded to magenta, scanned at 4400 × 3300, with the colour learned from a French PAL DVD in CopyCat. Detail and grain from the print, colour from the DVD. <a href="{{ '/records/candy-candy/' | relative_url }}">Record</a></figcaption>
 </figure>
@@ -67,14 +76,14 @@ Colour learned from a reference for the shot and carried through every frame. Th
     <img src="{{ '/images_kebab/examples/frontier-experience-f020-result.jpg' | relative_url }}" alt="The same frame coloured by the adapter: the sky, the grass, the oxen" loading="lazy">
     <img src="{{ '/images_kebab/examples/frontier-experience-f020-reference.jpg' | relative_url }}" alt="The telecine reference frame, soft and cropped, with its colour intact" loading="lazy">
   </div>
-  <figcaption><em>Frontier Experience</em> (1975), frame 20: a historical reference, the adapter. A faded print, with the colour learned from a telecine of the same film supplied by Ross Lipman. Trained on 926 frame pairs at 1464 × 1080; on 16 held-out shots it beat CopyCat on nine. <a href="{{ '/records/frontier-experience/' | relative_url }}">Record</a></figcaption>
+  <figcaption><em>Frontier Experience</em> (1975), frame 20: a historical reference, the adapter. A faded print, with the colour learned from a telecine of the same film supplied by Ross Lipman. Trained on 926 frame pairs at 1464 × 1080; on 16 test shots it beat CopyCat on nine. <a href="{{ '/records/frontier-experience/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 ## Where it stands
 
 - **The finishing step for whole shots.** The adapter is what turns a set of approved frames into a consistent shot: the crowd, the ballroom and the balanced-source results on the [colour recovery]({{ '/colour-recovery/' | relative_url }}) page all end with it.
 - **Any reference will do.** A DVD, a telecine, another print, or a hundred approved synthetic frames; standard definition is enough, because only the colour is learned.
-- **Open.** Alignment is still semi-manual, and cuts and changing speeds are checked by hand. A synthetic reference is only as good as the frames a person approves. A DVD brings its own grading and softness of colour, and the result inherits it.
+- **Open.** Lining up the reference is still partly done by hand, and cuts and changing speeds are checked by eye. A synthetic reference is only as good as the frames a person approves. A DVD brings its own grading and softness of colour, and the result inherits it.
 
 ## Downloads
 

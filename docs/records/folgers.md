@@ -17,7 +17,7 @@ The reference shot for the [balanced-source kit]({{ '/downloads/faded-colour-rec
 | Graphs | `1_palette_still_fp8mixed_local.json`, `2_h3_fun_controlnet_local.json`, in the kit. |
 | Models | Listed with links in the [kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}#what-you-need). |
 | Settings | Palette still: seed 0, 4 steps (Lightning LoRA). The adapter and respect settings are in `tools/steps/*/\*_spec.json`. |
-| Approval | Fabio approved the shot (T185 route). |
+| Approval | Fabio approved the shot. |
 
 ## Reproduction (ΔE against the approved result)
 

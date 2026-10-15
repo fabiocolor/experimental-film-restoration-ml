@@ -12,8 +12,11 @@ permalink: /black-and-white-colourization/
 Colour for films shot in black and white, whole shots at a time, with the picture untouched. Film does not record brightness the way the eye sees it; it records according to the spectral sensitivity of its stock, so the greyscale is a measurement, and the colour has to agree with it. Here it does: every result is rebuilt so that the stock would have recorded exactly the greys on the film.
 
 <figure class="reveal">
-  <video autoplay muted loop playsinline preload="auto" src="{{ '/media/examples/the-general-garden-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/the-general-garden-b-source.jpg' | relative_url }}"></video>
-  <figcaption><span class="reveal-tag">Reveal</span> <em>The General</em> (1926), Annabelle in the garden, 124 frames at full resolution. The source luminance is byte-exact; only the colour was added. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a></figcaption>
+  <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/the-general-garden-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/the-general-garden-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/the-general-garden-reveal.mp4' | relative_url }}" type="video/mp4">
+    </video>
+  <figcaption><span class="reveal-tag">Reveal</span> <em>The General</em> (1926), Annabelle in the garden, 124 frames at full resolution. The picture is untouched; only the colour was added. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 ## Orthochromatic and panchromatic film
@@ -35,8 +38,11 @@ Treat either as ordinary video brightness and the colour comes out wrong in pred
 
 <figure class="pair">
   <span class="pair-labels"><span>Original</span><span>Colourized</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/the-general-train-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/the-general-train-b-source.jpg' | relative_url }}"></video>
+  <div class="pair-media pair-video" data-inspect="the-general-train" data-frames="b">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/the-general-train-b-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/the-general-train-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/the-general-train-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
   </div>
   <figcaption><em>The General</em> (1926), the locomotive below the pines, 124 frames with a pan. Three anchors from the same shot, start, middle and end, through H3. Approved 25 September 2026. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a></figcaption>
 </figure>
