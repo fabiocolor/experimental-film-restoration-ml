@@ -1,5 +1,5 @@
 {
- "id": "a33c0a8f-d16a-4f54-8bde-f592a1986f7f",
+ "id": "641061ee-434b-4050-ab23-979e7385c7cc",
  "revision": 0,
  "last_node_id": 27,
  "last_link_id": 28,
@@ -1362,7 +1362,7 @@
    "title": "Step 2 of the balanced-source route: carry the colour through the shot",
    "properties": {},
    "widgets_values": [
-    "## What this graph does\n\nOne approved colour frame (the **palette still** from step 1) is carried through a 124-frame section of the shot by **MiniMax H3** in reference-to-video mode, with Alibaba's **Fun ControlNet** holding the model to the edge map of every frame.\n\n**Inputs.** `context.mp4`: the source section, 768 \u00d7 576, 24 fps, 124 frames. `control.mp4`: its Canny edge map, frame for frame. `palette.png`: the approved still, given three times (pictures 1 to 3) so the reference weighs more than the prompt.\n\n**Output.** `t185_h3_*.mp4`, a colour video at 768 \u00d7 576. It is a **colour donor only**: in the next step its brightness is thrown away and only its Cb/Cr is used, on the scan's own luma, at the scan's full resolution."
+    "## What this graph does\n\nOne published colour frame (the **palette still** from step 1) is carried through a 124-frame section of the shot by **MiniMax H3** in reference-to-video mode, with Alibaba's **Fun ControlNet** holding the model to the edge map of every frame.\n\n**Inputs.** `context.mp4`: the source section, 768 \u00d7 576, 24 fps, 124 frames. `control.mp4`: its Canny edge map, frame for frame. `palette.png`: the published still, given three times (pictures 1 to 3) so the reference weighs more than the prompt.\n\n**Output.** `t185_h3_*.mp4`, a colour video at 768 \u00d7 576. It is a **colour donor only**: in the next step its brightness is thrown away and only its Cb/Cr is used, on the scan's own luma, at the scan's full resolution."
    ],
    "color": "#3b3b2e",
    "bgcolor": "#5a5a3a"
@@ -1434,7 +1434,7 @@
    "title": "Reproduced result",
    "properties": {},
    "widgets_values": [
-    "On the *Folgers* test shot this step comes within \u0394E 1.34 of the approved result (pass mark 1.5). Run-to-run variation at a fixed seed is small but not zero, and an int8 model on a different card will not be bit-identical."
+    "On the *Folgers* test shot this step comes within \u0394E 1.34 of the published result (pass mark 1.5). Run-to-run variation at a fixed seed is small but not zero, and an int8 model on a different card will not be bit-identical."
    ],
    "color": "#3b3b2e",
    "bgcolor": "#5a5a3a"

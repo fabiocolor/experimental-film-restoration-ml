@@ -20,18 +20,18 @@ Colour learned from a reference for the shot and carried through every frame. Th
       <source src="{{ '/media/examples/unman-wittering-zigo-choir-reveal.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
       <source src="{{ '/media/examples/unman-wittering-zigo-choir-reveal.mp4' | relative_url }}" type="video/mp4">
     </video>
-  <figcaption><span class="reveal-tag">Reveal</span> <em>Unman, Wittering and Zigo</em> (1971), the choir. A trailer faded to magenta, 164 frames with a pan; 101 approved frames taught the adapter, which coloured the rest in a minute and a half. <a href="{{ '/records/unman-wittering-zigo-choir/' | relative_url }}">Record</a></figcaption>
+  <figcaption><span class="reveal-tag">Reveal</span> <em>Unman, Wittering and Zigo</em> (1971), the choir. A trailer faded to magenta, 164 frames with a pan; 101 frames that passed review taught the adapter, which coloured the rest in a minute and a half. <a href="{{ '/records/unman-wittering-zigo-choir/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 ## Two kinds of reference
 
 - **Historical.** A better copy of the same frames survives: a DVD, a telecine, another print. If it lines up with the scan, it teaches the colour, and the result is a recovery.
-- **Synthetic.** No better copy survives, so open models (MiniMax H3, Qwen Image Edit, TeleStyle) make candidate colour frames, and only the frames a person approves are used. The result is an interpretation.
+- **Synthetic.** No better copy survives, so open models (MiniMax H3, Qwen Image Edit, TeleStyle) make candidate colour frames, and only the frames that pass a person's review are used. The result is an interpretation.
 
 ## How it works
 
 1. **Align the reference** to the scan in time and position, and check the alignment by eye.
-2. **Pick the frames to learn from.** Matching frame pairs from the historical reference, or the approved synthetic frames.
+2. **Pick the frames to learn from.** Matching frame pairs from the historical reference, or the synthetic frames that passed review.
 3. **Train a small model for the shot.** The Temporal CbCr adapter learns only the colour, so it trains in about 90 seconds. With a historical reference, CopyCat in Nuke does the same job; the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) walks through it.
 4. **Run it over the whole shot.** The colour holds from frame to frame, with no flicker, at the scan's full resolution.
 
@@ -81,9 +81,9 @@ Colour learned from a reference for the shot and carried through every frame. Th
 
 ## Where it stands
 
-- **The finishing step for whole shots.** The adapter is what turns a set of approved frames into a consistent shot: the crowd, the ballroom and the balanced-source results on the [colour recovery]({{ '/colour-recovery/' | relative_url }}) page all end with it.
-- **Any reference will do.** A DVD, a telecine, another print, or a hundred approved synthetic frames; standard definition is enough, because only the colour is learned.
-- **Open.** Lining up the reference is still partly done by hand, and cuts and changing speeds are checked by eye. A synthetic reference is only as good as the frames a person approves. A DVD brings its own grading and softness of colour, and the result inherits it.
+- **The finishing step for whole shots.** The adapter is what turns a set of reviewed frames into a consistent shot: the crowd, the ballroom and the balanced-source results on the [colour recovery]({{ '/colour-recovery/' | relative_url }}) page all end with it.
+- **Any reference will do.** A DVD, a telecine, another print, or a hundred reviewed synthetic frames; standard definition is enough, because only the colour is learned.
+- **Open.** Lining up the reference is still partly done by hand, and cuts and changing speeds are checked by eye. A synthetic reference is only as good as the frames a person lets through. A DVD brings its own grading and softness of colour, and the result inherits it.
 
 ## Downloads
 

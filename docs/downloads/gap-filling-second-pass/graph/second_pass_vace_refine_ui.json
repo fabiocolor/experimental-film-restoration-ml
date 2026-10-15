@@ -1,5 +1,5 @@
 {
- "id": "656fff43-b8b8-4e33-986c-fec9d11cc256",
+ "id": "7f5ee3a1-42a2-4aad-b08c-9f342349ea30",
  "revision": 0,
  "last_node_id": 17,
  "last_link_id": 17,
@@ -878,7 +878,7 @@
    "title": "Reproduced result",
    "properties": {},
    "widgets_values": [
-    "On the published window this pass comes within \u0394E 0.9 of the approved result."
+    "On the published window this pass comes within \u0394E 0.9 of the published result."
    ],
    "color": "#3b3b2e",
    "bgcolor": "#5a5a3a"

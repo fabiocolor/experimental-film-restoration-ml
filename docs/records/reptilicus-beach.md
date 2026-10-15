@@ -8,7 +8,7 @@ permalink: /records/reptilicus-beach/
 
 # Reptilicus (1961), beach: record
 
-The home-page example. It was made with an earlier single-frame route and is kept because the result holds up. The current route for unbalanced sources is the one used for [Counter Attack]({{ '/records/counter-attack-waterfront/' | relative_url }}).
+The single-frame example from the June 2026 study. It was made with an earlier single-frame route and is kept because the result holds up. The current route for unbalanced sources is the one used for [Counter Attack]({{ '/records/counter-attack-waterfront/' | relative_url }}).
 
 | | |
 | --- | --- |
@@ -17,7 +17,7 @@ The home-page example. It was made with an earlier single-frame route and is kep
 | Model | [`qwen_image_edit_2509_fp8_e4m3fn.safetensors`](https://huggingface.co/Comfy-Org/Qwen-Image-Edit_ComfyUI/blob/main/split_files/diffusion_models/qwen_image_edit_2509_fp8_e4m3fn.safetensors) |
 | Reference | Belak colour patch chart, reduced to 32 px, resized back with bicubic and blurred (Gaussian 18). No people or scene content. |
 | Settings | Seed 0, CFG 1.0. |
-| Approval | Shown at SEAPAVAA 2026; kept by Fabio as the home-page example (October 2026). |
+| Finished | June 2026; shown at SEAPAVAA 2026. |
 | Reproduction | No kit. The five stages are published below so the result can be checked. |
 
 ## Published files (SHA-256)

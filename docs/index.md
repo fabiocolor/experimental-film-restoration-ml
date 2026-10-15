@@ -22,7 +22,7 @@ nav_order: 0
 </figure>
 
 <div class="research-intro">
-  <p>Independent research into what open machine-learning models can do for film restoration, and how far they can be trusted. The rule is the same in every area: start from the scan, keep its picture, use a model only for what is missing, and write down what the model did. Nothing here is automatic. A restorer approves every result, and every example has a <a href="{{ '/records/' | relative_url }}">record</a> of its source, models, settings and approval.</p>
+  <p>Independent research into what open machine-learning models can do for film restoration, and how far they can be trusted. The rule is the same in every area: start from the scan, keep its picture, use a model only for what is missing, and write down what the model did. Nothing here is automatic. A restorer reviews every result at full size, and every example has a <a href="{{ '/records/' | relative_url }}">record</a> of its source, models and settings.</p>
 </div>
 
 ## Five research areas
@@ -46,7 +46,7 @@ nav_order: 0
   <li class="area">
     <div class="area-copy">
       <h3><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a></h3>
-      <p>Colour learned from a reference for the shot, a surviving DVD or telecine or a set of approved synthetic frames, and carried through every frame by a small model trained for that shot alone, in minutes.</p>
+      <p>Colour learned from a reference for the shot, a surviving DVD or telecine or a set of reviewed synthetic frames, and carried through every frame by a small model trained for that shot alone, in minutes.</p>
       <a class="area-link" href="{{ '/temporal-cbcr/' | relative_url }}">Method, examples and the Nuke template</a>
     </div>
     <figure class="reveal">
@@ -107,7 +107,7 @@ nav_order: 0
 <div class="quiet-panel">
   <div>
     <h3>Run it yourself</h3>
-    <p>Two single-frame colour-recovery graphs, for an unbalanced and a balanced scan, run in Comfy Cloud with no GPU and no installation. The whole-shot, healing and reconstruction kits run on a local NVIDIA card and reproduce their published examples. Every graph is published laid out with notes, so it can be read node by node, and every kit is checked against the approved result and says how close it gets.</p>
+    <p>Two single-frame colour-recovery graphs, for an unbalanced and a balanced scan, run in Comfy Cloud with no GPU and no installation. The whole-shot, healing and reconstruction kits run on a local NVIDIA card and reproduce their published examples. Every graph is published laid out with notes, so it can be read node by node, and every kit is checked against the published result and says how close it gets.</p>
   </div>
   <a href="{{ '/downloads/' | relative_url }}" class="btn btn-primary">Download kits</a>
 </div>

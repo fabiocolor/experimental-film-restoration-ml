@@ -41,7 +41,7 @@ For films that are beyond repair. When every frame is damaged, no clean informat
       <source src="{{ '/media/examples/el-tinterillo-fg02-sbs.mp4' | relative_url }}" type="video/mp4">
     </video>
   </div>
-  <figcaption>Shot FG02, 410 frames. Approved 26 September 2026.</figcaption>
+  <figcaption>Shot FG02, 410 frames.</figcaption>
 </figure>
 
 <figure class="pair">
@@ -52,7 +52,7 @@ For films that are beyond repair. When every frame is damaged, no clean informat
       <source src="{{ '/media/examples/el-tinterillo-fg04-sbs.mp4' | relative_url }}" type="video/mp4">
     </video>
   </div>
-  <figcaption>Shot FG04, 422 frames. Approved 26 September 2026.</figcaption>
+  <figcaption>Shot FG04, 422 frames.</figcaption>
 </figure>
 
 <figure class="pair">
@@ -63,12 +63,12 @@ For films that are beyond repair. When every frame is damaged, no clean informat
       <source src="{{ '/media/examples/el-tinterillo-fg03-sbs.mp4' | relative_url }}" type="video/mp4">
     </video>
   </div>
-  <figcaption>Shot FG03, 176 frames. Approved with notes: the appearance is approved, the lip movement is the next target.</figcaption>
+  <figcaption>Shot FG03, 176 frames. The look is there; the lip movement is the next target.</figcaption>
 </figure>
 
 <figure class="figure">
-  <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}"></video>
-  <figcaption>The stairs shot, 624 frames (26 seconds), the first shot approved and the look reference for the reel. Shown at <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026</a>. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
+  <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs.mp4' | relative_url }}"></video>
+  <figcaption>The stairs shot, 624 frames (26 seconds), the first shot finished and the look reference for the reel. Shown at <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026</a>. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
@@ -81,7 +81,7 @@ For films that are beyond repair. When every frame is damaged, no clean informat
 
 ## Where it stands
 
-- **A whole reel, one look.** Five shots of *El Tinterillo* are approved with the same method; the stairs set the look and the others followed.
+- **A whole reel, one look.** Five shots of *El Tinterillo* are finished with the same method; the stairs set the look and the others followed.
 - **Faces and lips.** The models work at 768 × 432, so small faces are limited and lip movement is reduced. The next pass targets the lips; a test showed the detail is there in the source, so the limit is in how the model is guided, not in the film.
 - **What was tried and dropped.** Video upscalers (SeedVR2, FlashVSR), Wan VACE driven by the source, and a CopyCat detail model did not suit this material.
 - **The record.** The original scan and every raw window are kept, and the reconstruction is labelled as one.
@@ -89,8 +89,8 @@ For films that are beyond repair. When every frame is damaged, no clean informat
 ## Downloads
 
 <ul class="downloads">
-  <li><a href="{{ '/downloads/upscaling-stairs/' | relative_url }}">Stairs kit</a><span class="size">ComfyUI + Python</span><span class="what">The H3 reference-mode graphs for the four windows of the stairs shot, the hybrid step, the seam blend and the example windows. Checked against the approved result: hybrid identical, seam blend ΔE 1.07.</span></li>
-  <li><a href="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}">The stairs shot</a><span class="size">MP4 · 26 s · 23 MB</span><span class="what">The approved reconstruction at 768 × 432.</span></li>
+  <li><a href="{{ '/downloads/upscaling-stairs/' | relative_url }}">Stairs kit</a><span class="size">ComfyUI + Python</span><span class="what">The H3 reference-mode graphs for the four windows of the stairs shot, the hybrid step, the seam blend and the example windows. Checked against the published result: hybrid identical, seam blend ΔE 1.07.</span></li>
+  <li><a href="{{ '/media/upscaling/tinterillo-stairs.mp4' | relative_url }}">The stairs shot</a><span class="size">MP4 · 26 s · 23 MB</span><span class="what">The reconstruction at 768 × 432.</span></li>
 </ul>
 
 ## Sources and references

@@ -8,15 +8,15 @@ permalink: /records/
 
 # Example records
 
-One record for each example on this site: the source, the route, the graph and models, the settings, the approval, and whether it has been reproduced from the published files.
+One record for each example on this site: the source, the route, the graph and models, the settings, and whether it has been reproduced from the published files.
 
 | Example | Area | Route | Reproduced from the published files |
 | --- | --- | --- | --- |
 | [Reptilicus, beach]({{ '/records/reptilicus-beach/' | relative_url }}) | Faded colour recovery (single frame) | Earlier single-frame route | Inputs and outputs published; the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) is the same route with the later prompt |
-| [Obsession, ballroom]({{ '/records/obsession-ballroom/' | relative_url }}) | Faded colour recovery (home page) | MiniMax H3 from four approved anchors | Not yet |
+| [Obsession, ballroom]({{ '/records/obsession-ballroom/' | relative_url }}) | Faded colour recovery (home page) | MiniMax H3 from four chosen anchors | Not yet |
 | [Counter Attack, crowd]({{ '/records/counter-attack-crowd/' | relative_url }}) | Faded colour recovery | MiniMax H3 with the Fun ControlNet, Temporal CbCr adapter | Not yet |
 | [Counter Attack, quarry]({{ '/records/counter-attack-quarry/' | relative_url }}) | Faded colour recovery (home page) | MiniMax H3, six sections | Not yet |
-| [Counter Attack, waterfront]({{ '/records/counter-attack-waterfront/' | relative_url }}) | Faded colour recovery | MiniMax H3 with TeleStyle repairs | The approved first still: [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}), core-node rerun mean ΔE 1.89 |
+| [Counter Attack, waterfront]({{ '/records/counter-attack-waterfront/' | relative_url }}) | Faded colour recovery | MiniMax H3 with TeleStyle repairs | The first still: [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}), core-node rerun mean ΔE 1.89 |
 | [Folgers]({{ '/records/folgers/' | relative_url }}) | Faded colour recovery, balanced kit | Balanced-source route | Yes, every stage within ΔE 1.5 |
 | [Frontier Experience]({{ '/records/frontier-experience/' | relative_url }}) | Temporal CbCr, historical reference | Temporal CbCr adapter | Not yet |
 | [Unman, Wittering and Zigo, choir]({{ '/records/unman-wittering-zigo-choir/' | relative_url }}) | Temporal CbCr, synthetic reference | TeleStyle and Temporal CbCr | Not yet |
@@ -32,4 +32,4 @@ One record for each example on this site: the source, the route, the graph and m
 | [Books: From Manuscript to Classroom]({{ '/records/books-manuscript-classroom/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3 ControlNet, stock reading | Not yet |
 | [Rambles 'Round Rio, ox cart]({{ '/records/rambles-round-rio-oxcart/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3 ControlNet, stock reading | Not yet |
 
-ΔE is the average CIEDE2000 colour difference against the approved result. The pass mark is 1.5 per stage; about 2.3 is the smallest difference most viewers can see.
+ΔE is the average CIEDE2000 colour difference against the published result. The pass mark is 1.5 per stage; about 2.3 is the smallest difference most viewers can see.

@@ -25,10 +25,10 @@ convert(D / 'faded-colour-recovery-t185/graphs/2_h3_fun_controlnet_local.json',
         notes=[
             ('Step 2 of the balanced-source route: carry the colour through the shot',
              '## What this graph does\n\n'
-             'One approved colour frame (the **palette still** from step 1) is carried through a 124-frame section of the shot by **MiniMax H3** '
+             'One published colour frame (the **palette still** from step 1) is carried through a 124-frame section of the shot by **MiniMax H3** '
              'in reference-to-video mode, with Alibaba\'s **Fun ControlNet** holding the model to the edge map of every frame.\n\n'
              '**Inputs.** `context.mp4`: the source section, 768 × 576, 24 fps, 124 frames. `control.mp4`: its Canny edge map, frame for frame. '
-             '`palette.png`: the approved still, given three times (pictures 1 to 3) so the reference weighs more than the prompt.\n\n'
+             '`palette.png`: the published still, given three times (pictures 1 to 3) so the reference weighs more than the prompt.\n\n'
              '**Output.** `t185_h3_*.mp4`, a colour video at 768 × 576. It is a **colour donor only**: in the next step its brightness is thrown away '
              'and only its Cb/Cr is used, on the scan\'s own luma, at the scan\'s full resolution.'),
             ('What should and should not happen',
@@ -40,7 +40,7 @@ convert(D / 'faded-colour-recovery-t185/graphs/2_h3_fun_controlnet_local.json',
              '**Settings that matter.** Seed 0, 20 steps, `res_multistep` / `simple`, ControlNet strength 1.0 over the whole run. '
              'Sections overlap, and the seam is placed in a calm passage.'),
             GPU,
-            ('Reproduced result', 'On the *Folgers* test shot this step comes within ΔE 1.34 of the approved result (pass mark 1.5). '
+            ('Reproduced result', 'On the *Folgers* test shot this step comes within ΔE 1.34 of the published result (pass mark 1.5). '
              'Run-to-run variation at a fixed seed is small but not zero, and an int8 model on a different card will not be bit-identical.'),
         ])
 
@@ -68,7 +68,7 @@ convert(D / 'gap-filling-second-pass/graph/second_pass_vace_refine.json',
              'euler / simple, shift 8.'),
             ('Hardware', 'Wan VACE 14B in fp16 wants an NVIDIA card with 24 GB of VRAM or more and about 32 GB of model files; an 81-frame window '
              'takes some minutes. The graph opens in Comfy Cloud for reading; running it there is a paid job.'),
-            ('Reproduced result', 'On the published window this pass comes within ΔE 0.9 of the approved result.'),
+            ('Reproduced result', 'On the published window this pass comes within ΔE 0.9 of the published result.'),
         ])
 
 # 3. Reconstruction: the four stairs windows ---------------------------------------------------------
@@ -97,7 +97,7 @@ for w, (rng, src, refs) in WIN.items():
                  '**What it is.** A reconstruction, with detail the film no longer holds, and labelled as one. The original scan and every raw window are kept.'),
                 ('Hardware', 'MiniMax H3 at 768 × 432 for 243 frames wants an NVIDIA card with 24 GB of VRAM or more and about 40–60 GB of model files; '
                  'a window takes 20 to 45 minutes. The graph opens in Comfy Cloud for reading; running it there is a paid, long job.'),
-                ('Reproduced result', 'The hybrid step reproduces identically (ΔE 0) and the seam blend within ΔE 1.07 of the approved shot. '
+                ('Reproduced result', 'The hybrid step reproduces identically (ΔE 0) and the seam blend within ΔE 1.07 of the published shot. '
                  'The reference stills come from a closed image model, so they are published rather than regenerated.'),
             ])
 print('done')

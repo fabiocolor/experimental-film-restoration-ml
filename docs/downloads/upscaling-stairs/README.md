@@ -10,7 +10,7 @@ permalink: /downloads/upscaling-stairs/
 
 How the stairs shot on the diffusion reconstruction page was made. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, and a light seam blend removes the tone steps at the cuts.
 
-On the four example windows, the seam blend matches the approved result to ΔE 1.07 on average, below the visible threshold. The hybrid step gives identical pixels. Source, models and approval are in the [record]({{ '/records/el-tinterillo-stairs/' | relative_url }}).
+On the four example windows, the seam blend matches the published result to ΔE 1.07 on average, below the visible threshold. The hybrid step gives identical pixels. Source and models are in the [record]({{ '/records/el-tinterillo-stairs/' | relative_url }}).
 
 ## What you need
 
@@ -27,8 +27,8 @@ On the four example windows, the seam blend matches the approved result to ΔE 1
 
    `python tools/make_hybrid.py --scan FG_01.00000200.png --telecine-dir BG_01/ --frame 200 --last-frame 624 --out hybrids/`
 
-   The 16mm frame is median-filtered (23 px) and reduced to 240 × 135 for the full canvas. The closest telecine frame within ±12 frames is registered into it, tone-matched and feathered in. If registration does not pass, choose another frame. On frame 200 of the stairs shot this gives the same pixels as the approved hybrid.
-2. **Reference still.** Give an image generator the hybrid (Image 1) and one approved still from the shot (Image 2, look only) with the prompt in `reference/reference_prompt.txt`; replace `{FRAME}` and `{CONTENT}`. The stills used for the approved shot were made with ChatGPT image generation, which is not an open model, so this step cannot be repeated exactly. Check each still against its hybrid and discard any where people or architecture moved. The stills used are in `example/`.
+   The 16mm frame is median-filtered (23 px) and reduced to 240 × 135 for the full canvas. The closest telecine frame within ±12 frames is registered into it, tone-matched and feathered in. If registration does not pass, choose another frame. On frame 200 of the stairs shot this gives the same pixels as the published hybrid.
+2. **Reference still.** Give an image generator the hybrid (Image 1) and one finished still from the shot (Image 2, look only) with the prompt in `reference/reference_prompt.txt`; replace `{FRAME}` and `{CONTENT}`. The stills used for the published shot were made with ChatGPT image generation, which is not an open model, so this step cannot be repeated exactly. Check each still against its hybrid and discard any where people or architecture moved. The stills used are in `example/`.
 3. **Generate each window.** Load one of the `_ui.json` graphs in `graphs/` (laid out, with notes on what the window does and what should and should not happen; the matching `.json` without the suffix is the same graph in API format), point it at the matching `example/` source MP4 and three reference stills, and run. The graphs are for this stairs shot: w1 (frames 1–243), w2b (128–370), w3b (300–542) and w3 (382–624). Keep a calm start for each section. The kit already includes the four H3 windows used for the check (`example/w1.mp4` and so on), so you can skip steps 1–3 if you only want to try the join.
 4. **Seam blend.** From this folder:
 
@@ -38,7 +38,7 @@ On the four example windows, the seam blend matches the approved result to ΔE 1
 
 ## Example
 
-`example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The approved result is the stairs video on the diffusion reconstruction page.
+`example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The published result is the stairs video on the diffusion reconstruction page.
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 

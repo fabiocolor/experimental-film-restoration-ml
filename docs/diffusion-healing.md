@@ -72,7 +72,7 @@ When part of a film is simply gone: a stretch of nitrate that decayed to nothing
       <source src="{{ '/media/examples/wong-flute-players-sbs.mp4' | relative_url }}" type="video/mp4">
     </video>
   </div>
-  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Healed from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Approved at working size; work continues on a version that heals the original scan. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
+  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Healed from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Finished at working size; work continues on a version that heals the original scan. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
@@ -85,7 +85,7 @@ When part of a film is simply gone: a stretch of nitrate that decayed to nothing
 
 ## Where it stands
 
-- **Nitrate decay is healed.** The Knights of the Trail shot above went through six versions, each closer to the rule that what moves stays the film's; the version shown carries out the notes on the approved fifth. A 15-frame hole in the camera negative of <em>Poison Pen</em> (1939), with the sound running on, is being filled the same way, with the actors' movement tracked across the gap.
+- **Nitrate decay is healed.** The Knights of the Trail shot above went through six versions, each closer to the rule that what moves stays the film's; the version shown carries out the notes on the fifth. A 15-frame hole in the camera negative of <em>Poison Pen</em> (1939), with the sound running on, is being filled the same way, with the actors' movement tracked across the gap.
 - **Whole-frame decay is the frontier.** The Wong shot proved the storyboard method and stops at a good result at working size, to be finished together with conventional restoration.
 - **Resolution.** The models work at around 768 × 560 and ten seconds at a time; shots are done in overlapping windows, and the Knights of the Trail shot was reviewed at its 640 × 512 working size. The original-resolution pass is a separate, final step.
 - **Public footage.** A search through 847 films in public archives found no other public-domain title with loss on this scale, which is why these examples come from collections rather than from a trailer reel.
@@ -93,9 +93,9 @@ When part of a film is simply gone: a stretch of nitrate that decayed to nothing
 ## Downloads
 
 <ul class="downloads">
-  <li><a href="{{ '/downloads/gap-filling-second-pass/' | relative_url }}">Healing second-pass kit</a><span class="size">ComfyUI + Python · NVIDIA GPU</span><span class="what">The Wan VACE refinement pass and the seam blend on the Wong flute players shot, with the example windows. Checked against the approved result: ΔE 0.9.</span></li>
-  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4">Wong flute players: the scan</a><span class="size">MP4 · 8 s · 34 MB</span><span class="what">The approved file at 768 × 560.</span></li>
-  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4">Wong flute players: the healed shot</a><span class="size">MP4 · 8 s · 22 MB</span><span class="what">The approved file at 768 × 560.</span></li>
+  <li><a href="{{ '/downloads/gap-filling-second-pass/' | relative_url }}">Healing second-pass kit</a><span class="size">ComfyUI + Python · NVIDIA GPU</span><span class="what">The Wan VACE refinement pass and the seam blend on the Wong flute players shot, with the example windows. Checked against the published result: ΔE 0.9.</span></li>
+  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4">Wong flute players: the scan</a><span class="size">MP4 · 8 s · 34 MB</span><span class="what">The file at 768 × 560.</span></li>
+  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4">Wong flute players: the healed shot</a><span class="size">MP4 · 8 s · 22 MB</span><span class="what">The file at 768 × 560.</span></li>
 </ul>
 
 The Knights of the Trail material is shown by courtesy of the George Eastman Museum and is not offered for download.

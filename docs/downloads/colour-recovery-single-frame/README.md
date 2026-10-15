@@ -10,7 +10,7 @@ permalink: /downloads/colour-recovery-single-frame/
 
 # Faded colour recovery for a single frame
 
-One faded frame in, one colour frame out, with the frame's own brightness kept. This is the first step of every shot on the [faded colour recovery]({{ '/colour-recovery/' | relative_url }}) page: the frame that, once approved, guides the rest of the shot.
+One faded frame in, one colour frame out, with the frame's own brightness kept. This is the first step of every shot on the [faded colour recovery]({{ '/colour-recovery/' | relative_url }}) page: the frame that, once it passes review, guides the rest of the shot.
 
 The graph is the "Clara" recipe from the SEAPAVAA 2026 prompt study, on an unbalanced scan: Qwen Image Edit 2511, the Lightning 4-step LoRA, cfg 0.9, seed 0, an edge map of the frame as control and a softly blurred colour chart as the only colour guide. Every node is a built-in ComfyUI node; there are no custom nodes and no Python to run. The composite (colour on the source's brightness, with a shadow gate) is made inside the graph.
 
@@ -20,8 +20,8 @@ The graph is the "Clara" recipe from the SEAPAVAA 2026 prompt study, on an unbal
     <figcaption><strong>Source</strong><code>source.png</code>, 1920 × 1440.</figcaption>
   </figure>
   <figure>
-    <img src="{{ '/images_kebab/examples/counter-attack-waterfront-f007-model.jpg' | relative_url }}" alt="The approved model output for the test frame, 1184 × 880" loading="lazy">
-    <figcaption><strong>Model output</strong>The approved still, 1184 × 880. Your run should come close to this.</figcaption>
+    <img src="{{ '/images_kebab/examples/counter-attack-waterfront-f007-model.jpg' | relative_url }}" alt="The published model output for the test frame, 1184 × 880" loading="lazy">
+    <figcaption><strong>Model output</strong>The published still, 1184 × 880. Your run should come close to this.</figcaption>
   </figure>
   <figure>
     <img src="{{ '/images_kebab/examples/counter-attack-waterfront-f007-result.jpg' | relative_url }}" alt="The composite: the model's colour on the scan's own brightness" loading="lazy">
@@ -29,7 +29,7 @@ The graph is the "Clara" recipe from the SEAPAVAA 2026 prompt study, on an unbal
   </figure>
 </div>
 
-<p class="experiment-credit"><em>Counter Attack</em> (1976), waterfront, frame 000007 of the shot's frame dump. The approved still is the one the whole-shot route on the colour recovery page started from. <a href="{{ '/records/counter-attack-waterfront/' | relative_url }}">Record</a>.</p>
+<p class="experiment-credit"><em>Counter Attack</em> (1976), waterfront, frame 000007 of the shot's frame dump. The published still is the one the whole-shot route on the colour recovery page started from. <a href="{{ '/records/counter-attack-waterfront/' | relative_url }}">Record</a>.</p>
 
 ## Files
 
@@ -39,7 +39,7 @@ The graph is the "Clara" recipe from the SEAPAVAA 2026 prompt study, on an unbal
   <li><a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_workflow/01_source.png' | relative_url }}">source.png</a><span class="size">PNG · 1920 × 1440 · 2.9 MB</span><span class="what">The test frame. Upload it to <em>1 · Source frame</em>.</span></li>
   <li><a href="{{ '/downloads/colour-recovery-single-frame/example/chart.png' | relative_url }}">chart.png</a><span class="size">PNG · 333 × 238 · 45 KB</span><span class="what">The softly blurred colour chart. Upload it to <em>2 · Colour chart</em>. Keep using it for your own frames.</span></li>
   <li><a href="{{ '/downloads/colour-recovery-single-frame/example/control.png' | relative_url }}">control.png</a><span class="size">PNG · 1920 × 1440 · 18 KB</span><span class="what">The edge map of the test frame (OpenCV Canny 80/160). Upload it to <em>3 · Edge map</em>.</span></li>
-  <li><a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3/04_clara_anchor.png' | relative_url }}">approved_model_output.png</a><span class="size">PNG · 1184 × 880 · 1.1 MB</span><span class="what">The approved still, to compare your model output with.</span></li>
+  <li><a href="{{ '/images_kebab/seapavaa2026/originals/fanji_waterfront_top3/04_clara_anchor.png' | relative_url }}">model_output.png</a><span class="size">PNG · 1184 × 880 · 1.1 MB</span><span class="what">The published still, to compare your model output with.</span></li>
   <li><a href="{{ '/downloads/colour-recovery-single-frame/graphs/colour-recovery-single-frame-fp8mixed_api.json' | relative_url }}">…_api.json</a><span class="size">API format · 8 KB</span><span class="what">The same graphs as API-format prompts, for scripting ComfyUI directly. One per model variant.</span></li>
 </ul>
 
@@ -81,9 +81,9 @@ Frames from the model are an interpretation. Compare the composite with the sour
 
 | Check | Result |
 | --- | --- |
-| The graph's sampler, models and settings against the research graph that made the approved still | Identical node for node (switch nodes for the optional 40-step path removed; the Lightning path is fixed). |
-| The fp8mixed recipe, core nodes only, run again against the approved still | Mean ΔE76 1.89 to the approved still, 95th percentile 4.13. Above the 1.5 bar used for the other kits, visually very close; the model is not deterministic across machines. |
-| The bf16 model (Cloud library) | Not measured on this frame. On the balanced-source palette still it differed from the approved result by a mean ΔE of 2.67, a visible difference on some surfaces. Use it to try the route, not to reproduce the still. |
+| The graph's sampler, models and settings against the research graph that made the published still | Identical node for node (switch nodes for the optional 40-step path removed; the Lightning path is fixed). |
+| The fp8mixed recipe, core nodes only, run again against the published still | Mean ΔE76 1.89 to the published still, 95th percentile 4.13. Above the 1.5 bar used for the other kits, visually very close; the model is not deterministic across machines. |
+| The bf16 model (Cloud library) | Not measured on this frame. On the balanced-source palette still it differed from the published result by a mean ΔE of 2.67, a visible difference on some surfaces. Use it to try the route, not to reproduce the still. |
 | The in-graph composite against the kit's reference composite (`composite_still.py` in the balanced-source kit) | Mean ΔE76 1.39, 95th percentile 3.1. The in-graph version scales plainly instead of inverting the Kontext crop and uses a linear instead of a smoothstep shadow gate. |
 
 ## Provenance in the graph

@@ -1,5 +1,5 @@
 {
- "id": "7e45303e-52f4-4357-82b6-f5f8e8b51312",
+ "id": "3ef1165a-425a-4bdf-9218-759388c6d0de",
  "revision": 0,
  "last_node_id": 23,
  "last_link_id": 23,
@@ -1195,7 +1195,7 @@
    "title": "Reproduced result",
    "properties": {},
    "widgets_values": [
-    "The hybrid step reproduces identically (\u0394E 0) and the seam blend within \u0394E 1.07 of the approved shot. The reference stills come from a closed image model, so they are published rather than regenerated."
+    "The hybrid step reproduces identically (\u0394E 0) and the seam blend within \u0394E 1.07 of the published shot. The reference stills come from a closed image model, so they are published rather than regenerated."
    ],
    "color": "#3b3b2e",
    "bgcolor": "#5a5a3a"

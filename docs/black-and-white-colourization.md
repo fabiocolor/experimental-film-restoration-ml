@@ -44,7 +44,7 @@ Treat either as ordinary video brightness and the colour comes out wrong in pred
       <source src="{{ '/media/examples/the-general-train-sbs.mp4' | relative_url }}" type="video/mp4">
     </video>
   </div>
-  <figcaption><em>The General</em> (1926), the locomotive below the pines, 124 frames with a pan. Three anchors from the same shot, start, middle and end, through H3. Approved 25 September 2026. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a></figcaption>
+  <figcaption><em>The General</em> (1926), the locomotive below the pines, 124 frames with a pan. Three anchors from the same shot, start, middle and end, through H3. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 One shot per film from public-domain fiction and non-fiction of the 1920s. The palettes are an interpretation, not historical fact.
@@ -99,7 +99,7 @@ One shot per film from public-domain fiction and non-fiction of the 1920s. The p
 
 ## Where it stands
 
-- **Whole shots, full resolution.** Fifteen shots are approved; the picture is never touched, so every result is at the scan's resolution with its grain and its damage.
+- **Whole shots, full resolution.** Fifteen shots are finished; the picture is never touched, so every result is at the scan's resolution with its grain and its damage.
 - **Motion.** A pan with several anchors holds its colour; the next tests are more complex movement and more complex subjects.
 - **Open.** Skin can come out too red on the earliest shots, foliage in some exteriors still looks artificial, and a soft, low-detail source gives the model too little to hold on to for a convincing result. The palettes are interpretations, and every page says so.
 
