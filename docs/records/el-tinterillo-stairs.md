@@ -17,7 +17,7 @@ permalink: /records/el-tinterillo-stairs/
 
 ## The reel
 
-The stairs shot set the look; the other shots of the reel followed the same route with the stairs as the look exemplar, in overlapping windows of about ten seconds joined with a short tone blend, all at 768 × 432 and 24 fps.
+The stairs shot set the look; the other shots of the reel followed the same route with the stairs as the look reference, in overlapping windows of about ten seconds joined with a short tone blend, all at 768 × 432 and 24 fps.
 
 | Shot | Frames | Finished |
 | --- | --- | --- |
