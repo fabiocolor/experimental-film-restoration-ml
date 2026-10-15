@@ -28,7 +28,9 @@ jobs:
                 echo "New archive, raw scan or model file: $f"; bad=1;;
             esac
             size=$(stat -c %s "$f")
-            if [ "$size" -gt 1048576 ]; then echo "File over 1 MiB: $f ($size bytes); attach it to the examples release and link it instead"; bad=1; fi
+            limit=1048576
+            case "$f" in docs/media/*.mp4) limit=8388608;; esac   # web comparison videos: 8 MiB
+            if [ "$size" -gt "$limit" ]; then echo "File over the limit: $f ($size bytes); attach it to the examples release and link it instead"; bad=1; fi
           done < <(git diff --name-only --diff-filter=A "$base" HEAD)
           exit $bad
       - name: Internal links and assets

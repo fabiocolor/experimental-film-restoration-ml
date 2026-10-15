@@ -12,16 +12,20 @@ One record for each example on this site: the source, the route, the graph and m
 
 | Example | Area | Route | Reproduced from the published files |
 | --- | --- | --- | --- |
-| [Reptilicus, beach]({{ '/records/reptilicus-beach/' | relative_url }}) | Faded colour recovery (home page) | Earlier single-frame route | Inputs and outputs published; the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) is the same route with the later prompt |
-| [Counter Attack, crowd]({{ '/records/counter-attack-crowd/' | relative_url }}) | Faded colour recovery (home page) | MiniMax H3 with the Fun ControlNet, Temporal CbCr adapter | Not yet |
+| [Reptilicus, beach]({{ '/records/reptilicus-beach/' | relative_url }}) | Faded colour recovery (single frame) | Earlier single-frame route | Inputs and outputs published; the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) is the same route with the later prompt |
+| [Obsession, ballroom]({{ '/records/obsession-ballroom/' | relative_url }}) | Faded colour recovery (home page) | MiniMax H3 from four approved anchors | Not yet |
+| [Counter Attack, crowd]({{ '/records/counter-attack-crowd/' | relative_url }}) | Faded colour recovery | MiniMax H3 with the Fun ControlNet, Temporal CbCr adapter | Not yet |
+| [Counter Attack, quarry]({{ '/records/counter-attack-quarry/' | relative_url }}) | Faded colour recovery (home page) | MiniMax H3, six sections | Not yet; in review |
 | [Counter Attack, waterfront]({{ '/records/counter-attack-waterfront/' | relative_url }}) | Faded colour recovery | MiniMax H3 with TeleStyle repairs | The approved first still: [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}), core-node rerun mean ΔE 1.89 |
 | [Folgers]({{ '/records/folgers/' | relative_url }}) | Faded colour recovery, balanced kit | Balanced-source route | Yes, every stage within ΔE 1.5 |
 | [Frontier Experience]({{ '/records/frontier-experience/' | relative_url }}) | Temporal CbCr, historical reference | Temporal CbCr adapter | Not yet |
 | [Unman, Wittering and Zigo, choir]({{ '/records/unman-wittering-zigo-choir/' | relative_url }}) | Temporal CbCr, synthetic reference | TeleStyle and Temporal CbCr | Not yet |
-| [Candy Candy]({{ '/records/candy-candy/' | relative_url }}) | Temporal CbCr, historical reference (earlier route) | CopyCat in Nuke | Not yet |
+| [Candy Candy]({{ '/records/candy-candy/' | relative_url }}) | Temporal CbCr, historical reference (home page) | CopyCat in Nuke | Not yet |
+| [Knights of the Trail]({{ '/records/knights-of-the-trail/' | relative_url }}) | Diffusion healing (home page) | Wan VACE 14B on the damaged background only | Not offered (George Eastman Museum material) |
 | [Wong flute players]({{ '/records/wong-flute-players/' | relative_url }}) | Diffusion healing | MiniMax H3, film luma, Wan VACE | Second pass only (ΔE 0.9) |
-| [El Tinterillo, stairs]({{ '/records/el-tinterillo-stairs/' | relative_url }}) | Diffusion reconstruction | Hybrid, reference still, MiniMax H3, seam blend | Hybrid step (identical) and seam blend (ΔE 1.07) |
-| [The General, garden]({{ '/records/general-1926-garden/' | relative_url }}) | Black-and-white colourization | Qwen 2511, base MiniMax H3 | Not yet |
+| [El Tinterillo, stairs and reel]({{ '/records/el-tinterillo-stairs/' | relative_url }}) | Diffusion reconstruction (home page) | Hybrid, reference still, MiniMax H3, seam blend | Stairs: hybrid step (identical) and seam blend (ΔE 1.07) |
+| [The General, garden and train]({{ '/records/general-1926-garden/' | relative_url }}) | Black-and-white colourization (home page) | Qwen 2511, MiniMax H3, one and three anchors | Not yet |
+| [A Trip Down Market Street]({{ '/records/market-street-1906/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3, three anchors | Not yet |
 | [Her Boy Friend, café]({{ '/records/her-boy-friend-cafe/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3 ControlNet, stock reading | Not yet |
 | [Below the Deadline, parlour]({{ '/records/below-the-deadline-parlour/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3 ControlNet, stock reading | Not yet |
 | [The Racing Fool, couple]({{ '/records/racing-fool-couple/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3 ControlNet, stock reading | Not yet |

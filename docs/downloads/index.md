@@ -23,6 +23,7 @@ Each kit reproduces a published example from the files on this site, and says ho
 
 - The first pass of the healing route (the H3 storyboard step), and the full reconstruction route beyond the stairs windows.
 - The black-and-white colourization route. Its examples are on the site; the graphs follow once the stock models are settled.
+- The *Knights of the Trail* material, shown by courtesy of the George Eastman Museum, is not offered for download.
 - Any trained weights: each Temporal CbCr adapter is trained for one shot in minutes, so the code is published, not the weights.
 
 ## Comfy Cloud
@@ -31,4 +32,4 @@ Comfy Cloud runs the single-frame graph and the palette-still graph as they are,
 
 ## Hardware
 
-See [Where the research stands]({{ '/research-status/' | relative_url }}#hardware) for what each area needs.
+See [What is possible now]({{ '/research-status/' | relative_url }}#hardware) for what each area needs.

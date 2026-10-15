@@ -383,7 +383,7 @@ parent: Talks
     <li><a href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery</a>: create and review colour proposals while the scan remains the primary source.</li>
     <li><a href="{{ '/training-inference-review/' | relative_url }}">Training, inference and review</a>: preparing material, iterating, and deciding when a result is acceptable.</li>
     <li><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a>: colour learned from a historical or synthetic reference and carried through the whole shot.</li>
-    <li><a href="{{ '/research-status/' | relative_url }}">Where the research stands (October 2026)</a>: what works, what doesn't yet, and what you can reproduce. The Nuke template runs locally in Nuke Non-Commercial or Indie with your own footage, and the Qwen Image Edit workflows run in ComfyUI. Both still need some work before they're easy to use.</li>
+    <li><a href="{{ '/research-status/' | relative_url }}">What is possible now (October 2026)</a>: what is done, what is still open, and what you can reproduce. The Nuke template runs locally in Nuke Non-Commercial or Indie with your own footage, and the Qwen Image Edit workflows run in ComfyUI. Both still need some work before they're easy to use.</li>
     <li><a href="{{ '/' | relative_url }}">All research on this site</a>, or the <a href="https://github.com/fabiocolor/experimental-film-restoration-ml">repository on GitHub</a>.</li>
   </ul>
 </section>

@@ -1,19 +1,31 @@
 ---
 layout: default
-title: "El Tinterillo, stairs"
+title: "El Tinterillo, the reel"
 parent: "Example Records"
 nav_order: 8
 permalink: /records/el-tinterillo-stairs/
 ---
 
-# El Tinterillo, stairs: record
+# El Tinterillo, the stairs and the reel: record
 
 | | |
 | --- | --- |
 | Source | *El Tinterillo*, a black-and-white film. A heavily damaged 16mm print and a cleaner, cropped telecine of the same shot, both as 1920 × 1080 Rec.709 frames. 624 frames, 24 fps. |
 | Route | 1. Hybrid: the 16mm frame, median-filtered, for the full canvas, with the registered telecine inside it. 2. One reference still per section, made from the hybrid with an image generator and checked for geometry. 3. MiniMax H3 in four overlapping windows (w1 1–243, w2b 128–370, w3b 300–542, w3 382–624) at 768 × 432. 4. Seam blend at cuts 200, 340 and 400. |
 | Models | [`minimax_h3_ref2va_pruned_int8_convrot`](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/diffusion_models/minimax_h3_ref2va_pruned_int8_convrot.safetensors), [`qwen3vl_32b_minimax_h3_nvfp4_awq`](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors), [`minimax_h3_video_vae_fp16`](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_video_vae_fp16.safetensors), [`minimax_h3_audio_vae_fp32`](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_audio_vae_fp32.safetensors). The reference stills were made with ChatGPT image generation, which is not an open model. |
-| Approval | Fabio approved the complete shot on 26 September 2026. |
+| Approval | Fabio approved the complete stairs shot on 26 September 2026. |
+
+## The reel
+
+The stairs shot set the look; the other shots of the reel followed the same route with the stairs as the look exemplar, in overlapping windows of about ten seconds joined with a short tone blend, all at 768 × 432 and 24 fps.
+
+| Shot | Frames | Status |
+| --- | --- | --- |
+| FG02, the young man at the door | 410 | Approved 26 September 2026 |
+| FG03, the man with glasses | 176 | Approved with notes: the appearance is approved, the lip movement is the next target |
+| FG04, the young man across the desk | 422 | Approved 26 September 2026 |
+
+The side-by-side videos on the [diffusion reconstruction page]({{ '/diffusion-reconstruction/' | relative_url }}) show 9 seconds from the middle of each shot: the 16mm print on the left, the reconstruction on the right.
 
 ## Reproduction
 

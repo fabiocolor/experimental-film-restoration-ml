@@ -11,29 +11,59 @@ redirect_from:
 
 # Diffusion healing
 
-For damage across the whole frame, or missing frames, where most of the original survives. Every surviving element is used first, and the model fills only what is lost.
+When part of a film is simply gone: a stretch of nitrate that decayed to nothing, a gap in a negative while the sound runs on, emulsion breaking up across the frame. Everything that survives, in every element of the film, is used first. A video model generates only what is missing, guided by the movement around it, and every generated pixel is on record.
 
-Typical cases: a nitrate section was cut out, a negative has a gap while the sound continues, or the emulsion has broken up across the shot.
+<figure class="reveal">
+  <video autoplay muted loop playsinline preload="auto" src="{{ '/media/examples/knights-of-the-trail-gap-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/knights-of-the-trail-gap826-source.jpg' | relative_url }}"></video>
+  <figcaption><span class="reveal-tag">Reveal</span> <em>Knights of the Trail</em>, nitrate, frames 734–959. The scan plays to its worst frame, holds, and heals: the cowboy, his hands and the bag are the film's in every frame, and only the ruined background is generated. Courtesy of the George Eastman Museum. <a href="{{ '/records/knights-of-the-trail/' | relative_url }}">Record</a></figcaption>
+</figure>
 
-Phoenix, DIAMANT or Resolve can bridge two or three missing frames with optical flow. Over a longer gap, or when every frame is damaged, interpolation no longer gives acceptable results.
+## How it works
 
-## Method
+1. **Map what survives.** When several elements of the same film exist, they are aligned, and frame by frame the undamaged one is chosen. The shot's timeline becomes a map: which element each frame comes from, and where nothing survives.
+2. **Heal only the gaps.** Inside the gaps a video model (Wan VACE, or MiniMax H3) generates the missing picture, steered by the frames before and after and by the movement tracked across them. Everything outside the gap stays original.
+3. **Keep the film's own motion.** Fast, thin action that a model would redraw, a hand, a drumstick, stays the film's where the film still carries it.
+4. **Say what was generated.** Generated frames and regions are an inference, not a recovery, and are labelled as such in the record.
 
-1. **Use everything that survives first.** If several elements of the same film exist, they are aligned and, frame by frame, the undamaged one is used.
-2. **Generate only what's missing.** A video model (MiniMax H3 or Wan VACE) fills the missing or destroyed picture, guided by the movement around it and by references that keep people, props and look consistent through the shot.
-3. **Keep the film's own motion where generation cannot follow it.** The models redraw fast, thin action such as a hand or a drumstick. Where the film still carries it, the film's own picture is kept.
-4. **Label what was generated.** Generated picture is an inference, not a recovery, and is marked as such.
-
-## Example: Wong flute players
-
-Flute players and a drummer, 183 frames of 16mm colour reversal footage from the Wong Rengifo collection. The colour has faded to magenta, and the emulsion is breaking up across the whole shot. No other print exists.
+## Examples
 
 <figure class="pair">
-  <div class="pair-media" data-compare="Scan|Healed">
-    <img src="{{ '/images_kebab/examples/wong-flute-players-f030-source.jpg' | relative_url }}" alt="Frame 30 of the 16mm scan: three flute players, the image faded to magenta and the emulsion broken up" loading="lazy">
-    <img src="{{ '/images_kebab/examples/wong-flute-players-f030-result.jpg' | relative_url }}" alt="The healed frame: the players intact, in colour, with the film's grain" loading="lazy">
+  <span class="pair-labels"><span>Nitrate scan</span><span>Healed</span></span>
+  <div class="pair-media pair-video">
+    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/knights-of-the-trail-gap-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/knights-of-the-trail-gap-b-source.jpg' | relative_url }}"></video>
   </div>
-  <figcaption>Frame 30 of 183: the scan and the approved reconstruction at 768 × 560.</figcaption>
+  <figcaption><em>Knights of the Trail</em>, 226 frames. Two frames come from a diacetate copy, 18 are healed with Wan VACE 14B, and the other 206 are the nitrate scan untouched, byte for byte. In the healed frames, 65 per cent of the pixels are still the film's. Courtesy of the George Eastman Museum. <a href="{{ '/records/knights-of-the-trail/' | relative_url }}">Record</a></figcaption>
+</figure>
+
+<div class="stage-strip" aria-label="Knights of the Trail, frame 826: scan, healed, and where the pixels were generated">
+  <figure>
+    <img src="{{ '/images_kebab/examples/knights-of-the-trail-gap826-source.jpg' | relative_url }}" alt="Frame 826 of the nitrate scan: the decay has consumed the middle of the picture" loading="lazy">
+    <figcaption><strong>Scan</strong>Frame 826, the worst of the shot.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/examples/knights-of-the-trail-gap826-result.jpg' | relative_url }}" alt="Frame 826 healed: the cowboy at the table, the cabin wall and door complete" loading="lazy">
+    <figcaption><strong>Healed</strong>The cowboy is the film's; the wall, door and table are generated.</figcaption>
+  </figure>
+  <figure>
+    <img src="{{ '/images_kebab/examples/knights-of-the-trail-gap826-generated.jpg' | relative_url }}" alt="Frame 826 with the generated pixels tinted red: the background, not the actor" loading="lazy">
+    <figcaption><strong>On record</strong>Generated pixels in red. Everything else is original.</figcaption>
+  </figure>
+</div>
+
+<figure class="pair">
+  <div class="pair-media" data-compare="Nitrate scan|Healed">
+    <img src="{{ '/images_kebab/examples/knights-of-the-trail-gap748-source.jpg' | relative_url }}" alt="Frame 748 of the nitrate scan: decay down the right-hand side of the cabin" loading="lazy">
+    <img src="{{ '/images_kebab/examples/knights-of-the-trail-gap748-result.jpg' | relative_url }}" alt="Frame 748 healed" loading="lazy">
+  </div>
+  <figcaption><em>Knights of the Trail</em>, frame 748. Drag to compare. Courtesy of the George Eastman Museum.</figcaption>
+</figure>
+
+<figure class="pair">
+  <span class="pair-labels"><span>16mm scan</span><span>Healed</span></span>
+  <div class="pair-media pair-video">
+    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/wong-flute-players-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/wong-flute-players-f030-source.jpg' | relative_url }}"></video>
+  </div>
+  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Healed from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Approved at the working resolution; work continues from the "heal the original" version. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
@@ -41,41 +71,32 @@ Flute players and a drummer, 183 frames of 16mm colour reversal footage from the
     <img src="{{ '/images_kebab/examples/wong-flute-players-f160-source.jpg' | relative_url }}" alt="Frame 160 of the scan: a flute player and the drummer, the drum half destroyed by decay" loading="lazy">
     <img src="{{ '/images_kebab/examples/wong-flute-players-f160-result.jpg' | relative_url }}" alt="The healed frame: the drum and the hands intact" loading="lazy">
   </div>
-  <figcaption>Frame 160: the drummer. In the feathered area around the hands and beater, the film's own brightness is kept with the restored colour.</figcaption>
+  <figcaption>Wong flute players, frame 160: the drummer. Around the hands and the beater the film's own brightness is kept with the restored colour. Drag to compare.</figcaption>
 </figure>
 
-<figure class="pair">
-  <span class="pair-labels"><span>Scan</span><span>Healed</span></span>
-  <div class="pair-media" data-sync>
-    <video controls playsinline preload="metadata" muted src="{{ '/media/gap-filling/16mm-flute-players-scan-web.mp4' | relative_url }}"></video>
-    <video controls playsinline preload="metadata" muted src="{{ '/media/gap-filling/16mm-flute-players-reconstruction-web.mp4' | relative_url }}"></video>
-  </div>
-  <figcaption>The whole shot, 8 seconds. The two players run together; play either one. Smaller previews of the <a href="#downloads">approved files</a>.</figcaption>
-</figure>
+## Where it stands
 
-**Workflow** ([record]({{ '/records/wong-flute-players/' | relative_url }}))
-
-1. **One storyboard sheet for the whole shot.** All keyframes were restored together on one sheet so that people, props and look are consistent. The sheet then guided MiniMax H3 across the shot.
-2. **The film's own drumming.** H3 redrew the fast, hooked drumstick regardless of the control used. In a feathered area that follows the drummer's hands and beater (about 8% of the frame), the film's own brightness was used with the restored colour.
-3. **One low-denoise pass to make it a single picture.** A light video-to-video pass with Wan VACE, starting from that assembly, made the drumming area and the rest of the frame match without moving the geometry or the motion.
-
-**Results**
-
-- Approved, with notes, at the working resolution of 768 × 560. The drumming area now matches its surroundings much better, specks drop from about 10% to 7.5% of the frame, and the picture is steadier from frame to frame.
-- The picture is softer and less detailed than the earlier version. More detail should come from a sharper first pass or an upscale, not from more denoising.
-- Some unnatural movement remains around the drum during the fastest strikes. In many of those frames the emulsion around the beater is destroyed, so no original beater remains to keep. Work on the shot is paused here, to be combined later with conventional restoration.
+- **Nitrate decay is healed.** The Knights of the Trail shot above went through six versions in the review hub, each closer to the rule that what moves stays original; the version shown follows the reviewer's notes on the approved fifth. A 15-frame hole in the camera negative of <em>Poison Pen</em> (1939), with the sound running on, is being filled the same way, with the actors' movement tracked across the gap.
+- **Whole-frame decay is the frontier.** The Wong shot proved the storyboard method and is parked at a strong proxy result, to be finished together with conventional restoration.
+- **Resolution.** The models work at around 768 × 560 and ten seconds at a time; shots are done in overlapping windows, and the Knights of the Trail shot is approved on its 640 × 512 working proxy. The original-resolution pass is a separate, final step.
+- **Public footage.** A survey of 847 archive proxies found no other public-domain title with loss on this scale, which is why these examples are from collections rather than from a trailer reel.
 
 ## Downloads
 
 <ul class="downloads">
-  <li><a href="{{ '/downloads/gap-filling-second-pass/' | relative_url }}">Second-pass kit</a><span class="size">ComfyUI + Python</span><span class="what">The Wan VACE graph, the seam blend and the example windows. Checked against the approved result: average ΔE 0.9.</span></li>
-  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4">The scan</a><span class="size">MP4 · 8 s · 34 MB</span><span class="what">The approved file at 768 × 560.</span></li>
-  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4">The approved reconstruction</a><span class="size">MP4 · 8 s · 22 MB</span><span class="what">The approved file at 768 × 560.</span></li>
+  <li><a href="{{ '/downloads/gap-filling-second-pass/' | relative_url }}">Healing second-pass kit</a><span class="size">ComfyUI + Python · NVIDIA GPU</span><span class="what">The Wan VACE refinement pass and the seam blend on the Wong flute players shot, with the example windows. Checked against the approved result: ΔE 0.9.</span></li>
+  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4">Wong flute players: the scan</a><span class="size">MP4 · 8 s · 34 MB</span><span class="what">The approved file at 768 × 560.</span></li>
+  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4">Wong flute players: the healed shot</a><span class="size">MP4 · 8 s · 22 MB</span><span class="what">The approved file at 768 × 560.</span></li>
 </ul>
 
-## Limits
+The Knights of the Trail material is shown by courtesy of the George Eastman Museum and is not offered for download.
 
-- The models work at around 768 × 432 to 768 × 576, about ten seconds at a time.
-- Small or fast movement is often smoothed or lost.
-- Every shot takes several attempts and a lot of review.
-- Only the second pass is public so far; the first pass isn't yet.
+## Sources and references
+
+<ul class="refs">
+  <li><em>Knights of the Trail</em>: nitrate elements and a safety copy, George Eastman Museum. Shown by courtesy of the Museum.</li>
+  <li>Wong flute players: 16mm colour reversal footage from the Wong Rengifo collection.</li>
+  <li>Wan 2.1 VACE 14B, Wan team, Alibaba (<a href="https://github.com/ali-vilab/VACE">VACE</a>, <a href="https://github.com/Wan-Video/Wan2.1">Wan 2.1</a>).</li>
+  <li>MiniMax H3, MiniMax (<a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">model card</a>); Fun ControlNet for H3, Alibaba PAI (<a href="https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union">model card</a>).</li>
+  <li>Fabio Bedoya, <em>The Current Limits of AI in Film Restoration and How They May Be Surpassed</em>, FIAT/IFTA World Conference, São Paulo, October 2026 (<a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">companion page</a>).</li>
+</ul>

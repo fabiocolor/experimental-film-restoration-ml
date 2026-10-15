@@ -9,6 +9,8 @@ import io, os, subprocess, sys
 from pathlib import Path
 import numpy as np
 from PIL import Image
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from viewlut import apply as cineon_to_rec709
 
 SRC = Path(sys.argv[1]) if len(sys.argv) > 1 else Path('src')  # the examples-2026-10 release videos and the Drive comparisons, downloaded locally
 DOCS = Path(__file__).resolve().parents[2] / 'docs'
@@ -58,13 +60,15 @@ for n in (20, 67, 110):
     pair_from_video('folgers', n, SRC / 'source_shot.mkv', SRC / 'result_respect.mp4')
 # Single-frame route (SEAPAVAA 2026): Juggernaut auditorium, Reptilicus beach, FANJI/Counter Attack anchor
 jug = K / 'seapavaa2026/originals/jug_auditorium'
-save(Image.open(jug / '01_source_juggernaut_tlr_000066-ed2dda29.jpg'), 'juggernaut-auditorium-f066-source')
-save(Image.open(jug / '05_final_composite_juggernaut_tlr_r5_v1_10_auditorium_c-9d2f7cbe.png'), 'juggernaut-auditorium-f066-result')
+# The trailer-reel scans are Cineon log; they and the composites built on their luma are shown through a
+# Cineon -> Rec.709 view transform (tools/examples/viewlut.py), so before and after sit in the same display space.
+save(cineon_to_rec709(Image.open(jug / '01_source_juggernaut_tlr_000066-ed2dda29.jpg')), 'juggernaut-auditorium-f066-source')
+save(cineon_to_rec709(Image.open(jug / '05_final_composite_juggernaut_tlr_r5_v1_10_auditorium_c-9d2f7cbe.png')), 'juggernaut-auditorium-f066-result')
 save(Image.open(jug / '04_inference_frame_000000_test-feb2c14f.png'), 'juggernaut-auditorium-f066-model')
 rep = K / 'seapavaa2026/originals/reptilicus_beach'
-save(Image.open(rep / '01_source_reptilicus_tlr_000025-40689881.jpg'), 'reptilicus-beach-f025-source')
+save(cineon_to_rec709(Image.open(rep / '01_source_reptilicus_tlr_000025-40689881.jpg')), 'reptilicus-beach-f025-source')
 save(Image.open(rep / '04_inference_frame_000000_seed_0_cfg_1.000_Belak-0c1f0329.png'), 'reptilicus-beach-f025-model')
-save(Image.open(rep / '05_final_composite_reptilicus_tlr_05_beach_woman_source-38de94d1.png'), 'reptilicus-beach-f025-result')
+save(cineon_to_rec709(Image.open(rep / '05_final_composite_reptilicus_tlr_05_beach_woman_source-38de94d1.png')), 'reptilicus-beach-f025-result')
 fan = K / 'seapavaa2026/originals'
 src = Image.open(fan / 'fanji_waterfront_top3_fullframe/fanji_film_copy_000007.png').convert('RGB')
 anc = Image.open(fan / 'fanji_waterfront_top3/04_clara_anchor.png').convert('RGB')

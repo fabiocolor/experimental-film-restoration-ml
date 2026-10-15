@@ -12,58 +12,79 @@ redirect_from:
 
 # Diffusion reconstruction
 
-For films beyond repair, where every frame is too damaged for conventional restoration.
+For films that are beyond repair. When every frame is damaged, no clean information is left for a restoration tool to borrow. Here a video model rebuilds the picture from the surviving elements, following their structure and their movement, and the result is said to be what it is: a reconstruction, with detail the film no longer holds.
 
-Restoration tools take picture information from the same frame or neighbouring frames. When every frame is damaged, no clean information is available. In this approach a video model rebuilds the picture from the surviving elements, following their structure and movement.
+<figure class="reveal">
+  <video autoplay muted loop playsinline preload="auto" src="{{ '/media/examples/el-tinterillo-fg02-reveal.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg02-b-source.jpg' | relative_url }}"></video>
+  <figcaption><span class="reveal-tag">Reveal</span> <em>El Tinterillo</em>, shot FG02, 410 frames. The damaged 16mm print, and the shot rebuilt by MiniMax H3 from the print, the telecine and one look reference. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
+</figure>
 
-The model generates fine detail that the film no longer contains. This is not restoration in the conventional sense, but for some footage no other method is available.
+## How it works
 
-## Example: *El Tinterillo*
+1. **Combine the sources.** The telecine goes inside, the 16mm print around it: the full frame, with the best of both. This is the hybrid.
+2. **Reduce it to structure.** A strong median filter removes the damage and the fine detail and leaves the geometry to follow.
+3. **One look for the whole film.** A single reference still sets how the picture should look, so every shot of the reel matches.
+4. **Generate in overlapping windows.** MiniMax H3 in reference mode, about ten seconds at a time, each window starting in a calm passage; the windows are joined with a short tone blend.
 
-*El Tinterillo* is a medium-length black-and-white film that survives as a heavily damaged 16mm print and a telecine that is cleaner but soft, cropped and with the irregular cadence of telecines from that period.
+## The *El Tinterillo* reel
 
-The stairs shot, 624 frames, also shown in the [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}):
+*El Tinterillo* survives as a heavily damaged 16mm print and a soft, cropped telecine with the irregular cadence of its period. In September 2026 the whole reel was brought to the same look, shot by shot.
+
+<figure class="pair">
+  <span class="pair-labels"><span>16mm print</span><span>Reconstruction</span></span>
+  <div class="pair-media pair-video">
+    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/el-tinterillo-fg02-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg02-b-source.jpg' | relative_url }}"></video>
+  </div>
+  <figcaption>Shot FG02, 410 frames. Approved 26 September 2026.</figcaption>
+</figure>
+
+<figure class="pair">
+  <span class="pair-labels"><span>16mm print</span><span>Reconstruction</span></span>
+  <div class="pair-media pair-video">
+    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/el-tinterillo-fg04-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg04-b-source.jpg' | relative_url }}"></video>
+  </div>
+  <figcaption>Shot FG04, 422 frames. Approved 26 September 2026.</figcaption>
+</figure>
+
+<figure class="pair">
+  <span class="pair-labels"><span>16mm print</span><span>Reconstruction</span></span>
+  <div class="pair-media pair-video">
+    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/el-tinterillo-fg03-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/el-tinterillo-fg03-b-source.jpg' | relative_url }}"></video>
+  </div>
+  <figcaption>Shot FG03, 176 frames. Approved with notes: the appearance is approved, the lip movement is the next target.</figcaption>
+</figure>
+
+<figure class="figure">
+  <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}"></video>
+  <figcaption>The stairs shot, 624 frames (26 seconds), the first shot approved and the look exemplar for the reel. Shown at <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026</a>. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
+</figure>
 
 <figure class="pair">
   <div class="pair-media" data-compare="Hybrid|Reconstruction">
     <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w1-f120-source.jpg' | relative_url }}" alt="El Tinterillo, stairs, frame 121: the hybrid of the damaged 16mm print and the telecine, a man on the stairs behind a balustrade" loading="lazy">
     <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w1-f120-result.jpg' | relative_url }}" alt="The reconstructed frame: the balustrade, the man and the wall rebuilt by the video model" loading="lazy">
   </div>
-  <figcaption><em>El Tinterillo</em>, stairs, frame 121 (window w1). The hybrid (left) is the median-cleaned 16mm frame with the registered telecine inside it; the reconstruction (right) is the MiniMax H3 window at 768 × 432, before the seam blend.</figcaption>
+  <figcaption>Stairs, frame 121. The hybrid (left) is the median-cleaned 16mm frame with the registered telecine inside it.</figcaption>
 </figure>
 
-<figure class="pair">
-  <div class="pair-media" data-compare="Hybrid|Reconstruction">
-    <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w2b-f150-source.jpg' | relative_url }}" alt="Frame 278: the hybrid, heavily damaged over the figure and the wall" loading="lazy">
-    <img src="{{ '/images_kebab/examples/el-tinterillo-stairs-w2b-f150-result.jpg' | relative_url }}" alt="The reconstruction of the same frame" loading="lazy">
-  </div>
-  <figcaption>Frame 278 (window w2b). The four windows overlap and are joined with a short tone blend at the cuts; the kit has the blend.</figcaption>
-</figure>
+## Where it stands
 
-<figure class="figure">
-  <video controls playsinline preload="metadata" poster="{{ '/images_kebab/upscaling/tinterillo-stairs-approved-f300.jpg' | relative_url }}" src="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}"></video>
-  <figcaption>The whole stairs shot, 624 frames (26 seconds, 768 × 432), as approved on 26 September 2026 and shown in the <a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">FIAT/IFTA 2026 talk</a>.</figcaption>
-</figure>
-
-**Workflow** ([record]({{ '/records/el-tinterillo-stairs/' | relative_url }}))
-
-1. **Combine the sources.** The telecine goes inside and the 16mm around it, which gives the full frame. This is called the hybrid.
-2. **Clean the hybrid with a strong median filter.** It removes the damage and the fine detail, leaving a rough outline to guide the geometry.
-3. **Make a synthetic reference** for how the picture should look, with an image generator. One "look" reference for the whole shot keeps all sections visually consistent.
-4. **Generate with MiniMax H3** in reference mode, in overlapping sections of about ten seconds. Each section starts in a calm passage, because a section that starts mid-move lags behind.
-5. **Join the sections** with cuts or a short blend inside the overlaps.
-
-**Results**
-
-- On the 624-frame stairs shot the sections join into one consistent look. This is now the method for the other shots in the film.
-- The model works at about 768 × 432, so faces and fine detail are limited.
-- Small mouths do not follow the dialogue well; lip movement is reduced.
-- Video upscalers (SeedVR2, FlashVSR) and VACE did not suit this material. Neither did an earlier attempt with CopyCat, a small model learning detail from the telecine.
-- The original scan and the raw sections are kept as the record.
+- **A whole reel, one look.** Five shots of *El Tinterillo* are approved on the same playbook; the stairs set the look and the others followed.
+- **Faces and lips.** The models work at 768 × 432, so small faces are limited and lip movement is reduced. The next pass targets articulation; a codec test showed the information survives, so the limit is in the conditioning, not the source.
+- **What was tried and dropped.** Video upscalers (SeedVR2, FlashVSR), VACE as a source-first route and a CopyCat detail model did not suit this material.
+- **The record.** The original scan and every raw window are kept, and the reconstruction is labelled as one.
 
 ## Downloads
 
 <ul class="downloads">
-  <li><a href="{{ '/downloads/upscaling-stairs/' | relative_url }}">Stairs kit</a><span class="size">ComfyUI + Python</span><span class="what">The H3 reference-mode graphs for each window, the hybrid step, the seam blend and the example windows. Checked against the result above: hybrid identical, seam blend average ΔE 1.07.</span></li>
+  <li><a href="{{ '/downloads/upscaling-stairs/' | relative_url }}">Stairs kit</a><span class="size">ComfyUI + Python</span><span class="what">The H3 reference-mode graphs for the four windows of the stairs shot, the hybrid step, the seam blend and the example windows. Checked against the approved result: hybrid identical, seam blend ΔE 1.07.</span></li>
   <li><a href="{{ '/media/upscaling/tinterillo-stairs-approved.mp4' | relative_url }}">The stairs shot</a><span class="size">MP4 · 26 s · 23 MB</span><span class="what">The approved reconstruction at 768 × 432.</span></li>
+</ul>
+
+## Sources and references
+
+<ul class="refs">
+  <li><em>El Tinterillo</em>: a 16mm print and a telecine of a medium-length black-and-white film, used for research; the film belongs to its rights holders.</li>
+  <li>MiniMax H3, MiniMax (<a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">model card</a>), reference-to-video mode.</li>
+  <li>Fabio Bedoya, <em>The Current Limits of AI in Film Restoration and How They May Be Surpassed</em>, FIAT/IFTA World Conference, São Paulo, October 2026 (<a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">companion page</a>).</li>
 </ul>

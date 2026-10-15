@@ -853,6 +853,58 @@ a {
   }
 }
 
+// Video pairs: one side-by-side MP4 (source | result) spans the pair
+.pair-media.pair-video {
+  grid-template-columns: 1fr;
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+// Reveal: the result wipes across the source. Autoplays muted and loops; the caption says what it is.
+.main-content figure.reveal {
+  margin: 1.5rem 0 2.5rem;
+  max-width: var(--wide);
+
+  video {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid var(--rule);
+    background: var(--code-bg);
+  }
+
+  figcaption {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem 1rem;
+    align-items: baseline;
+  }
+
+  .reveal-tag {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+}
+
+// References list at the foot of an area page
+.main-content .refs {
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  padding-left: 1.2rem;
+  max-width: var(--measure);
+
+  li {
+    margin: 0.2rem 0;
+  }
+}
+
 // Single media figure (a video, a contact sheet, a screenshot)
 .main-content .figure img,
 .main-content .figure video,

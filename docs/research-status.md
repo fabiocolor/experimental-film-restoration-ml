@@ -1,57 +1,54 @@
 ---
 layout: default
-title: Where the Research Stands
+title: What Is Possible Now
 nav_order: 7
 permalink: /research-status/
 ---
 
 
-# Where the research stands
+# What is possible now
 
-Status as of October 2026, after SEAPAVAA in June and FIAT/IFTA in October: what works, what does not yet, and what can be reproduced.
-
-The most reliable approach this year has been to keep the film's own picture and use the model only for what is missing: colour, a gap or detail. Each shot needs several iterations, and a restorer makes the decisions.
+Status in October 2026, after SEAPAVAA in June and FIAT/IFTA in October. The short version: with the film's own picture kept and a model used only for what is missing, every kind of loss tried this year has been recovered on at least one whole shot, and most on several. What it takes is time, passes and a restorer's review, not a wall. Below, area by area: what is done, what is still open, and what can be reproduced.
 
 ## 1. Faded colour recovery
 
-**What works now**
+**Done.** Whole shots with hard motion, at the scan's full resolution: a crowd with a fast pan (385 frames), a ballroom with a moving camera (254 frames at 2048 × 1556), a quarry in six sections (681 frames), a waterfront with fast hands, and the balanced-source route end to end on a commercial. From one approved colour frame, MiniMax H3 with the Fun ControlNet carries the colour through the shot, the frames that pass review teach the Temporal CbCr adapter, and the adapter colours every frame consistently. Only the colour is taken; brightness, grain and damage stay the scan's.
 
-- **Balanced sources.** One palette still from the scan's luma, carried through the shot with MiniMax H3, the Fun ControlNet and the Temporal CbCr adapter, then checked so the red-green colour that survived is never flipped or weakened. Tested on four shots from one source so far, at reduced resolution.
-- **Unbalanced sources, single frames.** Qwen Image Edit 2511, guided by an edge map and a softly blurred colour chart, gives useful colour on most faded material, with every frame reviewed.
-- **Unbalanced sources, whole shots.** Frames from H3 or TeleStyle that pass review become teachers for the Temporal CbCr adapter, which fills in the rest of the shot.
+**Open.** Some shots still need a second pass; the target of three out of four new shots right first time is close but not reached. Deep shadows keep a tint on the hardest cadences. The video models see a reduced picture (about 768 × 576, ten seconds at a time), which is why shots are done in sections. The colour is an interpretation unless a surviving reference confirms it.
 
-**What does not work yet**
-
-- Frames coloured one at a time flicker.
-- A picture used as the colour guide leaks into the shot; a plain colour chart avoids that.
-- The video models see a reduced picture, around 768 × 432, about ten seconds at a time. Tiling keeps more detail, but the colour drifts between tiles.
-- Hard motion and a broken cadence still leave some tint, as in the *Counter Attack* crowd shot.
-- One 11-second shot with TeleStyle took around four hours.
-- The target is for at least three out of four new shots to work on the first pass. This has not been reached yet.
-
-**What you can try today:** the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) (one faded frame to one colour frame, in ComfyUI locally or in Comfy Cloud, no Python) and the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) (a whole shot, end to end). See [Faded Colour Recovery]({{ '/colour-recovery/' | relative_url }}).
+**Try it.** The [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) (one faded frame to one colour frame, ComfyUI, locally or in Comfy Cloud, no Python) and the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) (a whole shot, end to end). See [faded colour recovery]({{ '/colour-recovery/' | relative_url }}).
 
 ## 2. Temporal CbCr
 
-With a historical reference (a DVD, a telecine, another print), a small model learns the colour from matching frames, as on *Frontier Experience* (the adapter, from a telecine) and *Candy Candy* (CopyCat, from a DVD). *Frontier Experience* is the only example completed with the adapter from a historical reference so far. With a synthetic reference, the frames a person approves teach the adapter: on a choir shot from *Unman, Wittering and Zigo*, about a hundred frames became teachers and training took about a minute and a half.
+**Done.** With a historical reference (a DVD, a telecine, another print) a small model learns the colour from matching frames: *Candy Candy* from a PAL DVD, *Frontier Experience* from a telecine. With a synthetic reference, about a hundred approved frames teach the adapter, which trains in 90 seconds and colours the rest of the shot: *Unman, Wittering and Zigo*. The adapter is the finishing step of the whole-shot colour results above.
 
-**What you can try today:** the Nuke template for CopyCat, from the [releases page](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest), with the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) guide. The adapter code is in the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). See [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}).
+**Open.** Alignment of a historical reference is still semi-manual. A synthetic reference is only as good as the frames a person approves.
+
+**Try it.** The Nuke template for CopyCat, from the [releases page](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest), with the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) guide; the adapter code is in the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). See [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}).
 
 ## 3. Diffusion healing
 
-When frames are missing or the whole shot has decayed, the surviving picture in other elements is used first, and only what is missing is generated, guided by the surrounding movement. On the decayed 16mm Wong flute players shot, the film's own drumming was kept where generation could not follow it. The picture is soft, and the fastest strikes still show unnatural movement.
+**Done.** Nitrate decay healed on a whole shot of *Knights of the Trail*: in the 18 damaged frames the actor stays the film's and only the ruined background is generated; the other 206 frames are untouched, and every generated pixel is on record. A 16mm reversal shot with the emulsion breaking up across the whole frame (the Wong flute players) healed from one storyboard sheet, with the film's own drumming kept. A 15-frame hole in a camera negative (*Poison Pen*, 1939), with the sound running on, is being filled with the actors' movement tracked across the gap.
 
-**What you can try today:** the [second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}). See [Diffusion Healing]({{ '/diffusion-healing/' | relative_url }}).
+**Open.** The healed shots are approved on working proxies (640 × 512, 768 × 560); the original-resolution pass is a separate step. The Wong shot is parked at a strong proxy result, to be finished together with conventional restoration. The fastest, thinnest movement (a drumstick) is still better kept from the film than generated.
+
+**Try it.** The [second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}). See [diffusion healing]({{ '/diffusion-healing/' | relative_url }}).
 
 ## 4. Diffusion reconstruction
 
-For films beyond repair. On *El Tinterillo*, a 16mm print and a telecine were combined, the result was cleaned with a median filter to get a rough outline, and MiniMax H3 was guided with a synthetic reference. The result has a synthetic look, and small faces and lip movement are still a problem.
+**Done.** A whole reel of *El Tinterillo*, a film that survives only as a heavily damaged 16mm print and a soft telecine, rebuilt shot by shot to one look: the stairs (624 frames), FG02 (410), FG04 (422) and FG03 (176, approved with notes) on the same playbook. The result is labelled as a reconstruction, with detail the film no longer holds.
 
-**What you can try today:** the [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}). See [Diffusion Reconstruction]({{ '/diffusion-reconstruction/' | relative_url }}).
+**Open.** Small faces and lip movement, because the models work at 768 × 432; the next pass targets articulation. Video upscalers, VACE as a source-first route and a CopyCat detail model were tried and dropped for this material.
+
+**Try it.** The [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}). See [diffusion reconstruction]({{ '/diffusion-reconstruction/' | relative_url }}).
 
 ## 5. Black-and-white colourization
 
-Colour for orthochromatic and panchromatic film, inferred from the recorded greyscale and the stock's spectral response. Fifteen shots are approved; seven public-domain ones are shown on the site; skin on the earliest shots and some foliage are still open. See [Black-and-White Colourization]({{ '/black-and-white-colourization/' | relative_url }}).
+**Done.** Fifteen shots approved, whole shots at full resolution with the source luminance byte-exact, the colour fitted to the stock that recorded the film: *The General* (a garden scene and a pan on a locomotive), seven other public-domain films of the 1920s, and *A Trip Down Market Street* (1906) approved with notes.
+
+**Open.** Skin on the earliest shots, some foliage, and soft sources that give the model less to hold on to. More complex movement and subjects are the next tests. The palettes are interpretations.
+
+See [black-and-white colourization]({{ '/black-and-white-colourization/' | relative_url }}).
 
 ## What can be reproduced
 
@@ -63,6 +60,8 @@ The two still-frame graphs (the single-frame kit and the balanced kit's palette 
 
 ## Next steps
 
+- The original-resolution pass for the healed shots, and the first full-resolution Knights of the Trail shot.
+- Lip articulation on the *El Tinterillo* reel.
 - One app that runs the current colour route on new shots.
 - The healing and reconstruction routes as self-contained ComfyUI graphs beyond the published second-pass and window kits.
 
@@ -87,9 +86,10 @@ Software: ComfyUI (current release; every graph here uses built-in nodes only), 
 | [TeleStyle V2](https://huggingface.co/Tele-AI/TeleStyleV2) | TeleAI | Apache-2.0 |
 | [MiniMax H3](https://huggingface.co/MiniMaxAI/MiniMax-H3) | MiniMax | MiniMax H3 Community License Agreement. The card has an application form for the USA, the EU, the UK and South Korea, so it's worth checking the terms where you are. |
 | [Fun ControlNet for H3](https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union) | Alibaba PAI | See the model card |
+| [Wan 2.1 VACE 14B](https://github.com/ali-vilab/VACE) | Wan team, Alibaba | Apache-2.0 |
 
 ## A note on "approved"
 
-Approved means the whole shot was reviewed at full size and accepted as a research result. Colour that survived in the scan is evidence. Colour the model filled in is an interpretation the film can't confirm.
+Approved means the whole shot was reviewed at full size and accepted as a research result. Colour that survived in the scan is evidence. Colour the model filled in is an interpretation the film can't confirm. Generated picture is an inference, and the records say where it is.
 
-The examples on these pages are research tests: faded trailers from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps), and copies of other films used in the research. The films belong to their rights holders.
+The examples on these pages are research tests: faded trailers from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps), public-domain films, copies of other films used in the research, and material shown by courtesy of the George Eastman Museum. The films belong to their rights holders.
