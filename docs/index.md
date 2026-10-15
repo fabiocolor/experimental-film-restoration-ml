@@ -92,7 +92,7 @@ nav_order: 0
 <div class="quiet-panel">
   <div>
     <h3>Run it yourself</h3>
-    <p>Two colour-recovery kits run in ComfyUI on your own GPU or in Comfy Cloud, one for a single faded frame and one for a whole balanced shot. The healing and reconstruction kits reproduce their published examples. Every kit is checked against the approved result and says how close it gets.</p>
+    <p>Two single-frame colour-recovery graphs, for an unbalanced and a balanced scan, run in Comfy Cloud with no GPU and no installation. The whole-shot, healing and reconstruction kits run on a local NVIDIA card and reproduce their published examples. Every graph is published laid out with notes, so it can be read node by node, and every kit is checked against the approved result and says how close it gets.</p>
   </div>
   <a href="{{ '/downloads/' | relative_url }}" class="btn btn-primary">Download kits</a>
 </div>

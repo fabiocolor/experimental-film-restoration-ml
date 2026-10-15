@@ -16,7 +16,7 @@ Status in October 2026, after SEAPAVAA in June and FIAT/IFTA in October. The sho
 
 **Open.** Some shots still need a second pass; the target of three out of four new shots right first time is close but not reached. Deep shadows keep a tint on the hardest cadences. The video models see a reduced picture (about 768 × 576, ten seconds at a time), which is why shots are done in sections. The colour is an interpretation unless a surviving reference confirms it.
 
-**Try it.** The [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) (one faded frame to one colour frame, ComfyUI, locally or in Comfy Cloud, no Python) and the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) (a whole shot, end to end). See [faded colour recovery]({{ '/colour-recovery/' | relative_url }}).
+**Try it.** The [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) (one faded frame to one colour frame, in Comfy Cloud or locally, no Python) and the balanced palette still from the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) are the two graphs anyone can run; the rest of the balanced kit does a whole shot, end to end, on a local card. See [faded colour recovery]({{ '/colour-recovery/' | relative_url }}).
 
 ## 2. Temporal CbCr
 
@@ -52,7 +52,7 @@ See [black-and-white colourization]({{ '/black-and-white-colourization/' | relat
 
 ## What can be reproduced
 
-Every example on the site has a [record]({{ '/records/' | relative_url }}) of its source, route, models, settings and approval, and the [download kits]({{ '/downloads/' | relative_url }}) reproduce four of them from the published files and say how closely (ΔE against the approved result). The graphs use built-in ComfyUI nodes only, with the model file names, prompt, seed, steps, cfg and sampler in the graph itself, and ComfyUI writes the whole graph into every PNG it saves. That makes a run repeatable on another machine to within the models' own run-to-run variation, which is small at a fixed seed but not zero.
+Every example on the site has a [record]({{ '/records/' | relative_url }}) of its source, route, models, settings and approval, and the [download kits]({{ '/downloads/' | relative_url }}) reproduce four of them from the published files and say how closely (ΔE against the approved result). Every graph is published laid out with notes that say what it does and what should and should not happen on the footage, and as the API-format prompt the server runs. The graphs use built-in ComfyUI nodes only, with the model file names, prompt, seed, steps, cfg and sampler in the graph itself, and ComfyUI writes the whole graph into every PNG it saves. That makes a run repeatable on another machine to within the models' own run-to-run variation, which is small at a fixed seed but not zero.
 
 ## Comfy Cloud
 

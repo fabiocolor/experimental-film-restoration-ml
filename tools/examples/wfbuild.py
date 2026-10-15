@@ -10,7 +10,7 @@ Usage in a script:
 """
 import json, uuid
 
-WIDGET_TYPES = {'INT', 'FLOAT', 'STRING', 'BOOLEAN', 'COMBO'}
+WIDGET_TYPES = {'INT', 'FLOAT', 'STRING', 'BOOLEAN', 'COMBO', 'COMFY_DYNAMICCOMBO_V3'}
 
 class Graph:
     def __init__(self, object_info, version='0.3.0'):
@@ -48,7 +48,9 @@ class Graph:
                 entry['widget'] = {'name': name}
                 val = widgets.get(name, opts.get('default'))
                 if val is None:
-                    if typ == 'COMBO':
+                    if typ == 'COMFY_DYNAMICCOMBO_V3':
+                        val = opts['options'][0]['key']
+                    elif typ == 'COMBO':
                         raw = info['input'].get('required', {}).get(name) or info['input'].get('optional', {}).get(name)
                         choices = raw[0] if isinstance(raw[0], list) else (raw[1].get('options') if len(raw) > 1 else [])
                         val = choices[0] if choices else ''
