@@ -41,22 +41,6 @@ Treat either as ordinary video brightness and the colour comes out wrong in pred
   <figcaption><em>The General</em> (1926), the locomotive below the pines, 124 frames with a pan. Three anchors from the same shot, start, middle and end, through H3. Approved 25 September 2026. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a></figcaption>
 </figure>
 
-<figure class="pair">
-  <span class="pair-labels"><span>Original</span><span>Colourized</span></span>
-  <div class="pair-media pair-video">
-    <video controls muted playsinline preload="metadata" src="{{ '/media/examples/market-street-1906-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/market-street-1906-b-source.jpg' | relative_url }}"></video>
-  </div>
-  <figcaption><em>A Trip Down Market Street</em> (1906), 155 frames, the camera on the front of a cable car. The fourth pass, with the colour integrated into the luminance. Approved with notes: the soft source leaves the model less to hold on to, and the colour is not yet of professional grade. <a href="{{ '/records/market-street-1906/' | relative_url }}">Record</a></figcaption>
-</figure>
-
-<figure class="pair">
-  <div class="pair-media" data-compare="Original|Colourized">
-    <img src="{{ '/images_kebab/examples/market-street-1906-a-source.jpg' | relative_url }}" alt="A Trip Down Market Street, 1906: the street from the front of the cable car, in black and white" loading="lazy">
-    <img src="{{ '/images_kebab/examples/market-street-1906-a-result.jpg' | relative_url }}" alt="The same frame colourized: brick and ochre buildings, a blue sky, the Ferry Building at the end of the street" loading="lazy">
-  </div>
-  <figcaption><em>A Trip Down Market Street</em>, near the start of the shot. Drag to compare.</figcaption>
-</figure>
-
 One shot per film from public-domain fiction and non-fiction of the 1920s. The palettes are an interpretation, not historical fact.
 
 <figure class="pair">
@@ -111,13 +95,12 @@ One shot per film from public-domain fiction and non-fiction of the 1920s. The p
 
 - **Whole shots, full resolution.** Fifteen shots are approved; the picture is never touched, so every result is at the scan's resolution with its grain and its damage.
 - **Motion.** A pan with several anchors holds its colour; the next tests are more complex movement and more complex subjects.
-- **Open.** Skin can come out too red on the earliest shots, foliage in some exteriors still looks artificial, and a soft source (the 1906 cable-car ride) gives the model less to hold on to. The palettes are interpretations, and every page says so.
+- **Open.** Skin can come out too red on the earliest shots, foliage in some exteriors still looks artificial, and a soft, low-detail source gives the model too little to hold on to for a convincing result. The palettes are interpretations, and every page says so.
 
 ## Sources and references
 
 <ul class="refs">
   <li><em>The General</em> (1926, Buster Keaton and Clyde Bruckman): US public domain; the 1926 picture from a copy on <a href="https://archive.org/details/the-general-1926-remux-1080p-dts-hd-ma-51-x264">archive.org</a>.</li>
-  <li><em>A Trip Down Market Street</em> (1906, Miles Brothers): US public domain; the film is held by the <a href="https://www.loc.gov/item/00694408">Library of Congress</a>. The record names the copy used.</li>
   <li><em>Her Boy Friend</em> (1924), <em>The Wildcat</em> (1925), <em>The Racing Fool</em> (1927), <em>Below the Deadline</em> (1929), <em>Books: From Manuscript to Classroom</em> (late 1920s), <em>Rambles 'Round Rio</em> (1921): US public domain; each record names its copy.</li>
   <li>Qwen Image Edit 2511, Qwen team, Alibaba (<a href="https://huggingface.co/Qwen/Qwen-Image-Edit-2511">model card</a>); MiniMax H3, MiniMax (<a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">model card</a>); Fun ControlNet for H3, Alibaba PAI (<a href="https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union">model card</a>).</li>
   <li>On the spectral sensitivity of early stocks: Barbara Flueckiger, <a href="https://filmcolors.org/">Timeline of Historical Film Colors</a>, University of Zurich.</li>

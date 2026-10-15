@@ -12,7 +12,7 @@ Status in October 2026, after SEAPAVAA in June and FIAT/IFTA in October. The sho
 
 ## 1. Faded colour recovery
 
-**Done.** Whole shots with hard motion, at the scan's full resolution: a crowd with a fast pan (385 frames), a ballroom with a moving camera (254 frames at 2048 × 1556), a quarry in six sections (681 frames), a waterfront with fast hands, and the balanced-source route end to end on a commercial. From one approved colour frame, MiniMax H3 with the Fun ControlNet carries the colour through the shot, the frames that pass review teach the Temporal CbCr adapter, and the adapter colours every frame consistently. Only the colour is taken; brightness, grain and damage stay the scan's.
+**Done.** Whole shots with hard motion, at the scan's full resolution: a crowd with a fast pan (385 frames), a ballroom with a moving camera (254 frames at 2048 × 1556), a quarry in six sections (681 frames), a waterfront with fast hands (all three from the same faded copy of *Counter Attack*), and the balanced-source route end to end on a commercial. From one approved colour frame, MiniMax H3 with the Fun ControlNet carries the colour through the shot, the frames that pass review teach the Temporal CbCr adapter, and the adapter colours every frame consistently. Only the colour is taken; brightness, grain and damage stay the scan's.
 
 **Open.** Some shots still need a second pass; the target of three out of four new shots right first time is close but not reached. Deep shadows keep a tint on the hardest cadences. The video models see a reduced picture (about 768 × 576, ten seconds at a time), which is why shots are done in sections. The colour is an interpretation unless a surviving reference confirms it.
 
@@ -44,9 +44,9 @@ Status in October 2026, after SEAPAVAA in June and FIAT/IFTA in October. The sho
 
 ## 5. Black-and-white colourization
 
-**Done.** Fifteen shots approved, whole shots at full resolution with the source luminance byte-exact, the colour fitted to the stock that recorded the film: *The General* (a garden scene and a pan on a locomotive), seven other public-domain films of the 1920s, and *A Trip Down Market Street* (1906) approved with notes.
+**Done.** Fifteen shots approved, whole shots at full resolution with the source luminance byte-exact, the colour fitted to the stock that recorded the film: *The General* (a garden scene and a pan on a locomotive) and six other public-domain films of the 1920s.
 
-**Open.** Skin on the earliest shots, some foliage, and soft sources that give the model less to hold on to. More complex movement and subjects are the next tests. The palettes are interpretations.
+**Open.** Skin on the earliest shots, some foliage, and soft, low-detail sources, which give the model too little to work from. More complex movement and subjects are the next tests. The palettes are interpretations.
 
 See [black-and-white colourization]({{ '/black-and-white-colourization/' | relative_url }}).
 

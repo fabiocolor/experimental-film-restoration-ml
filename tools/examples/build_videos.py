@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-"""Build the site's comparison videos from the approved results in the research store (EXPERIMENT_RESULTS).
+"""Build the site's comparison videos from the approved results in EXPERIMENT_RESULTS.
 
 For each example: a web side-by-side (source | result, muted, H.264, <= 8 MiB) and a web
 "reveal" (the result wipes across the source, then holds), plus a full-quality side-by-side
-master for Drive / the examples release. Runs where the research store is mounted; the Cineon-to-Rec.709
-view LUT it needs for log sources is written by viewlut.py (python3 viewlut.py cineon_to_rec709.cube).
-Jobs: obsession-ballroom counter-attack-waterfront counter-attack-quarry tinterillo[-fg02|03|04] kot general market
-release (needs a folder with the examples-release videos as argv[1]); STEPS=sbs,reveal,master,stills limits the steps.
-The Knights of the Trail reveal on the site was assembled by hand from this script's inputs: the scan to its worst
-frame (826), a 1.5 s hold, a 1.5 s wipe to the healed frame, then the healed shot to the end.
+master for Drive / the examples release. Runs on the Cowork VM where the drive is mounted.
 """
 import json, os, subprocess, sys
 from pathlib import Path
@@ -98,8 +93,10 @@ if want('obsession-ballroom'):
     # 3 panels of 640 x 486; the label strip is the top 20 px of each panel
     build('obsession-ballroom', v, v, src_crop=(6, 49, 628, 360), res_crop=(1286, 49, 628, 360), start=0, dur=9.5, master_w=1280, log=True)
 if want('counter-attack-waterfront'):
-    v = FADED / 'FANJI_FILM_COPY/t127_telestyle_social_delivery_20260723/fanji_telestyle_linkedin_16x9_source_vs_final.mp4'
-    build('counter-attack-waterfront', v, v, src_crop=(48, 300, 892, 592), res_crop=(980, 300, 892, 592), start=1.0, dur=9.0, master_w=1816)
+    # approved T148 final (H3 base, TeleStyle on two spans of hand movement) against the full-size source frames
+    src = OUT / 'src/waterfront_source_338f_30fps_1920x1440.mp4'   # ffmpeg from t124_t125.../01_source_fullshot/fanji_waterfront_f%06d_source.png
+    fin = FADED / 'FANJI_FILM_COPY/t148_t147_base_independent_telestyle_detector_heal_20260808/05_final_composite/fanji_t148_t147_base_telestyle_fullframe_w1_338f_30fps_1920x1440.mp4'
+    build('counter-attack-waterfront', src, fin, start=1.0, dur=9.0, master_w=1920)
 if want('counter-attack-quarry'):
     ov = FADED / 'FANJI_QUARRY_T157/h3_unbalanced_raw_full_overlap_palette_transition/00_overview/fanji_t157_h3_only_s2_s3_full_overlap_palette_transition_4up.mp4'
     fin = FADED / 'FANJI_QUARRY_T157/h3_unbalanced_raw_full_overlap_palette_transition/05_final_composite/fanji_t157_h3_only_s2_s3_full_overlap_palette_transition_sourcey_681f_30fps_1920x1440.mp4'

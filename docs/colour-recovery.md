@@ -53,7 +53,7 @@ Scans that were balanced before recovery (black is black, white is white, the co
   <div class="pair-media pair-video">
     <video controls muted playsinline preload="metadata" src="{{ '/media/examples/counter-attack-quarry-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/counter-attack-quarry-a-source.jpg' | relative_url }}"></video>
   </div>
-  <figcaption><em>Counter Attack</em> (1976), the quarry, 681 frames at 1920 × 1440. Six H3 sections stitched in their overlaps, with the palette changing between the second and third as the scene changes. The H3 pass; a final detector pass is still to come. <a href="{{ '/records/counter-attack-quarry/' | relative_url }}">Record</a></figcaption>
+  <figcaption><em>Counter Attack</em> (1976), the quarry, 681 frames at 1920 × 1440. Six H3 sections stitched in their overlaps, with the palette changing between the second and third as the scene changes. Accepted 9 August 2026. <a href="{{ '/records/counter-attack-quarry/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
@@ -69,7 +69,7 @@ Scans that were balanced before recovery (black is black, white is white, the co
   <div class="pair-media pair-video">
     <video controls muted playsinline preload="metadata" src="{{ '/media/examples/counter-attack-waterfront-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/counter-attack-waterfront-b-source.jpg' | relative_url }}"></video>
   </div>
-  <figcaption><em>Counter Attack</em> (1976), the waterfront, 338 frames. The comparison published in July 2026 from the TeleStyle route; the approved shot of August refined it with H3 and kept TeleStyle on 30 frames of fast hand movement. <a href="{{ '/records/counter-attack-waterfront/' | relative_url }}">Record</a></figcaption>
+  <figcaption><em>Counter Attack</em> (1976), the waterfront, 338 frames at 1920 × 1440. H3 from three reference stills; on 30 frames of fast hand movement an independent TeleStyle pass took over. Approved 9 August 2026. <a href="{{ '/records/counter-attack-waterfront/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
