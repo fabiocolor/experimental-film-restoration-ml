@@ -38,6 +38,6 @@ The Nuke template runs locally in Nuke Non-Commercial or Nuke Indie, with your o
 
 - [Preparation and alignment]({{ '/start-here/' | relative_url }}): getting the scan and the reference ready, picking frame pairs and lining them up.
 - [Building the colour target]({{ '/chroma-recovery/' | relative_url }}): the scan's brightness with the reference's colour.
-- [Training, inference and review]({{ '/training-inference-review/' | relative_url }}): training, rendering the shot and deciding whether it's acceptable.
+- [Training, inference and review]({{ '/training-inference-review/' | relative_url }}): training, rendering the shot and deciding whether it is good enough.
 - [Preparing training pairs]({{ '/automated-dataset-preparation/' | relative_url }}): what makes a pair trustworthy when the reference is hard to match.
 - [Video walkthrough](https://youtu.be/kXerjFGX9Kg) of the workflow, and the [peer-reviewed paper](https://library.imaging.org/archiving/articles/22/1/35) behind it.

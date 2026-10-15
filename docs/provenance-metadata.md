@@ -9,14 +9,11 @@ nav_order: 3
 
 ## Motivation
 
-ML restoration should be transparent and reproducible. Declaring what was trained, on what sources, with what parameters allows future practitioners and archives to understand and audit the work.
+If a model touched the picture, whoever comes after should be able to see what was trained, on what, with what settings, and run it again. That is the whole point of the record: a future restorer or an archive can understand the work and check it. A result you can't check is just a nice picture.
 
 ## Core Principles
 
-- **Declare ML processing:** tag outputs with tool, method, and processing date.
-- **Track provenance:** record source/reference element types, scan details, and authorization.
-- **Record training metadata:** dataset shots/frames, steps, model size, checkpoint.
-- **Classify recovery type:** Color (Reference/Non-Reference), Spatial, or Combined.
+Four things to do every time. Say that a model was involved: tag the output with the tool, the method and the date. Say where the picture came from: the source and reference elements, the scan details, and who gave permission. Say what the model learned from: the shots and frames, the steps, the model size, the checkpoint. And say what kind of recovery it was: colour (with a reference or without one), spatial, or both.
 
 ## Minimum public record
 
@@ -27,18 +24,18 @@ For every published result, record:
 - the model, workflow, prompt, seed, and relevant settings;
 - whether the output is reference-based, reference-free, spatial, chroma-only, or combined;
 - the training frames and checkpoint when a project-specific model was trained;
-- the processing date and the person or institution responsible for acceptance;
-- a plain statement distinguishing generated interpretation from verified historical evidence.
+- the processing date and the person or institution that made the final call;
+- a plain statement of what is generated interpretation and what is historical evidence.
 
-Keep this record with the output even when the same fields are also embedded in the image file.
+Keep this record with the output even when the same fields are also written into the image file. Files get converted; sidecars get lost; one of them should survive.
 
 ### IPTC Digital Source Type
 
-Tag outputs with `trainedAlgorithmicMedia` or `compositeWithTrainedAlgorithmicMedia` to communicate that ML processing was involved.
+Tag the output with `trainedAlgorithmicMedia` or `compositeWithTrainedAlgorithmicMedia`, so that anyone reading the file knows a model was involved.
 
 ### EXR Metadata (Nuke)
 
-Use a `ModifyMetaData` node before `Write` to embed provenance keys that downstream tools (Resolve, archival systems) can read:
+A `ModifyMetaData` node before the `Write` puts the record into the EXR itself, where Resolve and archival systems can read it:
 
 ```python
 metadata = nuke.nodes.ModifyMetaData()
@@ -58,9 +55,9 @@ Keep a small machine-readable record and a plain-language note beside the render
 
 ### Resolve integration
 
-Import EXR metadata via Resolve's Metadata panel. Map to Description, Scene/Shot/Take, Keywords, Creator, Rights, Dates. Use Batch Change for common fields.
+Resolve reads the EXR metadata in its Metadata panel. Map the keys to Description, Scene/Shot/Take, Keywords, Creator, Rights and Dates, and use Batch Change for the fields that are the same across clips.
 
 ## Standards context
 
-- IPTC fields communicate AI/ML classification. Pair with institutional policy text.
-- C2PA Content Credentials can supplement the project record with signed provenance assertions where the production system supports them.
+- The IPTC fields say that AI was involved. What that means for the archive is for its own policy to say.
+- C2PA Content Credentials can add signed provenance to the record, where the production system supports them.

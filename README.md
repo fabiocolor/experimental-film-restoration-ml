@@ -1,6 +1,6 @@
 # Experimental Film Restoration with Machine Learning
 
-Research on machine learning for film restoration. What survives in the film is treated as evidence and kept. The models fill only what was lost: faded colour, missing frames and lost picture. The process is not automatic. A restorer reviews every result and records what was generated.
+Research on machine learning for film restoration. What survives in the film is treated as evidence and kept. The models fill only what was lost: faded colour, missing frames and lost picture. None of it is automatic, and none of it is one click: a restorer reviews every result and records what was generated.
 
 **Website:** [fabiocolor.github.io/experimental-film-restoration-ml/](https://fabiocolor.github.io/experimental-film-restoration-ml/)
 
@@ -12,7 +12,7 @@ Research on machine learning for film restoration. What survives in the film is 
 4. **[Diffusion Reconstruction](https://fabiocolor.github.io/experimental-film-restoration-ml/diffusion-reconstruction/)**: for films beyond repair. Example: a reel of *El Tinterillo*, shot by shot.
 5. **[Black-and-White Colourization](https://fabiocolor.github.io/experimental-film-restoration-ml/black-and-white-colourization/)**: colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response. Examples: *The General* (1926) and six other public-domain films of the 1920s.
 
-[What is possible now](https://fabiocolor.github.io/experimental-film-restoration-ml/research-status/) summarises the state of the research as of October 2026: what is done, what is still open, what can be reproduced, and what hardware it takes. Every example has a [record](https://fabiocolor.github.io/experimental-film-restoration-ml/records/) of its source, models and settings; the [download kits](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/) reproduce four of them from the published files. The [tools](https://fabiocolor.github.io/experimental-film-restoration-ml/tools/) used alongside the research have their own repositories.
+[Where things stand](https://fabiocolor.github.io/experimental-film-restoration-ml/research-status/) is the state of the research as of October 2026: what works, what doesn't yet, what you can run yourself, and what hardware it takes. Every example has a [record](https://fabiocolor.github.io/experimental-film-restoration-ml/records/) of its source, models and settings; the [download kits](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/) reproduce four of them from the published files. The [tools](https://fabiocolor.github.io/experimental-film-restoration-ml/tools/) used alongside the research have their own repositories.
 
 ## Faded colour recovery example
 

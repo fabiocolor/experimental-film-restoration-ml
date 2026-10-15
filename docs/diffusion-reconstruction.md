@@ -12,7 +12,9 @@ redirect_from:
 
 # Diffusion reconstruction
 
-For films that are beyond repair. When every frame is damaged, no clean information is left for a restoration tool to borrow. Here a video model rebuilds the picture from the surviving elements, following their structure and their movement, and the result is said to be what it is: a reconstruction, with detail the film no longer holds.
+This started as an upscaling project, and upscaling is still not quite the right word for it. *El Tinterillo* survives as a 16mm print with everything wrong with it: frames stuck together, dirt, the emulsion damaged, and a telecine with no resolution and a crop, made close enough to the original that at least the picture is clean. If you try normal restoration tools on the print you can't even start, because there is not enough spatial or temporal information left to borrow from.
+
+So this calls for a different approach. A video model rebuilds the picture from what survives, following the structure and the movement of the two elements. That is not film restoration in the proper sense: the result is based on an interpretation, a restorer's and the model's, of how an image of this era should look, and the fine detail is filled from the model's training, not from the film. It is a reconstruction, and it is labelled as one. But for this kind of footage there is no other way, and it is better than nothing.
 
 <figure class="reveal">
   <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/el-tinterillo-fg02-b-source.jpg' | relative_url }}">
@@ -24,14 +26,13 @@ For films that are beyond repair. When every frame is damaged, no clean informat
 
 ## How it works
 
-1. **Combine the sources.** The telecine goes inside, the 16mm print around it: the full frame, with the best of both. This is the hybrid.
-2. **Reduce it to structure.** A strong median filter removes the damage and the fine detail and leaves the geometry to follow.
-3. **One look for the whole film.** A single reference still sets how the picture should look, so every shot of the reel matches.
-4. **Generate in overlapping windows.** MiniMax H3 in reference mode, about ten seconds at a time, each window starting in a calm passage; the windows are joined with a short tone blend.
+First the two elements are combined into a hybrid: the telecine goes inside, the 16mm print around it, so you get the full frame with the best of both. Then a strong median, which is like a blur but really an average of the pixels around each point, takes out the damage. It also takes out all the fine detail, so what is left is the geometry of the shot, a baseline the model can follow.
+
+From that comes a synthetic reference: one still that sets how the picture should look, and the same still for every shot of the reel, so the whole film comes out with one look. MiniMax H3 in reference mode then generates the shot in windows of about ten seconds, each starting in a calm passage. The windows don't always agree with each other, so the frames where they do are joined with a short blend. Unlike colour recovery, where the film's luma is kept and only the chroma is taken, here the luma is beyond saving and the model's picture is what there is. It has a more plastic quality than film. It is double synthetic, if you like.
 
 ## The *El Tinterillo* reel
 
-*El Tinterillo* survives as a heavily damaged 16mm print and a soft, cropped telecine with the uneven frame rate of its period. In September 2026 the whole reel was brought to the same look, shot by shot.
+In September 2026 the whole reel was brought to the same look, shot by shot. The stairs shot came first and set the look; the others followed it.
 
 <figure class="pair">
   <span class="pair-labels"><span>16mm print</span><span>Reconstruction</span></span>
@@ -79,12 +80,11 @@ For films that are beyond repair. When every frame is damaged, no clean informat
   <figcaption>Stairs, frame 121. The hybrid (left) is the 16mm frame cleaned with a median filter, with the telecine aligned inside it.</figcaption>
 </figure>
 
-## Where it stands
+## What works and what doesn't
 
-- **A whole reel, one look.** Five shots of *El Tinterillo* are finished with the same method; the stairs set the look and the others followed.
-- **Faces and lips.** The models work at 768 × 432, so small faces are limited and lip movement is reduced. The next pass targets the lips; a test showed the detail is there in the source, so the limit is in how the model is guided, not in the film.
-- **What was tried and dropped.** Video upscalers (SeedVR2, FlashVSR), Wan VACE driven by the source, and a CopyCat detail model did not suit this material.
-- **The record.** The original scan and every raw window are kept, and the reconstruction is labelled as one.
+Five shots of *El Tinterillo* are finished with the same method and the same look. Small faces and lip movement are the weak point, because the model works at 768 × 432; a test showed the detail is there in the source, so the limit is in how the model is guided, not in the film, and the lips are the next pass.
+
+The obvious things were tried first and dropped: video upscalers (SeedVR2, FlashVSR), Wan VACE driven by the source, a CopyCat detail model. None of them suited this material. What works is windows, and making the windows agree with each other, which wastes inference and takes iterations. Maybe somebody has a more straightforward way; at the moment this is the only one that works here. The original scan and every raw window are kept, and the result is labelled as a reconstruction.
 
 ## Downloads
 

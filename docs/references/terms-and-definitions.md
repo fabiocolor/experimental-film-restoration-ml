@@ -10,13 +10,13 @@ nav_order: 2
 Terms used in the research on this site. Standard Nuke node names (`Read`, `Write`, `Merge`, `Transform`, `Crop`, etc.) are not redefined here; consult Foundry documentation for those.
 
 ### ACES 2065-1
-Linear AP0 scene-referred color space for archival/exchange masters. Recommended delivery space with EXR half.
+Linear AP0 scene-referred colour space for archival/exchange masters. Recommended delivery space with EXR half.
 
 ### Alignment
 Pixel-accurate registration of Reference to Source, including crop, so the two differ only in colour.
 
 ### Chroma (Cb, Cr)
-Color-difference channels in YCbCr. In chroma recovery, these come from the Reference branch.
+Colour-difference channels in YCbCr. In chroma recovery, these come from the Reference branch.
 
 ### CopyCat
 Nuke node that trains a compact CNN using supervised Input/Target pairs assembled in the node graph.
@@ -49,10 +49,10 @@ Brightness channel in YCbCr. In chroma recovery, luma comes from the Source bran
 Nuke node for look matching. Used in these workflows as an optional baseline to compare against learned reconstruction.
 
 ### Provenance
-Recorded history of sources, processes, and parameters enabling reproducibility and auditability.
+The written history of a result: the sources, the steps and the settings, so that someone else can check it and run it again.
 
 ### Synthetic reference
-An approved colour frame for a shot, made with an open model when no better copy of the film survives. It guides the colour of the shot, and the result is an interpretation.
+A colour frame for a shot, made with an open model when no better copy of the film survives and checked at full size. It guides the colour of the shot, and the result is an interpretation.
 
 ### Teacher frames
 The frames of a shot that pass review and are used to train the Temporal CbCr adapter for that shot.

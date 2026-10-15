@@ -8,9 +8,9 @@ permalink: /downloads/gap-filling-second-pass/
 
 # Diffusion healing: the second pass
 
-The last step of the flute players shot on the diffusion healing page. The first pass (MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side. A light Wan VACE pass makes them consistent without changing geometry or motion.
+The last step of the flute players shot on the diffusion healing page. The first pass (MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side: the model's and the film's. A light Wan VACE pass makes them one picture. Nothing should move: the geometry and the motion come out exactly as they went in, and only the look is made consistent.
 
-On the example files it matches the published result to ΔE 0.9 on average, and each window to ΔE 0.6 or better, below the visible threshold. Source, first pass and models are in the [record]({{ '/records/wong-flute-players/' | relative_url }}).
+On the example files it matches the published result to ΔE 0.9 on average, and each window to ΔE 0.6 or better, which is smaller than you can see. Source, first pass and models are in the [record]({{ '/records/wong-flute-players/' | relative_url }}).
 
 ## What you need
 
@@ -23,11 +23,11 @@ On the example files it matches the published result to ΔE 0.9 on average, and 
 
 ## Steps
 
-1. **Second pass.** Load `graph/second_pass_vace_refine_ui.json` (laid out, with notes on what the pass does and what should and should not change; `second_pass_vace_refine.json` is the same graph in API format), point the Load Video node at one 81-frame window of your first pass, and run. It encodes the window as the starting point and samples at denoise 0.30 (seed 0, 30 steps, CFG 4.5), with the same window as the VACE control. Run it once for each window. Each window overlaps the next by 30 frames.
+1. **Second pass.** Load `graph/second_pass_vace_refine_ui.json` (laid out, with notes on what the pass does and what should and should not change; `second_pass_vace_refine.json` is the same graph in API format), point the Load Video node at one 81-frame window of your first pass, and run. It encodes the window as the starting point and samples at denoise 0.30 (seed 0, 30 steps, CFG 4.5), with the same window as the VACE control. The low denoise is the point: the model is only allowed to change the picture a little, so it smooths the join between the two kinds of picture and can't redraw anything. Run it once for each window. Each window overlaps the next by 30 frames, which is what the seam blend uses.
 2. **Pack each window.** The graph saves PNG frames. Pack each window losslessly, for example `ffmpeg -framerate 24 -i second_pass_%05d_.png -c:v ffv1 -pix_fmt bgr0 W1.mkv`.
-3. **Seam blend.** `INPUT_DIR=<folder with W1.mkv W2.mkv W3.mkv> OUTPUT_DIR=out python tools/run_blend_example.py`. It uses the overlaps to remove the tone steps at the cuts. For your own shot, change the windows and cuts in `run_blend_example.py`.
+3. **Seam blend.** `INPUT_DIR=<folder with W1.mkv W2.mkv W3.mkv> OUTPUT_DIR=out python tools/run_blend_example.py`. It uses the overlaps to remove the tone steps at the cuts, so the windows don't show as a jump in brightness. For your own shot, change the windows and cuts in `run_blend_example.py`.
 
-The prompt in the graph describes this shot. Write your own for your footage, and keep the last sentence: it asks the model to keep every person, hand, prop and movement exactly as they are.
+The prompt in the graph describes this shot. Write your own for your footage, and keep the last sentence: it asks the model to keep every person, hand, prop and movement exactly as they are. Without it, the model will take the chance to improve things, which is the last thing you want here.
 
 ## Example
 
@@ -41,4 +41,4 @@ The larger example files are hosted outside the repository. Download them into `
 
 ## Comfy Cloud
 
-The graph uses only built-in nodes and standard Wan 2.1 files, so it should run on Comfy Cloud. It has not been tested there yet.
+The graph uses only built-in nodes and the standard Wan 2.1 files, so it should run on Comfy Cloud. It hasn't been tried there yet.

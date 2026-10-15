@@ -18,4 +18,4 @@ permalink: /records/frontier-experience/
 | Finished | The checkpoint named above. Some skies and shadows do not fully resolve. |
 | Reproduction | Not yet. The checkpoint (11 MB), the frame pairs and the film material are not published. |
 
-A newer version of this example is in development.
+A newer version of this example is being made.

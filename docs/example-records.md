@@ -8,7 +8,7 @@ permalink: /records/
 
 # Example records
 
-One record for each example on this site: the source, the route, the graph and models, the settings, and whether it has been reproduced from the published files.
+One record for each example on this site: where the source came from, the route, the graph and models, the settings, and whether anyone can get the same result from the published files yet. If an example is on the site it has been reviewed at full size; the record is there so you can see how it was made.
 
 | Example | Area | Route | Reproduced from the published files |
 | --- | --- | --- | --- |
@@ -32,4 +32,4 @@ One record for each example on this site: the source, the route, the graph and m
 | [Books: From Manuscript to Classroom]({{ '/records/books-manuscript-classroom/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3 ControlNet, stock reading | Not yet |
 | [Rambles 'Round Rio, ox cart]({{ '/records/rambles-round-rio-oxcart/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3 ControlNet, stock reading | Not yet |
 
-ΔE is the average CIEDE2000 colour difference against the published result. The pass mark is 1.5 per stage; about 2.3 is the smallest difference most viewers can see.
+ΔE is the average CIEDE2000 colour difference against the published result. The pass mark is 1.5 per stage; about 2.3 is the smallest difference most people can see.

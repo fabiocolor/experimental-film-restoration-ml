@@ -6,9 +6,9 @@ nav_order: 0
 
 <div class="research-hero">
   <h1>Experimental Film Restoration with Machine Learning</h1>
-  <p class="hero-lede">Faded colour brought back. Decayed nitrate healed. Films beyond repair rebuilt. The film's own picture stays the record; the models supply only what was lost.</p>
+  <p class="hero-lede">Faded colour brought back, decayed nitrate healed, films beyond repair rebuilt, with open-weight models running on local hardware. The film's own picture stays the record; the model only supplies what is lost.</p>
   <div class="hero-buttons">
-    <a href="{{ '/research-status/' | relative_url }}" class="btn btn-primary">What is possible now</a>
+    <a href="{{ '/research-status/' | relative_url }}" class="btn btn-primary">Where things stand</a>
     <a href="{{ '/downloads/' | relative_url }}" class="btn btn-outline">Run it yourself</a>
   </div>
 </div>
@@ -22,7 +22,7 @@ nav_order: 0
 </figure>
 
 <div class="research-intro">
-  <p>Independent research into what open machine-learning models can do for film restoration, and how far they can be trusted. The rule is the same in every area: start from the scan, keep its picture, use a model only for what is missing, and write down what the model did. Nothing here is automatic. A restorer reviews every result at full size, and every example has a <a href="{{ '/records/' | relative_url }}">record</a> of its source, models and settings.</p>
+  <p>Independent research by <a href="{{ '/credits/' | relative_url }}">Fabio Bedoya</a>, done alongside commercial restoration work in London, into what open-weight AI models can do for the archives that can't afford the commercial route, and how far those models can be trusted. If you think about it, digital restoration was never really about recovery. The usual tools copy information from the frames around the damage and mask it. These models can put back what was actually lost, and that is new. It is also where the risk is, so the rule is the same in every area here: start from the scan, keep its picture, use a model only for what is missing, and write down what the model did. Nothing is automatic. Every result is reviewed at full size before it goes up, and every example has a <a href="{{ '/records/' | relative_url }}">record</a> of its source, models and settings.</p>
 </div>
 
 ## Five research areas
@@ -31,8 +31,8 @@ nav_order: 0
   <li class="area">
     <div class="area-copy">
       <h3><a href="{{ '/colour-recovery/' | relative_url }}">Faded colour recovery</a></h3>
-      <p>The original colour of a faded film, rebuilt from the film itself and carried through whole shots: pans, crowds, dancing, changing light. Every frame keeps the scan's brightness, grain and resolution.</p>
-      <a class="area-link" href="{{ '/colour-recovery/' | relative_url }}">Method, five shots and two kits</a>
+      <p>When the faded scan is all that survives. The colour is rebuilt from the film itself and carried through whole shots, pans, crowds, dancing and all, while every frame keeps the scan's own brightness, grain and resolution.</p>
+      <a class="area-link" href="{{ '/colour-recovery/' | relative_url }}">How it works, five shots and two kits</a>
     </div>
     <figure class="reveal">
       <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/counter-attack-quarry-b-source.jpg' | relative_url }}">
@@ -46,8 +46,8 @@ nav_order: 0
   <li class="area">
     <div class="area-copy">
       <h3><a href="{{ '/temporal-cbcr/' | relative_url }}">Temporal CbCr</a></h3>
-      <p>Colour learned from a reference for the shot, a surviving DVD or telecine or a set of reviewed synthetic frames, and carried through every frame by a small model trained for that shot alone, in minutes.</p>
-      <a class="area-link" href="{{ '/temporal-cbcr/' | relative_url }}">Method, examples and the Nuke template</a>
+      <p>When something with the colour still survives: a DVD, a telecine, an overlapping negative, or a set of reviewed frames. A small model learns the colour of that one shot in about 90 seconds and carries it through every frame.</p>
+      <a class="area-link" href="{{ '/temporal-cbcr/' | relative_url }}">How it works, examples and the Nuke template</a>
     </div>
     <figure class="reveal">
       <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/candy-candy-b-source.jpg' | relative_url }}">
@@ -61,8 +61,8 @@ nav_order: 0
   <li class="area">
     <div class="area-copy">
       <h3><a href="{{ '/diffusion-healing/' | relative_url }}">Diffusion healing</a></h3>
-      <p>Nitrate decay, missing frames, emulsion breaking up. Everything that survives is used first; a video model generates only the missing picture, guided by the movement around it, and every generated pixel is on record.</p>
-      <a class="area-link" href="{{ '/diffusion-healing/' | relative_url }}">Method, examples and kit</a>
+      <p>Nitrate decay, a gap of fifteen frames, emulsion breaking up. Far beyond what Phoenix or DIAMANT can interpolate. Everything that survives is used first, a video model generates only the missing picture, and every generated pixel is on record.</p>
+      <a class="area-link" href="{{ '/diffusion-healing/' | relative_url }}">How it works, examples and kit</a>
     </div>
     <figure class="pair">
       <div class="pair-media" data-compare="Nitrate scan|Healed">
@@ -76,8 +76,8 @@ nav_order: 0
   <li class="area">
     <div class="area-copy">
       <h3><a href="{{ '/diffusion-reconstruction/' | relative_url }}">Diffusion reconstruction</a></h3>
-      <p>For films beyond repair, where every frame is damaged. A video model rebuilds the picture from the surviving elements, shot after shot, to one look for the whole reel. The result is labelled for what it is: a reconstruction.</p>
-      <a class="area-link" href="{{ '/diffusion-reconstruction/' | relative_url }}">Method, a whole reel and kit</a>
+      <p>For films where every frame is damaged and normal tools have nothing clean to borrow from. A video model rebuilds the picture from what survives, shot after shot, to one look for the whole reel. The result is called what it is: a reconstruction, with a synthetic quality the film never had.</p>
+      <a class="area-link" href="{{ '/diffusion-reconstruction/' | relative_url }}">How it works, a whole reel and kit</a>
     </div>
     <figure class="reveal">
       <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/el-tinterillo-fg04-b-source.jpg' | relative_url }}">
@@ -91,8 +91,8 @@ nav_order: 0
   <li class="area">
     <div class="area-copy">
       <h3><a href="{{ '/black-and-white-colourization/' | relative_url }}">Black-and-white colourization</a></h3>
-      <p>Colour for films shot in black and white, fitted to the stock that recorded them, so that the greys on the film are exactly what that stock would have recorded of the colour. Whole shots, at full resolution, with the picture untouched.</p>
-      <a class="area-link" href="{{ '/black-and-white-colourization/' | relative_url }}">Method and public-domain examples</a>
+      <p>Colour for films shot in black and white, fitted to the stock that recorded them, so that the greys on the film are exactly what that stock would have seen of the colour. Whole shots, full resolution, the picture untouched. The palettes are an interpretation, and every page says so.</p>
+      <a class="area-link" href="{{ '/black-and-white-colourization/' | relative_url }}">How it works, and public-domain examples</a>
     </div>
     <figure class="reveal">
       <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/the-general-train-b-source.jpg' | relative_url }}">
@@ -107,14 +107,14 @@ nav_order: 0
 <div class="quiet-panel">
   <div>
     <h3>Run it yourself</h3>
-    <p>Two single-frame colour-recovery graphs, for an unbalanced and a balanced scan, run in Comfy Cloud with no GPU and no installation. The whole-shot, healing and reconstruction kits run on a local NVIDIA card and reproduce their published examples. Every graph is published laid out with notes, so it can be read node by node, and every kit is checked against the published result and says how close it gets.</p>
+    <p>Not everyone has a room full of GPUs, so the two single-frame colour graphs run in Comfy Cloud with no card and no installation. The whole-shot, healing and reconstruction kits need a local NVIDIA card. Every graph is published laid out with notes, so you can read it node by node and see what each step is supposed to do, and every kit is checked against the published result and says how close it gets.</p>
   </div>
   <a href="{{ '/downloads/' | relative_url }}" class="btn btn-primary">Download kits</a>
 </div>
 
 ## Talks and writing
 
-- [What is possible now]({{ '/research-status/' | relative_url }}): what works, what is still open, what can be reproduced, and what hardware it takes. October 2026.
+- [Where things stand]({{ '/research-status/' | relative_url }}): what works, what doesn't yet, what can be reproduced, and what it costs in hardware and time. October 2026.
 - [Talks]({{ '/talks/' | relative_url }}): companion pages for FIAT/IFTA 2026 (São Paulo) and SEAPAVAA 2026.
 - [Exploring Experimental Machine Learning in Film Restoration](https://library.imaging.org/archiving/articles/22/1/35), *Archiving Conference* 22(1), 2025: the peer-reviewed paper behind the CopyCat workflow.
 - [Tools]({{ '/tools/' | relative_url }}) used alongside this research, each in its own repository.

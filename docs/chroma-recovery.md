@@ -8,17 +8,17 @@ grand_parent: "Temporal CbCr"
 
 # Building the Colour Target
 
-This stage applies when picture detail survives in the scan but its colour has faded or shifted, and a better copy of the same frames has the colour. Complete the [preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. Training, inference and delivery are on [Training, Inference and Review]({{ '/training-inference-review/' | relative_url }}).
+This is the stage for the common case: the scan still has its detail but the colour has faded or shifted, and a better copy of the same frames has the colour. Do the [preparation and alignment stages]({{ '/start-here/' | relative_url }}) first. Training, inference and delivery are on [Training, Inference and Review]({{ '/training-inference-review/' | relative_url }}).
 
 ## Record the reference
 
-Note the reference's edition, owner or provider, transforms, compression, crop and alignment limits. A DVD, a telecine, another print or a video master can all work, as long as it shows the same frames with better colour.
+Write down which edition the reference is, who owns or supplied it, its transforms, its compression, the crop, and how far it could be aligned. A DVD, a telecine, another print or a video master all work, as long as it shows the same frames with better colour.
 
 ## Build the target
 
-The training target combines **source luminance** with **reference chroma**. The model learns colour only and does not replace source detail.
+The training target is the **source's brightness** with the **reference's colour**. That is the whole trick: the model learns colour only, and never gets the chance to replace the scan's detail.
 
-1. If necessary, apply a restrained median or debanding pass to a compressed video reference. Record it.
+1. If the reference is compressed video, a restrained median or debanding pass helps. Write down what you did.
 2. Clone the aligned reference crop onto the source so both branches use the same picture area.
 3. Convert source and reference from the working space to YCbCr.
 4. In a `Shuffle`, map:
@@ -42,25 +42,25 @@ The training target combines **source luminance** with **reference chroma**. The
 
 ## Checks
 
-- Difference the input and target in YCbCr. Their luminance should be nearly identical.
-- Confirm that the paired crops and bounding boxes match.
-- Reject a frame if alignment errors could be learned as colour edges.
-- During review, watch for hue drift, colour bleeding, unstable skin tones, and flicker.
-- In Resolve, use the recovered render above the original with Composite Mode set to `Color` when the delivery needs explicit source-luminance protection.
+- Difference the input and the target in YCbCr. The luminance should be nearly identical; if it isn't, the reference's brightness has got in.
+- Check that the paired crops and bounding boxes match.
+- Drop a frame if an alignment error could be learned as a colour edge.
+- During review, watch for hue drift, colour bleeding, unstable skin tones and flicker.
+- In Resolve, put the recovered render above the original with Composite Mode set to `Color` when the delivery needs the source brightness protected explicitly.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/candy-candy/candy-candy-training-steps.jpeg' | relative_url }}" alt="Training steps progression">
-  <figcaption>Candy Candy training checkpoints. The PAL DVD provided the colour reference.</figcaption>
+  <figcaption>Candy Candy training checkpoints. The colour came from the PAL DVD.</figcaption>
 </figure>
 
 ## Troubleshooting
 
 | Problem | Check |
 | --- | --- |
-| Detail becomes softer | Verify that Source Y, not Reference Y, enters the target |
-| Wrong hue or colour bleeding | Recheck the YCbCr mapping, alignment, crop, and reference transforms |
-| Flicker between frames | Add representative pairs around the transition and inspect reference consistency |
-| Model misses a colour family | Add well-aligned examples containing that family rather than simply extending training |
+| Detail becomes softer | Check that Source Y, not Reference Y, is going into the target |
+| Wrong hue or colour bleeding | Go back over the YCbCr mapping, the alignment, the crop and the reference transforms |
+| Flicker between frames | Add pairs around the transition and check whether the reference itself is consistent there |
+| Model misses a colour family | Add well-aligned pairs that contain that colour; training longer won't invent it |
 
 Continue with [Training, Inference, and Review]({{ '/training-inference-review/' | relative_url }}).
 

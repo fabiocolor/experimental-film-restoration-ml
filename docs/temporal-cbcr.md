@@ -13,7 +13,9 @@ redirect_from:
 
 # Temporal CbCr
 
-Colour learned from a reference for the shot and carried through every frame. The scan keeps its brightness, detail, grain and motion; only the colour (the Cb and Cr channels) comes from the reference. A small model is trained for the shot alone, in minutes, and it is what finishes most of the whole-shot results on this site.
+This is the oldest idea in this research and still the most reliable one. If something survives that has the colour, a DVD, a telecine, another print, a negative that overlaps the faded print for a few shots, you can teach a small model the colour from the overlap and let it colour the rest. You take only the chroma from the model and combine it back with the luma of the scan, so the result is the original resolution with everything nice about it, plus the colour. And because we are not very sensitive to the resolution of colour, a standard-definition reference is enough.
+
+The first version of this ran in CopyCat in Nuke, and that still works; the Nuke template is below. But Nuke is a closed platform meant for VFX, and research needs something it can build on, so the job now has its own small model: the Temporal CbCr adapter. It trains on one shot in about 90 seconds, it has done a 25-minute film end to end, and it is what finishes most of the whole-shot results on this site.
 
 <figure class="reveal">
   <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/unman-wittering-zigo-choir-b-source.jpg' | relative_url }}">
@@ -25,15 +27,11 @@ Colour learned from a reference for the shot and carried through every frame. Th
 
 ## Two kinds of reference
 
-- **Historical.** A better copy of the same frames survives: a DVD, a telecine, another print. If it lines up with the scan, it teaches the colour, and the result is a recovery.
-- **Synthetic.** No better copy survives, so open models (MiniMax H3, Qwen Image Edit, TeleStyle) make candidate colour frames, and only the frames that pass a person's review are used. The result is an interpretation.
+The reference can be historical: a better copy of the same frames survives, it lines up with the scan, and it teaches the colour. Then the result is a recovery. Or the reference can be synthetic: nothing better survives, so an open model (MiniMax H3, Qwen Image Edit, TeleStyle) makes candidate colour frames, a person reviews them, and only the ones that pass become teachers. Then the result is an interpretation, and it is only as good as the frames that were let through.
 
 ## How it works
 
-1. **Align the reference** to the scan in time and position, and check the alignment by eye.
-2. **Pick the frames to learn from.** Matching frame pairs from the historical reference, or the synthetic frames that passed review.
-3. **Train a small model for the shot.** The Temporal CbCr adapter learns only the colour, so it trains in about 90 seconds. With a historical reference, CopyCat in Nuke does the same job; the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) walks through it.
-4. **Run it over the whole shot.** The colour holds from frame to frame, with no flicker, at the scan's full resolution.
+First the reference has to line up with the scan, in time and in position, and that is checked by eye; cuts and changing speeds are where it goes wrong. Then the frames to learn from are picked: matching pairs from the historical reference, or the synthetic frames that passed. The adapter learns only the colour of that shot, which is why it trains in about 90 seconds, and then it runs over the whole shot. The colour holds from frame to frame with no flicker, at the scan's full resolution. With a historical reference, CopyCat in Nuke does the same job, and the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) walks through it.
 
 ## Examples
 
@@ -79,11 +77,11 @@ Colour learned from a reference for the shot and carried through every frame. Th
   <figcaption><em>Frontier Experience</em> (1975), frame 20: a historical reference, the adapter. A faded print, with the colour learned from a telecine of the same film supplied by Ross Lipman. Trained on 926 frame pairs at 1464 × 1080; on 16 test shots it beat CopyCat on nine. <a href="{{ '/records/frontier-experience/' | relative_url }}">Record</a></figcaption>
 </figure>
 
-## Where it stands
+## What works and what doesn't
 
-- **The finishing step for whole shots.** The adapter is what turns a set of reviewed frames into a consistent shot: the crowd, the ballroom and the balanced-source results on the [colour recovery]({{ '/colour-recovery/' | relative_url }}) page all end with it.
-- **Any reference will do.** A DVD, a telecine, another print, or a hundred reviewed synthetic frames; standard definition is enough, because only the colour is learned.
-- **Open.** Lining up the reference is still partly done by hand, and cuts and changing speeds are checked by eye. A synthetic reference is only as good as the frames a person lets through. A DVD brings its own grading and softness of colour, and the result inherits it.
+With a historical reference this is production ready. It has been used on commercial work where a faded print had to fill gaps in a negative, and it was quite good, quite straightforward. On *Frontier Experience* the adapter beat CopyCat on nine of sixteen test shots, and it is a lot faster. The adapter is also the finishing step for the whole-shot colour results on the [colour recovery]({{ '/colour-recovery/' | relative_url }}) page: the crowd, the ballroom, the balanced-source shot all end with it.
+
+What is still by hand is the alignment. A DVD also brings its own grading and its own softness of colour, and the result inherits them. And a synthetic reference moves the whole question to the review: the model will happily learn a wrong colour if a wrong frame gets through. New examples for this page are being made and will be added as they are finished. A proper write-up of the adapter is coming.
 
 ## Downloads
 

@@ -34,42 +34,61 @@ def av1(h264):
     """An AV1 twin of a web file (about a third smaller at the same quality); the page offers it first and
     falls back to the H.264 file in browsers that cannot play it."""
     out = h264.with_suffix('.av1.mp4')
+    if 'libsvtav1' not in subprocess.run(['ffmpeg', '-v', 'quiet', '-encoders'], capture_output=True, text=True).stdout:
+        print(f'  (no libsvtav1 in this ffmpeg; make {out.name} elsewhere)'); return
     run(['ffmpeg', '-v', 'error', '-y', '-i', str(h264), '-c:v', 'libsvtav1', '-preset', '6', '-crf', '30', '-g', '48',
          '-pix_fmt', 'yuv420p', '-movflags', '+faststart', '-an', str(out)])
 
-def build(slug, src, res, src_crop=None, res_crop=None, start=0.0, dur=None, web_w=1280, master_w=None, fps=None, log=False):
-    """src/res: video paths. crops: (x, y, w, h) in the input. start/dur in seconds."""
+def build(slug, src, res, src_crop=None, res_crop=None, start=0.0, dur=None, web_w=1280, master_w=None, fps=None, log=False, register=True):
+    """src/res: video paths. crops: (x, y, w, h) in the input. start/dur in seconds.
+    With register=True the result crop and start are corrected so the result lands on the source exactly
+    (see register.py); the hand-set res_crop is only the first guess."""
     sw, sh, sn, sfps = probe(src)
     fps = fps or sfps
     sc = src_crop or (0, 0, sw, sh)
     rc = res_crop or (0, 0, *probe(res)[:2])
+    res_start = start
+    if register:
+        from register import measure
+        same = Path(src).resolve() == Path(res).resolve()   # both halves cut from one file: simultaneous by construction
+        sc, rc, res_start, rep = measure(src, sc, res, rc, start, dur or (sn / sfps), fps=fps, max_k=0 if same else 8)
+        W = rep['warp']
+        if sc != rep['sc_in']: print(f"  {slug}: source crop trimmed to what the result holds: {rep['sc_in']} -> {sc}")
+        print(f"  {slug}: result moved {rep['k']:+d} frame(s); crop {rep['rc_in']} -> {rc}; "
+              f"scale ({W[0][0]:.4f}, {W[1][1]:.4f}) shift ({W[0][2]:+.1f}, {W[1][2]:+.1f}) px at 960 wide; "
+              f"frame offsets seen {rep['ks']}")
+        if abs(rep['drift']) > 2:
+            print(f"  WARNING {slug}: the frame offset drifts by {rep['drift']} over the clip (fps {rep['fps_src']} vs {rep['fps_res']}?)")
     aspect = sc[2] / sc[3]
     view = f',lut1d=file={LUT}' if log else ''
     half_w = web_w // 2
     half_h = int(round(half_w / aspect / 2)) * 2
     t = ['-ss', f'{start:.3f}'] if start else []
+    tr = ['-ss', f'{res_start:.3f}'] if res_start else []
     d = ['-t', f'{dur:.3f}'] if dur else []
-    def inp(p, same):
-        return ['-i', str(p)] if same else ['-i', str(p)]
     # --- web side by side
     f = (f"[0:v]crop={sc[2]}:{sc[3]}:{sc[0]}:{sc[1]}{view},scale={half_w}:{half_h}:flags=lanczos,setsar=1[a];"
          f"[1:v]crop={rc[2]}:{rc[3]}:{rc[0]}:{rc[1]}{view},scale={half_w}:{half_h}:flags=lanczos,setsar=1[b];"
          f"[a][b]hstack=inputs=2,fps={fps},format=yuv420p[v]")
     web = WEB / f'{slug}-sbs.mp4'
     if 'sbs' in STEPS:
-        run(['ffmpeg', '-v', 'error', '-y', *t, '-i', str(src), *t, '-i', str(res), *d, '-filter_complex', f, '-map', '[v]', '-an',
+        run(['ffmpeg', '-v', 'error', '-y', *t, '-i', str(src), *tr, '-i', str(res), *d, '-filter_complex', f, '-map', '[v]', '-an',
              '-c:v', 'libx264', '-preset', 'slow', '-tune', 'film', '-g', '48', '-crf', '23', '-movflags', '+faststart', str(web)])
         av1(web)
-    # --- web reveal: result wipes over the source left -> right in 2.5 s, holds, then source returns in the last 0.6 s
+    # --- web reveal: the result wipes over the source left -> right in 2.5 s, starting at 0.4 s, then holds
+    WIPE_AT, WIPE = 0.4, 2.5
     rw = min(960, sc[2] if sc[2] % 2 == 0 else sc[2] - 1)
     rh = int(round(rw / aspect / 2)) * 2
     f = (f"[0:v]crop={sc[2]}:{sc[3]}:{sc[0]}:{sc[1]}{view},scale={rw}:{rh}:flags=lanczos,setsar=1,fps={fps}[a];"
          f"[1:v]crop={rc[2]}:{rc[3]}:{rc[0]}:{rc[1]}{view},scale={rw}:{rh}:flags=lanczos,setsar=1,fps={fps}[b];"
-         f"[a][b]xfade=transition=wipeleft:duration=2.5:offset=0.4,format=yuv420p[v]")
-    # xfade needs the two inputs to have the same length; trim both with -t
+         f"[a][b]xfade=transition=wipeleft:duration={WIPE}:offset={WIPE_AT},format=yuv420p[v]")
+    # xfade shows the second clip from its first frame at the moment the wipe starts, so the result is cut WIPE_AT
+    # later than the source; otherwise it runs 0.4 s behind and the edge of the wipe tears on anything that moves
     reveal = WEB / f'{slug}-reveal.mp4'
+    tr2 = ['-ss', f'{res_start + WIPE_AT:.3f}']
+    d2 = ['-t', f'{dur - WIPE_AT:.3f}'] if dur else []
     if 'reveal' in STEPS:
-        run(['ffmpeg', '-v', 'error', '-y', *t, *d, '-i', str(src), *t, *d, '-i', str(res), '-filter_complex', f, '-map', '[v]', '-an',
+        run(['ffmpeg', '-v', 'error', '-y', *t, *d, '-i', str(src), *tr2, *d2, '-i', str(res), '-filter_complex', f, '-map', '[v]', '-an',
              '-c:v', 'libx264', '-preset', 'slow', '-tune', 'film', '-g', '48', '-crf', '23', '-movflags', '+faststart', str(reveal)])
         av1(reveal)
     # --- master side by side at full input resolution
@@ -79,16 +98,25 @@ def build(slug, src, res, src_crop=None, res_crop=None, start=0.0, dur=None, web
          f"[1:v]crop={rc[2]}:{rc[3]}:{rc[0]}:{rc[1]}{view},scale={mw//2}:{mh}:flags=lanczos,setsar=1[b];"
          f"[a][b]hstack=inputs=2,fps={fps},format=yuv420p[v]")
     master = MAS / f'{slug}-sbs-{mw}x{mh}.mp4'
-    if 'master' in STEPS: run(['ffmpeg', '-v', 'error', '-y', '-i', str(src), '-i', str(res), '-filter_complex', f, '-map', '[v]', '-an',
+    # the master is the whole shot; only the frame offset is applied, by trimming the clip that starts early
+    off = res_start - start
+    ms = ['-ss', f'{-off:.3f}'] if off < 0 else []
+    mr = ['-ss', f'{off:.3f}'] if off > 0 else []
+    if 'master' in STEPS: run(['ffmpeg', '-v', 'error', '-y', *ms, '-i', str(src), *mr, '-i', str(res), '-filter_complex', f, '-map', '[v]', '-an',
          '-c:v', 'libx264', '-preset', 'slow', '-crf', '18', '-movflags', '+faststart', str(master)])
     # --- stills for the site: three frames, source and result as separate JPEGs
     n_total = int((dur or (sn / sfps)) * sfps) if sn else 0
     for k, frac in (('a', 0.18), ('b', 0.5), ('c', 0.82)) if 'stills' in STEPS else ():
-        tt = start + (dur or (sn / sfps)) * frac
-        for tag, p, c in (('source', src, sc), ('result', res, rc)):
-            run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{tt:.3f}', '-i', str(p), '-frames:v', '1', '-vf', f'crop={c[2]}:{c[3]}:{c[0]}:{c[1]}{view},scale=min(1280\\,iw):-2:flags=lanczos', '-q:v', '3', str(FR / f'{slug}-{k}-{tag}.jpg')])
+        tt = (dur or (sn / sfps)) * frac
+        for tag, p, c, t0 in (('source', src, sc, start), ('result', res, rc, res_start)):
+            run(['ffmpeg', '-v', 'error', '-y', '-ss', f'{t0 + tt:.3f}', '-i', str(p), '-frames:v', '1', '-vf', f'crop={c[2]}:{c[3]}:{c[0]}:{c[1]}{view},scale=min(1280\\,iw):-2:flags=lanczos', '-q:v', '3', str(FR / f'{slug}-{k}-{tag}.jpg')])
     sizes = {p.name: p.stat().st_size // 1024 for p in (web, reveal, master) if p.exists()}
     print(slug, sizes)
+    if register and web.exists():   # check the finished file: the two halves should now be on the same pixels
+        from register import measure
+        rep = measure(web, (0, 0, half_w, half_h), web, (half_w, 0, half_w, half_h), 0.3, max(1.0, (dur or 5) - 1), samples=7)[3]
+        W = rep['warp']
+        print(f"  check {web.name}: residual {rep['k']:+d} frame(s), scale ({W[0][0]:.4f}, {W[1][1]:.4f}), shift ({W[0][2]:+.1f}, {W[1][2]:+.1f}) px at 960 wide")
 
 FADED = ER / 'FADED COLOR LORA RECOVERY/results/temporal_tests'
 UP = ER / 'DIFFUSION UPSCALING/runs/outputs'
@@ -109,9 +137,11 @@ if want('counter-attack-waterfront'):
     fin = FADED / 'FANJI_FILM_COPY/t148_t147_base_independent_telestyle_detector_heal_20260808/05_final_composite/fanji_t148_t147_base_telestyle_fullframe_w1_338f_30fps_1920x1440.mp4'
     build('counter-attack-waterfront', src, fin, start=1.0, dur=9.0, master_w=1920)
 if want('counter-attack-quarry'):
-    ov = FADED / 'FANJI_QUARRY_T157/h3_unbalanced_raw_full_overlap_palette_transition/00_overview/fanji_t157_h3_only_s2_s3_full_overlap_palette_transition_4up.mp4'
+    # the final covers frames 1-681 of the full-size source sequence (matched on luminance); the source clip is
+    # ffmpeg from FANJI_QUARRY_T133/six_reference_fullshot_20260726/review_bundle/01_source/frame_%06d.jpg
+    src = OUT / 'src/quarry_source_681f_30fps_1920x1440.mp4'
     fin = FADED / 'FANJI_QUARRY_T157/h3_unbalanced_raw_full_overlap_palette_transition/05_final_composite/fanji_t157_h3_only_s2_s3_full_overlap_palette_transition_sourcey_681f_30fps_1920x1440.mp4'
-    build('counter-attack-quarry', ov, fin, src_crop=(0, 28, 480, 332), res_crop=(0, 0, 1920, 1440), start=4.0, dur=9.0, master_w=960)
+    build('counter-attack-quarry', src, fin, start=4.0, dur=9.0, master_w=1920)
 if want('tinterillo') or any(j.startswith('tinterillo-') for j in jobs):
     for fg, src, res, n in (('fg02', 'tinterillo_fg02_reel_r1_20260926/FG02_scan_review_f0001_f0410_768x432.mp4', 'tinterillo_fg02_reel_r1_20260926/seamblend/tinterillo_fg02_reel_r1_seamblend_f0001_f0410_24fps_768x432.mp4', 410),
                            ('fg03', 'tinterillo_fg03_reel_r1_20260926/FG03_scan_review_f0001_f0176_768x432.mp4', 'tinterillo_fg03_reel_r1_20260926/tinterillo_fg03_reel_r1_f0001_f0176_24fps_768x432.mp4', 176),

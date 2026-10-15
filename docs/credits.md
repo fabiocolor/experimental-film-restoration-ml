@@ -11,7 +11,7 @@ permalink: /credits/
 
 This independent research, its workflows, and the writing on this website are by **Fabio P. Bedoya Huerta**, except where another source is named.
 
-Film frames and clips remain the property of their respective rights holders. They are shown here for research, criticism, documentation, and education. A credit identifies context; it does not grant permission to reuse the material, and this repository does not relicense third-party footage, models, or software.
+The film frames and clips belong to their rights holders. They are shown here for research, criticism, documentation and education. A credit says where something came from; it is not permission to reuse it, and nothing here relicenses anyone else's footage, models or software.
 
 ## Research and source acknowledgements
 
@@ -35,19 +35,19 @@ For a peer-reviewed account of the earlier CopyCat research:
 - [Wan2.1](https://github.com/Wan-Video/Wan2.1), by the Wan team.
 - [VACE](https://github.com/ali-vilab/VACE), by its project contributors.
 
-Model output is an interpretation unless supported by historical evidence. The original film element and its documented context remain authoritative.
+What a model puts out is an interpretation unless historical evidence backs it up. The original film element, and what is known about it, is what counts.
 
 ## Software and technical projects
 
 - [ComfyUI](https://github.com/Comfy-Org/ComfyUI) runs the downloadable workflows.
-- [Nuke and CopyCat](https://www.foundry.com/products/nuke-family) support the CopyCat workflow.
-- [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/) supports conforming, colour management, and review.
-- [Phoenix, Loki, and DVO tools](https://filmworkz.com/) support restoration and preparation work.
-- [FFmpeg](https://ffmpeg.org/) and [HandBrake](https://handbrake.fr/) support media preparation and encoding.
+- [Nuke and CopyCat](https://www.foundry.com/products/nuke-family) are where the CopyCat workflow runs.
+- [DaVinci Resolve](https://www.blackmagicdesign.com/products/davinciresolve/) for conforming, colour management and review.
+- [Phoenix, Loki, and DVO tools](https://filmworkz.com/) for restoration and preparation.
+- [FFmpeg](https://ffmpeg.org/) and [HandBrake](https://handbrake.fr/) for preparing and encoding media.
 - [Jekyll](https://jekyllrb.com/), [Just the Docs](https://just-the-docs.github.io/just-the-docs/), and [GitHub Pages](https://pages.github.com/) publish this website.
 
-Commercial product names and trademarks belong to their respective owners. Their mention describes the research workflow and does not imply endorsement.
+Product names and trademarks belong to their owners. They are named because they are what the research used, not as an endorsement.
 
 ## Corrections
 
-Please report a missing or incorrect credit through the [GitHub issue tracker](https://github.com/fabiocolor/experimental-film-restoration-ml/issues/new?title=Attribution%20correction).
+If a credit is missing or wrong, please say so on the [GitHub issue tracker](https://github.com/fabiocolor/experimental-film-restoration-ml/issues/new?title=Attribution%20correction).

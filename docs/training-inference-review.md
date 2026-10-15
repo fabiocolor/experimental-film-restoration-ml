@@ -12,18 +12,18 @@ The last stages of the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url
 
 ## Stage 4: Train and monitor
 
-Start with a modest model and a held-out frame that is not part of the training set.
+Start with a modest model, and keep back a frame the model never trains on. That held-out frame is how you know whether it has learned the colour or just memorised the pairs.
 
 | Setting | Starting point | Review note |
 | --- | --- | --- |
 | Model | Medium | Try Large only after pair quality and alignment are sound |
 | Patch | 512 | Use 256 when the crop is limited, then expect more steps |
 | Batch | 3 | Reduce only when memory requires it |
-| Steps | 40,000 to 80,000 | Stop or extend according to held-out evidence, not loss alone |
+| Steps | 40,000 to 80,000 | Stop or carry on according to the held-out frame, not the loss alone |
 | Checkpoints | Every 10,000 steps | Compare the same held-out material at each checkpoint |
 | Contact sheets | About every 100 steps | Use them to spot divergence and memorisation |
 
-Use small geometric augmentation only when the composition allows it. Mild exposure variation can help. Do not use transformations that change colour relationships, because the model is learning colour.
+A little geometric augmentation is fine when the composition allows it, and mild exposure variation can help. Don't use anything that changes the colour relationships; colour is the thing the model is learning.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/copycat-settings-contact-sheet-cropped.png' | relative_url }}" alt="CopyCat Progress contact sheet">
@@ -32,39 +32,39 @@ Use small geometric augmentation only when the composition allows it. Mild expos
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/copycat-settings-preview-cropped.png' | relative_url }}" alt="CopyCat held-out preview">
-  <figcaption>A held-out preview is more useful than loss alone because it tests an unseen frame.</figcaption>
+  <figcaption>A held-out preview tells you more than the loss, because it is a frame the model hasn't seen.</figcaption>
 </figure>
 
-Check range and bounding-box parity between input and target. Their luminance should remain nearly identical.
+Check that input and target have the same range and bounding box. Their luminance should still be nearly identical.
 
 ## Stage 5: Infer the source sequence
 
-Train on selected pairs and infer on the complete source.
+You train on a few pairs; you run the model on the whole source.
 
-1. Read the original source in the same colour-management domain used for training.
-2. Apply the same live-area crop, while excluding training-only alignment transforms.
-3. Repeat any source preprocessing that was intentionally used during training.
+1. Read the original source in the same colour-management domain you trained in.
+2. Apply the same live-area crop, but not the alignment transforms, which were only for training.
+3. Repeat any preprocessing you did to the source for training.
 4. Load the chosen `.cat` checkpoint in an `Inference` node.
-5. Render 50 to 100 representative frames before committing to the full range.
+5. Render 50 to 100 frames from around the shot before you commit to the full range.
 6. Review motion, transitions, first and last frames, and shot joins.
-7. Add new pairs only when they address a specific observed failure, then test again.
+7. Add new pairs only to fix something you actually saw go wrong, then test again.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/inference-render-cropped.png' | relative_url }}" alt="Inference workflow">
-  <figcaption>The trained model is applied to the complete source sequence.</figcaption>
+  <figcaption>The trained model run over the whole source sequence.</figcaption>
 </figure>
 
-For archival renders, follow the project’s delivery standard. A common working choice is 16-bit half-float EXR with ZIP or DWAA compression in ACES2065-1. Include the shot, version, and model or checkpoint identifier in the file naming.
+For archival renders, follow whatever the project delivers in. A common choice is 16-bit half-float EXR with ZIP or DWAA compression in ACES2065-1. Put the shot, the version and the model or checkpoint in the file name.
 
 ## Final review
 
-Compare original and recovered renders in the same colour-managed Resolve project with grades and effects disabled. Use a wipe, split screen, or track toggle, then watch the sequence at normal speed as well as frame by frame.
+Compare the original and the recovered render in the same colour-managed Resolve project, with grades and effects off. Wipe, split screen or toggle the tracks, then watch the sequence at normal speed as well as frame by frame. Some things only show up at speed.
 
 | Protect in the source | Optional Resolve composite | Reject when |
 | --- | --- | --- |
 | Luminance and detail | `Color` | Colour bleeds, flickers, changes identity, or contradicts evidence |
 
-Scopes show range, luminance and chroma changes, but do not decide whether a restoration is acceptable. Acceptance is decided by human review.
+Scopes show you range, luminance and chroma changes, but they don't tell you whether the result is good. That is decided by a person looking at it.
 
 ## Record the delivery
 
@@ -75,18 +75,18 @@ Keep:
 - selected pair indices and alignment notes;
 - model, checkpoint, Nuke version, and colour-management settings;
 - short validation renders and rejected examples;
-- a note explaining assumptions, remaining limits, and who approved the result.
+- a note on the assumptions, what still isn't right, and who made the final call.
 
-The [provenance guide]({{ '/provenance-metadata/' | relative_url }}) provides a fuller record structure.
+The [provenance guide]({{ '/provenance-metadata/' | relative_url }}) has a fuller record to follow.
 
 ## Shared troubleshooting
 
 | Problem | First action |
 | --- | --- |
 | Residual geometry in a difference view | Return to [alignment]({{ '/start-here/' | relative_url }}#stage-2-alignment) and use keyed transforms where necessary |
-| Training stalls | Improve pair coverage and alignment before increasing model size |
-| Results fail only on certain shots | Add targeted pairs or split those shots into a separate model |
-| Full-range output differs from the held-out test | Confirm ingest, crop, preprocessing, and inference settings match training |
+| Training stalls | Better pairs and better alignment before a bigger model |
+| Results fail only on certain shots | Add pairs for those shots, or give them a model of their own |
+| Full-range output differs from the held-out test | Check that ingest, crop, preprocessing and inference settings match what you trained with |
 
 ## Downloads
 

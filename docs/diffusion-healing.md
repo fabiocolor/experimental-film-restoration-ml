@@ -11,7 +11,9 @@ redirect_from:
 
 # Diffusion healing
 
-When part of a film is simply gone: a stretch of nitrate that decayed to nothing, a gap in a negative while the sound runs on, emulsion breaking up across the frame. Everything that survives, in every element of the film, is used first. A video model generates only what is missing, guided by the movement around it, and every generated pixel is on record.
+Sometimes part of a film is simply gone. A stretch of nitrate has decayed to nothing, a negative has a gap of fifteen frames while the sound runs on, the emulsion is breaking up across the whole frame. If you know the tools we use, Phoenix, DIAMANT, PFClean, DRS Nova, you know that two or three frames is about the limit of what they can interpolate, and even those don't look that good. Fifteen frames is out of the question, because the tools only have the frames around the gap to copy from. The information is lost.
+
+So this is the experimental end of the research: can a video model fill the gap? The rule is that everything that survives, in every element of the film, is used first. The model generates only what is missing, it is steered by the movement before and after, and every generated pixel is on record. The point is a reconstruction you cannot tell from the film. Which is also a concern, and the reason this work is part of the Trust in Archives initiative.
 
 <figure class="reveal">
   <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/knights-of-the-trail-gap826-source.jpg' | relative_url }}">
@@ -23,10 +25,9 @@ When part of a film is simply gone: a stretch of nitrate that decayed to nothing
 
 ## How it works
 
-1. **Map what survives.** When several elements of the same film exist, they are aligned, and frame by frame the undamaged one is chosen. The shot's timeline becomes a map: which element each frame comes from, and where nothing survives.
-2. **Heal only the gaps.** Inside the gaps a video model (Wan VACE, or MiniMax H3) generates the missing picture, steered by the frames before and after and by the movement tracked across them. Everything outside the gap stays original.
-3. **Keep the film's own motion.** Fast, thin action that a model would redraw, a hand, a drumstick, stays the film's where the film still carries it.
-4. **Say what was generated.** Generated frames and regions are an inference, not a recovery, and are labelled as such in the record.
+When several elements of the same film exist, they are lined up and the undamaged one is chosen frame by frame. For *Knights of the Trail* that was a nitrate print and a diacetate safety copy, and even the safety copy had frames missing, because by the time it was made the nitrate was already going and they cut those parts out. So the shot's timeline becomes a map: which element each frame comes from, and where nothing survives.
+
+Inside the gaps a video model generates the missing picture. The original idea, from before any of these models existed, was a skeleton: follow the movement before the gap and after it, interpolate the movement across it, and put a texture on top. That is basically what happens. H3 wouldn't do it, because in reference mode it wants to modify everything in between, but Wan VACE, an older model, can be bounded by the frames around the gap and fill only that. Everything outside the gap stays original, and fast thin action the model would redraw, a hand, a drumstick, stays the film's wherever the film still carries it. Generated frames and regions are an inference, not a recovery, and the record says exactly where they are.
 
 ## Examples
 
@@ -83,12 +84,13 @@ When part of a film is simply gone: a stretch of nitrate that decayed to nothing
   <figcaption>Wong flute players, frame 160: the drummer. Around the hands and the beater the film's own brightness is kept with the restored colour. Drag to compare.</figcaption>
 </figure>
 
-## Where it stands
+## What works and what doesn't
 
-- **Nitrate decay is healed.** The Knights of the Trail shot above went through six versions, each closer to the rule that what moves stays the film's; the version shown carries out the notes on the fifth. A 15-frame hole in the camera negative of <em>Poison Pen</em> (1939), with the sound running on, is being filled the same way, with the actors' movement tracked across the gap.
-- **Whole-frame decay is the frontier.** The Wong shot proved the storyboard method and stops at a good result at working size, to be finished together with conventional restoration.
-- **Resolution.** The models work at around 768 × 560 and ten seconds at a time; shots are done in overlapping windows, and the Knights of the Trail shot was reviewed at its 640 × 512 working size. The original-resolution pass is a separate, final step.
-- **Public footage.** A search through 847 films in public archives found no other public-domain title with loss on this scale, which is why these examples come from collections rather than from a trailer reel.
+The *Knights of the Trail* shot went through six versions, each one closer to the rule that what moves stays the film's. If that shot were shown on its own, could you tell which part is generated? Probably not, and that is the point. A fifteen-frame hole in the camera negative of *Poison Pen* (1939), from a commercial job, is being filled the same way, with the actors' movement tracked across the gap.
+
+The Wong shot is the frontier: the emulsion is breaking up across the whole frame, so there is no clean element to prefer. It proved the method and stops at a good result at working size, to be finished together with conventional restoration. Working size is the general limit right now. These models run at around 768 × 560 and about ten seconds at a time, so shots are done in overlapping windows and the original-resolution pass is a separate, final step.
+
+None of this is a one-click application. It is a lot of curation, a lot of iterations, and the models don't always agree with each other, so it is closer to a VFX job done case by case than to a filter. And a search for public-domain footage with loss on this scale, through 847 films in public archives, found none, which is why these examples come from collections rather than from the trailer reel used elsewhere on the site.
 
 ## Downloads
 

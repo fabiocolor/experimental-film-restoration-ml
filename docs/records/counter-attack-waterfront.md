@@ -16,7 +16,7 @@ permalink: /records/counter-attack-waterfront/
 | Settings | Repair weight 1.0 with a 2-frame ramp at each end. The TeleStyle frames were reused from an earlier run on the same shot; no new inference for the final assembly. |
 | Finished | 9 August 2026; the method was used for the shots that followed. |
 | Method record | SHA-256 `a76a53b432e7e9b844f9ad91bea357cc28857f6946f3b9af99dbe101d2afdcc7` (research repository). H3 base video SHA-256 `51214a94c6a3d6796a7a3fc1fa6b9b227edb64742d053a15c6198c06782eec6f`. |
-| Colour check | Red, green and blue all present: median score 3.52 across the shot, 6.21 on the frame shown (R 29.5, G 19.0, B 6.2). |
+| Colour check | A simple score of how much red, green and blue the result holds: median 3.52 across the shot, 6.21 on the frame shown (R 29.5, G 19.0, B 6.2). All three are there. |
 | Reproduction | The whole shot: not yet. The H3 and TeleStyle graphs, the reference stills and the source frames are not published. The first still (frame 000007 of the frame dump, the "Clara" anchor the shot started from): yes, the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) is that graph with its inputs; a core-node rerun came within a mean ΔE of 1.89 of the published still. |
 
-On the [colour recovery page]({{ '/colour-recovery/' | relative_url }}): 9 seconds of the shot (`fanji_t148_t147_base_telestyle_fullframe_w1_338f_30fps_1920x1440`) against the full-size source frames, both at 1920 × 1440. The single-frame kit's test frame is frame 000007 of the same shot's frame dump.
+On the [colour recovery page]({{ '/colour-recovery/' | relative_url }}): 9 seconds of the finished shot against the full-size source frames, both at 1920 × 1440. The single-frame kit's test frame is frame 000007 of the same shot's frame dump.

@@ -75,20 +75,20 @@ An NVIDIA GPU with 8 GB of VRAM or more runs the fp8mixed model, with ComfyUI ke
 
 Upload your frame as the source. Keep the chart. For the edge map, either make one with OpenCV (`cv2.Canny(grey, 80, 160)`) and upload it, or use the *Detect edges* node already in the graph: drag its output into *Scale edge map* in place of the uploaded edge map. ComfyUI's edge detector is close to OpenCV's but not identical, so results differ a little from this test; for your own frames that does not matter.
 
-Frames from the model are an interpretation. Compare the composite with the source at full size: altered faces, invented objects, colour crossing an edge, clipped highlights and changes in grain are the usual failures. Nothing in the frame proves what the original colour was.
+What comes out of the model is an interpretation. Compare the composite with the source at full size: a face that has changed, an object that wasn't there, colour crossing an edge, clipped highlights and a change in the grain are the usual failures. Nothing in the frame proves what the original colour was.
 
 ## What is reproduced, and how closely
 
 | Check | Result |
 | --- | --- |
 | The graph's sampler, models and settings against the research graph that made the published still | Identical node for node (switch nodes for the optional 40-step path removed; the Lightning path is fixed). |
-| The fp8mixed recipe, core nodes only, run again against the published still | Mean ΔE76 1.89 to the published still, 95th percentile 4.13. Above the 1.5 bar used for the other kits, visually very close; the model is not deterministic across machines. |
+| The fp8mixed recipe, core nodes only, run again against the published still | Mean ΔE76 1.89 to the published still, 95th percentile 4.13. Above the 1.5 mark used for the other kits, but visually very close; the model does not give the same output on every machine. |
 | The bf16 model (Cloud library) | Not measured on this frame. On the balanced-source palette still it differed from the published result by a mean ΔE of 2.67, a visible difference on some surfaces. Use it to try the route, not to reproduce the still. |
 | The in-graph composite against the kit's reference composite (`composite_still.py` in the balanced-source kit) | Mean ΔE76 1.39, 95th percentile 3.1. The in-graph version scales plainly instead of inverting the Kontext crop and uses a linear instead of a smoothstep shadow gate. |
 
 ## Provenance in the graph
 
-The graph is a complete record of a run: model file names, LoRA, prompt, seed, steps, cfg, sampler, scheduler, shift and the three input images. ComfyUI embeds the whole graph in every saved PNG, so each output carries its own settings. For a controlled study, keep the seed fixed, change one widget at a time, and keep the model file hashes (shown on each Hugging Face page) with your notes. See [Provenance & Metadata]({{ '/provenance-metadata/' | relative_url }}).
+The graph is a complete record of a run: model file names, LoRA, prompt, seed, steps, cfg, sampler, scheduler, shift and the three input images. ComfyUI writes the whole graph into every PNG it saves, so each output carries its own settings. If you want to study the recipe properly, keep the seed fixed, change one widget at a time, and keep the model file hashes (shown on each Hugging Face page) with your notes. See [Provenance & Metadata]({{ '/provenance-metadata/' | relative_url }}).
 
 ## Licences
 

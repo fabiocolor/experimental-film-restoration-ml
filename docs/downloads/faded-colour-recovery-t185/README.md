@@ -12,7 +12,7 @@ permalink: /downloads/faded-colour-recovery-t185/
 
 The [faded colour recovery](https://fabiocolor.github.io/experimental-film-restoration-ml/colour-recovery/) route for balanced scans (black is black, white is white, the colour has collapsed). One shot at a time, at 768 × 576 for the video model.
 
-Every step was checked against a published shot ([record]({{ '/records/folgers/' | relative_url }})). The differences are below the visible threshold: average ΔE 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
+Every step was checked against a published shot ([record]({{ '/records/folgers/' | relative_url }})), and the differences are smaller than you can see: average ΔE 0.61 for the palette still, 1.34 for the MiniMax H3 step, 1.20 for the adapter, and the respect step gave identical pixels.
 
 ## What you need
 
@@ -30,22 +30,22 @@ Every step was checked against a published shot ([record]({{ '/records/folgers/'
     - [`minimax_h3_video_vae_fp16.safetensors`](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_video_vae_fp16.safetensors) (vae)
     - [`minimax_h3_audio_vae_fp32.safetensors`](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_audio_vae_fp32.safetensors) (vae)
     - [`MiniMax-H3-Fun-Controlnet-Union.safetensors`](https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union/blob/main/MiniMax-H3-Fun-Controlnet-Union.safetensors) (model_patches). Use this original release, not 2.0 or a pruned copy.
-  - The NVFP4 text encoder needs an NVIDIA Blackwell GPU (RTX 50-series or newer). On older cards, use the [int8_convrot](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors) or [bf16](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_bf16.safetensors) encoder from the same repo. These have not been checked against the published result, so compare your output with the example before relying on it.
+  - The NVFP4 text encoder needs an NVIDIA Blackwell GPU (RTX 50-series or newer). On older cards, use the [int8_convrot](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_int8_convrot.safetensors) or [bf16](https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/text_encoders/qwen3vl_32b_minimax_h3_bf16.safetensors) encoder from the same repo. These have not been checked against the published result, so compare what you get with the example before you trust it.
 
 ## The steps
 
 1. **Prepare the shot.** `python tools/run_step.py prepare --update-hashes --source shot.mkv --out out/prepare`
-   Makes the grey carrier video (`context.mp4`), the edge video (`control.mp4`) and the palette frame. Edit `tools/steps/prepare/prep_spec.json` first for your shot's length, the frame to use for the palette and the start of the 124 frames the video model sees.
+   Makes the grey carrier video (`context.mp4`), the edge video (`control.mp4`) and the palette frame. The carrier is what the video model follows and the edges are what keeps it from moving things. Edit `tools/steps/prepare/prep_spec.json` first for your shot's length, the frame to use for the palette and the start of the 124 frames the video model sees.
 2. **Palette still.** `python tools/prepare_still_inputs.py out/prepare/palette_frame.png still`, then load `graphs/1_palette_still_fp8mixed_ui.json` in ComfyUI (laid out, with notes; `1_palette_still_fp8mixed_local.json` is the same graph in API format), point the three Load Image nodes at `source_y.png`, `faded_frame.png` and `canny.png`, and run. Then `python tools/composite_still.py still/faded_frame.png <graph output>.png palette.png`. This still sets the colour of the whole shot, so only go on if you are happy with it.
-3. **The shot with MiniMax H3.** Load `graphs/2_h3_fun_controlnet_ui.json` (laid out, with notes on what the step does and what should and should not happen on the footage; `2_h3_fun_controlnet_local.json` is the same graph in API format), give it `context.mp4`, `control.mp4` and `palette.png` (all three reference images), and run.
+3. **The shot with MiniMax H3.** Load `graphs/2_h3_fun_controlnet_ui.json` (laid out, with notes on what the step does and what should and should not happen on the footage; `2_h3_fun_controlnet_local.json` is the same graph in API format), give it `context.mp4`, `control.mp4` and `palette.png` (all three reference images), and run. Only the colour should change; the people and the edges should stay exactly where they are. If something has moved, the section needs running again.
 4. **Preview.** `python tools/run_step.py preview --update-hashes --source shot.mkv --carrier out/prepare/context.mp4 --h3 <H3 output>.mp4 --out out/preview`
-   Lines the H3 video up with the film and keeps the frames whose brightness matches, which are the frames the adapter learns from.
+   Lines the H3 video up with the film and keeps the frames whose brightness matches. Those are the frames the adapter learns from; the ones where the model drifted are left out, so it never learns a mistake.
 5. **Temporal CbCr adapter.** `python tools/run_step.py adapter --update-hashes --source shot.mkv --targets out/preview/teacher_targets.npz --report out/preview/registration_report.json --out out/adapter`
    Learns the colour of this shot from those frames and colours every frame. List your shot's frames and their hashes (from the preview report) in `tools/steps/adapter/adapter_spec.json`.
 6. **Respect the surviving colour.** `python tools/run_step.py respect --update-hashes --source shot.mkv --recovered out/adapter/full_recovered.mp4 --out out/respect`
    The red-green colour that survived in the scan can be strengthened but never flipped or weakened. `respect.mp4` is the result.
 
-Every frame keeps the scan's brightness; only the colour is new. Yellow is mostly the lost dye, so the yellow-blue choices are an interpretation.
+Every frame keeps the scan's brightness; only the colour is new. Yellow is the dye that fades first, so the yellow-blue choices are an interpretation, and the red-green that survived is evidence.
 
 ## Example
 
@@ -62,7 +62,7 @@ The larger example files are hosted outside the repository. Download them into `
 - `palette.png`: the published palette still.
 - `result_respect.mp4`: the published result.
 
-Run the steps on `source_shot.mkv` and compare your result with `result_respect.mp4`. Expect small differences: the models don't give identical output from run to run.
+Run the steps on `source_shot.mkv` and compare your result with `result_respect.mp4`. Expect small differences: these models don't give identical output from one run to the next, even at the same seed.
 
 ## Comfy Cloud (palette still only)
 

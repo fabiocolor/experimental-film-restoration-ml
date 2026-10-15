@@ -9,7 +9,7 @@ permalink: /black-and-white-colourization/
 
 # Black-and-white colourization
 
-Colour for films shot in black and white, whole shots at a time, with the picture untouched. Film does not record brightness the way the eye sees it; it records according to the spectral sensitivity of its stock, so the greyscale is a measurement, and the colour has to agree with it. Here it does: every result is rebuilt so that the stock would have recorded exactly the greys on the film.
+Colourization is a different thing from the rest of this site: there was never any colour on the film, so everything here is an interpretation, and every page says so. What can be done is to make the interpretation agree with the film. A black-and-white stock doesn't see brightness the way the eye does; it records according to its own spectral sensitivity, so the greys on the film are a measurement, and any colour put on them has to be a colour that stock would have recorded as exactly those greys. Every result here is rebuilt that way, whole shots at a time, with the picture untouched.
 
 <figure class="reveal">
   <video autoplay muted loop playsinline preload="auto" poster="{{ '/images_kebab/examples/the-general-garden-b-source.jpg' | relative_url }}">
@@ -24,15 +24,11 @@ Colour for films shot in black and white, whole shots at a time, with the pictur
 - **Orthochromatic** stock is sensitive to blue and green but almost blind to red. It was the normal negative until the mid-1920s: red lips and ruddy skin record dark, blue skies and blue eyes record pale.
 - **Panchromatic** stock sees the whole visible range, but more blue and less red than the eye. It became standard for features around 1926–1928, often shot with filters outdoors.
 
-Treat either as ordinary video brightness and the colour comes out wrong in predictable places. A red dress on orthochromatic film can rightly come out lighter than it appears in the scan, because the film did not record its red.
+Treat either as ordinary video brightness and the colour comes out wrong in predictable places. A red dress on orthochromatic film can rightly come out lighter than it looks in the scan, because the film never recorded its red.
 
 ## How it works
 
-1. **Source.** Public-domain or rights-cleared scans only.
-2. **Colour frames for the shot.** Qwen Image Edit 2511 makes a few colour frames from the shot itself, placed on the exact source picture and checked at full size.
-3. **Carry them through the shot.** MiniMax H3, with the Fun ControlNet where the motion needs it, follows the shot and gives a colour donor for every frame; several anchors across a pan keep it on course.
-4. **Fit the colour to the film.** For each film, once, stock weights are chosen (how much red, green and blue the stock recorded), and the colour is rebuilt so that the stock would record exactly the greyscale on the film. The whole frame is processed the same way: no masks, no local fixes.
-5. **Review.** Full-size crops, frame-to-frame strips, and checks on skin and foliage, at normal speed.
+Only public-domain or rights-cleared scans are used for this. Qwen Image Edit 2511 makes a few colour frames from the shot itself, on the exact source picture, checked at full size. MiniMax H3, with the Fun ControlNet where the movement needs it, carries them through the shot; on a pan it gets several anchors so it stays on course. Then, once per film, a choice is made of how much red, green and blue the stock recorded, and the colour is rebuilt so that the stock would have recorded exactly the greyscale on the film. The whole frame is processed the same way, no masks, no local fixes. Then review: full-size crops, frame-to-frame strips, skin and foliage at normal speed.
 
 ## Examples
 
@@ -97,11 +93,11 @@ One shot per film from public-domain fiction and non-fiction of the 1920s. The p
   <figcaption><em>Rambles 'Round Rio</em> (1921), non-fiction, frame 62. <a href="{{ '/records/rambles-round-rio-oxcart/' | relative_url }}">Record</a></figcaption>
 </figure>
 
-## Where it stands
+## What works and what doesn't
 
-- **Whole shots, full resolution.** Fifteen shots are finished; the picture is never touched, so every result is at the scan's resolution with its grain and its damage.
-- **Motion.** A pan with several anchors holds its colour; the next tests are more complex movement and more complex subjects.
-- **Open.** Skin can come out too red on the earliest shots, foliage in some exteriors still looks artificial, and a soft, low-detail source gives the model too little to hold on to for a convincing result. The palettes are interpretations, and every page says so.
+Fifteen shots are finished, whole shots at the scan's resolution with its grain and its damage, because the picture is never touched. A pan with several anchors holds its colour. The next tests are more complex movement and more complex subjects.
+
+Skin can come out too red on the earliest shots, foliage in some exteriors still looks artificial, and a soft, low-detail source gives the model too little to hold on to. The route is not published yet; the examples are here, and the graphs follow once the stock models are settled.
 
 ## Sources and references
 

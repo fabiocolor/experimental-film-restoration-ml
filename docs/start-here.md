@@ -10,29 +10,29 @@ grand_parent: "Temporal CbCr"
 
 This page covers the first stages of the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}): Resolve export, Nuke project setup, dataset curation, alignment and the shared crop. Then continue with [building the colour target]({{ '/chroma-recovery/' | relative_url }}).
 
-For reel-, shot- and frame-level alignment with strict training-pair rejection, see [Preparing Reliable Training Pairs]({{ '/automated-dataset-preparation/' | relative_url }}).
+If the reference is hard to match (a telecine, a broadcast master, a DVD with different edits), see [Preparing Reliable Training Pairs]({{ '/automated-dataset-preparation/' | relative_url }}): lining things up reel by reel, shot by shot and frame by frame, and throwing out the pairs you can't trust.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/general/full-overview-comparison.png' | relative_url }}" alt="Workflow overview">
-  <figcaption>End-to-end overview of the recovery workflow.</figcaption>
+  <figcaption>The whole workflow, start to finish.</figcaption>
 </figure>
 
 ---
 
 ## Stage 0: Resolve Export + Nuke Project Setup
 
-Before starting the workflow, make sure the scan preserves as much recoverable image evidence as possible: avoid clipping, automatic white balance, baked creative grades, and compressed low-bit-depth intermediates. For the background thinking, see [Digitization: First Scan, Last Chance]({{ '/additional-resources/' | relative_url }}#digitization-first-scan-last-chance).
+Before anything else, make sure the scan keeps as much of the picture as it can: no clipping, no automatic white balance, no creative grade baked in, no compressed low-bit-depth intermediates. The scan is what you have to work with, and whatever it lost the model can't get back. For the background, see [Digitization: First Scan, Last Chance]({{ '/additional-resources/' | relative_url }}#digitization-first-scan-last-chance).
 
 ### Source and Reference Preparation
 
-What matters is whether the reference preserves better information for the problem you are solving, not whether it is newer, sharper, or higher resolution.
+What matters is whether the reference has the colour, not whether it is newer, sharper or higher resolution. A soft DVD with the right colour is a better reference than a sharp copy with the wrong one.
 
 **Source preparation:**
 
-- Technically balance the source (neutral, not creative).
-- Remove severe flicker, dirt, splice flashes, and instability that would poison training.
-- Degrain the source for training if grain interferes with learning the colour. Document the settings and keep the original plate.
-- Global cast: if the source has a strong bias from dye fade or scanning, apply a neutral, technical pre-balance. For background on magenta dye fade and channel imbalance, see [Why Faded Scans Turn Magenta]({{ '/additional-resources/' | relative_url }}#why-faded-scans-turn-magenta).
+- Balance the source technically, not creatively: neutral blacks and whites, nothing that looks like a grade.
+- Take out severe flicker, dirt, splice flashes and instability first. The model will learn them otherwise.
+- If the grain gets in the way of learning the colour, degrain the source for training only. Write down the settings and keep the original plate; the grain comes back with the original luma at the end, because only the colour is taken from the model.
+- If the whole scan has a strong cast, from dye fade or from the scanner, give it a neutral, technical pre-balance first. For the background on magenta dye fade and channel imbalance, see [Why Faded Scans Turn Magenta]({{ '/additional-resources/' | relative_url }}#why-faded-scans-turn-magenta).
 
 <div class="media-grid media-grid-2">
   <figure class="figure">
@@ -45,22 +45,22 @@ What matters is whether the reference preserves better information for the probl
   </figure>
 </div>
 
-<p class="experiment-credit"><em>Candy Candy</em>: the magenta cast neutralized in Resolve before Nuke ingest.</p>
+<p class="experiment-credit"><em>Candy Candy</em>: the magenta cast neutralised in Resolve before going into Nuke.</p>
 
 **Reference preparation:**
 
-- Clean enough to remove transfer artifacts that would mislead the model.
-- Suppress dust, compression noise and banding (light denoise, deband or median). Geometry changes and temporal warping are not recommended.
+- Clean enough that transfer artefacts don't mislead the model.
+- A light denoise, deband or median takes care of dust, compression noise and banding. Don't change the geometry and don't warp in time.
 
-**Geometry/stabilization:** prefer cleanup that does not alter geometry. If you must stabilize or reframe, apply identical transforms to both exports.
+**Geometry and stabilisation:** prefer cleanup that leaves the geometry alone. If you have to stabilise or reframe, do exactly the same thing to both exports.
 
 ### Resolve Export
 
-1. Conform both sources in a single timeline. Disable retimes, effects, and per-clip grades.
-2. Align the reference to the source in Edit/Inspector (Translate/Scale/Rotate). Allow letterbox/pillarbox; keep stable framing.
-3. Use one documented colour-management path for both elements. If training in a display-referred Rec.709 domain, apply the same display transform to both exports and verify their numeric range before connecting them to CopyCat.
-4. Verify parity: resolution, pixel aspect, frame range/rate, channel set (RGB only; omit alpha).
-5. Note any global offsets (scale/translate/rotate) for later reference.
+1. Put both sources in one timeline. Turn off retimes, effects and per-clip grades.
+2. Line the reference up with the source in Edit/Inspector (Translate/Scale/Rotate). Letterbox or pillarbox is fine; what matters is that the framing doesn't move.
+3. Use one colour-management path for both elements and write it down. If you train in display-referred Rec.709, give both exports the same display transform and check their range before they go anywhere near CopyCat.
+4. Check that resolution, pixel aspect, frame range and rate, and channel set (RGB only, no alpha) match.
+5. Note any global offsets (scale, translate, rotate); you will want them later.
 
 **Rules:**
 
@@ -72,44 +72,44 @@ What matters is whether the reference preserves better information for the probl
 
 - [ ] Dimensions, frame ranges, and pixel aspect match
 - [ ] Channel sets match (RGB), values in 0–1 when read into Nuke
-- [ ] No inadvertent retimes or additional color transforms
+- [ ] No retimes or extra colour transforms that crept in
 
 ### Nuke Project Setup
 
 **Project settings:**
 
-- Colour management: use the project-approved OCIO/ACES configuration.
-- Working space: use the same documented working space throughout the project.
-- Viewer process: select the display transform that matches the calibrated review display.
+- Colour management: the OCIO/ACES configuration the project uses.
+- Working space: one working space for the whole project, written down.
+- Viewer process: the display transform that matches the display you review on.
 
 **Read node settings (both Source and Reference):**
 
-- Assign the input transform that matches the files actually exported from Resolve.
-- Treat archival ACES masters and display-referred training files as different deliverables; do not label one as the other.
+- Set the input transform to match what Resolve actually exported.
+- An archival ACES master and a display-referred training file are two different things; don't label one as the other.
 
 **Verify:**
 
-- Toggle Viewer between Source/Reference; confirm consistent appearance under the chosen ODT.
-- Confirm identical ingest transforms on both branches.
+- Flip the viewer between Source and Reference; they should look consistent under the chosen ODT.
+- Both branches should have the same ingest transform.
 
 ### ACES and Color Management Reference
 
-**Training domain used by this workflow:** Display-referred Rec.709. Apply the same transform to source and reference, confirm the resulting range, and build the YCbCr target from those matched files.
+**The domain this workflow trains in:** display-referred Rec.709. The same transform on source and reference, check the range, and build the YCbCr target from those matched files.
 
-**Alternative, log domain:** Viable in theory but significantly slower and, in testing, inferior for chroma recovery fidelity. Use only if the footage demands it.
+**Log, as an alternative:** it works in theory, but it is a lot slower and, in testing, the colour came out worse. Only if the footage demands it.
 
-**Not recommended, naive linear ACES clamp:** Ingesting ACES 2065-1 and clamping to [0–1] crushes highlights and harms the colour mapping. If starting from ACES masters, transform to display-referred first.
+**Don't clamp linear ACES:** reading ACES 2065-1 and clamping it to [0–1] crushes the highlights and spoils the colour mapping. If you start from ACES masters, go to display-referred first.
 
-**Both Input and Target must share the exact same domain and transforms.** Do not mix linear and display-referred between branches.
+**Input and Target have to be in exactly the same domain with the same transforms.** Don't mix linear on one branch with display-referred on the other.
 
 **Write nodes (delivery):**
 
 - Archival: `Write.colorspace = ACES - ACES2065-1` (AP0), EXR 16-bit half (ZIP/DWAA).
-- Review/proxy: Rec.709 ODT → ProRes/H.264. Document viewing intent and ODT.
+- Review/proxy: Rec.709 ODT → ProRes/H.264. Note the viewing intent and the ODT.
 
 **Resolve interop:**
 
-- Record the exact ACES/OCIO configuration and transforms used by the project.
+- Write down the exact ACES/OCIO configuration and transforms the project uses.
 - Keep archival masters separate from display-referred training exports.
 - Keep frame size, pixel aspect ratio, channel set, and frame range identical between paired training files.
 
@@ -117,7 +117,7 @@ What matters is whether the reference preserves better information for the probl
 
 ## Stage 1: Dataset Curation
 
-Train on a small set of representative frames, not the whole sequence.
+Train on a small set of frames that represent the shot, not the whole sequence. A handful of good pairs beats hundreds of doubtful ones.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/dataset-curation-cropped.png' | relative_url }}" alt="Dataset curation">
@@ -126,9 +126,9 @@ Train on a small set of representative frames, not the whole sequence.
 
 ### Selection Criteria
 
-- **Source frames:** intact luma/texture, representative grain, minimal gate weave. Avoid motion-blur-dominated frames unless matched in reference.
-- **Reference frames:** same shot/timecode when available, or a well-constructed proxy. Avoid heavy compression, baked-in subtitles/logos, unstable grades.
-- **Exclude:** pairs with occlusions unique to one side (flashes, splice marks) that the model cannot reconcile.
+- **Source frames:** intact luma and texture, typical grain, as little gate weave as possible. Avoid frames that are mostly motion blur unless the reference has the same blur.
+- **Reference frames:** the same shot and timecode when you have it, or a well-made stand-in. Avoid heavy compression, burned-in subtitles or logos, and grades that wander.
+- **Leave out:** pairs where one side has something the other doesn't (a flash, a splice mark). The model can't reconcile those.
 
 ### Pair Counts
 
@@ -138,11 +138,11 @@ Train on a small set of representative frames, not the whole sequence.
 | Scene | 12–24 | |
 | Sequence | 24–64+ | Scale with variability |
 
-For short ranges (e.g., frames 20–60), anchor at beginning/middle/middle/end.
+For a short range (say frames 20–60), take a frame at the beginning, two in the middle and one at the end.
 
 ### Coverage
 
-Ensure diversity across:
+Cover the range of what is in the shot:
 
 - **Lighting:** warm/cool, day/night, interior/exterior
 - **Subjects:** skin tones, foliage/sky, fabrics, neutrals
@@ -150,29 +150,29 @@ Ensure diversity across:
 
 ### Pairing Rules
 
-- **Temporal:** match same frame index/timecode. If off-by-one, prefer the frame with maximal static structure overlap.
-- **Spatial:** identical resolution/orientation. Overscan/crop must be shared (residual differences handled in Stage 2).
-- **Color space:** both sides under the same transform (e.g., Rec.709 export) so values remain in 0–1.
+- **In time:** the same frame index or timecode. If it is one frame out, take the frame where the static structure overlaps most.
+- **In space:** the same resolution and orientation. Overscan and crop have to be shared; what is left over is dealt with in Stage 2.
+- **Colour space:** both sides under the same transform (a Rec.709 export, say) so the values stay in 0–1.
 
 ### Nuke Build
 
 1. Create a `FrameHold` per selected index on both Source and Reference branches.
 2. Assemble ordered stacks with `AppendClip`: one for Source (Input), one for Reference (Target).
-3. Keep a staging `AppendClip` upstream of the one referenced by downstream `PostageStamp` nodes for safe reordering.
-4. Verify each pair with viewer wipe or `Merge (difference)`; judge geometry and alignment only, not colour.
-5. Label pairs consistently. Maintain a table of indices/timecodes for traceability.
+3. Keep a staging `AppendClip` upstream of the one the `PostageStamp` nodes point at, so you can reorder pairs without breaking anything.
+4. Check each pair with a viewer wipe or `Merge (difference)`. You are judging geometry and alignment here, not colour.
+5. Label the pairs consistently and keep a table of indices and timecodes, so you can find your way back later.
 
 ### Documentation
 
-- Record shot IDs, pair indices, and rationale.
-- Note whether references are direct (telecine/DVD/print) or constructed; cite sources.
-- Flag compromises (compression, residual parallax) for review during training.
+- Write down the shot, the pair indices and why you chose them.
+- Note whether the reference is direct (a telecine, a DVD, a print) or constructed, and where it came from.
+- Flag the compromises (compression, leftover parallax) so you remember to look for them during training.
 
 ---
 
 ## Stage 2: Alignment
 
-Pixel-accurate alignment with a shared crop, so Source and Reference differ only in colour.
+The point of this stage is that Source and Reference end up differing only in colour: pixel-accurate alignment, and the same crop on both.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/alignment-cropped.png' | relative_url }}" alt="Alignment workflow">
@@ -181,20 +181,20 @@ Pixel-accurate alignment with a shared crop, so Source and Reference differ only
 
 ### Strategy
 
-1. Single global solve with `F_Align` using a conservative central ROI. Do not iterate.
-2. Evaluate immediately with `Merge (difference)`. If edges/geometry remain, switch to manual `Transform` with keyframes.
-3. Keep a `Dissolve` to compare auto/manual paths quickly.
+1. One global solve with `F_Align` on a conservative central ROI. Don't iterate on it.
+2. Check it straight away with `Merge (difference)`. If edges or geometry are still showing, switch to a manual `Transform` with keyframes.
+3. Keep a `Dissolve` so you can flip between the auto and manual paths quickly.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/general/merge-difference-alignment-check.gif' | relative_url }}" alt="Merge (difference) alignment check">
-  <figcaption>Merge (difference) in the viewer: geometry and edges should be near-black. Visible colour differences are expected; only structural misalignment is a problem.</figcaption>
+  <figcaption>Merge (difference) in the viewer: geometry and edges should be close to black. Colour differences are expected, that is the whole point; only a structural misalignment is a problem.</figcaption>
 </figure>
 
 ### Crop and Subtitle Handling
 
-- Remove black borders and overscan on both branches; do not train on non-image content.
-- Exclude burned-in subtitles/logos. Where unavoidable, animate a shared crop.
-- Apply the **exact same crop** to Source and Reference (clone/link) so pixel areas correspond.
+- Take the black borders and overscan off both branches. Don't train on anything that isn't picture.
+- Keep burned-in subtitles and logos out. Where you can't, animate a shared crop.
+- Give Source and Reference the **exact same crop** (clone or link the node) so the pixels correspond.
 
 <figure class="figure">
   <img src="{{ '/images_kebab/cropped/crop-node-settings-cropped.png' | relative_url }}" alt="Crop node settings">
@@ -204,18 +204,18 @@ Pixel-accurate alignment with a shared crop, so Source and Reference differ only
 ### Nuke Build
 
 - Compare Reference to Source with Viewer wipe and `Merge (difference)`.
-- Use a `Dissolve` to switch auto/manual paths. Keyframe per frame (0 = auto, 1 = manual) after inspection.
-- **Auto path:** `F_Align` with conservative central ROI. Single global solve (Translate/Scale/Rotate/Perspective). No parameter chasing.
-- **Manual path:** `Transform` (translate/scale/rotate) keyed as needed. Judge with `Merge (difference)`.
-- **Reference Crop (last step):** add `Crop` on aligned Reference to remove overscan/transient overlays. Keep bypassed while solving; enable as final step. Save this node to clone/link in Stage 3. Do not crop Source here.
+- A `Dissolve` switches between the auto and manual paths. Keyframe it per frame (0 = auto, 1 = manual) once you have looked.
+- **Auto path:** `F_Align` with a conservative central ROI, one global solve (Translate/Scale/Rotate/Perspective). Don't chase parameters.
+- **Manual path:** `Transform` (translate/scale/rotate) keyed as needed. Judge it with `Merge (difference)`.
+- **Reference crop, last:** add a `Crop` on the aligned Reference to take off overscan and anything that comes and goes. Keep it bypassed while solving and turn it on at the end. Keep this node; it gets cloned or linked in Stage 3. Don't crop the Source here.
 
 ### Verification Checklist
 
-- [ ] `Merge (difference)` shows only color/photometric differences; geometry/edges near-black. Do not apply Grade/color correction here.
-- [ ] No edge shimmer at borders/corners when toggling Source/Reference.
-- [ ] Reference crop removes overscan/mattes without hiding alignment cues.
+- [ ] `Merge (difference)` shows only colour differences; geometry and edges close to black. No Grade or colour correction at this point.
+- [ ] No shimmer at the borders or corners when flipping between Source and Reference.
+- [ ] The reference crop takes off overscan and mattes without hiding what you align by.
 
-**Troubleshooting:** Gate weave and parallax on warped multi-generation references can require time-consuming manual `Transform` keyframing.
+**Troubleshooting:** gate weave and parallax on a warped reference several generations down can mean a lot of manual `Transform` keyframing. It takes time; there is no shortcut.
 
 ---
 
@@ -235,7 +235,7 @@ The ground-truth target takes its brightness (`Y`) from the Source and its colou
 
 <figure class="figure">
   <img src="{{ '/images_kebab/general/copybbox-node-settings.png' | relative_url }}" alt="CopyBBox node">
-  <figcaption>CopyBBox ensures identical bbox across Source and Ground Truth before connecting to CopyCat.</figcaption>
+  <figcaption>CopyBBox gives Source and Ground Truth the same bounding box before they go into CopyCat.</figcaption>
 </figure>
 
 Continue with [building the colour target]({{ '/chroma-recovery/' | relative_url }}), then [training, inference and review]({{ '/training-inference-review/' | relative_url }}).
