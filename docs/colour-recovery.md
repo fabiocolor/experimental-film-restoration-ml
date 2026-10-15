@@ -37,7 +37,7 @@ Scans that were balanced before recovery (black is black, white is white, the co
   <div class="pair-media pair-video">
     <video controls muted playsinline preload="metadata" src="{{ '/media/examples/obsession-ballroom-sbs.mp4' | relative_url }}" poster="{{ '/images_kebab/examples/obsession-ballroom-a-source.jpg' | relative_url }}"></video>
   </div>
-  <figcaption><em>Obsession</em> (1976), the ballroom, 254 frames at 2048 × 1556. Four approved colour anchors, H3 in four overlapping sections, the colour registered onto the scan's own brightness. The faded source is a Cineon log scan, shown through a Rec.709 view. <a href="{{ '/records/obsession-ballroom/' | relative_url }}">Record</a></figcaption>
+  <figcaption><em>Obsession</em> (1976), the ballroom, 254 frames at 2048 × 1556. Four approved colour anchors, H3 in four overlapping sections, the colour registered onto the scan's own brightness. <a href="{{ '/records/obsession-ballroom/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
@@ -90,7 +90,7 @@ Scans that were balanced before recovery (black is black, white is white, the co
 
 ## One frame, step by step
 
-The first colour frame of any shot is made this way. The stills below are from the June 2026 study shown at SEAPAVAA; the trailer scans are Cineon log, shown here through a Cineon-to-Rec.709 view so that before and after sit in the same display space.
+The first colour frame of any shot is made this way. The stills below are from the June 2026 study shown at SEAPAVAA, as delivered.
 
 <div class="stage-strip" aria-label="Juggernaut auditorium: source, model output, composite">
   <figure>

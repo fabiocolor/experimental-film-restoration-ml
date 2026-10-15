@@ -27,7 +27,7 @@ def probe(p):
     num, den = s['r_frame_rate'].split('/')
     return int(s['width']), int(s['height']), int(s.get('nb_frames') or 0), float(num) / float(den)
 
-LUT = OUT / 'cineon_to_rec709.cube'
+LUT = OUT / 'cineon_to_rec709.cube'   # log=True applies it; not used for the published videos (it made faded reds look hot)
 STEPS = set(os.environ.get('STEPS','sbs,reveal,master,stills').split(','))
 
 def build(slug, src, res, src_crop=None, res_crop=None, start=0.0, dur=None, web_w=1280, master_w=None, fps=None, log=False):
@@ -91,7 +91,7 @@ def want(n): return 'all' in jobs or n in jobs
 if want('obsession-ballroom'):
     v = FADED / 'OBSESSION_H3_T159/17_h3_semantic_anchor_ownership_cascade/00_overview/obsession_t160_source_raw_h3_sourceY_h3CbCr_full_overlap_3up.mp4'
     # 3 panels of 640 x 486; the label strip is the top 20 px of each panel
-    build('obsession-ballroom', v, v, src_crop=(6, 49, 628, 360), res_crop=(1286, 49, 628, 360), start=0, dur=9.5, master_w=1280, log=True)
+    build('obsession-ballroom', v, v, src_crop=(6, 49, 628, 360), res_crop=(1286, 49, 628, 360), start=0, dur=9.5, master_w=1280)  # shown as delivered, no log-to-709 view
 if want('counter-attack-waterfront'):
     # approved T148 final (H3 base, TeleStyle on two spans of hand movement) against the full-size source frames
     src = OUT / 'src/waterfront_source_338f_30fps_1920x1440.mp4'   # ffmpeg from t124_t125.../01_source_fullshot/fanji_waterfront_f%06d_source.png
