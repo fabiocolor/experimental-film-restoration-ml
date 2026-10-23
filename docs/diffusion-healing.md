@@ -23,6 +23,9 @@ So this is the experimental end of the research: can a video model fill the gap?
   <figcaption><span class="reveal-tag">Reveal</span> <em>Knights of the Trail</em>, nitrate, frames 734–959. The scan plays to its worst frame, holds, and heals: the cowboy, his hands and the bag are the film's in every frame, and only the ruined background is generated. Courtesy of the George Eastman Museum. <a href="{{ '/records/knights-of-the-trail/' | relative_url }}">Record</a></figcaption>
 </figure>
 
+
+Healing covers specific defects, missing areas, partial frames and bounded frame gaps when substantial usable picture survives. Whole-shot regeneration where most picture evidence is unusable belongs to [Diffusion Full Reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}). Reference-based resolution/detail enhancement belongs to the new [Diffusion Upscaling]({{ '/diffusion-upscaling/' | relative_url }}) idea. See [project names]({{ '/project-names/' | relative_url }}).
+
 ## How it works
 
 When several elements of the same film exist, they are lined up and the undamaged one is chosen frame by frame. For *Knights of the Trail* that was a nitrate print and a diacetate safety copy, and even the safety copy had frames missing, because by the time it was made the nitrate was already going and they cut those parts out. So the shot's timeline becomes a map: which element each frame comes from, and where nothing survives.

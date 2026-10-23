@@ -25,7 +25,7 @@ The stairs shot set the look; the other shots of the reel followed the same rout
 | FG03, the man with glasses | 176 | The look is there; the lip movement is the next target |
 | FG04, the young man across the desk | 422 | 26 September 2026 |
 
-The side-by-side videos on the [diffusion reconstruction page]({{ '/diffusion-reconstruction/' | relative_url }}) show 9 seconds from the middle of each shot: the 16mm print on the left, the reconstruction on the right.
+The side-by-side videos on the [diffusion full reconstruction page]({{ '/diffusion-full-reconstruction/' | relative_url }}) show 9 seconds from the middle of each shot: the 16mm print on the left, the reconstruction on the right.
 
 ## Reproduction
 

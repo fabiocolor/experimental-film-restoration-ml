@@ -4,6 +4,11 @@ All notable changes to this repository are documented here.
 
 ## [Unreleased]
 
+### 23 October 2026: separate diffusion project scopes
+
+- Use Diffusion Full Reconstruction for whole-shot regeneration, Diffusion Healing for specific losses with substantial usable surviving evidence, and Diffusion Upscaling for the separate reference-based video enhancement idea.
+- Correct all three conference-language notes and retain old page, media and stairs-kit addresses as historical compatibility paths. Earlier entries retain their dated names.
+
 ### 15 October 2026: aligned comparisons and plain language
 - Every comparison video is now registered before it is cut: `tools/examples/register.py` measures the frame offset and the affine map between source and result and corrects the result's crop and start, and `build_videos.py` checks the finished file (residual under a pixel on every pair). The quarry comes from full-size source frames instead of an overview panel; Candy Candy, Unman, the Wong shot and the three *El Tinterillo* shots were a few pixels or frames off and are rebuilt.
 - The reveal videos no longer run the result 0.4 s behind the source: `xfade` starts its second input at the wipe, so the result is now cut that much later to compensate. Every reveal is rebuilt.

@@ -11,7 +11,7 @@
 - Publish the Temporal CbCr adapter.
 - Make alignment of historical references less manual, especially across cuts and changing speeds.
 
-## Diffusion healing and reconstruction
+## Diffusion Healing and Full Reconstruction
 
 - More resolution and longer sections than the current 768-pixel, ten-second limit.
 - Better faces and lip movement on reconstructed shots.
@@ -26,3 +26,7 @@
 
 - Publish failures and limits alongside results.
 - Keep the original scan, the references and the choices that shaped every result on record.
+
+## Diffusion Upscaling
+
+Separate reference-based video resolution/detail enhancement research, defined on 23 October 2026. Begin with a bounded method proposal and evaluation; no qualified workflow or results yet. Historical Tinterillo upscaling labels remain Full Reconstruction evidence.

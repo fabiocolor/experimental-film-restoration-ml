@@ -40,7 +40,7 @@ A whole reel of *El Tinterillo*, a film that survives only as a heavily damaged 
 
 Small faces and lips are the limit, because the model works at 768 × 432; the next pass targets articulation. Video upscalers, Wan VACE driven by the source and a CopyCat detail model were all tried on this material and dropped.
 
-You can run the [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}). See [diffusion reconstruction]({{ '/diffusion-reconstruction/' | relative_url }}).
+You can run the [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}). See [diffusion full reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}).
 
 ## 5. Black-and-white colourization
 
@@ -49,6 +49,10 @@ Fifteen shots finished, whole shots at full resolution with the original brightn
 Skin on the earliest shots, some foliage, and soft, low-detail sources are the weak points. More complex movement and subjects are the next tests. The palettes are interpretations, and the route is not published yet.
 
 See [black-and-white colourization]({{ '/black-and-white-colourization/' | relative_url }}).
+
+## 6. Diffusion Upscaling
+
+**Research idea.** Reference-based video upscaling and basic resolution/detail enhancement, separate from whole-shot regeneration and selective healing. No workflow, benchmark or result is qualified for the new project. Historical Tinterillo upscaling records remain Full Reconstruction evidence. See [Diffusion Upscaling]({{ '/diffusion-upscaling/' | relative_url }}).
 
 ## What can be reproduced
 

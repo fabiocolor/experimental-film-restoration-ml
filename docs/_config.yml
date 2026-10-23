@@ -1,5 +1,5 @@
 title: Experimental Film Restoration with Machine Learning
-description: "Research on film restoration with machine learning: faded colour recovery, Temporal CbCr, diffusion healing, diffusion reconstruction and black-and-white colourization. What survives in the film is evidence; models only fill what was lost."
+description: "Research on film restoration with machine learning: faded colour recovery, Temporal CbCr, diffusion healing, diffusion full reconstruction, diffusion upscaling and black-and-white colourization. What survives in the film is evidence; models only fill what was lost."
 remote_theme: just-the-docs/just-the-docs@v0.10.0
 
 plugins:

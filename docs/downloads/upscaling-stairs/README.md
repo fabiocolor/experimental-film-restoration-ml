@@ -1,14 +1,14 @@
 ---
 layout: default
 title: "Download: Reconstruction Stairs Kit"
-parent: "Diffusion Reconstruction"
+parent: "Diffusion Full Reconstruction"
 nav_order: 1
 permalink: /downloads/upscaling-stairs/
 ---
 
 # Diffusion reconstruction stairs kit: overlapping H3 windows and seam blend
 
-How the stairs shot on the diffusion reconstruction page was made. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, because the model can only do about ten seconds at a time, and a light seam blend removes the tone steps at the cuts.
+How the stairs shot on the diffusion full reconstruction page was made. MiniMax H3 rebuilds the shot in overlapping sections at 768 × 432, because the model can only do about ten seconds at a time, and a light seam blend removes the tone steps at the cuts.
 
 On the four example windows, the seam blend matches the published result to ΔE 1.07 on average, which is smaller than you can see. The hybrid step gives identical pixels. Source and models are in the [record]({{ '/records/el-tinterillo-stairs/' | relative_url }}).
 
@@ -38,7 +38,7 @@ On the four example windows, the seam blend matches the published result to ΔE 
 
 ## Example
 
-`example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The published result is the stairs video on the diffusion reconstruction page.
+`example/` has the four source windows, their reference stills, and the four H3 windows for the stairs shot. The published result is the stairs video on the diffusion full reconstruction page.
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 

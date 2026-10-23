@@ -25,7 +25,7 @@ nav_order: 0
   <p>Independent research by <a href="{{ '/credits/' | relative_url }}">Fabio Bedoya</a>, done alongside commercial restoration work in London, into what open-weight AI models can do for the archives that can't afford the commercial route, and how far those models can be trusted. If you think about it, digital restoration was never really about recovery. The usual tools copy information from the frames around the damage and mask it. These models can put back what was actually lost, and that is new. It is also where the risk is, so the rule is the same in every area here: start from the scan, keep its picture, use a model only for what is missing, and write down what the model did. Nothing is automatic. Every result is reviewed at full size before it goes up, and every example has a <a href="{{ '/records/' | relative_url }}">record</a> of its source, models and settings.</p>
 </div>
 
-## Five research areas
+## Six research areas
 
 <ol class="areas">
   <li class="area">
@@ -75,9 +75,9 @@ nav_order: 0
 
   <li class="area">
     <div class="area-copy">
-      <h3><a href="{{ '/diffusion-reconstruction/' | relative_url }}">Diffusion reconstruction</a></h3>
+      <h3><a href="{{ '/diffusion-full-reconstruction/' | relative_url }}">Diffusion reconstruction</a></h3>
       <p>For films where every frame is damaged and normal tools have nothing clean to borrow from. A video model rebuilds the picture from what survives, shot after shot, to one look for the whole reel. The result is called what it is: a reconstruction, with a synthetic quality the film never had.</p>
-      <a class="area-link" href="{{ '/diffusion-reconstruction/' | relative_url }}">How it works, a whole reel and kit</a>
+      <a class="area-link" href="{{ '/diffusion-full-reconstruction/' | relative_url }}">How it works, a whole reel and kit</a>
     </div>
     <figure class="reveal">
       <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/el-tinterillo-fg04-b-source.jpg' | relative_url }}">
@@ -101,6 +101,13 @@ nav_order: 0
     </video>
       <figcaption><span class="reveal-tag">Reveal</span> <em>The General</em> (1926), the locomotive below the pines. <a href="{{ '/records/general-1926-garden/' | relative_url }}">Record</a></figcaption>
     </figure>
+  </li>
+  <li class="area">
+    <div class="area-copy">
+      <h3><a href="{{ '/diffusion-upscaling/' | relative_url }}">Diffusion Upscaling</a></h3>
+      <p>A separate research idea for reference-based video resolution/detail enhancement. No workflow or result has been qualified for this new project.</p>
+      <a class="area-link" href="{{ '/diffusion-upscaling/' | relative_url }}">Scope and evidence state</a>
+    </div>
   </li>
 </ol>
 

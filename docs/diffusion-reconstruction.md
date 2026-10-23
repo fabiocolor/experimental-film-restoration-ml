@@ -1,9 +1,10 @@
 ---
 layout: default
-title: "Diffusion Reconstruction"
+title: "Diffusion Full Reconstruction"
 nav_order: 4
-permalink: /diffusion-reconstruction/
-redirect_from: 
+permalink: /diffusion-full-reconstruction/
+redirect_from:
+  - /diffusion-reconstruction/
   - /upscaling/
   - /spatial-recovery/
 ---
@@ -23,6 +24,9 @@ So this calls for a different approach. A video model rebuilds the picture from 
     </video>
   <figcaption><span class="reveal-tag">Reveal</span> <em>El Tinterillo</em>, shot FG02, 410 frames. The damaged 16mm print, and the shot rebuilt by MiniMax H3 from the print, the telecine and one look reference. <a href="{{ '/records/el-tinterillo-stairs/' | relative_url }}">Record</a></figcaption>
 </figure>
+
+
+Current scope: whole-shot diffusion when all or most surviving picture evidence is unusable in its current state. [Diffusion Healing]({{ '/diffusion-healing/' | relative_url }}) repairs specific losses when substantial usable evidence survives. [Diffusion Upscaling]({{ '/diffusion-upscaling/' | relative_url }}) is the separate reference-based video enhancement idea. Historical Tinterillo upscaling records belong to Full Reconstruction. See [project names]({{ '/project-names/' | relative_url }}).
 
 ## How it works
 
