@@ -8,13 +8,13 @@ permalink: /research-status/
 
 # Where things stand
 
-October 2026, after SEAPAVAA in June and FIAT/IFTA in São Paulo. The short version: if you keep the film's own picture and use a model only for what is missing, every kind of loss tried this year has come back on at least one whole shot, and most on several. What it takes is time, passes and someone reviewing, not a breakthrough that hasn't happened yet. Area by area, what works, what doesn't, and what you can run yourself.
+Updated 25 October 2026. These are scoped research results and open questions. A demonstrated shot does not establish a reliable default for new footage, an integrated app workflow or a finished restoration.
 
 ## 1. Faded colour recovery
 
 Whole shots with hard motion, at the scan's full resolution: a crowd with a fast pan (385 frames), a ballroom with a moving camera (254 frames at 2048 × 1556), a quarry in six sections (681 frames), a waterfront with fast hands, all from the same faded copy of *Counter Attack*, and the balanced-source route end to end on a commercial. One colour frame checked at full size, MiniMax H3 with the Fun ControlNet to carry it through the shot, the frames that pass review teaching the Temporal CbCr adapter, and the adapter colouring every frame. Only the colour is taken; brightness, grain and damage stay the scan's.
 
-Some shots still need a second pass. The target is three out of four new shots right first time, and it is close but not there. Deep shadows keep a tint on the hardest shots. The video models see a reduced picture, about 768 × 576 and ten seconds at a time, which is why shots are done in sections and why you waste inference. And the colour is an interpretation unless a surviving reference confirms it.
+The generic balanced-source route still falls short of its preregistered three-in-four target. Later development trials improved the results, but operational retries and choosing a different second pass for each shot must not be counted as a uniformly successful first pass. Owner ratings and normal-speed review remain separate from frame-sheet assessments. A clean palette still can become wrong object colour in the video; returning the balanced input unchanged is not colour recovery. Dark footage and short-shot teacher admission remain important limits. The video models see a reduced picture, about 768 × 576 and ten seconds at a time; inference and full-resolution finishing need separate checks. Colour is an interpretation unless surviving evidence confirms it.
 
 You can run the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) (one faded frame to one colour frame, in Comfy Cloud or locally, no Python) and the palette still from the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) without a GPU. The rest of the balanced kit does a whole shot end to end on a local card. See [faded colour recovery]({{ '/colour-recovery/' | relative_url }}).
 
@@ -22,7 +22,7 @@ You can run the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/'
 
 With a historical reference (a DVD, a telecine, another print) a small model learns the colour from the matching frames: *Candy Candy* from a PAL DVD, *Frontier Experience* from a telecine. With a synthetic reference, about a hundred reviewed frames teach the adapter, which trains in 90 seconds and colours the rest of the shot: *Unman, Wittering and Zigo*. The adapter is the finishing step of the whole-shot colour results above, and it has done a 25-minute film.
 
-Lining up a historical reference is still partly by hand, and a synthetic reference is only as good as the frames that get through review. New examples are being made and will be added to the page.
+Automatic alignment now has recorded tests for leaders, reframing, cadence changes and incomplete reference windows; finding the matching material in a whole reference film is still incomplete. Alignment alone does not qualify a teacher. Reference balance, missing picture coverage and full-frame training statistics can all affect the learned colour. Metrics against a changed teacher are not directly comparable, and full-size playback remains necessary.
 
 The Nuke template for CopyCat is on the [releases page](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest), with the [CopyCat workflow]({{ '/copycat-workflow/' | relative_url }}) guide; the adapter code is in the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}). See [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}).
 
@@ -34,25 +34,33 @@ The healed shots are at working size (640 × 512, 768 × 560); the pass at the s
 
 You can run the [second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}). See [diffusion healing]({{ '/diffusion-healing/' | relative_url }}).
 
-## 4. Diffusion reconstruction
+## 4. Diffusion Full Reconstruction
 
 A whole reel of *El Tinterillo*, a film that survives only as a heavily damaged 16mm print and a soft telecine, rebuilt shot by shot to one look: the stairs (624 frames) and three more shots of 410, 422 and 176 frames with the same method. The last still has its lip movement to do. The result is labelled as a reconstruction, with detail the film no longer holds.
 
-Small faces and lips are the limit, because the model works at 768 × 432; the next pass targets articulation. Video upscalers, Wan VACE driven by the source and a CopyCat detail model were all tried on this material and dropped.
+Small faces and lip performance remain unresolved at the tested 768 × 432 size. A codec diagnostic retained mouth motion, so the evidence does not establish resolution as the sole cause; executable conditioning still needs investigation. Video upscalers, Wan VACE driven by the source and a CopyCat detail model were all tried on this material and dropped.
 
 You can run the [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}). See [diffusion full reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}).
 
 ## 5. Black-and-white colourization
 
-Fifteen shots finished, whole shots at full resolution with the original brightness untouched, the colour fitted to the stock that recorded the film: *The General* (a garden scene and a pan on a locomotive) and six other public-domain films of the 1920s.
+Fifteen stock-route research shots have recorded results. Exact-source-brightness colourization and stock-response reconstruction are different output contracts: the latter may change brightness to match the stock response. Examples include *The General* (a garden scene and a pan on a locomotive) and six other public-domain films of the 1920s.
 
-Skin on the earliest shots, some foliage, and soft, low-detail sources are the weak points. More complex movement and subjects are the next tests. The palettes are interpretations, and the route is not published yet.
+Known-colour tests distinguish a useful stock constraint from correct object colour. A monochrome value does not uniquely determine hue. Period guidance and a tested period-colour adapter changed the palette without resolving that ambiguity. More accurate historical colour requires independent colour evidence; disclose surviving colour, stock-informed constraints and interpretation separately. Earlier skin, foliage and low-detail limitations retain their scope. The route is not published yet.
 
 See [black-and-white colourization]({{ '/black-and-white-colourization/' | relative_url }}).
 
 ## 6. Diffusion Upscaling
 
 **Research idea.** Reference-based video upscaling and basic resolution/detail enhancement, separate from whole-shot regeneration and selective healing. No workflow, benchmark or result is qualified for the new project. Historical Tinterillo upscaling records remain Full Reconstruction evidence. See [Diffusion Upscaling]({{ '/diffusion-upscaling/' | relative_url }}).
+
+## 7. Diffusion Inpainting
+
+Selective scratch repair is a separate experimental line: propose and review repair support, use surviving spatial and temporal evidence, retain the raw diffusion result, and protect all channels outside the approved support. A recovery-first preparation followed by a light diffusion pass has a candidate awaiting review. Neither that candidate nor a mask approval establishes full-resolution, full-length acceptance. Temporal boundaries, fine scratches and authentic photographed lines require inspection.
+
+## App integration
+
+The independent Restoration Research Lab is an experimental application under development. Research knowledge, connected inference procedures, verified result custody and user acceptance are separate states. These pages are research upstream; they do not distribute app releases or its signed knowledge feed.
 
 ## What can be reproduced
 
