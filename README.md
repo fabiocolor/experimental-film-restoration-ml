@@ -6,7 +6,7 @@ Research on machine learning for film restoration. What survives in the film is 
 
 **Website:** [fabiocolor.github.io/experimental-film-restoration-ml/](https://fabiocolor.github.io/experimental-film-restoration-ml/)
 
-## Six research areas
+## Seven research areas
 
 1. **[Faded Colour Recovery](https://fabiocolor.github.io/experimental-film-restoration-ml/colour-recovery/)**: the original colour of faded film, from balanced and unbalanced scans. Examples: *Obsession*, *Counter Attack* (three shots), Folgers, *Juggernaut*. Two kits: a [single-frame graph](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/colour-recovery-single-frame/) that runs in ComfyUI locally or in Comfy Cloud, and the [balanced-source route](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/faded-colour-recovery-t185/) end to end.
 2. **[Temporal CbCr](https://fabiocolor.github.io/experimental-film-restoration-ml/temporal-cbcr/)**: colour recovery or colourization from a direct historical or synthetic reference, carried through the shot. Examples: *Frontier Experience* and *Candy Candy* (historical reference), *Unman, Wittering and Zigo* (synthetic reference). Includes the [CopyCat workflow](https://fabiocolor.github.io/experimental-film-restoration-ml/copycat-workflow/) for Nuke.
@@ -14,6 +14,7 @@ Research on machine learning for film restoration. What survives in the film is 
 4. **[Diffusion Full Reconstruction](https://fabiocolor.github.io/experimental-film-restoration-ml/diffusion-full-reconstruction/)**: for films beyond repair. Example: a reel of *El Tinterillo*, shot by shot.
 5. **[Black-and-White Colourization](https://fabiocolor.github.io/experimental-film-restoration-ml/black-and-white-colourization/)**: colour for panchromatic and orthochromatic film, inferred from the recorded greyscale and the stock's spectral response. Examples: *The General* (1926) and six other public-domain films of the 1920s.
 6. **[Diffusion Upscaling](https://fabiocolor.github.io/experimental-film-restoration-ml/diffusion-upscaling/)**: a separate research idea for reference-based video upscaling and basic resolution/detail enhancement. No qualified workflow or results yet.
+7. **Diffusion Inpainting**: selective persistent-scratch repair with explicit approved output support. Experimental results remain under review; see the [current research status](docs/research-status.md#7-diffusion-inpainting).
 
 [Where things stand](https://fabiocolor.github.io/experimental-film-restoration-ml/research-status/) is the state of the research as of October 2026: what works, what doesn't yet, what you can run yourself, and what hardware it takes. Every example has a [record](https://fabiocolor.github.io/experimental-film-restoration-ml/records/) of its source, models and settings; the [download kits](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/) reproduce four of them from the published files. The [tools](https://fabiocolor.github.io/experimental-film-restoration-ml/tools/) used alongside the research have their own repositories.
 
@@ -38,7 +39,7 @@ The examples are workflow demonstrations, not finished restorations.
 
 - `docs/`: the website (Jekyll, Just the Docs), including the download kits in `docs/downloads/` and one record per example in `docs/records/`
 - `templates/`: the Nuke Indie template for the CopyCat workflow (the Non-Commercial version is on the [releases page](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest))
-- `tools/site-check/`: the link and asset audit that runs in CI; `tools/examples/`: how the example figures were cut from the published videos
+- `tools/site-check/`: the link and asset audit run locally; `tools/examples/`: how the example figures were cut from the published videos
 - Files over 1 MiB are not added to the repository; they go on the [examples release](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/tag/examples-2026-10) and are linked.
 
 ## Building the site locally
