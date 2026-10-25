@@ -66,3 +66,5 @@ No single licence covers everything here. Original material, third-party footage
 See [Credits & Attribution](docs/credits.md) for the public source record and [Third-Party Notices](THIRD_PARTY_NOTICES.md) for the principal model and software projects. Credit is not permission to reuse third-party material, and this repository does not relicense it.
 
 Checks run locally: `bash scripts/check.sh`.
+
+The website is built locally and published to the `gh-pages` branch with `bash scripts/publish-site.sh` (no GitHub Actions).
