@@ -1,0 +1,17 @@
+Use case: historical-scene
+Asset type: synthetic conditioning reference for a diffusion film-restoration experiment (one shot of a 1970s black-and-white 16 mm feature film)
+Primary request: Generate ONE clean black-and-white 16 mm photographic still for exact global frame f{FRAME} of the shot. Content and geometry come only from Image 1. Photographic look comes only from Image 2.
+
+Image 1 (content authority, exact frame f{FRAME}): a declared hybrid evidence image. Its full 16:9 canvas, rounded film aperture, silhouettes, occlusions and large object extents come from the exact-frame original 16 mm scan after strong blur; inside the central area the matching telecine frame has been registered and supplies the genuine cleaner photographic detail. Image 1 is heavily overexposed and washed out; that paleness is a transfer defect, not the intended look.
+
+Image 2 (look authority only): an approved restored still from a DIFFERENT moment of the same shot. Use it ONLY for tonal density, contrast, black level, highlight roll-off, grain size, sharpness and material rendering (weathered timber, lime/adobe plaster wall texture, leather and wool clothing, skin). Do NOT copy any of its content, people, pose, architecture, framing or composition.
+
+Scene content ({CONTENT}): Match Image 1 exactly: same camera position and framing, same architecture and its placement, same number of people, each with the same pose, lean, head and hat angle, limb positions, scale, screen position, overlap and occlusion. Do not move, add, remove or reinterpret anything. No zoom, pan or reframing.
+
+Look: render the scene as if photographed with correct exposure on the same stock as Image 2: rich but natural blacks in shadows, doorways and dark clothing; bright plaster walls rendered as light grey with visible surface texture instead of blank white; highlights that roll off without clipping; faces with natural modelling but no invented crisp features where Image 1 is vague; the same restrained fine film grain and slight softness as Image 2. Every region of the frame (people, walls, timber, ground, sky) must share one consistent photographic quality: no region sharper or more detailed than the others.
+
+Film frame: preserve the rounded-corner film aperture exactly where Image 1 has it, with the small bright perforation tab at the far left. Everything outside the rounded aperture is pure black (render any thin light film-edge strips at the far right as black).
+
+Avoid: color or tint, scratches, dust, cracks, emulsion damage, flicker texture, halos, plastic or airbrushed skin, over-sharpening, HDR look, modern digital gloss, text, logos, watermark, extra people, changed poses, telecine crop.
+Canvas: Image 1 is a 3:2 canvas whose picture occupies a 16:9 band with solid black bars above and below. Keep those black bars and keep the picture exactly inside the same 16:9 band, at the same size and position; do not stretch, crop or shift it.
+Output: one 1536x1024 black-and-white image with the identical layout to Image 1.

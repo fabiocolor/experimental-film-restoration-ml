@@ -1,0 +1,2576 @@
+{
+ "id": "4d1ab7d5-7985-4aa2-a418-8906bf94ab4f",
+ "revision": 0,
+ "last_node_id": 38,
+ "last_link_id": 54,
+ "nodes": [
+  {
+   "id": 1,
+   "type": "MarkdownNote",
+   "pos": [
+    0,
+    -40
+   ],
+   "size": [
+    480,
+    520
+   ],
+   "flags": {},
+   "order": 0,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "title": "Faded colour recovery: palette still (balanced scan)",
+   "properties": {},
+   "widgets_values": [
+    "## Faded colour recovery: palette still (balanced scan)\n\nThe first step of the balanced-source route: one colour frame for the shot, made from the scan's own brightness.\n\nMake the three inputs with `tools/prepare_still_inputs.py frame.png still/` (or upload the kit's `example/` files):\n1. **Source Y**: the frame's brightness as grey (`source_y.png`).\n2. **Faded frame**: the frame itself (`faded_frame.png`), only a hint of which hue each object had.\n3. **Edge map**: Canny 80/160 of the frame (`canny.png`).\n\nModel: the published model (fp8mixed). Lightning 4-step LoRA, cfg 1.0, seed 0, shift 3.1.\n\nOutputs: **model output** (the raw palette proposal) and a **composite** preview on the source brightness. For the shot, use `tools/composite_still.py` on the model output; it is the reference composite (inverse Kontext geometry and shadow gate) and what the H3 step expects.\n\nResearch by Fabio Bedoya. fabiocolor.github.io/experimental-film-restoration-ml/downloads/faded-colour-recovery-t185/"
+   ],
+   "color": "#3b3b2e",
+   "bgcolor": "#5a5a3a"
+  },
+  {
+   "id": 2,
+   "type": "LoadImage",
+   "pos": [
+    0,
+    520
+   ],
+   "flags": {},
+   "order": 1,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "image"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      1,
+      2,
+      28,
+      32
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "LoadImage",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "source_y.png",
+    "image"
+   ],
+   "size": [
+    320,
+    360
+   ],
+   "title": "1 \u00b7 Source Y (grey)"
+  },
+  {
+   "id": 3,
+   "type": "LoadImage",
+   "pos": [
+    0,
+    920
+   ],
+   "flags": {},
+   "order": 2,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "image"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      10,
+      15
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "LoadImage",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "faded_frame.png",
+    "image"
+   ],
+   "size": [
+    320,
+    320
+   ],
+   "title": "2 \u00b7 Faded frame (hint)"
+  },
+  {
+   "id": 4,
+   "type": "LoadImage",
+   "pos": [
+    0,
+    1280
+   ],
+   "flags": {},
+   "order": 3,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "image"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      3
+     ]
+    },
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "LoadImage",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "canny.png",
+    "image"
+   ],
+   "size": [
+    320,
+    320
+   ],
+   "title": "3 \u00b7 Edge map (Canny 80/160)"
+  },
+  {
+   "id": 5,
+   "type": "Canny",
+   "pos": [
+    0,
+    1640
+   ],
+   "flags": {},
+   "order": 4,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 1
+    },
+    {
+     "name": "low_threshold",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "low_threshold"
+     }
+    },
+    {
+     "name": "high_threshold",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "high_threshold"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "Canny",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    0.31,
+    0.63
+   ],
+   "size": [
+    320,
+    110
+   ],
+   "title": "Detect edges here instead (for your own frame)"
+  },
+  {
+   "id": 6,
+   "type": "MarkdownNote",
+   "pos": [
+    0,
+    1780
+   ],
+   "size": [
+    320,
+    150
+   ],
+   "flags": {},
+   "order": 5,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "title": "Own frames",
+   "properties": {},
+   "widgets_values": [
+    "For a new frame: upload it as the source, then drag **Detect edges \u2192 IMAGE** into *Scale edge map* (replacing the uploaded edge map). The in-graph detector (kornia) is close to OpenCV's Canny 80/160 but not identical; the uploaded `control.png` reproduces the published test exactly."
+   ],
+   "color": "#3b3b2e",
+   "bgcolor": "#5a5a3a"
+  },
+  {
+   "id": 7,
+   "type": "FluxKontextImageScale",
+   "pos": [
+    560,
+    520
+   ],
+   "flags": {},
+   "order": 6,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 2
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      9,
+      14,
+      19
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "FluxKontextImageScale",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [],
+   "size": [
+    300,
+    60
+   ],
+   "title": "Scale source to the model grid"
+  },
+  {
+   "id": 8,
+   "type": "FluxKontextImageScale",
+   "pos": [
+    560,
+    1280
+   ],
+   "flags": {},
+   "order": 7,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 3
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      11,
+      16
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "FluxKontextImageScale",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [],
+   "size": [
+    300,
+    60
+   ],
+   "title": "Scale edge map"
+  },
+  {
+   "id": 9,
+   "type": "UNETLoader",
+   "pos": [
+    560,
+    0
+   ],
+   "flags": {},
+   "order": 8,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "unet_name",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "unet_name"
+     }
+    },
+    {
+     "name": "weight_dtype",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "weight_dtype"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      4
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "UNETLoader",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "qwen_image_edit_2511_fp8mixed.safetensors",
+    "default"
+   ],
+   "size": [
+    420,
+    90
+   ],
+   "title": "Qwen Image Edit 2511"
+  },
+  {
+   "id": 10,
+   "type": "CLIPLoader",
+   "pos": [
+    560,
+    120
+   ],
+   "flags": {},
+   "order": 9,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip_name",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "clip_name"
+     }
+    },
+    {
+     "name": "type",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "type"
+     }
+    },
+    {
+     "name": "device",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "device"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CLIP",
+     "type": "CLIP",
+     "links": [
+      7,
+      12
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "CLIPLoader",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "qwen_2.5_vl_7b_fp8_scaled.safetensors",
+    "qwen_image",
+    "default"
+   ],
+   "size": [
+    420,
+    110
+   ],
+   "title": "Text encoder"
+  },
+  {
+   "id": 11,
+   "type": "VAELoader",
+   "pos": [
+    560,
+    260
+   ],
+   "flags": {},
+   "order": 10,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "vae_name",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "vae_name"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "VAE",
+     "type": "VAE",
+     "links": [
+      8,
+      13,
+      20,
+      26
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "VAELoader",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "qwen_image_vae.safetensors"
+   ],
+   "size": [
+    420,
+    60
+   ],
+   "title": "VAE"
+  },
+  {
+   "id": 12,
+   "type": "ModelSamplingAuraFlow",
+   "pos": [
+    560,
+    350
+   ],
+   "flags": {},
+   "order": 11,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 4
+    },
+    {
+     "name": "shift",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "shift"
+     }
+    },
+    {
+     "name": "sampling",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "sampling"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      5
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ModelSamplingAuraFlow",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    3.1,
+    "flow"
+   ],
+   "size": [
+    300,
+    80
+   ],
+   "title": "Shift 3.1"
+  },
+  {
+   "id": 13,
+   "type": "CFGNorm",
+   "pos": [
+    560,
+    640
+   ],
+   "flags": {},
+   "order": 12,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 5
+    },
+    {
+     "name": "strength",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "strength"
+     }
+    },
+    {
+     "name": "pre_cfg",
+     "type": "BOOLEAN",
+     "link": null,
+     "widget": {
+      "name": "pre_cfg"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "patched_model",
+     "type": "MODEL",
+     "links": [
+      6
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "CFGNorm",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    1.0,
+    false
+   ],
+   "size": [
+    300,
+    80
+   ],
+   "title": "CFG norm"
+  },
+  {
+   "id": 14,
+   "type": "LoraLoaderModelOnly",
+   "pos": [
+    560,
+    750
+   ],
+   "flags": {},
+   "order": 13,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 6
+    },
+    {
+     "name": "lora_name",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "lora_name"
+     }
+    },
+    {
+     "name": "strength_model",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "strength_model"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MODEL",
+     "type": "MODEL",
+     "links": [
+      21
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "LoraLoaderModelOnly",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "Qwen-Image-Edit-2511-Lightning-4steps-V1.0-bf16.safetensors",
+    1.0
+   ],
+   "size": [
+    420,
+    90
+   ],
+   "title": "Lightning 4-step LoRA"
+  },
+  {
+   "id": 15,
+   "type": "TextEncodeQwenImageEditPlus",
+   "pos": [
+    1120,
+    0
+   ],
+   "flags": {},
+   "order": 14,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 7
+    },
+    {
+     "name": "prompt",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "prompt"
+     }
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 8
+    },
+    {
+     "name": "image1",
+     "type": "IMAGE",
+     "link": 9
+    },
+    {
+     "name": "image2",
+     "type": "IMAGE",
+     "link": 10
+    },
+    {
+     "name": "image3",
+     "type": "IMAGE",
+     "link": 11
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      17
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "TextEncodeQwenImageEditPlus",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "Colorize this black-and-white film frame as a 1970s Eastmancolor television commercial. Use image1 as the source shot and preserve its exact content, geometry, people, clothing, objects, framing, silhouettes, foreground/background layout, and spatial boundaries. image2 is the same frame from a faded, colour-neutralized print: its colours are washed out and shifted toward cyan. Use image2 only as a weak hint of which hue family each object had (for example which garments or products were red, blue or green); do not copy its washed-out saturation or its cyan cast. Give skin a warm, healthy, natural colour and every garment, painted surface, product and prop a full, believable film colour, with clean whites and true neutral greys. Use image3 as a hard source-derived edge map in the same geometry space as image1: follow those edges and boundaries closely so the recovered chroma stays aligned to the original luma after inverse mapping. Do not move faces, bodies, objects, buildings, sky lines, vehicles, or foreground/background borders. Do not redesign faces, add new objects, change the location, replace the scene, invent detail in blank skies, or copy visible chart content."
+   ],
+   "size": [
+    520,
+    420
+   ],
+   "title": "Encode: prompt + source + chart + edges"
+  },
+  {
+   "id": 16,
+   "type": "TextEncodeQwenImageEditPlus",
+   "pos": [
+    1120,
+    470
+   ],
+   "flags": {},
+   "order": 15,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "clip",
+     "type": "CLIP",
+     "link": 12
+    },
+    {
+     "name": "prompt",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "prompt"
+     }
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 13
+    },
+    {
+     "name": "image1",
+     "type": "IMAGE",
+     "link": 14
+    },
+    {
+     "name": "image2",
+     "type": "IMAGE",
+     "link": 15
+    },
+    {
+     "name": "image3",
+     "type": "IMAGE",
+     "link": 16
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      18
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "TextEncodeQwenImageEditPlus",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    ""
+   ],
+   "size": [
+    520,
+    220
+   ],
+   "title": "Encode: empty prompt (negative)"
+  },
+  {
+   "id": 17,
+   "type": "FluxKontextMultiReferenceLatentMethod",
+   "pos": [
+    1120,
+    730
+   ],
+   "flags": {},
+   "order": 16,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "conditioning",
+     "type": "CONDITIONING",
+     "link": 17
+    },
+    {
+     "name": "reference_latents_method",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "reference_latents_method"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      22
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "FluxKontextMultiReferenceLatentMethod",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "index_timestep_zero"
+   ],
+   "size": [
+    420,
+    60
+   ],
+   "title": "Reference method"
+  },
+  {
+   "id": 18,
+   "type": "FluxKontextMultiReferenceLatentMethod",
+   "pos": [
+    1120,
+    820
+   ],
+   "flags": {},
+   "order": 17,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "conditioning",
+     "type": "CONDITIONING",
+     "link": 18
+    },
+    {
+     "name": "reference_latents_method",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "reference_latents_method"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "CONDITIONING",
+     "type": "CONDITIONING",
+     "links": [
+      23
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "FluxKontextMultiReferenceLatentMethod",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "index_timestep_zero"
+   ],
+   "size": [
+    420,
+    60
+   ],
+   "title": "Reference method"
+  },
+  {
+   "id": 19,
+   "type": "VAEEncode",
+   "pos": [
+    1120,
+    920
+   ],
+   "flags": {},
+   "order": 18,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "pixels",
+     "type": "IMAGE",
+     "link": 19
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 20
+    }
+   ],
+   "outputs": [
+    {
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      24
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "VAEEncode",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [],
+   "size": [
+    300,
+    60
+   ],
+   "title": "Encode source"
+  },
+  {
+   "id": 20,
+   "type": "KSampler",
+   "pos": [
+    1740,
+    0
+   ],
+   "flags": {},
+   "order": 19,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "model",
+     "type": "MODEL",
+     "link": 21
+    },
+    {
+     "name": "seed",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "seed"
+     }
+    },
+    {
+     "name": "steps",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "steps"
+     }
+    },
+    {
+     "name": "cfg",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "cfg"
+     }
+    },
+    {
+     "name": "sampler_name",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "sampler_name"
+     }
+    },
+    {
+     "name": "scheduler",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "scheduler"
+     }
+    },
+    {
+     "name": "positive",
+     "type": "CONDITIONING",
+     "link": 22
+    },
+    {
+     "name": "negative",
+     "type": "CONDITIONING",
+     "link": 23
+    },
+    {
+     "name": "latent_image",
+     "type": "LATENT",
+     "link": 24
+    },
+    {
+     "name": "denoise",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "denoise"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "LATENT",
+     "type": "LATENT",
+     "links": [
+      25
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "KSampler",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    0,
+    "fixed",
+    4,
+    1.0,
+    "euler",
+    "simple",
+    1.0
+   ],
+   "size": [
+    400,
+    300
+   ],
+   "title": "Sample: 4 steps, cfg 1.0, seed 0"
+  },
+  {
+   "id": 21,
+   "type": "VAEDecode",
+   "pos": [
+    1740,
+    340
+   ],
+   "flags": {},
+   "order": 20,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "samples",
+     "type": "LATENT",
+     "link": 25
+    },
+    {
+     "name": "vae",
+     "type": "VAE",
+     "link": 26
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      27,
+      29
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "VAEDecode",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [],
+   "size": [
+    300,
+    60
+   ],
+   "title": "Decode"
+  },
+  {
+   "id": 22,
+   "type": "SaveImage",
+   "pos": [
+    1740,
+    440
+   ],
+   "flags": {},
+   "order": 21,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "link": 27
+    },
+    {
+     "name": "filename_prefix",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "filename_prefix"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "SaveImage",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "t185_palette/model_output"
+   ],
+   "size": [
+    400,
+    380
+   ],
+   "title": "Model output (raw proposal)"
+  },
+  {
+   "id": 23,
+   "type": "MarkdownNote",
+   "pos": [
+    2300,
+    0
+   ],
+   "size": [
+    440,
+    190
+   ],
+   "flags": {},
+   "order": 22,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "title": "Composite",
+   "properties": {},
+   "widgets_values": [
+    "**Composite.** The model returns a reduced picture (1184 \u00d7 880 for 4:3). Only its colour is used: the result is scaled back to the source size, its U and V (colour) are joined to the source's Y (brightness). Grain, detail and damage are the source's. Plain scaling and a shadow gate (right); the kit's `composite_still.py` is the reference, with the exact inverse of the Kontext crop and a smoothstep gate."
+   ],
+   "color": "#3b3b2e",
+   "bgcolor": "#5a5a3a"
+  },
+  {
+   "id": 24,
+   "type": "GetImageSize",
+   "pos": [
+    2300,
+    230
+   ],
+   "flags": {},
+   "order": 23,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 28
+    }
+   ],
+   "outputs": [
+    {
+     "name": "width",
+     "type": "INT",
+     "links": [
+      30,
+      35,
+      43
+     ]
+    },
+    {
+     "name": "height",
+     "type": "INT",
+     "links": [
+      31,
+      36,
+      44
+     ]
+    },
+    {
+     "name": "batch_size",
+     "type": "INT",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "GetImageSize",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [],
+   "size": [
+    260,
+    90
+   ],
+   "title": "Source size"
+  },
+  {
+   "id": 25,
+   "type": "ImageScale",
+   "pos": [
+    2300,
+    360
+   ],
+   "flags": {},
+   "order": 24,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 29
+    },
+    {
+     "name": "upscale_method",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "upscale_method"
+     }
+    },
+    {
+     "name": "width",
+     "type": "INT",
+     "link": 30,
+     "widget": {
+      "name": "width"
+     }
+    },
+    {
+     "name": "height",
+     "type": "INT",
+     "link": 31,
+     "widget": {
+      "name": "height"
+     }
+    },
+    {
+     "name": "crop",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "crop"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      33
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ImageScale",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "lanczos",
+    512,
+    512,
+    "disabled"
+   ],
+   "size": [
+    360,
+    130
+   ],
+   "title": "Scale result to source size"
+  },
+  {
+   "id": 26,
+   "type": "ImageRGBToYUV",
+   "pos": [
+    2300,
+    530
+   ],
+   "flags": {},
+   "order": 25,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 32
+    }
+   ],
+   "outputs": [
+    {
+     "name": "Y",
+     "type": "IMAGE",
+     "links": [
+      34,
+      51
+     ]
+    },
+    {
+     "name": "U",
+     "type": "IMAGE",
+     "links": null
+    },
+    {
+     "name": "V",
+     "type": "IMAGE",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ImageRGBToYUV",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [],
+   "size": [
+    260,
+    90
+   ],
+   "title": "Source -> Y U V"
+  },
+  {
+   "id": 27,
+   "type": "ImageRGBToYUV",
+   "pos": [
+    2300,
+    660
+   ],
+   "flags": {},
+   "order": 26,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 33
+    }
+   ],
+   "outputs": [
+    {
+     "name": "Y",
+     "type": "IMAGE",
+     "links": null
+    },
+    {
+     "name": "U",
+     "type": "IMAGE",
+     "links": [
+      46
+     ]
+    },
+    {
+     "name": "V",
+     "type": "IMAGE",
+     "links": [
+      49
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ImageRGBToYUV",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [],
+   "size": [
+    260,
+    90
+   ],
+   "title": "Result -> Y U V"
+  },
+  {
+   "id": 28,
+   "type": "MarkdownNote",
+   "pos": [
+    2820,
+    0
+   ],
+   "size": [
+    420,
+    190
+   ],
+   "flags": {},
+   "order": 27,
+   "mode": 0,
+   "inputs": [],
+   "outputs": [],
+   "title": "Shadow gate",
+   "properties": {},
+   "widgets_values": [
+    "**Shadow gate.** Generated colour is unreliable in deep shadows, so below a source brightness of 32/255 the colour is made neutral, with a ramp up to 96/255. The weight is built from the source Y with mask arithmetic: weight = clamp(4 x (Y - 0.125)). Delete these nodes and feed the result U and V straight into *Source Y + result U V* if you want the ungated colour."
+   ],
+   "color": "#3b3b2e",
+   "bgcolor": "#5a5a3a"
+  },
+  {
+   "id": 29,
+   "type": "ImageToMask",
+   "pos": [
+    2820,
+    230
+   ],
+   "flags": {},
+   "order": 28,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "image",
+     "type": "IMAGE",
+     "link": 34
+    },
+    {
+     "name": "channel",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "channel"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": [
+      37
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ImageToMask",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "red"
+   ],
+   "size": [
+    260,
+    60
+   ],
+   "title": "Y as mask"
+  },
+  {
+   "id": 30,
+   "type": "SolidMask",
+   "pos": [
+    2820,
+    330
+   ],
+   "flags": {},
+   "order": 29,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "value",
+     "type": "FLOAT",
+     "link": null,
+     "widget": {
+      "name": "value"
+     }
+    },
+    {
+     "name": "width",
+     "type": "INT",
+     "link": 35,
+     "widget": {
+      "name": "width"
+     }
+    },
+    {
+     "name": "height",
+     "type": "INT",
+     "link": 36,
+     "widget": {
+      "name": "height"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": [
+      38
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "SolidMask",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    0.125,
+    512,
+    512
+   ],
+   "size": [
+    260,
+    110
+   ],
+   "title": "0.125 (= 32/255)"
+  },
+  {
+   "id": 31,
+   "type": "MaskComposite",
+   "pos": [
+    2820,
+    480
+   ],
+   "flags": {},
+   "order": 30,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "destination",
+     "type": "MASK",
+     "link": 37
+    },
+    {
+     "name": "source",
+     "type": "MASK",
+     "link": 38
+    },
+    {
+     "name": "x",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "x"
+     }
+    },
+    {
+     "name": "y",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "y"
+     }
+    },
+    {
+     "name": "operation",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "operation"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": [
+      39,
+      40
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "MaskComposite",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    0,
+    0,
+    "subtract"
+   ],
+   "size": [
+    300,
+    110
+   ],
+   "title": "Y - 0.125"
+  },
+  {
+   "id": 32,
+   "type": "MaskComposite",
+   "pos": [
+    2820,
+    630
+   ],
+   "flags": {},
+   "order": 31,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "destination",
+     "type": "MASK",
+     "link": 39
+    },
+    {
+     "name": "source",
+     "type": "MASK",
+     "link": 40
+    },
+    {
+     "name": "x",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "x"
+     }
+    },
+    {
+     "name": "y",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "y"
+     }
+    },
+    {
+     "name": "operation",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "operation"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": [
+      41,
+      42
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "MaskComposite",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    0,
+    0,
+    "add"
+   ],
+   "size": [
+    300,
+    110
+   ],
+   "title": "x 2"
+  },
+  {
+   "id": 33,
+   "type": "MaskComposite",
+   "pos": [
+    2820,
+    780
+   ],
+   "flags": {},
+   "order": 32,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "destination",
+     "type": "MASK",
+     "link": 41
+    },
+    {
+     "name": "source",
+     "type": "MASK",
+     "link": 42
+    },
+    {
+     "name": "x",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "x"
+     }
+    },
+    {
+     "name": "y",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "y"
+     }
+    },
+    {
+     "name": "operation",
+     "type": "COMBO",
+     "link": null,
+     "widget": {
+      "name": "operation"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "MASK",
+     "type": "MASK",
+     "links": [
+      47,
+      50
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "MaskComposite",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    0,
+    0,
+    "add"
+   ],
+   "size": [
+    300,
+    110
+   ],
+   "title": "x 2 again = weight"
+  },
+  {
+   "id": 34,
+   "type": "EmptyImage",
+   "pos": [
+    2820,
+    930
+   ],
+   "flags": {},
+   "order": 33,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "width",
+     "type": "INT",
+     "link": 43,
+     "widget": {
+      "name": "width"
+     }
+    },
+    {
+     "name": "height",
+     "type": "INT",
+     "link": 44,
+     "widget": {
+      "name": "height"
+     }
+    },
+    {
+     "name": "batch_size",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "batch_size"
+     }
+    },
+    {
+     "name": "color",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "color"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      45,
+      48
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "EmptyImage",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    512,
+    512,
+    1,
+    8421504
+   ],
+   "size": [
+    300,
+    130
+   ],
+   "title": "Neutral colour (grey)"
+  },
+  {
+   "id": 35,
+   "type": "ImageCompositeMasked",
+   "pos": [
+    2820,
+    1100
+   ],
+   "flags": {},
+   "order": 34,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "destination",
+     "type": "IMAGE",
+     "link": 45
+    },
+    {
+     "name": "source",
+     "type": "IMAGE",
+     "link": 46
+    },
+    {
+     "name": "x",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "x"
+     }
+    },
+    {
+     "name": "y",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "y"
+     }
+    },
+    {
+     "name": "resize_source",
+     "type": "BOOLEAN",
+     "link": null,
+     "widget": {
+      "name": "resize_source"
+     }
+    },
+    {
+     "name": "mask",
+     "type": "MASK",
+     "link": 47
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      52
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ImageCompositeMasked",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    0,
+    0,
+    false
+   ],
+   "size": [
+    300,
+    150
+   ],
+   "title": "U, gated"
+  },
+  {
+   "id": 36,
+   "type": "ImageCompositeMasked",
+   "pos": [
+    2820,
+    1290
+   ],
+   "flags": {},
+   "order": 35,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "destination",
+     "type": "IMAGE",
+     "link": 48
+    },
+    {
+     "name": "source",
+     "type": "IMAGE",
+     "link": 49
+    },
+    {
+     "name": "x",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "x"
+     }
+    },
+    {
+     "name": "y",
+     "type": "INT",
+     "link": null,
+     "widget": {
+      "name": "y"
+     }
+    },
+    {
+     "name": "resize_source",
+     "type": "BOOLEAN",
+     "link": null,
+     "widget": {
+      "name": "resize_source"
+     }
+    },
+    {
+     "name": "mask",
+     "type": "MASK",
+     "link": 50
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      53
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ImageCompositeMasked",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    0,
+    0,
+    false
+   ],
+   "size": [
+    300,
+    150
+   ],
+   "title": "V, gated"
+  },
+  {
+   "id": 37,
+   "type": "ImageYUVToRGB",
+   "pos": [
+    2300,
+    790
+   ],
+   "flags": {},
+   "order": 36,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "Y",
+     "type": "IMAGE",
+     "link": 51
+    },
+    {
+     "name": "U",
+     "type": "IMAGE",
+     "link": 52
+    },
+    {
+     "name": "V",
+     "type": "IMAGE",
+     "link": 53
+    }
+   ],
+   "outputs": [
+    {
+     "name": "IMAGE",
+     "type": "IMAGE",
+     "links": [
+      54
+     ]
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "ImageYUVToRGB",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [],
+   "size": [
+    300,
+    90
+   ],
+   "title": "Source Y + result U V"
+  },
+  {
+   "id": 38,
+   "type": "SaveImage",
+   "pos": [
+    2300,
+    920
+   ],
+   "flags": {},
+   "order": 37,
+   "mode": 0,
+   "inputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "link": 54
+    },
+    {
+     "name": "filename_prefix",
+     "type": "STRING",
+     "link": null,
+     "widget": {
+      "name": "filename_prefix"
+     }
+    }
+   ],
+   "outputs": [
+    {
+     "name": "images",
+     "type": "IMAGE",
+     "links": null
+    }
+   ],
+   "properties": {
+    "Node name for S&R": "SaveImage",
+    "cnr_id": "comfy-core",
+    "ver": "0.3.0"
+   },
+   "widgets_values": [
+    "t185_palette/composite"
+   ],
+   "size": [
+    440,
+    400
+   ],
+   "title": "Composite (colour on the source brightness)"
+  }
+ ],
+ "links": [
+  [
+   1,
+   2,
+   0,
+   5,
+   0,
+   "IMAGE"
+  ],
+  [
+   2,
+   2,
+   0,
+   7,
+   0,
+   "IMAGE"
+  ],
+  [
+   3,
+   4,
+   0,
+   8,
+   0,
+   "IMAGE"
+  ],
+  [
+   4,
+   9,
+   0,
+   12,
+   0,
+   "MODEL"
+  ],
+  [
+   5,
+   12,
+   0,
+   13,
+   0,
+   "MODEL"
+  ],
+  [
+   6,
+   13,
+   0,
+   14,
+   0,
+   "MODEL"
+  ],
+  [
+   7,
+   10,
+   0,
+   15,
+   0,
+   "CLIP"
+  ],
+  [
+   8,
+   11,
+   0,
+   15,
+   2,
+   "VAE"
+  ],
+  [
+   9,
+   7,
+   0,
+   15,
+   3,
+   "IMAGE"
+  ],
+  [
+   10,
+   3,
+   0,
+   15,
+   4,
+   "IMAGE"
+  ],
+  [
+   11,
+   8,
+   0,
+   15,
+   5,
+   "IMAGE"
+  ],
+  [
+   12,
+   10,
+   0,
+   16,
+   0,
+   "CLIP"
+  ],
+  [
+   13,
+   11,
+   0,
+   16,
+   2,
+   "VAE"
+  ],
+  [
+   14,
+   7,
+   0,
+   16,
+   3,
+   "IMAGE"
+  ],
+  [
+   15,
+   3,
+   0,
+   16,
+   4,
+   "IMAGE"
+  ],
+  [
+   16,
+   8,
+   0,
+   16,
+   5,
+   "IMAGE"
+  ],
+  [
+   17,
+   15,
+   0,
+   17,
+   0,
+   "CONDITIONING"
+  ],
+  [
+   18,
+   16,
+   0,
+   18,
+   0,
+   "CONDITIONING"
+  ],
+  [
+   19,
+   7,
+   0,
+   19,
+   0,
+   "IMAGE"
+  ],
+  [
+   20,
+   11,
+   0,
+   19,
+   1,
+   "VAE"
+  ],
+  [
+   21,
+   14,
+   0,
+   20,
+   0,
+   "MODEL"
+  ],
+  [
+   22,
+   17,
+   0,
+   20,
+   6,
+   "CONDITIONING"
+  ],
+  [
+   23,
+   18,
+   0,
+   20,
+   7,
+   "CONDITIONING"
+  ],
+  [
+   24,
+   19,
+   0,
+   20,
+   8,
+   "LATENT"
+  ],
+  [
+   25,
+   20,
+   0,
+   21,
+   0,
+   "LATENT"
+  ],
+  [
+   26,
+   11,
+   0,
+   21,
+   1,
+   "VAE"
+  ],
+  [
+   27,
+   21,
+   0,
+   22,
+   0,
+   "IMAGE"
+  ],
+  [
+   28,
+   2,
+   0,
+   24,
+   0,
+   "IMAGE"
+  ],
+  [
+   29,
+   21,
+   0,
+   25,
+   0,
+   "IMAGE"
+  ],
+  [
+   30,
+   24,
+   0,
+   25,
+   2,
+   "INT"
+  ],
+  [
+   31,
+   24,
+   1,
+   25,
+   3,
+   "INT"
+  ],
+  [
+   32,
+   2,
+   0,
+   26,
+   0,
+   "IMAGE"
+  ],
+  [
+   33,
+   25,
+   0,
+   27,
+   0,
+   "IMAGE"
+  ],
+  [
+   34,
+   26,
+   0,
+   29,
+   0,
+   "IMAGE"
+  ],
+  [
+   35,
+   24,
+   0,
+   30,
+   1,
+   "INT"
+  ],
+  [
+   36,
+   24,
+   1,
+   30,
+   2,
+   "INT"
+  ],
+  [
+   37,
+   29,
+   0,
+   31,
+   0,
+   "MASK"
+  ],
+  [
+   38,
+   30,
+   0,
+   31,
+   1,
+   "MASK"
+  ],
+  [
+   39,
+   31,
+   0,
+   32,
+   0,
+   "MASK"
+  ],
+  [
+   40,
+   31,
+   0,
+   32,
+   1,
+   "MASK"
+  ],
+  [
+   41,
+   32,
+   0,
+   33,
+   0,
+   "MASK"
+  ],
+  [
+   42,
+   32,
+   0,
+   33,
+   1,
+   "MASK"
+  ],
+  [
+   43,
+   24,
+   0,
+   34,
+   0,
+   "INT"
+  ],
+  [
+   44,
+   24,
+   1,
+   34,
+   1,
+   "INT"
+  ],
+  [
+   45,
+   34,
+   0,
+   35,
+   0,
+   "IMAGE"
+  ],
+  [
+   46,
+   27,
+   1,
+   35,
+   1,
+   "IMAGE"
+  ],
+  [
+   47,
+   33,
+   0,
+   35,
+   5,
+   "MASK"
+  ],
+  [
+   48,
+   34,
+   0,
+   36,
+   0,
+   "IMAGE"
+  ],
+  [
+   49,
+   27,
+   2,
+   36,
+   1,
+   "IMAGE"
+  ],
+  [
+   50,
+   33,
+   0,
+   36,
+   5,
+   "MASK"
+  ],
+  [
+   51,
+   26,
+   0,
+   37,
+   0,
+   "IMAGE"
+  ],
+  [
+   52,
+   35,
+   0,
+   37,
+   1,
+   "IMAGE"
+  ],
+  [
+   53,
+   36,
+   0,
+   37,
+   2,
+   "IMAGE"
+  ],
+  [
+   54,
+   37,
+   0,
+   38,
+   0,
+   "IMAGE"
+  ]
+ ],
+ "groups": [
+  {
+   "id": 1,
+   "title": "Inputs",
+   "bounding": [
+    -20,
+    480,
+    400,
+    1480
+   ],
+   "color": "#3f5f3f",
+   "font_size": 22,
+   "flags": {}
+  },
+  {
+   "id": 2,
+   "title": "Models",
+   "bounding": [
+    540,
+    -60,
+    500,
+    920
+   ],
+   "color": "#3f3f5f",
+   "font_size": 22,
+   "flags": {}
+  },
+  {
+   "id": 3,
+   "title": "Conditioning",
+   "bounding": [
+    1100,
+    -60,
+    560,
+    1060
+   ],
+   "color": "#5f3f3f",
+   "font_size": 22,
+   "flags": {}
+  },
+  {
+   "id": 4,
+   "title": "Sampling",
+   "bounding": [
+    1720,
+    -60,
+    480,
+    900
+   ],
+   "color": "#5f5f3f",
+   "font_size": 22,
+   "flags": {}
+  },
+  {
+   "id": 5,
+   "title": "Composite on the source brightness",
+   "bounding": [
+    2280,
+    -60,
+    980,
+    1500
+   ],
+   "color": "#3f5f5f",
+   "font_size": 22,
+   "flags": {}
+  }
+ ],
+ "config": {},
+ "extra": {
+  "ds": {
+   "scale": 0.7,
+   "offset": [
+    60,
+    60
+   ]
+  }
+ },
+ "version": 0.4
+}

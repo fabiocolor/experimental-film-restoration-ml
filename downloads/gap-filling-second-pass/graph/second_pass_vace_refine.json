@@ -1,0 +1,156 @@
+{
+ "3": {
+  "class_type": "LoadVideo",
+  "inputs": {
+   "file": "window.mp4"
+  }
+ },
+ "4": {
+  "class_type": "GetVideoComponents",
+  "inputs": {
+   "video": [
+    "3",
+    0
+   ]
+  }
+ },
+ "6": {
+  "class_type": "UNETLoader",
+  "inputs": {
+   "unet_name": "wan2.1_vace_14B_fp16.safetensors",
+   "weight_dtype": "default"
+  }
+ },
+ "7": {
+  "class_type": "ModelSamplingSD3",
+  "inputs": {
+   "model": [
+    "6",
+    0
+   ],
+   "shift": 8
+  }
+ },
+ "8": {
+  "class_type": "CLIPLoader",
+  "inputs": {
+   "clip_name": "umt5_xxl_fp8_e4m3fn_scaled.safetensors",
+   "type": "wan"
+  }
+ },
+ "9": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "8",
+    0
+   ],
+   "text": "A clean, restored 1950s 16mm colour reversal film shot in the Peruvian Amazon: two young indigenous men in pale golden straw-fibre fringes, one playing a long bamboo flute, the other striking a large skin drum laced with cords with a long, curved, hooked dark wooden beater; a child behind them; grass and forest. Natural restored colour, even exposure, fine natural film grain, consistent sharpness across the whole frame. Keep every person, hand, the beater, the drum, the framing and all movement exactly as in the video."
+  }
+ },
+ "10": {
+  "class_type": "CLIPTextEncode",
+  "inputs": {
+   "clip": [
+    "8",
+    0
+   ],
+   "text": "dust, specks, spots, dots, blotches, mottle, scratches, stains, emulsion damage, flicker, noise, compression artefacts, blur, smear, ghosting, double edges, extra fingers, deformed hands, changed faces, changed movement, short straight stick, violet cast, magenta, oversaturated, waxy skin, oversharpening, text"
+  }
+ },
+ "11": {
+  "class_type": "VAELoader",
+  "inputs": {
+   "vae_name": "wan_2.1_vae.safetensors"
+  }
+ },
+ "12": {
+  "class_type": "WanVaceToVideo",
+  "inputs": {
+   "positive": [
+    "9",
+    0
+   ],
+   "negative": [
+    "10",
+    0
+   ],
+   "vae": [
+    "11",
+    0
+   ],
+   "width": 768,
+   "height": 560,
+   "length": 81,
+   "batch_size": 1,
+   "strength": 1.0,
+   "control_video": [
+    "4",
+    0
+   ]
+  }
+ },
+ "30": {
+  "class_type": "VAEEncode",
+  "inputs": {
+   "pixels": [
+    "4",
+    0
+   ],
+   "vae": [
+    "11",
+    0
+   ]
+  }
+ },
+ "13": {
+  "class_type": "KSampler",
+  "inputs": {
+   "model": [
+    "7",
+    0
+   ],
+   "positive": [
+    "12",
+    0
+   ],
+   "negative": [
+    "12",
+    1
+   ],
+   "latent_image": [
+    "30",
+    0
+   ],
+   "seed": 0,
+   "steps": 30,
+   "cfg": 4.5,
+   "sampler_name": "euler",
+   "scheduler": "simple",
+   "denoise": 0.3
+  }
+ },
+ "15": {
+  "class_type": "VAEDecode",
+  "inputs": {
+   "samples": [
+    "13",
+    0
+   ],
+   "vae": [
+    "11",
+    0
+   ]
+  }
+ },
+ "18": {
+  "class_type": "SaveImage",
+  "inputs": {
+   "images": [
+    "15",
+    0
+   ],
+   "filename_prefix": "second_pass"
+  }
+ }
+}
