@@ -64,3 +64,5 @@ If this research is useful to your work, you can [sponsor it on GitHub](https://
 No single licence covers everything here. Original material, third-party footage, references, models and software each have their own owners and terms.
 
 See [Credits & Attribution](docs/credits.md) for the public source record and [Third-Party Notices](THIRD_PARTY_NOTICES.md) for the principal model and software projects. Credit is not permission to reuse third-party material, and this repository does not relicense it.
+
+Checks run locally: `bash scripts/check.sh`.
