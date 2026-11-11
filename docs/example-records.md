@@ -22,7 +22,7 @@ One record for each example on this site: where the source came from, the route,
 | [Unman, Wittering and Zigo, choir]({{ '/records/unman-wittering-zigo-choir/' | relative_url }}) | Temporal CbCr, synthetic reference | TeleStyle and Temporal CbCr | Not yet |
 | [Candy Candy]({{ '/records/candy-candy/' | relative_url }}) | Temporal CbCr, historical reference (home page) | CopyCat in Nuke | Not yet |
 | [Knights of the Trail]({{ '/records/knights-of-the-trail/' | relative_url }}) | Diffusion healing (home page) | Wan VACE 14B on the damaged background only | Not offered (George Eastman Museum material) |
-| [Wong flute players]({{ '/records/wong-flute-players/' | relative_url }}) | Diffusion healing | MiniMax H3, film luma, Wan VACE | Second pass only (ΔE 0.9) |
+| [Wong flute players]({{ '/records/wong-flute-players/' | relative_url }}) | Diffusion full reconstruction | MiniMax H3, film luma, Wan VACE | Second pass only (ΔE 0.9) |
 | [El Tinterillo, stairs and reel]({{ '/records/el-tinterillo-stairs/' | relative_url }}) | Diffusion reconstruction (home page) | Hybrid, reference still, MiniMax H3, seam blend | Stairs: hybrid step (identical) and seam blend (ΔE 1.07) |
 | [The General, garden and train]({{ '/records/general-1926-garden/' | relative_url }}) | Black-and-white colourization (home page) | Qwen 2511, MiniMax H3, one and three anchors | Not yet |
 | [Her Boy Friend, café]({{ '/records/her-boy-friend-cafe/' | relative_url }}) | Black-and-white colourization | Qwen 2511, MiniMax H3 ControlNet, stock reading | Not yet |

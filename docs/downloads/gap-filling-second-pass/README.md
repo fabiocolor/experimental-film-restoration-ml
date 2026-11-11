@@ -1,14 +1,14 @@
 ---
 layout: default
-title: "Download: Healing Second Pass"
-parent: "Diffusion Healing"
+title: "Download: Second Pass (Wong flute players)"
+parent: "Diffusion Full Reconstruction"
 nav_order: 90
 permalink: /downloads/gap-filling-second-pass/
 ---
 
-# Diffusion healing: the second pass
+# Full reconstruction: the second pass
 
-The last step of the flute players shot on the diffusion healing page. The first pass (MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side: the model's and the film's. A light Wan VACE pass makes them one picture. Nothing should move: the geometry and the motion come out exactly as they went in, and only the look is made consistent.
+The last step of the flute players shot on the full reconstruction page (it was on the healing page until 11 November 2026). The first pass (MiniMax H3, with the film's own drumming kept where H3 couldn't follow it) leaves two kinds of picture side by side: the model's and the film's. A light Wan VACE pass makes them one picture. Nothing should move: the geometry and the motion come out exactly as they went in, and only the look is made consistent.
 
 On the example files it matches the published result to ΔE 0.9 on average, and each window to ΔE 0.6 or better, which is smaller than you can see. Source, first pass and models are in the [record]({{ '/records/wong-flute-players/' | relative_url }}).
 
@@ -31,7 +31,7 @@ The prompt in the graph describes this shot. Write your own for your footage, an
 
 ## Example
 
-`example/` has the three first-pass windows of the flute players shot (frames 0–80, 51–131 and 102–182, 768 × 560). The published result is the reconstruction video on the diffusion healing page.
+`example/` has the three first-pass windows of the flute players shot (frames 0–80, 51–131 and 102–182, 768 × 560). The published result is the reconstruction video on the full reconstruction page.
 
 The larger example files are hosted outside the repository. Download them into `example/` before you start:
 

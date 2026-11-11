@@ -84,9 +84,34 @@ In September 2026 the reel's shots were brought to the same look, one by one. Th
   <figcaption>Stairs, frame 121. The hybrid (left) is the 16mm frame cleaned with a median filter, with the telecine aligned inside it.</figcaption>
 </figure>
 
+## The Wong flute players
+
+A 16mm colour reversal shot whose emulsion is breaking up across the whole frame, so there is no clean element to prefer. It was first worked on as healing; because the whole shot is regenerated, it is full reconstruction, and it was moved here on 11 November 2026. Where H3 could not follow the fastest, thinnest movement, the drummer's hands and beater, the film's own brightness is kept with the restored colour.
+
+<figure class="pair">
+  <span class="pair-labels"><span>16mm scan</span><span>Reconstruction</span></span>
+  <div class="pair-media pair-video" data-inspect="wong-flute-players" data-frames="a,b,c">
+    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/wong-flute-players-f030-source.jpg' | relative_url }}">
+      <source src="{{ '/media/examples/wong-flute-players-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
+      <source src="{{ '/media/examples/wong-flute-players-sbs.mp4' | relative_url }}" type="video/mp4">
+    </video>
+  </div>
+  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Regenerated from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Finished at working size (768 × 560) and parked there since 12 October 2026, to be completed with conventional restoration. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
+</figure>
+
+<figure class="pair">
+  <div class="pair-media" data-compare="Scan|Reconstruction">
+    <img src="{{ '/images_kebab/examples/wong-flute-players-f160-source.jpg' | relative_url }}" alt="Frame 160 of the scan: a flute player and the drummer, the drum half destroyed by decay" loading="lazy">
+    <img src="{{ '/images_kebab/examples/wong-flute-players-f160-result.jpg' | relative_url }}" alt="The reconstructed frame: the drum and the hands intact" loading="lazy">
+  </div>
+  <figcaption>Wong flute players, frame 160: the drummer. Around the hands and the beater the film's own brightness is kept with the restored colour. Drag to compare.</figcaption>
+</figure>
+
 ## What works and what doesn't
 
 Five shots of *El Tinterillo* have the owner's decision at the model's 768 × 432 working size, with the same method and the same look: the stairs and two others approved, and two more approved with notes. Small faces and lip movement are the weak point, because the model works at 768 × 432; a test showed the detail is there in the source, so the limit is in how the model is guided, not in the film, and the lips are the next pass.
+
+The Wong shot stops at a good result at working size, to be finished together with conventional restoration; the fastest, thinnest movement, a drumstick, is still better kept from the film than generated.
 
 The obvious things were tried first and dropped: video upscalers (SeedVR2, FlashVSR), Wan VACE driven by the source, a CopyCat detail model. None of them suited this material. What works is windows, and making the windows agree with each other, which wastes inference and takes iterations. Maybe somebody has a more straightforward way; at the moment this is the only one that works here. The original scan and every raw window are kept, and the result is labelled as a reconstruction.
 
@@ -95,12 +120,17 @@ The obvious things were tried first and dropped: video upscalers (SeedVR2, Flash
 <ul class="downloads">
   <li><a href="{{ '/downloads/upscaling-stairs/' | relative_url }}">Stairs kit</a><span class="size">ComfyUI + Python</span><span class="what">The H3 reference-mode graphs for the four windows of the stairs shot, the hybrid step, the seam blend and the example windows. Checked against the published result: hybrid identical, seam blend ΔE 1.07.</span></li>
   <li><a href="{{ '/media/upscaling/tinterillo-stairs.mp4' | relative_url }}">The stairs shot</a><span class="size">MP4 · 26 s · 23 MB</span><span class="what">The reconstruction at 768 × 432.</span></li>
+  <li><a href="{{ '/downloads/gap-filling-second-pass/' | relative_url }}">Second-pass kit (Wong flute players)</a><span class="size">ComfyUI + Python · NVIDIA GPU</span><span class="what">The Wan VACE refinement pass and the seam blend on the Wong flute players shot, with the example windows. Checked against the published result: ΔE 0.9.</span></li>
+  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4">Wong flute players: the scan</a><span class="size">MP4 · 8 s · 34 MB</span><span class="what">The file at 768 × 560.</span></li>
+  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4">Wong flute players: the reconstruction</a><span class="size">MP4 · 8 s · 22 MB</span><span class="what">The file at 768 × 560.</span></li>
 </ul>
 
 ## Sources and references
 
 <ul class="refs">
   <li><em>El Tinterillo</em>: a 16mm print and a telecine of a medium-length black-and-white film, used for research; the film belongs to its rights holders.</li>
+  <li>Wong flute players: 16mm colour reversal footage from the Wong Rengifo collection.</li>
   <li>MiniMax H3, MiniMax (<a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">model card</a>), reference-to-video mode.</li>
+  <li>Wan 2.1 VACE 14B, Wan team, Alibaba (<a href="https://github.com/ali-vilab/VACE">VACE</a>, <a href="https://github.com/Wan-Video/Wan2.1">Wan 2.1</a>).</li>
   <li>Fabio Bedoya, <em>The Current Limits of AI in Film Restoration and How They May Be Surpassed</em>, FIAT/IFTA World Conference, São Paulo, October 2026 (<a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">companion page</a>).</li>
 </ul>
