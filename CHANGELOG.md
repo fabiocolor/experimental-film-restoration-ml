@@ -4,6 +4,15 @@ All notable changes to this repository are documented here.
 
 ## [Unreleased]
 
+### 11 November 2026: research status brought up to date
+
+- Hard Canny is the default geometry control (owner ruling, 11 November 2026). The colour-recovery, black-and-white and status pages now keep three things apart: the hard-Canny edge map given to Qwen Image Edit as an input image (soft conditioning, not a ControlNet), the real H3 Fun ControlNet with its merged-Canny control used in the whole-shot examples, and the final step that lays the colour onto the scan's brightness. Whether merged-Canny counts as hard Canny is stated as open.
+- Status updates from the project records: the balanced-source test's interim 25 of 34 workable shots with the owner's rating outstanding; the 25-minute Temporal CbCr run awaiting shot-by-shot review; the *Poison Pen* gap tests closed at test scope on 28 September; the Wong shot parked at working size and, under the October scope, counted as full reconstruction; five *El Tinterillo* shots with the owner's decision at working size (three approved, two approved with notes); the four 1920s fiction shots made at half size; the first Diffusion Upscaling source audit; Diffusion Inpainting's review rounds; testing moved into the research application in late October.
+- Removed wording the records do not support: "production ready", "every faded shot tried so far has come back", "a whole reel", "approved support" for inpainting masks.
+- Comfy Cloud: the still-frame graphs are described as built for Comfy Cloud; a recorded test run of the current graphs is planned.
+- Diffusion Inpainting added to the naming guide.
+- The site is built locally and published to `gh-pages` (no GitHub Actions); this update republishes it from `main`.
+
 ### 23 October 2026: separate diffusion project scopes
 
 - Use Diffusion Full Reconstruction for whole-shot regeneration, Diffusion Healing for specific losses with substantial usable surviving evidence, and Diffusion Upscaling for the separate reference-based video enhancement idea.

@@ -77,7 +77,7 @@ nav_order: 0
     <div class="area-copy">
       <h3><a href="{{ '/diffusion-full-reconstruction/' | relative_url }}">Diffusion reconstruction</a></h3>
       <p>For films where every frame is damaged and normal tools have nothing clean to borrow from. A video model rebuilds the picture from what survives, shot after shot, to one look for the whole reel. The result is called what it is: a reconstruction, with a synthetic quality the film never had.</p>
-      <a class="area-link" href="{{ '/diffusion-full-reconstruction/' | relative_url }}">How it works, a whole reel and kit</a>
+      <a class="area-link" href="{{ '/diffusion-full-reconstruction/' | relative_url }}">How it works, the reel's shots and kit</a>
     </div>
     <figure class="reveal">
       <video data-autoplay muted loop playsinline preload="none" poster="{{ '/images_kebab/examples/el-tinterillo-fg04-b-source.jpg' | relative_url }}">
@@ -114,7 +114,7 @@ nav_order: 0
 <div class="quiet-panel">
   <div>
     <h3>Run it yourself</h3>
-    <p>Not everyone has a room full of GPUs, so the two single-frame colour graphs run in Comfy Cloud with no card and no installation. The whole-shot, healing and reconstruction kits need a local NVIDIA card. Every graph is published laid out with notes, so you can read it node by node and see what each step is supposed to do, and every kit is checked against the published result and says how close it gets.</p>
+    <p>Not everyone has a room full of GPUs, so the two single-frame colour graphs are built to run in Comfy Cloud with no card and no installation (a recorded Cloud test run is planned). The whole-shot, healing and reconstruction kits need a local NVIDIA card. Every graph is published laid out with notes, so you can read it node by node and see what each step is supposed to do, and every kit is checked against the published result and says how close it gets.</p>
   </div>
   <a href="{{ '/downloads/' | relative_url }}" class="btn btn-primary">Download kits</a>
 </div>

@@ -61,7 +61,7 @@ All public, from the ComfyUI repackaging on Hugging Face. Put them in the usual 
 3. Run. Two images are saved: `model_output` (the raw proposal, 1184 × 880) and `composite` (the colour on the source's brightness, 1920 × 1440).
 4. To reproduce the published still exactly, import `qwen_image_edit_2511_fp8mixed.safetensors` from Hugging Face into your Cloud library (Creator plan or higher) and open the fp8mixed graph instead.
 
-Comfy Cloud may need an active plan and credits to run; the graph can be opened and read without running it.
+Comfy Cloud may need an active plan and credits to run; the graph can be opened and read without running it. A recorded test run of this graph on Comfy Cloud is planned.
 
 ## Run it on your own computer
 
