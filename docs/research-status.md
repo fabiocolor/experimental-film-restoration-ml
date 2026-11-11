@@ -30,19 +30,19 @@ The Nuke template for CopyCat is on the [releases page](https://github.com/fabio
 
 ## 3. Diffusion healing
 
-Nitrate decay healed on a whole shot of *Knights of the Trail*: in the 18 damaged frames the actor stays the film's and only the ruined background is generated, the other 206 frames are untouched, and every generated pixel is on record. A 16mm reversal shot with the emulsion breaking up across the whole frame (the Wong flute players) healed from one storyboard sheet, with the film's own drumming kept. A fifteen-frame hole in a camera negative (*Poison Pen*, 1939), with the sound running on, was filled with the actors' movement tracked across the gap; those tests were closed on 28 September at test scope and are not shown here. Healing tests on a public-domain nitrate title were paused on 25 October, when testing moved into the research application.
+Nitrate decay healed on a whole shot of *Knights of the Trail*: in the 18 damaged frames the actor stays the film's and only the ruined background is generated, the other 206 frames are untouched, and every generated pixel is on record. A fifteen-frame hole in a camera negative (*Poison Pen*, 1939), with the sound running on, was filled with the actors' movement tracked across the gap; those tests were closed on 28 September at test scope and are not shown here. Healing tests on a public-domain nitrate title were paused on 25 October, when testing moved into the research application.
 
-The healed shots are at working size (640 × 512, 768 × 560); the pass at the scan's full resolution is a separate step. The Wong shot is parked at a good result at working size, to be finished with conventional restoration; since the whole shot is regenerated, work like it now counts as full reconstruction. The fastest, thinnest movement, a drumstick, is still better kept from the film than generated. And none of it is one click.
+The healed shot is at working size (640 × 512); the pass at the scan's full resolution is a separate step. And none of it is one click.
 
-You can run the [second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}). See [diffusion healing]({{ '/diffusion-healing/' | relative_url }}).
+See [diffusion healing]({{ '/diffusion-healing/' | relative_url }}).
 
 ## 4. Diffusion Full Reconstruction
 
-Shots from a reel of *El Tinterillo*, a film that survives only as a heavily damaged 16mm print and a soft telecine, rebuilt one by one to one look. Five shots have the owner's decision at the model's 768 × 432 working size: the stairs (624 frames) and two others approved, and two more approved with notes. Lip movement is still to do. The result is labelled as a reconstruction, with detail the film no longer holds.
+Shots from a reel of *El Tinterillo*, a film that survives only as a heavily damaged 16mm print and a soft telecine, rebuilt one by one to one look. Five shots have the owner's decision at the model's 768 × 432 working size: the stairs (624 frames) and two others approved, and two more approved with notes. Lip movement is still to do. The result is labelled as a reconstruction, with detail the film no longer holds. The Wong flute players, a 16mm reversal shot with the emulsion breaking up across the whole frame, was regenerated from one storyboard sheet with the film's own drumming kept; it is parked at working size (768 × 560), to be finished with conventional restoration, and the fastest, thinnest movement, a drumstick, is still better kept from the film than generated.
 
 Small faces and lip performance remain unresolved at the tested 768 × 432 size. A codec diagnostic retained mouth motion, so the evidence does not establish resolution as the sole cause; executable conditioning still needs investigation. Video upscalers, Wan VACE driven by the source and a CopyCat detail model were all tried on this material and dropped.
 
-You can run the [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}). See [diffusion full reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}).
+You can run the [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}) and the Wong shot's [second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}). See [diffusion full reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}).
 
 ## 5. Black-and-white colourization
 

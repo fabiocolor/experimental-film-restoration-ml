@@ -4,6 +4,12 @@ All notable changes to this repository are documented here.
 
 ## [Unreleased]
 
+### 11 November 2026 (later): owner rulings
+
+- The Wong flute players shot moved from Diffusion Healing to Diffusion Full Reconstruction (owner ruling: whole-shot regeneration is full reconstruction). Its figures, files and second-pass kit are now on the full reconstruction page; the record, the example index, the credits, the downloads index and the status page follow. Page and file addresses are unchanged.
+- The four 1920s black-and-white fiction shots stay on the site; the owner approved them for publication on 11 November 2026.
+- *Knights of the Trail* is unchanged: shown view-only with the George Eastman Museum's courtesy credit and no download, as the owner approved on 25 October 2026.
+
 ### 11 November 2026: research status brought up to date
 
 - Hard Canny is the default geometry control (owner ruling, 11 November 2026). The colour-recovery, black-and-white and status pages now keep three things apart: the hard-Canny edge map given to Qwen Image Edit as an input image (soft conditioning, not a ControlNet), the real H3 Fun ControlNet with its merged-Canny control used in the whole-shot examples, and the final step that lays the colour onto the scan's brightness. Whether merged-Canny counts as hard Canny is stated as open.

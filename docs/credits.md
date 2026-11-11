@@ -18,7 +18,7 @@ The film frames and clips belong to their rights holders. They are shown here fo
 - Film names are given beside each example on the research pages and the talk pages.
 - The shots on the [Black-and-White Colourization]({{ '/black-and-white-colourization/' | relative_url }}) page are from US public-domain films: Prelinger Archives prints scanned by [Internet Archive](https://archive.org/details/prelinger), and *The General* (1926) from an [archive.org copy](https://archive.org/details/the-general-1926-remux-1080p-dts-hd-ma-51-x264). Each record names its item.
 - Ross Lipman supplied the *Frontier Experience* telecine used as the historical reference on the [Temporal CbCr]({{ '/temporal-cbcr/' | relative_url }}) page.
-- The flute players shot on the [Diffusion Healing]({{ '/diffusion-healing/' | relative_url }}) page is from the Wong Rengifo collection.
+- The flute players shot on the [Diffusion Full Reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}) page is from the Wong Rengifo collection.
 - The faded trailers shown on the home page, the research pages and the talk pages (*Reptilicus*, *Obsession*, *Unman, Wittering and Zigo*, *Point Blank*, *Juggernaut*, *Ben*, *Martin*, *Tales of the Bizarre*) come from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps). The trailers belong to their rights holders.
 
 For a peer-reviewed account of the earlier CopyCat research:

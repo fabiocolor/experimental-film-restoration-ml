@@ -11,7 +11,7 @@ redirect_from:
 
 # Diffusion healing
 
-Sometimes part of a film is simply gone. A stretch of nitrate has decayed to nothing, a negative has a gap of fifteen frames while the sound runs on, the emulsion is breaking up across the whole frame. If you know the tools we use, Phoenix, DIAMANT, PFClean, DRS Nova, you know that two or three frames is about the limit of what they can interpolate, and even those don't look that good. Fifteen frames is out of the question, because the tools only have the frames around the gap to copy from. The information is lost.
+Sometimes part of a film is simply gone. A stretch of nitrate has decayed to nothing, a negative has a gap of fifteen frames while the sound runs on. If you know the tools we use, Phoenix, DIAMANT, PFClean, DRS Nova, you know that two or three frames is about the limit of what they can interpolate, and even those don't look that good. Fifteen frames is out of the question, because the tools only have the frames around the gap to copy from. The information is lost.
 
 So this is the experimental end of the research: can a video model fill the gap? The rule is that everything that survives, in every element of the film, is used first. The model generates only what is missing, it is steered by the movement before and after, and every generated pixel is on record. The point is a reconstruction you cannot tell from the film. Which is also a concern, and the reason this work is part of the Trust in Archives initiative.
 
@@ -68,48 +68,22 @@ Inside the gaps a video model generates the missing picture. The original idea, 
   <figcaption><em>Knights of the Trail</em>, frame 748. Drag to compare. Courtesy of the George Eastman Museum.</figcaption>
 </figure>
 
-<figure class="pair">
-  <span class="pair-labels"><span>16mm scan</span><span>Healed</span></span>
-  <div class="pair-media pair-video" data-inspect="wong-flute-players" data-frames="a,b,c">
-    <video controls muted playsinline preload="metadata" poster="{{ '/images_kebab/examples/wong-flute-players-f030-source.jpg' | relative_url }}">
-      <source src="{{ '/media/examples/wong-flute-players-sbs.av1.mp4' | relative_url }}" type='video/mp4; codecs="av01.0.08M.08"'>
-      <source src="{{ '/media/examples/wong-flute-players-sbs.mp4' | relative_url }}" type="video/mp4">
-    </video>
-  </div>
-  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Healed from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Finished at working size and parked there since 12 October 2026, to be completed with conventional restoration. Because the whole shot is regenerated, work of this kind now counts as [full reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}) rather than healing. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
-</figure>
-
-<figure class="pair">
-  <div class="pair-media" data-compare="Scan|Healed">
-    <img src="{{ '/images_kebab/examples/wong-flute-players-f160-source.jpg' | relative_url }}" alt="Frame 160 of the scan: a flute player and the drummer, the drum half destroyed by decay" loading="lazy">
-    <img src="{{ '/images_kebab/examples/wong-flute-players-f160-result.jpg' | relative_url }}" alt="The healed frame: the drum and the hands intact" loading="lazy">
-  </div>
-  <figcaption>Wong flute players, frame 160: the drummer. Around the hands and the beater the film's own brightness is kept with the restored colour. Drag to compare.</figcaption>
-</figure>
-
 ## What works and what doesn't
 
 The *Knights of the Trail* shot went through six versions, each one closer to the rule that what moves stays the film's. If that shot were shown on its own, could you tell which part is generated? Probably not, and that is the point. A fifteen-frame hole in the camera negative of *Poison Pen* (1939), from a commercial job, was filled the same way, with the actors' movement tracked across the gap; those tests were closed on 28 September 2026 at test scope and are not shown here.
 
-The Wong shot is the frontier: the emulsion is breaking up across the whole frame, so there is no clean element to prefer. It proved the method and stops at a good result at working size, to be finished together with conventional restoration. Healing tests on a public-domain nitrate title began in October and were paused on 25 October 2026, when testing moved into the research application. Working size is the general limit right now. These models run at around 768 × 560 and about ten seconds at a time, so shots are done in overlapping windows and the original-resolution pass is a separate, final step.
+The Wong flute players shot, where the emulsion breaks up across the whole frame, is regenerated as a whole and is now on the [full reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}) page (classified there by the owner on 11 November 2026). Healing tests on a public-domain nitrate title began in October and were paused on 25 October 2026, when testing moved into the research application. Working size is the general limit right now. These models run at around 768 × 560 and about ten seconds at a time, so shots are done in overlapping windows and the original-resolution pass is a separate, final step.
 
 None of this is a one-click application. It is a lot of curation, a lot of iterations, and the models don't always agree with each other, so it is closer to a VFX job done case by case than to a filter. And a search for public-domain footage with loss on this scale, through 847 films in public archives, found none, which is why these examples come from collections rather than from the trailer reel used elsewhere on the site.
 
 ## Downloads
 
-<ul class="downloads">
-  <li><a href="{{ '/downloads/gap-filling-second-pass/' | relative_url }}">Healing second-pass kit</a><span class="size">ComfyUI + Python · NVIDIA GPU</span><span class="what">The Wan VACE refinement pass and the seam blend on the Wong flute players shot, with the example windows. Checked against the published result: ΔE 0.9.</span></li>
-  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-scan.mp4">Wong flute players: the scan</a><span class="size">MP4 · 8 s · 34 MB</span><span class="what">The file at 768 × 560.</span></li>
-  <li><a href="https://github.com/fabiocolor/experimental-film-restoration-ml/releases/download/examples-2026-10/16mm-flute-players-reconstruction.mp4">Wong flute players: the healed shot</a><span class="size">MP4 · 8 s · 22 MB</span><span class="what">The file at 768 × 560.</span></li>
-</ul>
-
-The Knights of the Trail material is shown by courtesy of the George Eastman Museum and is not offered for download.
+The Knights of the Trail material is shown by courtesy of the George Eastman Museum and is not offered for download. The second-pass kit and the Wong flute players files are on the [full reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}) page.
 
 ## Sources and references
 
 <ul class="refs">
   <li><em>Knights of the Trail</em>: nitrate elements and a safety copy, George Eastman Museum. Shown by courtesy of the Museum.</li>
-  <li>Wong flute players: 16mm colour reversal footage from the Wong Rengifo collection.</li>
   <li>Wan 2.1 VACE 14B, Wan team, Alibaba (<a href="https://github.com/ali-vilab/VACE">VACE</a>, <a href="https://github.com/Wan-Video/Wan2.1">Wan 2.1</a>).</li>
   <li>MiniMax H3, MiniMax (<a href="https://huggingface.co/MiniMaxAI/MiniMax-H3">model card</a>); Fun ControlNet for H3, Alibaba PAI (<a href="https://huggingface.co/alibaba-pai/MiniMax-H3-Fun-Controlnet-Union">model card</a>).</li>
   <li>Fabio Bedoya, <em>The Current Limits of AI in Film Restoration and How They May Be Surpassed</em>, FIAT/IFTA World Conference, São Paulo, October 2026 (<a href="{{ '/fiat-ifta-2026-companion/' | relative_url }}">companion page</a>).</li>

@@ -26,13 +26,13 @@ The video steps (MiniMax H3, Wan VACE) are published in the same two forms and o
 | --- | --- | --- | --- | --- |
 | [Single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) | Faded colour recovery | One faded frame to one colour frame, composite included, no Python | ComfyUI, local or Comfy Cloud | Sampler identical to the research graph; core-node rerun mean ΔE 1.89 to the published still |
 | [Balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) | Faded colour recovery | A balanced shot end to end: palette still, H3 with the Fun ControlNet, Temporal CbCr adapter, surviving-colour step | ComfyUI + Python, NVIDIA GPU; the palette still also in Comfy Cloud | Every stage within ΔE 1.5 (0.61, 1.34, 1.20, identical) |
-| [Healing second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}) | Diffusion healing | The Wan VACE refinement pass and the seam blend on the Wong flute players shot | ComfyUI + Python, NVIDIA GPU | ΔE 0.9 |
+| [Second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}) | Diffusion full reconstruction | The Wan VACE refinement pass and the seam blend on the Wong flute players shot | ComfyUI + Python, NVIDIA GPU | ΔE 0.9 |
 | [Stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}) | Diffusion reconstruction | The four MiniMax H3 windows and the seam blend of the *El Tinterillo* stairs shot | ComfyUI + Python, NVIDIA GPU | Hybrid identical; seam blend ΔE 1.07 |
 | [Nuke template](https://github.com/fabiocolor/experimental-film-restoration-ml/releases/latest) | Temporal CbCr | The CopyCat colour-recovery template for Nuke Non-Commercial or Indie, with the [workflow guide]({{ '/copycat-workflow/' | relative_url }}) | Nuke | Used on the *Candy Candy* example |
 
 ## What is not published yet
 
-The first pass of the healing route (the H3 storyboard step) and the full reconstruction route beyond the stairs windows are still too hand-held to package. The black-and-white colourization route follows once the stock models are settled; its examples are on the site. The *Knights of the Trail* material is shown by courtesy of the George Eastman Museum and is not offered for download. And there are no trained weights to publish: each Temporal CbCr adapter is trained for one shot in minutes, so what you get is the code.
+The first pass of the Wong flute players shot (the H3 storyboard step) and the full reconstruction route beyond the stairs windows are still too hand-held to package. The black-and-white colourization route follows once the stock models are settled; its examples are on the site. The *Knights of the Trail* material is shown by courtesy of the George Eastman Museum and is not offered for download. And there are no trained weights to publish: each Temporal CbCr adapter is trained for one shot in minutes, so what you get is the code.
 
 ## Comfy Cloud
 
