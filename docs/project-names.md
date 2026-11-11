@@ -7,7 +7,7 @@ permalink: /project-names/
 
 # Project names
 
-Current names and purposes, clarified on 23 October 2026:
+Current names and purposes, clarified on 23 October 2026 (Inpainting added 11 November 2026):
 
 - **[Diffusion Full Reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }})**:
   whole-shot regeneration when all or most surviving picture evidence is
@@ -18,6 +18,9 @@ Current names and purposes, clarified on 23 October 2026:
 - **[Diffusion Upscaling]({{ '/diffusion-upscaling/' | relative_url }})**:
   reference-based video upscaling and basic resolution/detail enhancement.
   This is a new research idea with no qualified workflow or results.
+- **Diffusion Inpainting**: selective repair of persistent scratches inside a
+  declared repair mask, with everything outside the mask protected. Experimental;
+  its status is on [Where things stand]({{ '/research-status/' | relative_url }}#7-diffusion-inpainting).
 
 ## Reading older names
 

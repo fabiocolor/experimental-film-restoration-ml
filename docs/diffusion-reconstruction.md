@@ -36,7 +36,7 @@ From that comes a synthetic reference: one still that sets how the picture shoul
 
 ## The *El Tinterillo* reel
 
-In September 2026 the whole reel was brought to the same look, shot by shot. The stairs shot came first and set the look; the others followed it.
+In September 2026 the reel's shots were brought to the same look, one by one. The stairs shot came first and set the look; the others followed it.
 
 <figure class="pair">
   <span class="pair-labels"><span>16mm print</span><span>Reconstruction</span></span>
@@ -86,7 +86,7 @@ In September 2026 the whole reel was brought to the same look, shot by shot. The
 
 ## What works and what doesn't
 
-Five shots of *El Tinterillo* are finished with the same method and the same look. Small faces and lip movement are the weak point, because the model works at 768 × 432; a test showed the detail is there in the source, so the limit is in how the model is guided, not in the film, and the lips are the next pass.
+Five shots of *El Tinterillo* have the owner's decision at the model's 768 × 432 working size, with the same method and the same look: the stairs and two others approved, and two more approved with notes. Small faces and lip movement are the weak point, because the model works at 768 × 432; a test showed the detail is there in the source, so the limit is in how the model is guided, not in the film, and the lips are the next pass.
 
 The obvious things were tried first and dropped: video upscalers (SeedVR2, FlashVSR), Wan VACE driven by the source, a CopyCat detail model. None of them suited this material. What works is windows, and making the windows agree with each other, which wastes inference and takes iterations. Maybe somebody has a more straightforward way; at the moment this is the only one that works here. The original scan and every raw window are kept, and the result is labelled as a reconstruction.
 

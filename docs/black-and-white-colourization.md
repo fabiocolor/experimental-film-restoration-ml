@@ -28,7 +28,9 @@ Treat either as ordinary video brightness and the colour comes out wrong in pred
 
 ## How it works
 
-Only public-domain or rights-cleared scans are used for this. Qwen Image Edit 2511 makes a few colour frames from the shot itself, on the exact source picture, checked at full size. MiniMax H3, with the Fun ControlNet where the movement needs it, carries them through the shot; on a pan it gets several anchors so it stays on course. Then, once per film, a choice is made of how much red, green and blue the stock recorded, and the colour is rebuilt so that the stock would have recorded exactly the greyscale on the film. The whole frame is processed the same way, no masks, no local fixes. Then review: full-size crops, frame-to-frame strips, skin and foliage at normal speed.
+Only public-domain or rights-cleared scans are used for this. Qwen Image Edit 2511 makes a few colour frames from the shot itself, on the exact source picture, checked at full size. MiniMax H3, with the Fun ControlNet (a merged-Canny control) where the movement needs it, carries them through the shot; on a pan it gets several anchors so it stays on course. Then, once per film, a choice is made of how much red, green and blue the stock recorded, and the colour is rebuilt so that the stock would have recorded exactly the greyscale on the film. The whole frame is processed the same way, no masks, no local fixes. Then review: full-size crops, frame-to-frame strips, skin and foliage at normal speed.
+
+Hard Canny is the default geometry control for colour reconstruction across this research (11 November 2026). This route has not yet been run with a hard-Canny map, and whether its merged-Canny control counts as hard Canny is open.
 
 ## Examples
 
@@ -95,7 +97,7 @@ One shot per film from public-domain fiction and non-fiction of the 1920s. The p
 
 ## What works and what doesn't
 
-Fifteen shots are finished, whole shots at the scan's resolution with its grain and its damage, because the picture is never touched. A pan with several anchors holds its colour. The next tests are more complex movement and more complex subjects.
+Fifteen stock-route shots have reviewed results, whole shots with the scan's grain and damage, because the picture is never touched. The four 1920s fiction shots were made at half the scan's size; their full-resolution pass is still to do. A pan with several anchors holds its colour. The next tests are more complex movement and more complex subjects.
 
 Skin can come out too red on the earliest shots, foliage in some exteriors still looks artificial, and a soft, low-detail source gives the model too little to hold on to. The route is not published yet; the examples are here, and the graphs follow once the stock models are settled.
 

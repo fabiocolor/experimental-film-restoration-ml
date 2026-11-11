@@ -8,19 +8,21 @@ permalink: /research-status/
 
 # Where things stand
 
-Updated 25 October 2026. These are scoped research results and open questions. A demonstrated shot does not establish a reliable default for new footage, an integrated app workflow or a finished restoration.
+Updated 11 November 2026. These are scoped research results and open questions. A demonstrated shot does not establish a reliable default for new footage, an integrated app workflow or a finished restoration.
 
 ## 1. Faded colour recovery
 
-Whole shots with hard motion, at the scan's full resolution: a crowd with a fast pan (385 frames), a ballroom with a moving camera (254 frames at 2048 × 1556), a quarry in six sections (681 frames), a waterfront with fast hands, all from the same faded copy of *Counter Attack*, and the balanced-source route end to end on a commercial. One colour frame checked at full size, MiniMax H3 with the Fun ControlNet to carry it through the shot, the frames that pass review teaching the Temporal CbCr adapter, and the adapter colouring every frame. Only the colour is taken; brightness, grain and damage stay the scan's.
+Whole shots with hard motion, at the scan's full resolution: a crowd with a fast pan (385 frames), a ballroom with a moving camera (254 frames at 2048 × 1556), a quarry in six sections (681 frames), a waterfront with fast hands, all from the same faded copy of *Counter Attack*, and the balanced-source route end to end on a commercial. One colour frame checked at full size, MiniMax H3 with the Fun ControlNet (a merged-Canny control) to carry it through the shot, the frames that pass review teaching the Temporal CbCr adapter, and the adapter colouring every frame. Only the colour is taken; brightness, grain and damage stay the scan's.
 
-The generic balanced-source route still falls short of its preregistered three-in-four target. Later development trials improved the results, but operational retries and choosing a different second pass for each shot must not be counted as a uniformly successful first pass. Owner ratings and normal-speed review remain separate from frame-sheet assessments. A clean palette still can become wrong object colour in the video; returning the balanced input unchanged is not colour recovery. Dark footage and short-shot teacher admission remain important limits. The video models see a reduced picture, about 768 × 576 and ten seconds at a time; inference and full-resolution finishing need separate checks. Colour is an interpretation unless surviving evidence confirms it.
+**Geometry control.** Hard Canny is the default: an aligned binary hard-Canny edge map given to Qwen Image Edit as one of its input images. It is soft conditioning, not a ControlNet, and it holds the geometry without adding meaning of its own to the colour. A real ControlNet model (the H3 Fun ControlNet used in the whole-shot examples) and the final step that lays the colour onto the scan's brightness are separate things. Whether the H3 step's merged-Canny control counts as hard Canny is still open.
+
+The generic balanced-source route still falls short of its preregistered three-in-four target: an interim reading of the 34-shot test in late October had 25 shots workable, and the owner's rating is still outstanding. Later development trials improved the results, but operational retries and choosing a different second pass for each shot must not be counted as a uniformly successful first pass. Owner ratings and normal-speed review remain separate from frame-sheet assessments. A clean palette still can become wrong object colour in the video; returning the balanced input unchanged is not colour recovery. Dark footage and short-shot teacher admission remain important limits. The video models see a reduced picture, about 768 × 576 and ten seconds at a time; inference and full-resolution finishing need separate checks. Colour is an interpretation unless surviving evidence confirms it.
 
 You can run the [single-frame kit]({{ '/downloads/colour-recovery-single-frame/' | relative_url }}) (one faded frame to one colour frame, in Comfy Cloud or locally, no Python) and the palette still from the [balanced-source kit]({{ '/downloads/faded-colour-recovery-t185/' | relative_url }}) without a GPU. The rest of the balanced kit does a whole shot end to end on a local card. See [faded colour recovery]({{ '/colour-recovery/' | relative_url }}).
 
 ## 2. Temporal CbCr
 
-With a historical reference (a DVD, a telecine, another print) a small model learns the colour from the matching frames: *Candy Candy* from a PAL DVD, *Frontier Experience* from a telecine. With a synthetic reference, about a hundred reviewed frames teach the adapter, which trains in 90 seconds and colours the rest of the shot: *Unman, Wittering and Zigo*. The adapter is the finishing step of the whole-shot colour results above, and it has done a 25-minute film.
+With a historical reference (a DVD, a telecine, another print) a small model learns the colour from the matching frames: *Candy Candy* from a PAL DVD, *Frontier Experience* from a telecine. With a synthetic reference, about a hundred reviewed frames teach the adapter, which trains in 90 seconds and colours the rest of the shot: *Unman, Wittering and Zigo*. The adapter is the finishing step of the whole-shot colour results above, and it has been run over a 25-minute film; a shot-by-shot review of that run is not recorded yet.
 
 Automatic alignment now has recorded tests for leaders, reframing, cadence changes and incomplete reference windows; finding the matching material in a whole reference film is still incomplete. Alignment alone does not qualify a teacher. Reference balance, missing picture coverage and full-frame training statistics can all affect the learned colour. Metrics against a changed teacher are not directly comparable, and full-size playback remains necessary.
 
@@ -28,15 +30,15 @@ The Nuke template for CopyCat is on the [releases page](https://github.com/fabio
 
 ## 3. Diffusion healing
 
-Nitrate decay healed on a whole shot of *Knights of the Trail*: in the 18 damaged frames the actor stays the film's and only the ruined background is generated, the other 206 frames are untouched, and every generated pixel is on record. A 16mm reversal shot with the emulsion breaking up across the whole frame (the Wong flute players) healed from one storyboard sheet, with the film's own drumming kept. A fifteen-frame hole in a camera negative (*Poison Pen*, 1939), with the sound running on, is being filled with the actors' movement tracked across the gap.
+Nitrate decay healed on a whole shot of *Knights of the Trail*: in the 18 damaged frames the actor stays the film's and only the ruined background is generated, the other 206 frames are untouched, and every generated pixel is on record. A 16mm reversal shot with the emulsion breaking up across the whole frame (the Wong flute players) healed from one storyboard sheet, with the film's own drumming kept. A fifteen-frame hole in a camera negative (*Poison Pen*, 1939), with the sound running on, was filled with the actors' movement tracked across the gap; those tests were closed on 28 September at test scope and are not shown here. Healing tests on a public-domain nitrate title were paused on 25 October, when testing moved into the research application.
 
-The healed shots are at working size (640 × 512, 768 × 560); the pass at the scan's full resolution is a separate step. The Wong shot stops at a good result at working size, to be finished with conventional restoration. The fastest, thinnest movement, a drumstick, is still better kept from the film than generated. And none of it is one click.
+The healed shots are at working size (640 × 512, 768 × 560); the pass at the scan's full resolution is a separate step. The Wong shot is parked at a good result at working size, to be finished with conventional restoration; since the whole shot is regenerated, work like it now counts as full reconstruction. The fastest, thinnest movement, a drumstick, is still better kept from the film than generated. And none of it is one click.
 
 You can run the [second-pass kit]({{ '/downloads/gap-filling-second-pass/' | relative_url }}). See [diffusion healing]({{ '/diffusion-healing/' | relative_url }}).
 
 ## 4. Diffusion Full Reconstruction
 
-A whole reel of *El Tinterillo*, a film that survives only as a heavily damaged 16mm print and a soft telecine, rebuilt shot by shot to one look: the stairs (624 frames) and three more shots of 410, 422 and 176 frames with the same method. The last still has its lip movement to do. The result is labelled as a reconstruction, with detail the film no longer holds.
+Shots from a reel of *El Tinterillo*, a film that survives only as a heavily damaged 16mm print and a soft telecine, rebuilt one by one to one look. Five shots have the owner's decision at the model's 768 × 432 working size: the stairs (624 frames) and two others approved, and two more approved with notes. Lip movement is still to do. The result is labelled as a reconstruction, with detail the film no longer holds.
 
 Small faces and lip performance remain unresolved at the tested 768 × 432 size. A codec diagnostic retained mouth motion, so the evidence does not establish resolution as the sole cause; executable conditioning still needs investigation. Video upscalers, Wan VACE driven by the source and a CopyCat detail model were all tried on this material and dropped.
 
@@ -44,7 +46,7 @@ You can run the [stairs kit]({{ '/downloads/upscaling-stairs/' | relative_url }}
 
 ## 5. Black-and-white colourization
 
-Fifteen stock-route research shots have recorded results. Exact-source-brightness colourization and stock-response reconstruction are different output contracts: the latter may change brightness to match the stock response. Examples include *The General* (a garden scene and a pan on a locomotive) and six other public-domain films of the 1920s.
+Fifteen stock-route research shots have recorded results; the four 1920s fiction shots among them were made at half the scan's size, and their full-resolution pass is still to do. The colour frames were carried by H3 with the Fun ControlNet's merged-Canny control; the route has not yet been run with the hard-Canny default. Exact-source-brightness colourization and stock-response reconstruction are different output contracts: the latter may change brightness to match the stock response. Examples include *The General* (a garden scene and a pan on a locomotive) and six other public-domain films of the 1920s.
 
 Known-colour tests distinguish a useful stock constraint from correct object colour. A monochrome value does not uniquely determine hue. Period guidance and a tested period-colour adapter changed the palette without resolving that ambiguity. More accurate historical colour requires independent colour evidence; disclose surviving colour, stock-informed constraints and interpretation separately. Earlier skin, foliage and low-detail limitations retain their scope. The route is not published yet.
 
@@ -52,15 +54,15 @@ See [black-and-white colourization]({{ '/black-and-white-colourization/' | relat
 
 ## 6. Diffusion Upscaling
 
-**Research idea.** Reference-based video upscaling and basic resolution/detail enhancement, separate from whole-shot regeneration and selective healing. No workflow, benchmark or result is qualified for the new project. Historical Tinterillo upscaling records remain Full Reconstruction evidence. See [Diffusion Upscaling]({{ '/diffusion-upscaling/' | relative_url }}).
+**Research idea.** Reference-based video upscaling and basic resolution/detail enhancement, separate from whole-shot regeneration and selective healing. No workflow, benchmark or result is qualified for the new project. A first audit of candidate tape-derived sources on 28 October found neither clean enough to go on with; no upscaling has been run. Historical Tinterillo upscaling records remain Full Reconstruction evidence. See [Diffusion Upscaling]({{ '/diffusion-upscaling/' | relative_url }}).
 
 ## 7. Diffusion Inpainting
 
-Selective scratch repair is a separate experimental line: propose and review repair support, use surviving spatial and temporal evidence, retain the raw diffusion result, and protect all channels outside the approved support. A recovery-first preparation followed by a light diffusion pass has a candidate awaiting review. Neither that candidate nor a mask approval establishes full-resolution, full-length acceptance. Temporal boundaries, fine scratches and authentic photographed lines require inspection.
+Selective scratch repair is a separate experimental line: declare a repair mask, use surviving spatial and temporal evidence, retain the raw diffusion result, and protect all channels outside the mask. A first round was approved with notes on 14 October; later rounds had changes requested, and the current candidate, a recovery-first preparation followed by a light diffusion pass, awaits review. The masks are working decisions, not approved results, and none of this establishes full-resolution, full-length acceptance. Temporal boundaries, fine scratches and authentic photographed lines require inspection.
 
 ## App integration
 
-The independent Restoration Research Lab is an experimental application under development. Research knowledge, connected inference procedures, verified result custody and user acceptance are separate states. These pages are research upstream; they do not distribute app releases or its signed knowledge feed.
+The independent Restoration Research Lab is an experimental application under development. Since late October 2026, colour-recovery and healing tests run inside it. Research knowledge, connected inference procedures, verified result custody and user acceptance are separate states. These pages are research upstream; they do not distribute app releases or its signed knowledge feed.
 
 ## What can be reproduced
 
@@ -68,11 +70,11 @@ Every example on the site has a [record]({{ '/records/' | relative_url }}) of it
 
 ## Comfy Cloud
 
-Not everyone has a GPU, so the two still-frame graphs (the single-frame kit and the balanced kit's palette still) open and run in Comfy Cloud as they are, with the bf16 Qwen Image Edit model from Cloud's own library. The published recipe uses the fp8mixed model, which has to be imported from Hugging Face (Creator plan or higher), and the bf16 model gives a visibly different colour on some surfaces (ΔE 2.67 on the palette still). The video steps (MiniMax H3, Wan VACE) and the Python steps run locally.
+Not everyone has a GPU, so the two still-frame graphs (the single-frame kit and the balanced kit's palette still) are built to open and run in Comfy Cloud as they are, with the bf16 Qwen Image Edit model from Cloud's own library. A recorded test run of the current graphs on Comfy Cloud is planned; until then this is what the graphs are built for, not a tested result. The published recipe uses the fp8mixed model, which has to be imported from Hugging Face (Creator plan or higher), and the bf16 model gives a visibly different colour on some surfaces (ΔE 2.67 on the palette still). The video steps (MiniMax H3, Wan VACE) and the Python steps run locally.
 
 ## Next
 
-The original-resolution pass for the healed shots, starting with *Knights of the Trail*. Lips on the *El Tinterillo* reel. One app that runs the current colour route on new shots, which is possible now but still needs too many decisions to be left alone. And the healing and reconstruction routes as self-contained graphs, beyond the second-pass and window kits that are published.
+The original-resolution pass for the healed shots. The owner's rating of the balanced-source test. Lips on the *El Tinterillo* shots. A hard-Canny run of the video routes, or a decision on whether merged-Canny qualifies. One app that runs the current colour route on new shots, which is possible now but still needs too many decisions to be left alone. And the healing and reconstruction routes as self-contained graphs, beyond the second-pass and window kits that are published.
 
 ## Hardware
 
@@ -99,6 +101,6 @@ Software: ComfyUI (current release; every graph here uses built-in nodes only), 
 
 ## A note on the results
 
-Everything on this site was reviewed at full size before it was published. Colour that survived in the scan is evidence. Colour the model filled in is an interpretation the film can't confirm. Generated picture is an inference, and the records say where it is.
+Everything on this site was reviewed at full size before it was published; a result's approval and its publication are separate decisions. Colour that survived in the scan is evidence. Colour the model filled in is an interpretation the film can't confirm. Generated picture is an inference, and the records say where it is.
 
 The examples on these pages are research tests: faded trailers from a 35mm trailer reel scan posted publicly on [archive.org](https://archive.org/details/film-bar-70-trailers-reel-1440x-1080-24fps), public-domain films, copies of other films used in the research, and material shown by courtesy of the George Eastman Museum. The films belong to their rights holders.

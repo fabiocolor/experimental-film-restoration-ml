@@ -1,6 +1,6 @@
 # Project Status
 
-**Updated:** 2026-10-25
+**Updated:** 2026-11-11
 
 The website and download kits for research on machine learning for film restoration, in seven areas:
 
@@ -12,7 +12,9 @@ The website and download kits for research on machine learning for film restorat
 6. Diffusion Upscaling — separate reference-based video upscaling idea, with no qualified method or results
 7. Diffusion Inpainting — selective scratch repair; experimental, with review and full-resolution qualification outstanding
 
-What is done, what is still open, what can be reproduced and what hardware it takes is on [What is possible now](https://fabiocolor.github.io/experimental-film-restoration-ml/research-status/). Four [download kits](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/) reproduce published examples; two of them run in Comfy Cloud.
+Hard Canny is the default geometry control (owner ruling, 11 November 2026); whether the H3 Fun ControlNet's merged-Canny control counts as hard Canny is open.
+
+What is done, what is still open, what can be reproduced and what hardware it takes is on [What is possible now](https://fabiocolor.github.io/experimental-film-restoration-ml/research-status/). Four [download kits](https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/) reproduce published examples; two of them are built to run in Comfy Cloud, with a recorded Cloud test run planned.
 
 The examples are workflow demonstrations, not finished restorations. Generated colour or picture is an interpretation unless a known reference supports it.
 

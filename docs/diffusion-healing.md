@@ -76,7 +76,7 @@ Inside the gaps a video model generates the missing picture. The original idea, 
       <source src="{{ '/media/examples/wong-flute-players-sbs.mp4' | relative_url }}" type="video/mp4">
     </video>
   </div>
-  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Healed from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Finished at working size; work continues on a version that heals the original scan. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
+  <figcaption>Wong flute players, 16mm colour reversal from the Wong Rengifo collection, 183 frames: the emulsion breaking up across the whole frame and the colour gone to magenta. Healed from one storyboard sheet with MiniMax H3, the film's own drumming kept, one Wan VACE pass to make it one picture. Finished at working size and parked there since 12 October 2026, to be completed with conventional restoration. Because the whole shot is regenerated, work of this kind now counts as [full reconstruction]({{ '/diffusion-full-reconstruction/' | relative_url }}) rather than healing. <a href="{{ '/records/wong-flute-players/' | relative_url }}">Record</a></figcaption>
 </figure>
 
 <figure class="pair">
@@ -89,9 +89,9 @@ Inside the gaps a video model generates the missing picture. The original idea, 
 
 ## What works and what doesn't
 
-The *Knights of the Trail* shot went through six versions, each one closer to the rule that what moves stays the film's. If that shot were shown on its own, could you tell which part is generated? Probably not, and that is the point. A fifteen-frame hole in the camera negative of *Poison Pen* (1939), from a commercial job, is being filled the same way, with the actors' movement tracked across the gap.
+The *Knights of the Trail* shot went through six versions, each one closer to the rule that what moves stays the film's. If that shot were shown on its own, could you tell which part is generated? Probably not, and that is the point. A fifteen-frame hole in the camera negative of *Poison Pen* (1939), from a commercial job, was filled the same way, with the actors' movement tracked across the gap; those tests were closed on 28 September 2026 at test scope and are not shown here.
 
-The Wong shot is the frontier: the emulsion is breaking up across the whole frame, so there is no clean element to prefer. It proved the method and stops at a good result at working size, to be finished together with conventional restoration. Working size is the general limit right now. These models run at around 768 × 560 and about ten seconds at a time, so shots are done in overlapping windows and the original-resolution pass is a separate, final step.
+The Wong shot is the frontier: the emulsion is breaking up across the whole frame, so there is no clean element to prefer. It proved the method and stops at a good result at working size, to be finished together with conventional restoration. Healing tests on a public-domain nitrate title began in October and were paused on 25 October 2026, when testing moved into the research application. Working size is the general limit right now. These models run at around 768 × 560 and about ten seconds at a time, so shots are done in overlapping windows and the original-resolution pass is a separate, final step.
 
 None of this is a one-click application. It is a lot of curation, a lot of iterations, and the models don't always agree with each other, so it is closer to a VFX job done case by case than to a filter. And a search for public-domain footage with loss on this scale, through 847 films in public archives, found none, which is why these examples come from collections rather than from the trailer reel used elsewhere on the site.
 

@@ -8,7 +8,7 @@ permalink: /records/counter-attack-crowd/
 
 # Counter Attack (1976), crowd shot: record
 
-The whole-shot example on the [faded colour recovery]({{ '/colour-recovery/' | relative_url }}) page and the home page, and the shot shown on slide 11 of the [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}#h3-controlnet). It was the first shot finished with what is now the usual route for unbalanced sources: MiniMax H3 with the Fun ControlNet, finished with the Temporal CbCr adapter. The same film's waterfront shot has its own [record]({{ '/records/counter-attack-waterfront/' | relative_url }}).
+The whole-shot example on the [faded colour recovery]({{ '/colour-recovery/' | relative_url }}) page and the home page, and the shot shown on slide 11 of the [FIAT/IFTA 2026 talk]({{ '/fiat-ifta-2026-companion/' | relative_url }}#h3-controlnet). It was the first shot finished with MiniMax H3 and the Fun ControlNet (a merged-Canny control), finished with the Temporal CbCr adapter. That was the usual route for unbalanced sources in October 2026; since 11 November 2026 hard Canny is the default geometry control, and whether the merged-Canny control counts as hard Canny is open. The same film's waterfront shot has its own [record]({{ '/records/counter-attack-waterfront/' | relative_url }}).
 
 <dl class="facts">
   <dt>Source</dt><dd>A faded film copy of <em>Counter Attack</em> (1976), a Chinese feature; the crowd shot with a fast pan in the middle. 385 frames at 1920 × 1440 and 30 frames per second, unbalanced (magenta-red cast). 77 frames were near-duplicates from a broken cadence, so the 308 distinct frames were mapped to 24 frames per second.</dd>

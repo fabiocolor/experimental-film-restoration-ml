@@ -11,7 +11,7 @@ These workflows should be repeatable by people without a room full of GPUs, so e
 
 ## Start here: one frame, in Comfy Cloud
 
-The two single-frame graphs run in [Comfy Cloud](https://cloud.comfy.org/) as they are, with the bf16 Qwen Image Edit model from Cloud's own library: no GPU, no installation, a few minutes a frame. This is the first step of every colour-recovery shot on this site, and the part of the route anyone can repeat.
+The two single-frame graphs are built to run in [Comfy Cloud](https://cloud.comfy.org/) as they are, with the bf16 Qwen Image Edit model from Cloud's own library: no GPU, no installation. A recorded test run of the current graphs on Comfy Cloud is planned; until then this is what the graphs are built for, not a tested result. This is the first step of every colour-recovery shot on this site, and the part of the route anyone can repeat.
 
 <ul class="downloads">
   <li><a href="{{ '/downloads/colour-recovery-single-frame/' | relative_url }}">Unbalanced scan: one faded frame to one colour frame</a><span class="size">Comfy Cloud · no Python</span><span class="what">The "Clara" recipe on the <em>Counter Attack</em> test frame, with the composite on the scan's brightness made inside the graph. Test frame, chart, edge map and the published still included.</span></li>
@@ -36,7 +36,7 @@ The first pass of the healing route (the H3 storyboard step) and the full recons
 
 ## Comfy Cloud
 
-Comfy Cloud runs the single-frame graph and the palette-still graph as they are, with the bf16 model from its own library. The published recipe uses the fp8mixed model, which has to be imported from Hugging Face (Creator plan or higher). The video steps (MiniMax H3, Wan VACE) and the Python steps run locally.
+The single-frame graph and the palette-still graph are built to run in Comfy Cloud as they are, with the bf16 model from its own library; a recorded Cloud test run is planned. The published recipe uses the fp8mixed model, which has to be imported from Hugging Face (Creator plan or higher). The video steps (MiniMax H3, Wan VACE) and the Python steps run locally.
 
 ## Hardware
 
