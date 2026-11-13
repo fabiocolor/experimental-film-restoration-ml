@@ -104,6 +104,7 @@ docs/.jekyll-cache/
 
 # Internal maintainer tooling (kept locally, not published)
 /AGENTS.md
+/CLAUDE.md
 /.cursor/
 /.research/
 /scripts/research_storage.py

@@ -22,3 +22,8 @@ The examples are workflow demonstrations, not finished restorations. Generated c
 **GitHub:** https://github.com/fabiocolor/experimental-film-restoration-ml
 
 Research documentation is upstream of the independent Restoration Research Lab application. Method descriptions and published examples do not establish installed app capability. Each method retains its own evidence and acceptance limits.
+
+## Standing facts
+
+- Compute: the site submits compute only through the shared compute service (CWC). Before picking a named workflow, read the live `GET /api/building-blocks` and never ask for a near-copy; retired variant ids fail with an error naming the updated workflow, and archived graphs are at `GET /api/workflow-archive`. The live contract is `GET /api/help`; credentials are in the git-ignored `.env.local`.
+- Shared research environment facts: `RESEARCH_ENVIRONMENT.md` at the research root.
