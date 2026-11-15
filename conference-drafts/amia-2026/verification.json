@@ -1,0 +1,38 @@
+{
+  "poster": {
+    "pdf_sha256": "140a6d8904cb953e9aad12a6305e8eb01f7534f7150a64813caa16ef4d499148",
+    "decoded_urls": [
+      "https://fabiocolor.github.io/experimental-film-restoration-ml/fiat-ifta-2026-companion/"
+    ],
+    "raster_dpi": 72
+  },
+  "handout": {
+    "pdf_sha256": "953a4ef43e6175143cfccd4402f8eb0cb448e42cc0b9cc705f0b9059ede1fd84",
+    "decoded_urls": [
+      "https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/",
+      "https://fabiocolor.github.io/experimental-film-restoration-ml/fiat-ifta-2026-companion/",
+      "https://github.com/fabiocolor/experimental-film-restoration-ml"
+    ],
+    "raster_dpi": 300
+  },
+  "asset_hashes": "8/8 match",
+  "public_links": [
+    {
+      "url": "https://github.com/fabiocolor/experimental-film-restoration-ml",
+      "http_status": 200,
+      "authentication": "none"
+    },
+    {
+      "url": "https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/",
+      "http_status": 200,
+      "authentication": "none"
+    },
+    {
+      "url": "https://fabiocolor.github.io/experimental-film-restoration-ml/fiat-ifta-2026-companion/",
+      "http_status": 200,
+      "authentication": "none"
+    }
+  ],
+  "file_sizes": "all new files below 1 MiB",
+  "visual_inspection": "Poster and handout PDF rasters inspected by drafting agent; no clipping, unreadable overlaps or missing images. This is a layout check, not owner approval or new motion review."
+}

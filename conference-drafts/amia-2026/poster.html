@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>AMIA 2026 • Poster working draft</title>
+<style>
+@page { size: 36in 36in; margin: 0; }
+* { box-sizing: border-box; }
+:root { --paper:#f6f3eb; --ink:#182c32; --teal:#145c5b; --orange:#b84c2b; --line:#c9d0c9; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:"Noto Sans",Arial,sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.poster { width:36in; height:36in; padding:0.85in 0.95in 0.65in; display:flex; flex-direction:column; gap:0.25in; }
+p,h1,h2,h3,figure { margin:0; }
+p { font-size:27pt; line-height:1.35; }
+.kicker { display:flex; justify-content:space-between; align-items:center; font-size:25pt; font-weight:600; letter-spacing:0.025em; }
+.draft { border:2pt solid var(--orange); color:var(--orange); padding:0.08in 0.2in; font-size:24pt; letter-spacing:0; }
+h1 { font-size:95pt; line-height:1.08; letter-spacing:-0.04em; font-weight:650; margin:0.23in 0 0.2in; }
+.byline { font-size:29pt; }
+.rule { background:var(--teal); color:white; padding:0.28in 0.4in; }
+.rule strong { display:block; font-size:43pt; line-height:1.23; font-weight:600; }
+.rule p { font-size:26pt; margin-top:0.14in; }
+.cases { display:grid; grid-template-columns:1fr 1fr; gap:0.65in; }
+.case { border-top:3pt solid var(--teal); padding-top:0.2in; }
+.eyebrow { color:var(--teal); font-size:25pt; font-weight:650; margin-bottom:0.1in; }
+h2 { font-size:45pt; line-height:1.17; font-weight:600; letter-spacing:-0.025em; }
+.case-intro { min-height:1.32in; margin:0.14in 0 0.2in; }
+.film-title { font-size:28pt; font-weight:600; margin-bottom:0.15in; }
+.frames { max-width:14.8in; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:0.18in; }
+figure { min-width:0; }
+figcaption { font-size:24pt; line-height:1.2; padding:0 0 0.12in; }
+figure img { display:block; width:100%; height:auto; }
+.case-foot { margin-top:0.22in; }
+.case-foot p + p { margin-top:0.15in; }
+.tag { color:var(--orange); font-weight:600; }
+.chroma { border-bottom:5pt solid var(--orange); }
+.synthetic { border:5pt solid var(--orange); }
+.tinterillo .frames { row-gap:0.28in; }
+.tinterillo .case-foot { padding-top:0.15in; }
+.local-aim { margin-top:auto; border-top:2pt solid var(--ink); padding-top:0.24in; }
+.section-head { display:flex; justify-content:space-between; align-items:baseline; gap:0.4in; margin-bottom:0.2in; }
+.section-head h2 { font-size:40pt; }
+.section-head p { font-size:25pt; }
+.flow { display:grid; grid-template-columns:1fr 1fr 1fr 1.12fr; gap:0.3in; }
+.step { position:relative; background:#e5ebe4; padding:0.2in 0.25in; min-height:1.6in; }
+.step:not(:last-child)::after { content:'→'; position:absolute; right:-0.27in; top:0.45in; font-size:32pt; color:var(--teal); }
+.step h3 { font-size:29pt; margin-bottom:0.12in; }
+.step p { font-size:25pt; }
+.bottom { display:grid; grid-template-columns:1.08fr 1fr 3.05in; gap:0.5in; border-top:1.5pt solid var(--line); padding-top:0.23in; }
+.bottom h3 { font-size:31pt; margin-bottom:0.15in; }
+.bottom p { font-size:25pt; }
+.qr { text-align:center; }
+.qr img { width:2.5in; height:2.5in; display:block; margin:0 auto 0.12in; }
+.qr p { font-size:24pt; font-weight:600; }
+.footer { display:flex; justify-content:space-between; align-items:flex-end; gap:0.5in; font-size:24pt; border-top:1.5pt solid var(--line); padding-top:0.15in; }
+.footer a { color:inherit; text-decoration:none; }
+</style></head>
+<body><main class="poster" data-page>
+<header>
+  <div class="kicker"><span>AMIA 2026 · Pittsburgh · Poster Session II</span><span class="draft">WORKING DRAFT · 15 NOV 2026</span></div>
+  <h1>One Local AI Pipeline for<br>Restoring Faded and Damaged Film</h1>
+  <p class="byline">Fabio P. Bedoya Huerta · Independent research in film restoration · info@fabiocolor.com</p>
+</header>
+<section class="rule">
+  <strong>Whatever survives in the film is evidence.<br>The models only fill what is lost.</strong>
+  <p>Keep the scan. Check the whole shot. Record what came from the film and what was generated.</p>
+</section>
+<div class="cases">
+<section class="case">
+  <div class="eyebrow">01 / FADED COLOUR + TEMPORAL CbCr</div>
+  <h2>Keep the picture. Infer the colour.</h2>
+  <p class="case-intro">Build colour references from the faded scan. Carry them through the shot, then keep only the chroma. The original luma stays.</p>
+  <div class="film-title">Counter Attack (1976) · T182</div>
+  <div class="frames">
+    <figure><figcaption>Faded scan</figcaption><img src="assets/counter-source-074.jpg" alt="Faded Counter Attack crowd frame, original scan"></figure>
+    <figure><figcaption>Scan luma + model chroma</figcaption><img class="chroma" src="assets/counter-result-074.jpg" alt="Same frame with inferred chroma from the approved T182 result"></figure>
+    <figure><figcaption>Faded scan</figcaption><img src="assets/counter-source-112.jpg" alt="Later frame of the faded crowd shot"></figure>
+    <figure><figcaption>Scan luma + model chroma</figcaption><img class="chroma" src="assets/counter-result-112.jpg" alt="Same later frame with inferred chroma from T182"></figure>
+  </div>
+  <div class="case-foot">
+    <p><span class="tag">Model chroma across the whole frame.</span> It is an interpretation, not proof of the film’s original colour.</p>
+    <p>H3 + Fun ControlNet supplied aligned teachers for the Temporal CbCr adapter. Some shadow tint remains.</p>
+  </div>
+</section>
+<section class="case tinterillo">
+  <div class="eyebrow">02 / FULL RECONSTRUCTION</div>
+  <h2>When the picture cannot be kept.</h2>
+  <p class="case-intro">A damaged 16mm print and a soft telecine guide the reconstruction. The model rebuilds the picture; fine detail is inferred.</p>
+  <div class="film-title">El Tinterillo · Stairs Q47</div>
+  <div class="frames">
+    <figure><figcaption>16mm scan</figcaption><img src="assets/tinterillo-source-080.jpg" alt="Damaged 16mm scan, stairs shot frame 80"></figure>
+    <figure><figcaption>Generated picture · Q47</figcaption><img class="synthetic" src="assets/tinterillo-result-080.jpg" alt="Approved Q47 generated picture for stairs frame 80"></figure>
+    <figure><figcaption>16mm scan</figcaption><img src="assets/tinterillo-source-480.jpg" alt="Later damaged 16mm stairs frame"></figure>
+    <figure><figcaption>Generated picture · Q47</figcaption><img class="synthetic" src="assets/tinterillo-result-480.jpg" alt="Approved Q47 generated picture for the later stairs frame"></figure>
+  </div>
+  <div class="case-foot">
+    <p><span class="tag">Generated picture across the whole frame.</span> Q47 includes tone blending and dissolves at section joins.</p>
+    <p>The approved output is 768 × 432. Its reference stills were made with ChatGPT Images, so this example is not local from end to end.</p>
+  </div>
+</section>
+</div>
+<section class="local-aim">
+  <div class="section-head"><h2>03 / One local pipeline is the aim.</h2><p>These are workflow demonstrations, not finished restorations.</p></div>
+  <div class="flow">
+    <div class="step"><h3>1. Start from the scan</h3><p>Keep surviving picture and compare other elements.</p></div>
+    <div class="step"><h3>2. Constrain the model</h3><p>Hard Canny is the default geometry control. Check references.</p></div>
+    <div class="step"><h3>3. Limit the repair</h3><p>Use masks for damaged areas and surrounding frames for gaps.</p></div>
+    <div class="step"><h3>4. Review + document</h3><p>Keep source, masks, settings and generated regions separate.</p></div>
+  </div>
+</section>
+<div class="bottom">
+  <section><h3>Masking versus recovery</h3><p>Concealing damage does not bring back lost evidence. Selective healing keeps usable picture outside the repair mask. Full reconstruction is a different choice.</p></section>
+  <section><h3>What still needs work</h3><p>Flicker, geometry drift, invented detail, reduced resolution and slow runs. Next: higher resolution, longer shots and fewer manual steps, with the restorer deciding.</p></section>
+  <div class="qr"><a href="https://fabiocolor.github.io/experimental-film-restoration-ml/fiat-ifta-2026-companion/"><img src="assets/qr-talk.svg" alt="QR code to the FIAT/IFTA 2026 talk companion"></a><p>Talk + examples</p></div>
+</div>
+<footer class="footer"><span>Why local: keep scans under archive control and make repeated tests practical.<br>Open workflows for small archives and nonprofits. Hardware, time and electricity still cost.</span><span>Fri 4 Dec · 12:00–2:00pm<br><a href="https://fabiocolor.github.io/experimental-film-restoration-ml/">fabiocolor.github.io/experimental-film-restoration-ml</a></span></footer>
+</main></body></html>

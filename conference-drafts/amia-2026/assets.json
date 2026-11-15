@@ -1,0 +1,157 @@
+{
+  "storage": "JIMINU result store; existing bytes read only. No JIMINX access. All stills resized only; no crop, grade or AI edit.",
+  "assets": [
+    {
+      "asset": "assets/counter-source-074.jpg",
+      "title": "Counter Attack (1976)",
+      "role": "original scan",
+      "frame_index_zero_based": 74,
+      "input": "FADED COLOR LORA RECOVERY/results/temporal_tests/T181_COUNTERATTACK_PAN_DENSE_TEACHERS/t181_08b_original_frames/artifacts/original_f074.png",
+      "input_sha256": "13521dfdffbc1de246aeaeec7a60e31fcbb37e4f3858dee036314544e419a492",
+      "decoded_dimensions": [
+        1920,
+        1440
+      ],
+      "draft_dimensions": [
+        960,
+        720
+      ],
+      "sha256": "89ad75ed74f5b8b45343aeefeb59752ef4129b24c4ec9f688b94abec926ddac1",
+      "approval": "T182 approved 2026-09-30; exact master only",
+      "publication": "Fabio: Counter Attack OK, 2026-11-15 task; owner public-use ruling 2026-11-11"
+    },
+    {
+      "asset": "assets/counter-result-074.jpg",
+      "title": "Counter Attack (1976)",
+      "role": "original luma plus inferred chroma across entire frame",
+      "frame_index_zero_based": 74,
+      "input": "FADED COLOR LORA RECOVERY/results/temporal_tests/T182_COUNTERATTACK_CONTAMINATION_AUDIT/t182_21_quality/artifacts/t182_counterattack_sourceY_final.mkv",
+      "input_sha256": "30263b8566683403d8c3a42e1c29d332b3b8345ed94b7aedad63b9d2c92d17f0",
+      "decoded_dimensions": [
+        1920,
+        1440
+      ],
+      "draft_dimensions": [
+        960,
+        720
+      ],
+      "sha256": "2e981c447cce5e53066174f21d54fa6e0e34fba64336994a2b9a0712b1cfdc73",
+      "approval": "T182 approved 2026-09-30; exact master only",
+      "publication": "Fabio: Counter Attack OK, 2026-11-15 task; owner public-use ruling 2026-11-11"
+    },
+    {
+      "asset": "assets/counter-source-112.jpg",
+      "title": "Counter Attack (1976)",
+      "role": "original scan",
+      "frame_index_zero_based": 112,
+      "input": "FADED COLOR LORA RECOVERY/results/temporal_tests/T181_COUNTERATTACK_PAN_DENSE_TEACHERS/t181_08b_original_frames/artifacts/original_f112.png",
+      "input_sha256": "ce7492750e572795ad95b2c8f199d7e1c92f2c3cba373fb921a612800bfa686e",
+      "decoded_dimensions": [
+        1920,
+        1440
+      ],
+      "draft_dimensions": [
+        960,
+        720
+      ],
+      "sha256": "49ba7c64e13fd91b9ca6c6b59552b13b8686df027f15809e049800c8ace0bc10",
+      "approval": "T182 approved 2026-09-30; exact master only",
+      "publication": "Fabio: Counter Attack OK, 2026-11-15 task; owner public-use ruling 2026-11-11"
+    },
+    {
+      "asset": "assets/counter-result-112.jpg",
+      "title": "Counter Attack (1976)",
+      "role": "original luma plus inferred chroma across entire frame",
+      "frame_index_zero_based": 112,
+      "input": "FADED COLOR LORA RECOVERY/results/temporal_tests/T182_COUNTERATTACK_CONTAMINATION_AUDIT/t182_21_quality/artifacts/t182_counterattack_sourceY_final.mkv",
+      "input_sha256": "30263b8566683403d8c3a42e1c29d332b3b8345ed94b7aedad63b9d2c92d17f0",
+      "decoded_dimensions": [
+        1920,
+        1440
+      ],
+      "draft_dimensions": [
+        960,
+        720
+      ],
+      "sha256": "e4d037edff8678133cec2cbc159653c6e8b31d91ae259a115de8aa61f073e65f",
+      "approval": "T182 approved 2026-09-30; exact master only",
+      "publication": "Fabio: Counter Attack OK, 2026-11-15 task; owner public-use ruling 2026-11-11"
+    },
+    {
+      "asset": "assets/tinterillo-source-080.jpg",
+      "title": "El Tinterillo",
+      "role": "original 16mm scan",
+      "frame_number_one_based": 80,
+      "input": "DIFFUSION UPSCALING/runs/inputs/tinterillo_stairs_coverage_whole_20260908/FG_01_rec709/FG_01.00000080.png",
+      "input_sha256": "26ee2a40dc0c202a07c088265008710c70b41ab1b9fb8e2abe776221cf419c2b",
+      "decoded_dimensions": [
+        1920,
+        1080
+      ],
+      "draft_dimensions": [
+        768,
+        432
+      ],
+      "sha256": "ba18f031da9ea3e194d8034c3efa16bf9c1d224658513562a79cbbe4bfb8ddab",
+      "approval": "Q47 approved 2026-09-26, submitted revision 1; 768x432",
+      "publication": "Fabio: Tinterillo OK, 2026-11-15 task"
+    },
+    {
+      "asset": "assets/tinterillo-result-080.jpg",
+      "title": "El Tinterillo",
+      "role": "whole generated picture; declared Q47 tone blend and dissolve",
+      "frame_number_one_based": 80,
+      "input": "DIFFUSION UPSCALING/runs/outputs/tinterillo_stairs_seam_blend_q47_20260926/tinterillo_stairs_q47_seamblend_f0001_f0624_24fps_768x432_ffv1.mkv",
+      "input_sha256": "d97854362aea6e8218c559b94f528fb2fe15b262adfc3b200a85d7f381d886f6",
+      "decoded_dimensions": [
+        768,
+        432
+      ],
+      "draft_dimensions": [
+        768,
+        432
+      ],
+      "sha256": "ff9e1db5388dd163c870f497fcfc57c9cddb644aee6f694d9f3bcaa31f09ecfd",
+      "approval": "Q47 approved 2026-09-26, submitted revision 1; 768x432",
+      "publication": "Fabio: Tinterillo OK, 2026-11-15 task"
+    },
+    {
+      "asset": "assets/tinterillo-source-480.jpg",
+      "title": "El Tinterillo",
+      "role": "original 16mm scan",
+      "frame_number_one_based": 480,
+      "input": "DIFFUSION UPSCALING/runs/inputs/tinterillo_stairs_coverage_whole_20260908/FG_01_rec709/FG_01.00000480.png",
+      "input_sha256": "507a0a3991393df2891ab1276729c53a65c009bf1a27b6b55cdfe25b47128ada",
+      "decoded_dimensions": [
+        1920,
+        1080
+      ],
+      "draft_dimensions": [
+        768,
+        432
+      ],
+      "sha256": "c2f1b0f46c93bb6c8e84a0ad00158f774fff189efea4de11fa5583fe4109c28e",
+      "approval": "Q47 approved 2026-09-26, submitted revision 1; 768x432",
+      "publication": "Fabio: Tinterillo OK, 2026-11-15 task"
+    },
+    {
+      "asset": "assets/tinterillo-result-480.jpg",
+      "title": "El Tinterillo",
+      "role": "whole generated picture; declared Q47 tone blend and dissolve",
+      "frame_number_one_based": 480,
+      "input": "DIFFUSION UPSCALING/runs/outputs/tinterillo_stairs_seam_blend_q47_20260926/tinterillo_stairs_q47_seamblend_f0001_f0624_24fps_768x432_ffv1.mkv",
+      "input_sha256": "d97854362aea6e8218c559b94f528fb2fe15b262adfc3b200a85d7f381d886f6",
+      "decoded_dimensions": [
+        768,
+        432
+      ],
+      "draft_dimensions": [
+        768,
+        432
+      ],
+      "sha256": "ea9f09f813587ce59f366ab6fa142d4038c3d9452634fcbbd4f02d14bbe168db",
+      "approval": "Q47 approved 2026-09-26, submitted revision 1; 768x432",
+      "publication": "Fabio: Tinterillo OK, 2026-11-15 task"
+    }
+  ]
+}

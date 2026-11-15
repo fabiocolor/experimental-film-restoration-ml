@@ -1,0 +1,4 @@
+playwright==1.65.2
+PyMuPDF==2.1
+qrcode==8.2
+Pillow==13.0.0

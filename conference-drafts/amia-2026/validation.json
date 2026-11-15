@@ -1,0 +1,88 @@
+{
+  "renderer": "Chromium via Playwright; CSS page size; scale 1",
+  "documents": {
+    "poster": {
+      "width": 3456,
+      "height": 3456,
+      "scrollWidth": 3456,
+      "scrollHeight": 3456,
+      "outside": [],
+      "minTextPt": 24,
+      "images": [
+        {
+          "src": "assets/counter-source-074.jpg",
+          "loaded": true
+        },
+        {
+          "src": "assets/counter-result-074.jpg",
+          "loaded": true
+        },
+        {
+          "src": "assets/counter-source-112.jpg",
+          "loaded": true
+        },
+        {
+          "src": "assets/counter-result-112.jpg",
+          "loaded": true
+        },
+        {
+          "src": "assets/tinterillo-source-080.jpg",
+          "loaded": true
+        },
+        {
+          "src": "assets/tinterillo-result-080.jpg",
+          "loaded": true
+        },
+        {
+          "src": "assets/tinterillo-source-480.jpg",
+          "loaded": true
+        },
+        {
+          "src": "assets/tinterillo-result-480.jpg",
+          "loaded": true
+        },
+        {
+          "src": "assets/qr-talk.svg",
+          "loaded": true
+        }
+      ],
+      "pdf_points": [
+        2592.0,
+        2592.0
+      ],
+      "pdf_pages": 1,
+      "pdf_bytes": 595142,
+      "pdf_sha256": "140a6d8904cb953e9aad12a6305e8eb01f7534f7150a64813caa16ef4d499148"
+    },
+    "handout": {
+      "width": 816,
+      "height": 1056,
+      "scrollWidth": 816,
+      "scrollHeight": 1056,
+      "outside": [],
+      "minTextPt": 8.000025,
+      "images": [
+        {
+          "src": "assets/qr-repo.svg",
+          "loaded": true
+        },
+        {
+          "src": "assets/qr-kits.svg",
+          "loaded": true
+        },
+        {
+          "src": "assets/qr-talk.svg",
+          "loaded": true
+        }
+      ],
+      "pdf_points": [
+        612.0,
+        792.0
+      ],
+      "pdf_pages": 1,
+      "pdf_bytes": 68739,
+      "pdf_sha256": "953a4ef43e6175143cfccd4402f8eb0cb448e42cc0b9cc705f0b9059ede1fd84"
+    }
+  },
+  "chromium_version": "155.0.8059.84"
+}

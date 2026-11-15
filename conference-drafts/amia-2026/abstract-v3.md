@@ -1,0 +1,7 @@
+# Submitted abstract — verbatim
+
+Title: One Local AI Pipeline for Restoring Faded and Damaged Film
+
+For many films the only copy left is a faded or damaged print, and restoring it used to need a big budget and a commercial facility. Open AI models changed that. I brought my experiments together into one restoration pipeline that runs on a local machine, built on a single rule: whatever survives in the film is evidence, and the models only fill what is lost. Faded color is rebuilt from the scan itself, damage and missing frames are repaired from the surrounding picture, and every result is documented, so we know which pixels came from the film and which were generated. The workflows are published openly, so small archives and nonprofits can use them themselves. These models improve every few months, and the poster shows where this is heading next.
+
+Source: Research Assistant/T3 Bot relay to Fabio’s drafting thread, 15 November 2026. The relay quotes Fabio’s `abstract_v3_20261017.md`, headed “AMIA 2026 poster abstract, v3 — SUBMITTED Mon 19 Oct 2026 01:28 BST via SurveyMonkey (no reference number shown)”. Submission form: https://www.surveymonkey.com/r/ZB2B3HZ. The relay identifies its retained copy as `/workspace/amia-poster-2026/abstract_v3_20261017.md`; this drafting session received the verbatim text, not the file bytes. V3 already has the accepted title. The 16 October “Source-First AI Workflows…” version was prepared but not submitted and is not used here.
