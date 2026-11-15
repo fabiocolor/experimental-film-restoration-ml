@@ -1,0 +1,61 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AMIA 2026 • Table handout working draft</title>
+<style>
+@page { size: Letter; margin:0; }
+* { box-sizing:border-box; }
+body { margin:0; color:#182c32; background:white; font-family:"Noto Sans",Arial,sans-serif; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+.page { width:8.5in; height:11in; padding:0.42in 0.48in 0.36in; display:flex; flex-direction:column; gap:0.065in; }
+p,h1,h2 { margin:0; }
+p,td { font-size:10pt; line-height:1.28; }
+.kicker { display:flex; justify-content:space-between; font-size:8.6pt; font-weight:650; letter-spacing:0.04em; color:#145c5b; }
+.draft { color:#a03d20; }
+h1 { font-size:22pt; line-height:1.12; letter-spacing:-0.025em; margin:0.12in 0 0.08in; }
+.byline { font-size:9.3pt; }
+.rule { border-left:4pt solid #145c5b; background:#eef3ee; padding:0.08in 0.15in; font-size:12.4pt; line-height:1.3; font-weight:600; }
+h2 { font-size:12.4pt; color:#145c5b; margin-bottom:0.04in; }
+.split { display:grid; grid-template-columns:1fr 1fr; gap:0.23in; }
+table { border-collapse:collapse; width:100%; }
+th { text-align:left; background:#182c32; color:white; font-size:9.1pt; line-height:1.2; padding:0.08in 0.09in; }
+td { vertical-align:top; border-bottom:0.6pt solid #c9d0c9; padding:0.05in 0.09in; font-size:9.5pt; }
+td:first-child { font-weight:600; width:21%; }
+td:nth-child(2) { width:38%; }
+.note { font-size:9.4pt; }
+.links { border-top:1pt solid #c9d0c9; padding-top:0.12in; margin-top:auto; }
+.qrs { display:grid; grid-template-columns:1fr 1fr 1fr; gap:0.17in; text-align:center; }
+.qrs > div { display:grid; grid-template-columns:1in 1fr; grid-template-rows:min-content auto; column-gap:0.06in; text-align:left; }
+.qrs > div > a:first-child { grid-row:1 / 3; }
+.qrs img { display:block; margin:0 auto 0.05in; width:1in; height:1in; }
+.qrs h2 { font-size:10.4pt; color:#182c32; }
+.qrs a { color:#145c5b; font-size:8pt; line-height:1.15; overflow-wrap:anywhere; text-decoration:none; }
+.placeholder { margin-top:0.09in; border:0.7pt dashed #a03d20; color:#8e351d; padding:0.06in 0.09in; font-size:9pt; }
+footer { border-top:0.6pt solid #c9d0c9; padding-top:0.07in; font-size:8.5pt; display:flex; justify-content:space-between; gap:0.2in; }
+</style></head><body><main class="page" data-page>
+<header><div class="kicker"><span>AMIA 2026 · POSTER SESSION II · PITTSBURGH</span><span class="draft">WORKING DRAFT · 15 NOV 2026</span></div>
+<h1>One Local AI Pipeline for<br>Restoring Faded and Damaged Film</h1><p class="byline">Fabio P. Bedoya Huerta · Independent research in film restoration · info@fabiocolor.com</p></header>
+<div class="rule">Whatever survives in the film is evidence.<br>The models only fill what is lost.</div>
+<section><h2>What I am trying to do</h2><p>Bring colour recovery, temporal colour and picture repair into one local workflow for small archives and nonprofits. Keep the scan, review the shot, and declare generated content. These are workflow demonstrations, not finished restorations.</p></section>
+<div class="split">
+<section><h2>Why local</h2><p>Keep scans under archive control. Repeat tests without paying for each cloud run. Record versions and settings so the choices can be checked. Hardware, time and electricity still cost.</p></section>
+<section><h2>Masking versus recovery</h2><p>Hiding a scratch does not recover the lost photograph. Another surviving frame supplies evidence. A model’s fill is an inference. Record the difference.</p></section>
+</div>
+<section><h2>What stays from the film, and what the model adds</h2>
+<table><thead><tr><th>Work</th><th>Evidence kept</th><th>Model contribution + limit</th></tr></thead><tbody>
+<tr><td>Faded colour</td><td>The scan’s original luma, detail and grain.</td><td>Inferred chroma. It is not proof of the original colour when no colour reference survives.</td></tr>
+<tr><td>Temporal CbCr</td><td>Source luma and frame geometry. Aligned, reviewed frames teach the adapter.</td><td>Colour across the shot. Bad alignment or teachers can carry errors into other frames.</td></tr>
+<tr><td>Selective healing</td><td>Usable picture outside the repair mask; surviving frames around a gap.</td><td>Generated regions or missing frames. Keep a mask or frame list, including blended borders.</td></tr>
+<tr><td>Full reconstruction</td><td>The surviving elements guide structure and movement.</td><td>Rebuilt picture when most of the image is unusable. Fine detail can be invented.</td></tr>
+</tbody></table></section>
+<div class="split">
+<section><h2>Control and review</h2><p>Hard Canny is the default geometry control. It is separate from colour inference and luma/chroma compositing. Keep source, references, settings, outputs and masks. Review in motion.</p></section>
+<section><h2>Current limits</h2><p>Flicker, geometry drift, reduced resolution, short sections, slow runs and invented detail. Q47 used ChatGPT Images reference stills, so it is not local from end to end. Higher resolution and fewer manual steps remain open.</p></section>
+</div>
+<p class="note"><strong>Poster examples:</strong> Counter Attack T182 (approved 30 Sep 2026) and El Tinterillo stairs Q47 (approved 26 Sep 2026). Approval applies to these outputs only.</p>
+<section class="links"><h2>Open workflows, code and examples</h2>
+<div class="qrs">
+<div><a href="https://github.com/fabiocolor/experimental-film-restoration-ml"><img src="assets/qr-repo.svg" alt="QR code to the public workflow repository"></a><h2>Public workflow repo</h2><a href="https://github.com/fabiocolor/experimental-film-restoration-ml">github.com/fabiocolor/<br>experimental-film-restoration-ml</a></div>
+<div><a href="https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/"><img src="assets/qr-kits.svg" alt="QR code to public download kits"></a><h2>Download kits</h2><a href="https://fabiocolor.github.io/experimental-film-restoration-ml/downloads/">fabiocolor.github.io/<br>experimental-film-restoration-ml/<br>downloads/</a></div>
+<div><a href="https://fabiocolor.github.io/experimental-film-restoration-ml/fiat-ifta-2026-companion/"><img src="assets/qr-talk.svg" alt="QR code to the public talk companion"></a><h2>São Paulo talk</h2><a href="https://fabiocolor.github.io/experimental-film-restoration-ml/fiat-ifta-2026-companion/">fabiocolor.github.io/<br>experimental-film-restoration-ml/<br>fiat-ifta-2026-companion/</a></div>
+</div>
+<p class="placeholder">PUBLIC CODE URLS TO CONFIRM: four pillar research repos are private. These QR codes lead to public resources.</p>
+</section>
+<footer><span>Poster Session II · Friday 4 December 2026 · 12:00–2:00pm</span><span>Draft for Fabio’s revision · Not for distribution</span></footer>
+</main></body></html>
